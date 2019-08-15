@@ -12,7 +12,7 @@ public class CameraRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1))
         {
             transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * Time.deltaTime * speed, Space.World);
         }
