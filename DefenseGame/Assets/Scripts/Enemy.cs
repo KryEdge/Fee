@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public delegate void OnEnemyAction(GameObject enemy);
+    public static OnEnemyAction OnEnemyClicked;
+
     public float speed;
     public GameObject target;
 
@@ -29,6 +32,20 @@ public class Enemy : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Destroy(gameObject);
+        if(OnEnemyClicked != null)
+        {
+            OnEnemyClicked(gameObject);
+        }
+       //Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "bullet")
+        {
+            Debug.Log("Collision Test");
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
+        }
     }
 }
