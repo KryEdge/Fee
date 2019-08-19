@@ -12,34 +12,41 @@ public class Bullet : MonoBehaviour
 
     private Vector3 dir;
     private GameObject objectAffected;
-   // private Turret playerTurret;
+    private Rigidbody rig;
+    // private Turret playerTurret;
 
     // Start is called before the first frame update
     private void Start()
     {
+        rig = GetComponent<Rigidbody>();
         dirFrom = from.transform.position;
         transform.position = dirFrom;
         //playerTurret = player.GetComponent<Turret>();
     }
 
     // Update is called once per frame
-    private void Update()
+    private void LateUpdate()
     {
         //lifespan += Time.deltaTime;
         Quaternion q01 = Quaternion.identity;
-
+        ////
         if (target)
         {
-            dir = transform.position - target.transform.position;
-            q01.SetLookRotation(target.transform.position - transform.position, transform.up);
+            //dir = transform.position - target.transform.position;
+            //q01.SetLookRotation(target.transform.position - transform.position, transform.up);
+
+            Vector3 direction = (target.transform.position - transform.position).normalized;
+            rig.MovePosition(transform.position + direction * 120 * Time.deltaTime);
+            rig.MoveRotation(target.transform.rotation);
+            //transform.rotation = Quaternion.LookRotation(target.transform.position);
         }
         else
         {
             Destroy(gameObject);
         }
 
-        transform.position = transform.position - dir.normalized * 80.5f * Time.deltaTime;
-        transform.rotation = q01;
+        //transform.position = transform.position - dir.normalized * 80.5f * Time.deltaTime;
+        //transform.rotation = q01;
 
         if (isFired)
         {

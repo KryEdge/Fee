@@ -23,11 +23,16 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, target.transform.position) > distanceToStop)
+        //rig.MovePosition(target.transform.position + transform.TransformDirection(new Vector3(1,0,0)) * 10 * Time.deltaTime);
+
+        /*if (Vector3.Distance(transform.position, target.transform.position) > distanceToStop)
         {
             transform.LookAt(destination);
             rig.AddForce(transform.forward * speed, ForceMode.Force);
-        }
+        }*/
+
+        Vector3 direction = (target.transform.position - transform.position).normalized;
+        rig.MovePosition(transform.position + direction * speed * Time.deltaTime);
     }
 
     private void OnMouseDown()
