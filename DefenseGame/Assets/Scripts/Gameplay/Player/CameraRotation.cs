@@ -44,7 +44,7 @@ public class CameraRotation : MonoBehaviour
 
     void LateUpdate()
     {
-        distance = Mathf.Clamp(distance - Input.GetAxis("Mouse ScrollWheel") * 5, distanceMin, distanceMax);
+        distance = Mathf.Clamp(distance - Input.GetAxis("Mouse ScrollWheel") * 25, distanceMin, distanceMax);
 
         if (Input.GetMouseButton(1))
         {

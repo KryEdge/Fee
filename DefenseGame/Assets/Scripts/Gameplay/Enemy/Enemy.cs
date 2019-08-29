@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
         }*/
 
         Vector3 direction = (target.transform.position - transform.position).normalized;
-        rig.MovePosition(transform.position + direction * speed * Time.deltaTime);
+        rig.MovePosition(rig.position + direction * speed * Time.deltaTime);
     }
 
     private void OnMouseDown()

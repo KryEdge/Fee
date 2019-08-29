@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public GameObject from;
-    public GameObject target;
+    public Vector3 target;
     public bool isFired = false;
     public Vector3 dirFrom;
     public float lifespan;
