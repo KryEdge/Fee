@@ -339,7 +339,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &30677425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
-  target: {fileID: 1043106700}
+  target: {fileID: 1655585293}
 --- !u!65 &30677428
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -486,6 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletTemplate: {fileID: 1964550834}
+  fireRate: 0.1
 --- !u!4 &154038951
 Transform:
   m_ObjectHideFlags: 0
@@ -1791,7 +1792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
-  target: {fileID: 1043106700}
+  target: {fileID: 1655585293}
 --- !u!65 &1023803321
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2052,7 +2053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
-  target: {fileID: 1043106700}
+  target: {fileID: 1655585293}
 --- !u!65 &1139331405
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3002,9 +3003,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   from: {fileID: 470078371}
-  target: {fileID: 1043106700}
+  target: {x: 0, y: 0, z: 0}
   isFired: 0
   dirFrom: {x: 0, y: 0, z: 0}
+  lifespanLimit: 5
   lifespan: 0
 --- !u!114 &1964550836
 MonoBehaviour:

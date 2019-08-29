@@ -8,12 +8,13 @@ public class Bullet : MonoBehaviour
     public Vector3 target;
     public bool isFired = false;
     public Vector3 dirFrom;
+    public float lifespanLimit;
     public float lifespan;
 
     private Vector3 dir;
     private GameObject objectAffected;
     private Rigidbody rig;
-    // private Turret playerTurret;
+    private float distance;
 
     // Start is called before the first frame update
     private void Start()
@@ -21,43 +22,33 @@ public class Bullet : MonoBehaviour
         rig = GetComponent<Rigidbody>();
         dirFrom = from.transform.position;
         transform.position = dirFrom;
-        //playerTurret = player.GetComponent<Turret>();
+    }
+
+    private void Update()
+    {
+        if (isFired)
+        {
+            lifespan += Time.deltaTime;
+            distance = Vector3.Distance(target, transform.position);
+            Debug.Log(distance);
+
+            if (lifespan > lifespanLimit || distance <= 1)
+            {
+                lifespan = 0;
+                isFired = false;
+                Destroy(gameObject);
+            }
+        }
+
+        
     }
 
     // Update is called once per frame
     private void LateUpdate()
     {
-        //lifespan += Time.deltaTime;
-        Quaternion q01 = Quaternion.identity;
-        ////
-        if (target)
-        {
-            //dir = transform.position - target.transform.position;
-            //q01.SetLookRotation(target.transform.position - transform.position, transform.up);
-
-            Vector3 direction = (target.transform.position - transform.position).normalized;
-            rig.MovePosition(transform.position + direction * 120 * Time.deltaTime);
-            rig.MoveRotation(target.transform.rotation);
-            //transform.rotation = Quaternion.LookRotation(target.transform.position);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-        //transform.position = transform.position - dir.normalized * 80.5f * Time.deltaTime;
-        //transform.rotation = q01;
-
-        if (isFired)
-        {
-            if (lifespan > 5)
-            {
-                lifespan = 0;
-                isFired = false;
-                //playerTurret.isFiring = false;
-                Destroy(gameObject);
-            }
-        }
+        Vector3 direction = (target - transform.position).normalized;
+        rig.MovePosition(transform.position + direction * 120 * Time.deltaTime);
+        transform.LookAt(target);
     }
 
     /*public void DestroyMissile()
