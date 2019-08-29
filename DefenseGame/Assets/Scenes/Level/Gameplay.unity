@@ -2567,6 +2567,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886c64a18e6c79f44936dfa728588e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: {x: 0, y: 0, z: 0}
+  minTime: 0
+  maxTime: 5
+  randomTime: 3
 --- !u!1 &1676604175
 GameObject:
   m_ObjectHideFlags: 0
