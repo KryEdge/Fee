@@ -6,6 +6,7 @@ public class Shoot : MonoBehaviour
 {
     public GameObject bulletTemplate;
     public float fireRate;
+    public LayerMask Mask;
 
     private Bullet bulletProperties;
     private bool shootOnce;
@@ -27,7 +28,7 @@ public class Shoot : MonoBehaviour
             fireRateTimer = 0;
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (canShoot)
             {
@@ -44,18 +45,20 @@ public class Shoot : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray.origin,ray.direction,out hit,50,Mask))
         {
-            if (!shootOnce)
+            if(hit.transform.gameObject.tag != "explosion")
             {
-                bulletProperties.isFired = true;
-                bulletProperties.target = hit.point;
-                GameObject newBullet = Instantiate(bulletTemplate);
-                newBullet.SetActive(true);
-
-                Debug.Log(hit.point);
-                shootOnce = true;
+                if (!shootOnce)
+                {
+                    bulletProperties.isFired = true;
+                    bulletProperties.target = hit.point;
+                    GameObject newBullet = Instantiate(bulletTemplate);
+                    newBullet.SetActive(true);
+                    shootOnce = true;
+                }
             }
+            
         }
     }
 }

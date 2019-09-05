@@ -10,7 +10,7 @@ public class FauxGravityBody : MonoBehaviour
     void Start()
     {
         rig = GetComponent<Rigidbody>();
-        rig.constraints = RigidbodyConstraints.FreezeRotation;
+        rig.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         rig.useGravity = false;
     }
 

@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
 
         Vector3 direction = (target.transform.position - transform.position).normalized;
         rig.MovePosition(rig.position + direction * speed * Time.deltaTime);
+       //transform.LookAt(target.transform.position);
     }
 
     private void OnMouseDown()
@@ -51,6 +52,12 @@ public class Enemy : MonoBehaviour
             Debug.Log("Collision Test");
             Destroy(gameObject);
             Destroy(collision.gameObject);
+        }
+
+        if(collision.gameObject.tag == "explosion")
+        {
+            Debug.Log("Collision Test");
+            Destroy(gameObject);
         }
     }
 }

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - enemy
   - bullet
+  - camera
+  - planet
+  - explosion
   layers:
   - Default
   - TransparentFX
@@ -19,9 +22,9 @@ TagManager:
   - bullet
   - base
   - planet
-  - 
-  - 
-  - 
+  - camera
+  - explosion
+  - hit
   - 
   - 
   - 

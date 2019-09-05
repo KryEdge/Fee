@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Ally : MonoBehaviour
 {
-
     private Rigidbody rig;
     public Vector3 direction;
     public float minTime;
@@ -59,16 +58,16 @@ public class Ally : MonoBehaviour
         switch (randomNumber)
         {
             case 0:
-                direction = new Vector3(-1, 0, 0);
+                direction = new Vector3(-4, 0, 0);
                 break;
             case 1:
-                direction = new Vector3(1, 0, 0);
+                direction = new Vector3(4, 0, 0);
                 break;
             case 2:
-                direction = new Vector3(0, 0, 1);
+                direction = new Vector3(0, 0, 4);
                 break;
             case 3:
-                direction = new Vector3(0, 0, -1);
+                direction = new Vector3(0, 0, -4);
                 break;
             default:
                 break;
@@ -84,6 +83,4 @@ public class Ally : MonoBehaviour
     {
         randomTime = Random.Range(minTime, maxTime);
     }
-
-
 }
