@@ -9,6 +9,7 @@ TagManager:
   - camera
   - planet
   - explosion
+  - enemyRadius
   layers:
   - Default
   - TransparentFX
