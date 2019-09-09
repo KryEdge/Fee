@@ -97,12 +97,12 @@ public class Ally : MonoBehaviour
     {
         if (waitingTimer < waitingTime)
         {
-            direction = transform.forward * speed * 3.0f;
+            direction = transform.forward*-1 * speed * 3.0f;
             waitingTimer += Time.deltaTime;
         }
         else if (waitingTimer >= waitingTime)
         {
-            direction = transform.forward * speed;
+            direction = transform.forward*-1 * speed;
             timer += Time.deltaTime;
             slerpTimer += Time.deltaTime;
 
@@ -123,7 +123,7 @@ public class Ally : MonoBehaviour
 
     private void EscapeState()
     {
-        direction = transform.forward * speed * 3.0f;
+        direction = transform.forward*-1 * speed * 3.0f;
 
         if(!lookRotation.target)
         {
