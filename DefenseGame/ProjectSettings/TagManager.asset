@@ -10,6 +10,7 @@ TagManager:
   - planet
   - explosion
   - enemyRadius
+  - planetCamera
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - explosion
   - hit
   - player
-  - 
+  - planetCamera
   - 
   - 
   - 
