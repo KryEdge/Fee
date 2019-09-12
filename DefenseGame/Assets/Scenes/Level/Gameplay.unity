@@ -2806,7 +2806,7 @@ MonoBehaviour:
   zoomAmount: 0
   accelerationInput: 0
   accelerationMultiplier: 2
-  acceleration: 0
+  acceleration: 0.1
   accelerationDecay: 0.1
 --- !u!1 &1676604175
 GameObject:

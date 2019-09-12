@@ -40,7 +40,7 @@ public class CameraMovement : MonoBehaviour
         if(Mathf.Abs(accelerationInput) > 0.01f)
         {
 
-        }
+        }               
 
         zoomAmount += Input.GetAxis("Mouse ScrollWheel") * -1 * zoomSpeed * Time.deltaTime;
 
