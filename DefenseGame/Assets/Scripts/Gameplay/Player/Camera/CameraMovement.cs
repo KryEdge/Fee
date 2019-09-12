@@ -12,10 +12,17 @@ public class CameraMovement : MonoBehaviour
     public GameObject cameraGO;
     public Transform lowestZoom;
     public Transform highestZoom;
+    [Range(0, 1)]
+    public float zoomAmount = 1;
+
+    [Header("Acceleration")]
+    public float accelerationInput = 0;
+    public float accelerationMultiplier = 2f;
+    public float acceleration = 0;
+    public float accelerationDecay = 0.1f;
 
     private Rigidbody rig;
-    [Range(0,1)]
-    public float zoomAmount;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -27,10 +34,22 @@ public class CameraMovement : MonoBehaviour
     void Update()
     {
         float h = Input.GetAxis("Rotation Horizontal") * torqueSpeed * Time.deltaTime;
-        zoomAmount += Input.GetAxis("Mouse ScrollWheel") *-1 * zoomSpeed * Time.deltaTime;
+
+        accelerationInput = Input.GetAxis("Mouse ScrollWheel") *-1;
+
+        if(Mathf.Abs(accelerationInput) > 0.01f)
+        {
+
+        }
+
+        zoomAmount += Input.GetAxis("Mouse ScrollWheel") * -1 * zoomSpeed * Time.deltaTime;
+
+        //zoomAmount += 0.001f;
+
         zoomAmount = Mathf.Clamp(zoomAmount,0, 1);
 
         cameraGO.transform.position = Vector3.Slerp(lowestZoom.transform.position, highestZoom.transform.position, zoomAmount);
+        cameraGO.transform.rotation = Quaternion.Slerp(lowestZoom.transform.rotation, highestZoom.transform.rotation, zoomAmount);
 
         chooseDirection();
 
