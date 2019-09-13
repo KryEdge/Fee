@@ -45,7 +45,7 @@ public class Shoot : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray.origin,ray.direction,out hit,50,Mask))
+        if (Physics.Raycast(ray.origin,ray.direction,out hit,999,Mask))
         {
             if(hit.transform.gameObject.tag != "explosion")
             {
