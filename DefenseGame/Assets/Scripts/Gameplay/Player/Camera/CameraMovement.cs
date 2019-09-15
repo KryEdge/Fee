@@ -25,6 +25,9 @@ public class CameraMovement : MonoBehaviour
     [Range(0, 1)]
     public float zoomAmount = 1;
 
+    [Header("Camera Rotation")]
+    public bool isInverted;
+
     private Rigidbody rig;
     private Vector3 direction;
     private Vector3 torque;
@@ -43,7 +46,14 @@ public class CameraMovement : MonoBehaviour
     {
         if (Input.GetMouseButton(1))
         {
-            h = Input.GetAxis("Mouse X") *-1 * torqueSpeed * Time.deltaTime;
+            if(isInverted)
+            {
+                h = Input.GetAxis("Mouse X") * -1 * torqueSpeed * Time.deltaTime;
+            }
+            else
+            {
+                h = Input.GetAxis("Mouse X") * torqueSpeed * Time.deltaTime;
+            }
         }
 
         accelerationInput = Input.GetAxis("Mouse ScrollWheel") *-1;
