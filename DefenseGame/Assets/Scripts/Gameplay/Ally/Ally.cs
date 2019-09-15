@@ -20,6 +20,15 @@ public class Ally : MonoBehaviour
         allStates
     }
 
+    [Header("Test Settings")]
+    public LayerMask mask;
+    public int distance;
+    public bool once;
+    public bool canStartTurnTimer;
+    public Vector3 newOffset;
+    public float turnDelay;
+    private float turnTimer;
+
     [Header("Configurable Settings")]
     public states defaultState;
     public float speed;
@@ -49,15 +58,17 @@ public class Ally : MonoBehaviour
     {
         rig = GetComponent<Rigidbody>();
         lookRotation = GetComponent<TorqueLookRotation>();
-        randomRotation();
-        newRandomTime();
+        /*randomRotation();
+        newRandomTime();*/
         currentState = defaultState;
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch (currentState)
+        slerpTimer += Time.deltaTime;
+
+        /*switch (currentState)
         {
             case states.idle:
                 IdleState();
@@ -67,6 +78,49 @@ public class Ally : MonoBehaviour
                 break;
             default:
                 break;
+        }*/
+
+        direction = transform.forward * speed * 3.0f;
+
+        DrawRaycast(transform.forward, newOffset);
+        DrawRaycast(transform.forward * -1, newOffset);
+        //DrawRaycast(transform.right);
+        if (!DrawRaycast(transform.right * -1, newOffset))
+        {
+            Debug.Log("Going Left");
+            
+        }
+
+        if (!DrawRaycast(transform.right, newOffset))
+        {
+            Debug.Log("Going Right");
+            if (!once)
+            {
+                canStartTurnTimer = true;
+                once = true;
+            }
+        }
+
+        if (slerpTimer <= 1)
+        {
+            newRotation = Quaternion.Slerp(transform.rotation, rotation, slerpTimer);
+            transform.rotation = newRotation;
+        }
+        else if (slerpTimer >= 1.5f && !canStartTurnTimer)
+        {
+            once = false;
+        }
+
+        if(canStartTurnTimer)
+        {
+            turnTimer += Time.deltaTime;
+
+            if(turnTimer >= turnDelay)
+            {
+                RotateAlly(rotations.right);
+                canStartTurnTimer = false;
+                turnTimer = 0;
+            }
         }
     }
 
@@ -118,6 +172,34 @@ public class Ally : MonoBehaviour
                 newRotation = Quaternion.Slerp(transform.rotation, rotation, slerpTimer);
                 transform.rotation = newRotation;
             }
+        }
+    }
+
+    private void RotateAlly(rotations direction)
+    {
+        oldRotation = rotation;
+
+        switch (direction)
+        {
+            case rotations.left:
+                rotation = transform.rotation * Quaternion.Euler(new Vector3(0, -90, 0));
+                break;
+            case rotations.right:
+                rotation = transform.rotation * Quaternion.Euler(new Vector3(0, 90, 0));
+                break;
+            case rotations.front:
+                //nothing, keeps going forward.
+                break;
+            case rotations.back:
+                rotation = transform.rotation * Quaternion.Euler(new Vector3(0, 180, 0));
+                break;
+            default:
+                break;
+        }
+
+        if (oldRotation != rotation)
+        {
+            slerpTimer = 0;
         }
     }
 
@@ -189,6 +271,23 @@ public class Ally : MonoBehaviour
             slerpTimer = 0;
             randomRotation();
             switchState(states.idle);
+        }
+    }
+
+    private bool DrawRaycast(Vector3 direction,Vector3 offset)
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position + offset, direction, out hit, distance, mask))
+        {
+            //Debug.Log("Collision detected");
+            Debug.DrawRay(transform.position + offset, direction * distance, Color.green);
+            return true;
+        }
+        else
+        {
+            Debug.DrawRay(transform.position + offset, direction * distance, Color.white);
+            return false;
         }
     }
 }

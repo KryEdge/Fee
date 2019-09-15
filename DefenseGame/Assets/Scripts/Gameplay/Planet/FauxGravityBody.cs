@@ -5,6 +5,8 @@ using UnityEngine;
 public class FauxGravityBody : MonoBehaviour
 {
     public FauxGravityAttractor attractor;
+    public bool useAlternativeGravity;
+    public float newGravity;
     private Rigidbody rig;
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,14 @@ public class FauxGravityBody : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        attractor.Attract(transform,rig);
+        if(useAlternativeGravity)
+        {
+            attractor.Attract(transform, rig, newGravity);
+        }
+        else
+        {
+            attractor.Attract(transform, rig);
+        }
+        
     }
 }

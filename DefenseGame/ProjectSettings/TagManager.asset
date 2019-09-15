@@ -11,6 +11,8 @@ TagManager:
   - explosion
   - enemyRadius
   - planetCamera
+  - base
+  - proyectile
   layers:
   - Default
   - TransparentFX
@@ -29,11 +31,11 @@ TagManager:
   - hit
   - player
   - planetCamera
-  - 
-  - 
-  - 
-  - 
-  - 
+  - npc
+  - wall
+  - waypoint
+  - proyectile
+  - turret
   - 
   - 
   - 

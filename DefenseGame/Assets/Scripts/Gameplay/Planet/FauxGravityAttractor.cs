@@ -16,4 +16,15 @@ public class FauxGravityAttractor : MonoBehaviour
         Quaternion targetRotation = Quaternion.FromToRotation(bodyUp,gravityUp) * body.rotation;
         body.rotation = Quaternion.Slerp(body.rotation,targetRotation,50.0f * Time.deltaTime);
     }
+
+    public void Attract(Transform body, Rigidbody bodyRig,float newGravity)
+    {
+        Vector3 gravityUp = (body.position - transform.position).normalized;
+        Vector3 bodyUp = body.up;
+
+        bodyRig.AddForce(gravityUp * newGravity);
+
+        Quaternion targetRotation = Quaternion.FromToRotation(bodyUp, gravityUp) * body.rotation;
+        body.rotation = Quaternion.Slerp(body.rotation, targetRotation, 50.0f * Time.deltaTime);
+    }
 }

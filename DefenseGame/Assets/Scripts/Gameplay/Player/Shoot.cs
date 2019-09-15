@@ -6,6 +6,7 @@ public class Shoot : MonoBehaviour
 {
     public GameObject bulletTemplate;
     public float fireRate;
+
     public LayerMask Mask;
 
     private Bullet bulletProperties;
