@@ -9,6 +9,7 @@ public class Turret : MonoBehaviour
     public float fireRate;
     public float lifespan;
     public bool canShoot;
+    public bool isPreview;
 
     private GameObject currentTarget;
     private float lifespanTimer;

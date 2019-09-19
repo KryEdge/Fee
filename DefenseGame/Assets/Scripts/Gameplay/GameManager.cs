@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public GameObject[] waypoints;
     public int baseWaypoint;
 
+    public GameObject[] playerWaypoints;
+
 
     /*// Start is called before the first frame update
     void Start()

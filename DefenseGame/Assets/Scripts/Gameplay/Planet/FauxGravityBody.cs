@@ -6,13 +6,17 @@ public class FauxGravityBody : MonoBehaviour
 {
     public FauxGravityAttractor attractor;
     public bool useAlternativeGravity;
+    public bool isBuilding;
     public float newGravity;
     private Rigidbody rig;
     // Start is called before the first frame update
     void Start()
     {
         rig = GetComponent<Rigidbody>();
-        rig.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        if(!isBuilding)
+        {
+            rig.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        }
         rig.useGravity = false;
     }
 

@@ -13,6 +13,7 @@ TagManager:
   - planetCamera
   - base
   - proyectile
+  - waypoint
   layers:
   - Default
   - TransparentFX
