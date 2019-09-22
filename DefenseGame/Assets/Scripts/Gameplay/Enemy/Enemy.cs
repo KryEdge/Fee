@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [Header("Enemy Settings")]
     public float speed;
+    public float originalSpeed;
     public int initialTarget;
 
     [Header("Assign References")]
@@ -50,6 +51,7 @@ public class Enemy : MonoBehaviour
         selectedWaypoint = gm.playerWaypoints[initialTarget];
         hasSelectedWaypoint = true;
         cf.enabled = false;
+        originalSpeed = speed;
 
         waypointsFound.Add(gm.playerWaypoints[initialTarget]);
         SwitchRadiusOff(radius.gameObject);
@@ -239,6 +241,7 @@ public class Enemy : MonoBehaviour
         waypointsFound.Clear();
         SwitchRadiusOff(exitRadius.gameObject);
         SwitchRadiusOn(exitRadius.gameObject);
+        speed = speed * 1.5f;
     }
 
     private void LostAlly(GameObject ally)
@@ -260,6 +263,7 @@ public class Enemy : MonoBehaviour
         SwitchRadiusOn(radius.gameObject);
         SwitchRadiusOff(exitRadius.gameObject);
         SwitchRadiusOn(exitRadius.gameObject);
+        speed = originalSpeed;
     }
 
     private bool CheckForRandomWaypoint()

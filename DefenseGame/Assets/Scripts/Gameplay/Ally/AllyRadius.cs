@@ -6,14 +6,30 @@ public class AllyRadius : MonoBehaviour
 {
     public delegate void OnRadiusAction(GameObject target);
     public OnRadiusAction OnRadiusFindWaypoint;
+    public OnRadiusAction OnRadiusFindEnemy;
+
+    public bool findEnemy;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "waypoint")
+        if(findEnemy)
         {
-            if (OnRadiusFindWaypoint != null)
+            if (other.gameObject.tag == "enemy")
             {
-                OnRadiusFindWaypoint(other.gameObject);
+                if (OnRadiusFindEnemy != null)
+                {
+                    OnRadiusFindEnemy(other.gameObject);
+                }
+            }
+        }
+        else
+        {
+            if (other.gameObject.tag == "waypoint")
+            {
+                if (OnRadiusFindWaypoint != null)
+                {
+                    OnRadiusFindWaypoint(other.gameObject);
+                }
             }
         }
     }
