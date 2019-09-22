@@ -4,290 +4,195 @@ using UnityEngine;
 
 public class Ally : MonoBehaviour
 {
-    public enum rotations
-    {
-        left,
-        right,
-        front,
-        back,
-        allDirs
-    }
+    [Header("Ally Settings")]
+    public float speed;   
+    
+    [Header("Assign References")]
+    public AllyRadius radius;
+    public AllyRadius radius2;
+    public GameObject offset;
 
-    public enum states
-    {
-        idle,
-        escape,
-        allStates
-    }
+    [Header("Checking Variables")]
+    public List<GameObject> waypointsFound;
+    public GameObject selectedWaypoint;
+    public bool hasReachedWaypoint;
+    public bool hasSelectedWaypoint;
+    public bool doOnce;
+    public bool doOnce2;
 
-    [Header("Test Settings")]
-    public LayerMask mask;
-    public int distance;
-    public bool once;
-    public bool canStartTurnTimer;
-    public Vector3 newOffset;
-    public float turnDelay;
-    private float turnTimer;
-
-    [Header("Configurable Settings")]
-    public states defaultState;
-    public float speed;
-    public float minTime;
-    public float maxTime;
-    public float waitingTime;
-
-    [Header("State Settings")]
-    public states currentState;
-    public bool isBeingChased;
-
+    //Private
     private Rigidbody rig;
-    private Transform target;
-    private TorqueLookRotation lookRotation;
-    private float randomTime;
-    public float timer;
-    public float waitingTimer;
-    public float slerpTimer;
-    private float slerpMaxTime;
-    private Vector3 direction;
-    private Quaternion rotation;
-    private Quaternion oldRotation;
-    private Quaternion newRotation;
+    private ConstantForce cf;
+    private TorqueLookRotation torque;
+    private GameManager gm;
+    private Vector3 destination;
+    private float distanceToStop;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        cf = GetComponent<ConstantForce>();
+        gm = GameManager.Get();
         rig = GetComponent<Rigidbody>();
-        lookRotation = GetComponent<TorqueLookRotation>();
-        /*randomRotation();
-        newRandomTime();*/
-        currentState = defaultState;
+        torque = GetComponent<TorqueLookRotation>();
+
+        radius.OnRadiusFindWaypoint += AddFoundWaypoint;
+        radius2.OnRadiusFindWaypoint += AddFoundWaypoint;
+        torque.target = gm.playerWaypoints[0].transform;
+        selectedWaypoint = gm.playerWaypoints[0];
+        hasSelectedWaypoint = true;
+        cf.enabled = false;
+
+        waypointsFound.Add(gm.playerWaypoints[0]);
+        SwitchRadiusOff(radius.gameObject);
+        SwitchRadiusOff(radius2.gameObject);
     }
+
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        slerpTimer += Time.deltaTime;
+        float distance = Vector3.Distance(selectedWaypoint.transform.position, transform.position);
 
-        /*switch (currentState)
+        if (distance <= 2.0f)
         {
-            case states.idle:
-                IdleState();
-                break;
-            case states.escape:
-                EscapeState();
-                break;
-            default:
-                break;
-        }*/
-
-        direction = transform.forward * speed * 3.0f;
-
-        DrawRaycast(transform.forward, newOffset);
-        DrawRaycast(transform.forward * -1, newOffset);
-        //DrawRaycast(transform.right);
-        if (!DrawRaycast(transform.right * -1, newOffset))
-        {
-            Debug.Log("Going Left");
-            
-        }
-
-        if (!DrawRaycast(transform.right, newOffset))
-        {
-            Debug.Log("Going Right");
-            if (!once)
+            if (!doOnce)
             {
-                canStartTurnTimer = true;
-                once = true;
+                Debug.Log("parte 0");
+                hasReachedWaypoint = true;
+                SwitchRadiusOn(radius.gameObject);
+                SwitchRadiusOn(radius2.gameObject);
+                doOnce2 = false;
+                doOnce = true;
             }
         }
 
-        if (slerpTimer <= 1)
+        if (distance <= 1.0f)
         {
-            newRotation = Quaternion.Slerp(transform.rotation, rotation, slerpTimer);
-            transform.rotation = newRotation;
-        }
-        else if (slerpTimer >= 1.5f && !canStartTurnTimer)
-        {
-            once = false;
-        }
-
-        if(canStartTurnTimer)
-        {
-            turnTimer += Time.deltaTime;
-
-            if(turnTimer >= turnDelay)
+            if (!doOnce2)
             {
-                RotateAlly(rotations.right);
-                canStartTurnTimer = false;
-                turnTimer = 0;
-            }
-        }
-    }
+                if (CheckForRandomWaypoint())
+                {
+                    Debug.Log("parte 0.5");
+                    cf.enabled = false;
+                    torque.enabled = true;
+                    SwitchRadiusOff(radius.gameObject);
+                    SwitchRadiusOff(radius2.gameObject);
+                    torque.target = selectedWaypoint.transform;
+                    hasSelectedWaypoint = true;
+                    doOnce = false;
+                }
+                else
+                {
+                    Debug.Log("parte 1");
+                    torque.enabled = false;
+                    cf.enabled = true;
+                    hasSelectedWaypoint = false;
+                    SwitchRadiusOff(radius.gameObject);
+                    SwitchRadiusOff(radius2.gameObject);
+                    SwitchRadiusOn(radius.gameObject);
+                }
 
-    private void FixedUpdate()
-    {
-        rig.MovePosition(rig.position + (direction) * Time.deltaTime);
-    }
-
-    private void switchState(states newState)
-    {
-        currentState = newState;
-
-        switch (currentState)
-        {
-            case states.idle:
-                lookRotation.enabled = false;
-                break;
-            case states.escape:
-                lookRotation.enabled = true;
-                lookRotation.target = target;
-                break;
-            default:
-                break;
-        }
-    }
-
-    private void IdleState()
-    {
-        if (waitingTimer < waitingTime)
-        {
-            direction = transform.forward*-1 * speed * 3.0f;
-            waitingTimer += Time.deltaTime;
-        }
-        else if (waitingTimer >= waitingTime)
-        {
-            direction = transform.forward*-1 * speed;
-            timer += Time.deltaTime;
-            slerpTimer += Time.deltaTime;
-
-            if (timer >= randomTime)
-            {
-                randomRotation();
-                newRandomTime();
-                timer = 0;
+                doOnce2 = true;
             }
 
-            if (slerpTimer <= 1)
-            {
-                newRotation = Quaternion.Slerp(transform.rotation, rotation, slerpTimer);
-                transform.rotation = newRotation;
-            }
-        }
-    }
-
-    private void RotateAlly(rotations direction)
-    {
-        oldRotation = rotation;
-
-        switch (direction)
-        {
-            case rotations.left:
-                rotation = transform.rotation * Quaternion.Euler(new Vector3(0, -90, 0));
-                break;
-            case rotations.right:
-                rotation = transform.rotation * Quaternion.Euler(new Vector3(0, 90, 0));
-                break;
-            case rotations.front:
-                //nothing, keeps going forward.
-                break;
-            case rotations.back:
-                rotation = transform.rotation * Quaternion.Euler(new Vector3(0, 180, 0));
-                break;
-            default:
-                break;
         }
 
-        if (oldRotation != rotation)
+        if (hasSelectedWaypoint)
         {
-            slerpTimer = 0;
-        }
-    }
-
-    private void EscapeState()
-    {
-        direction = transform.forward*-1 * speed * 3.0f;
-
-        if(!lookRotation.target)
-        {
-            waitingTimer = 0;
-            timer = 0;
-            slerpTimer = 0;
-            randomRotation();
-            switchState(states.idle);
-        }
-    }
-
-    private void randomRotation()
-    {
-        oldRotation = rotation;
-        rotations randomRotation = (rotations)Random.Range((int)rotations.left, (int)rotations.allDirs);       
-
-        switch (randomRotation)
-        {
-            case rotations.left:
-                rotation = transform.rotation * Quaternion.Euler(new Vector3(0, -90, 0));
-                break;
-            case rotations.right:
-                rotation = transform.rotation * Quaternion.Euler(new Vector3(0, 90, 0));
-                break;
-            case rotations.front:
-                //nothing, keeps going forward.
-                break;
-            case rotations.back:
-                rotation = transform.rotation * Quaternion.Euler(new Vector3(0, 180, 0));
-                break;
-            default:
-                break;
-        }
-
-        if(oldRotation != rotation)
-        {
-            slerpTimer = 0;
-        }
-    }
-
-    private void newRandomTime()
-    {
-        randomTime = Random.Range(minTime, maxTime);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "enemyRadius")
-        {
-            target = other.gameObject.transform.parent.transform;
-            switchState(states.escape);
-            timer = 0;
-            slerpTimer = 0;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "enemyRadius")
-        {
-            waitingTimer = 0;
-            timer = 0;
-            slerpTimer = 0;
-            randomRotation();
-            switchState(states.idle);
-        }
-    }
-
-    private bool DrawRaycast(Vector3 direction,Vector3 offset)
-    {
-        RaycastHit hit;
-
-        if (Physics.Raycast(transform.position + offset, direction, out hit, distance, mask))
-        {
-            //Debug.Log("Collision detected");
-            Debug.DrawRay(transform.position + offset, direction * distance, Color.green);
-            return true;
+            Vector3 direction = (selectedWaypoint.transform.position - transform.position).normalized;
+            rig.MovePosition(rig.position + direction * speed * Time.deltaTime);
         }
         else
         {
-            Debug.DrawRay(transform.position + offset, direction * distance, Color.white);
-            return false;
+            //cf.torque = new Vector3(0, 0.8f, 0);
+            transform.Rotate(new Vector3(0, 0.8f, 0));
         }
+
+    }
+
+    private void AddFoundWaypoint(GameObject newWaypoint)
+    {
+        Debug.Log("Initiate Finding waypoints");
+        Debug.Log("Waypoint name : " + newWaypoint.name);
+        bool isTheSameWaypoint = false;
+
+        if (hasReachedWaypoint)
+        {
+            if (newWaypoint != selectedWaypoint)
+            {
+                foreach (GameObject waypoint in waypointsFound)
+                {
+                    if (waypoint == newWaypoint)
+                    {
+                        isTheSameWaypoint = true;
+                    }
+                }
+
+                if (!isTheSameWaypoint)
+                {
+                    waypointsFound.Add(newWaypoint);
+                }
+
+                if (!hasSelectedWaypoint)
+                {
+                    Debug.Log("messi");
+
+                    if (CheckForRandomWaypoint())
+                    {
+                        cf.enabled = false;
+                        torque.enabled = true;
+                        SwitchRadiusOff(radius.gameObject);
+                        SwitchRadiusOff(radius2.gameObject);
+                        torque.target = selectedWaypoint.transform;
+                        hasSelectedWaypoint = true;
+                        doOnce = false;
+                        Debug.Log("parte 1 EX");
+                    }
+                    else
+                    {
+                        Debug.Log("parte 2");
+                        torque.enabled = false;
+                        cf.enabled = true;
+                        hasSelectedWaypoint = false;
+                        SwitchRadiusOff(radius.gameObject);
+                        SwitchRadiusOff(radius2.gameObject);
+                        SwitchRadiusOn(radius.gameObject);
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    private bool CheckForRandomWaypoint()
+    {
+        if (waypointsFound.Count != 0)
+        {
+            Debug.Log("Found waypoint!!!");
+            selectedWaypoint = waypointsFound[Random.Range(0, waypointsFound.Count)];
+            waypointsFound.Clear();
+            return true;
+        }
+
+        return false;
+    }
+
+    private void SwitchRadiusOn(GameObject target)
+    {
+        Debug.Log("Switching On");
+        target.gameObject.SetActive(true);
+    }
+
+    private void SwitchRadiusOff(GameObject target)
+    {
+        Debug.Log("Switching Off");
+        target.gameObject.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        radius.OnRadiusFindWaypoint -= AddFoundWaypoint;
+        radius2.OnRadiusFindWaypoint -= AddFoundWaypoint;
     }
 }

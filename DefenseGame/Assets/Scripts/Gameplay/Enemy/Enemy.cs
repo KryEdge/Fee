@@ -4,98 +4,299 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public delegate void OnEnemyAction(GameObject enemy);
-    public static OnEnemyAction OnEnemyClicked;
-
+    [Header("Enemy Settings")]
     public float speed;
-    public GameObject target;
+    public int initialTarget;
 
+    [Header("Assign References")]
+    public EnemyRadius radius;
+    public EnemyRadius radius2;
+    public EnemyRadius exitRadius;
+
+    [Header("Checking Variables")]
+    public GameObject target;
+    public GameObject targetOffset;
+    public List<GameObject> waypointsFound;
+    public GameObject selectedWaypoint;
+    public bool hasReachedWaypoint;
+    public bool hasSelectedWaypoint;
+    public bool doOnce;
+    public bool doOnce2;
+    public bool allyOnSight;
+    public float distanceAlly;
+
+    //Private
+    private Rigidbody rig;
+    private ConstantForce cf;
+    private TorqueLookRotation torque;
+    private GameManager gm;
     private Vector3 destination;
     private float distanceToStop;
-    private Rigidbody rig;
-    private GameManager gm;
 
-    public int currentTarget;
-    public int firstSpawnWaypoint;
-    public int finalSpawnWaypoint;
-    public int entryWaypoint;
-    public TorqueLookRotation torque;
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        rig = GetComponent<Rigidbody>();
+        cf = GetComponent<ConstantForce>();
         gm = GameManager.Get();
-        currentTarget = firstSpawnWaypoint;
+        rig = GetComponent<Rigidbody>();
         torque = GetComponent<TorqueLookRotation>();
-        torque.target = gm.waypoints[currentTarget].transform;
-        //destination = new Vector3(target.transform.position.x,transform.position.y, target.transform.position.z);
+
+        radius.OnRadiusFindWaypoint += AddFoundWaypoint;
+        radius2.OnRadiusFindWaypoint += AddFoundWaypoint;
+        radius.OnRadiusFindAlly += AddFoundAlly;
+        radius2.OnRadiusFindAlly += AddFoundAlly;
+        exitRadius.OnRadiusLostAlly += LostAlly;
+        //radius2.OnRadiusLostAlly += LostAlly;
+        torque.target = gm.playerWaypoints[initialTarget].transform;
+        selectedWaypoint = gm.playerWaypoints[initialTarget];
+        hasSelectedWaypoint = true;
+        cf.enabled = false;
+
+        waypointsFound.Add(gm.playerWaypoints[initialTarget]);
+        SwitchRadiusOff(radius.gameObject);
+        SwitchRadiusOff(radius2.gameObject);
     }
 
+
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        float distance = Vector3.Distance(gm.waypoints[currentTarget].transform.position, transform.position);
+        float distance = 90.0f;
+        if (selectedWaypoint)
+        {
+            distance = Vector3.Distance(selectedWaypoint.transform.position, transform.position);
+
+        }
+        //float distance = Vector3.Distance(selectedWaypoint.transform.position, transform.position);
+        //float distanceAlly = 90.0f;
+        if (target)
+        {
+            distanceAlly = Vector3.Distance(target.transform.position, transform.position);
+
+            if (distanceAlly >= 15.0f)
+            {
+                LostAlly(target);
+            }
+        }
+
+        
+        
 
         if (distance <= 2.0f)
         {
-            Debug.Log("eh messi");
-
-            if (currentTarget == finalSpawnWaypoint)
+            if (!allyOnSight)
             {
-                currentTarget = entryWaypoint;
+                if (!doOnce)
+                {
+                    Debug.Log("parte 0");
+                    hasReachedWaypoint = true;
+                    SwitchRadiusOn(radius.gameObject);
+                    SwitchRadiusOn(radius2.gameObject);
+                    doOnce2 = false;
+                    doOnce = true;
+                }
+            }
+            
+        }
+
+        if (distance <= 1.0f)
+        {
+            if(!allyOnSight)
+            {
+                if (!doOnce2)
+                {
+                    if (CheckForRandomWaypoint())
+                    {
+                        Debug.Log("parte 0.5");
+                        cf.enabled = false;
+                        torque.enabled = true;
+                        SwitchRadiusOff(radius.gameObject);
+                        SwitchRadiusOff(radius2.gameObject);
+                        torque.target = selectedWaypoint.transform;
+                        hasSelectedWaypoint = true;
+                        doOnce = false;
+                    }
+                    else
+                    {
+                        Debug.Log("parte 1");
+                        torque.enabled = false;
+                        cf.enabled = true;
+                        hasSelectedWaypoint = false;
+                        SwitchRadiusOff(radius.gameObject);
+                        SwitchRadiusOff(radius2.gameObject);
+                        SwitchRadiusOn(radius.gameObject);
+                    }
+
+                    doOnce2 = true;
+                }
+            }
+        }
+
+        if (hasSelectedWaypoint)
+        {
+            if (allyOnSight)
+            {
+                if(distanceAlly <= 3.0f)
+                {
+                    Vector3 direction = (targetOffset.transform.position - transform.position).normalized;
+                    rig.MovePosition(rig.position + direction * speed * Time.deltaTime);
+                }
+                else
+                {
+                    Vector3 direction = (selectedWaypoint.transform.position - transform.position).normalized;
+                    rig.MovePosition(rig.position + direction * speed * Time.deltaTime);
+                }
             }
             else
             {
-                currentTarget++;
+                Vector3 direction = (selectedWaypoint.transform.position - transform.position).normalized;
+                rig.MovePosition(rig.position + direction * speed * Time.deltaTime);
             }
-
-            if (currentTarget >= gm.waypoints.Length)
+            
+        }
+        else
+        {
+            if(!allyOnSight)
             {
-                currentTarget = 0;
+                Debug.Log("Enemy is rotating!!");
+                cf.torque = new Vector3(0, 0.8f, 0);
             }
-
-            torque.target = gm.waypoints[currentTarget].transform;
         }
 
-        Vector3 direction = (gm.waypoints[currentTarget].transform.position - transform.position).normalized;
-        rig.MovePosition(rig.position + direction * speed * Time.deltaTime);
     }
 
-    private void OnMouseDown()
+    private void AddFoundWaypoint(GameObject newWaypoint)
     {
-        if(OnEnemyClicked != null)
+        if(!allyOnSight)
         {
-            OnEnemyClicked(gameObject);
+            Debug.Log("Initiate Finding waypoints");
+            Debug.Log("Waypoint name : " + newWaypoint.name);
+            bool isTheSameWaypoint = false;
+
+            if (hasReachedWaypoint)
+            {
+                if (newWaypoint != selectedWaypoint)
+                {
+                    foreach (GameObject waypoint in waypointsFound)
+                    {
+                        if (waypoint == newWaypoint)
+                        {
+                            isTheSameWaypoint = true;
+                        }
+                    }
+
+                    if (!isTheSameWaypoint)
+                    {
+                        waypointsFound.Add(newWaypoint);
+                    }
+
+                    if (!hasSelectedWaypoint)
+                    {
+                        Debug.Log("messi");
+
+                        if (CheckForRandomWaypoint())
+                        {
+                            cf.enabled = false;
+                            torque.enabled = true;
+                            SwitchRadiusOff(radius.gameObject);
+                            SwitchRadiusOff(radius2.gameObject);
+                            torque.target = selectedWaypoint.transform;
+                            hasSelectedWaypoint = true;
+                            doOnce = false;
+                            Debug.Log("parte 1 EX");
+                        }
+                        else
+                        {
+                            Debug.Log("parte 2");
+                            torque.enabled = false;
+                            cf.enabled = true;
+                            hasSelectedWaypoint = false;
+                            SwitchRadiusOff(radius.gameObject);
+                            SwitchRadiusOff(radius2.gameObject);
+                            SwitchRadiusOn(radius.gameObject);
+                        }
+                    }
+                }
+            }
         }
-       //Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void AddFoundAlly(GameObject ally)
     {
-        //Debug.Log("Fui movido por : " + collision.gameObject.tag);
-
-        if (collision.gameObject.tag == "proyectile")
-        {
-            Debug.Log("Collision Test");
-            Destroy(gameObject);
-            Destroy(collision.gameObject);
-        }
-
-
-        if (collision.gameObject.tag == "base")
-        {
-            Debug.Log("Collision Test Base");
-            speed = 1;
-        }
+        Debug.Log("Found ALLY !!!");
+        allyOnSight = true;
+        target = ally;
+        Ally foundAlly = ally.GetComponent<Ally>();
+        selectedWaypoint = foundAlly.selectedWaypoint;
+        targetOffset = foundAlly.offset;
+        //torque.target = selectedWaypoint.transform;
+        cf.enabled = false;
+        torque.enabled = true;
+        SwitchRadiusOff(radius.gameObject);
+        SwitchRadiusOff(radius2.gameObject);
+        torque.target = target.transform;
+        hasSelectedWaypoint = true;
+        doOnce = false;
+        waypointsFound.Clear();
+        SwitchRadiusOff(exitRadius.gameObject);
+        SwitchRadiusOn(exitRadius.gameObject);
     }
 
-
-    private void OnTriggerEnter(Collider other)
+    private void LostAlly(GameObject ally)
     {
-        if (other.gameObject.tag == "explosion")
+        Debug.Log("Enemy Escaped");
+        allyOnSight = false;
+        //Ally foundAlly = ally.GetComponent<Ally>();
+        waypointsFound.Clear();
+        hasSelectedWaypoint = false;
+        hasReachedWaypoint = true;
+        selectedWaypoint = null;
+        Debug.Log("parte V2");
+        torque.enabled = false;
+        cf.enabled = true;
+        hasSelectedWaypoint = false;
+        target = null;
+        SwitchRadiusOff(radius.gameObject);
+        SwitchRadiusOff(radius2.gameObject);
+        SwitchRadiusOn(radius.gameObject);
+        SwitchRadiusOff(exitRadius.gameObject);
+        SwitchRadiusOn(exitRadius.gameObject);
+    }
+
+    private bool CheckForRandomWaypoint()
+    {
+        if(!allyOnSight)
         {
-            Debug.Log("Collision Test EXPLOSION");
-            Destroy(gameObject);
+            if (waypointsFound.Count != 0)
+            {
+                Debug.Log("Found waypoint!!!");
+                selectedWaypoint = waypointsFound[Random.Range(0, waypointsFound.Count)];
+                waypointsFound.Clear();
+                return true;
+            }
         }
+
+        return false;
+    }
+
+    private void SwitchRadiusOn(GameObject target)
+    {
+        Debug.Log("Switching On");
+        target.gameObject.SetActive(true);
+    }
+
+    private void SwitchRadiusOff(GameObject target)
+    {
+        Debug.Log("Switching Off");
+        target.gameObject.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        radius.OnRadiusFindWaypoint -= AddFoundWaypoint;
+        radius2.OnRadiusFindWaypoint -= AddFoundWaypoint;
+        radius.OnRadiusFindAlly -= AddFoundAlly;
+        radius2.OnRadiusFindAlly -= AddFoundAlly;
+        exitRadius.OnRadiusLostAlly -= LostAlly;
+        //radius2.OnRadiusLostAlly -= LostAlly;
     }
 }

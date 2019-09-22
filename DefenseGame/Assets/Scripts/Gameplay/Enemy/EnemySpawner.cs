@@ -50,9 +50,9 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         enemyProperties.speed = Random.Range(minSpeed, maxSpeed);
-        enemyProperties.firstSpawnWaypoint = firstSpawnWaypoint;
+        /*enemyProperties.firstSpawnWaypoint = firstSpawnWaypoint;
         enemyProperties.finalSpawnWaypoint = finalSpawnWaypoint;
-        enemyProperties.entryWaypoint = entryWaypoint;
+        enemyProperties.entryWaypoint = entryWaypoint;*/
         GameObject newEnemy = Instantiate(enemyTemplate);
         newEnemy.SetActive(true);
     }

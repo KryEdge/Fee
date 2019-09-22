@@ -7,18 +7,6 @@ public class AllyRadius : MonoBehaviour
     public delegate void OnRadiusAction(GameObject target);
     public OnRadiusAction OnRadiusFindWaypoint;
 
-    /*// Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }*/
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "waypoint")
