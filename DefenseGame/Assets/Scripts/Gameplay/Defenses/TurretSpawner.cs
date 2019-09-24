@@ -7,7 +7,10 @@ public class TurretSpawner : MonoBehaviour
     public LayerMask Mask;
     public GameObject turretTemplate;
     public bool preview;
+    public int maxTurrets;
     public GameObject newTurretPreview;
+    public List<GameObject> spawnedTurrets;
+
 
     private Turret turretProperties;
     private MeshRenderer turretMaterial;
@@ -19,14 +22,13 @@ public class TurretSpawner : MonoBehaviour
         turretProperties = newTurretPreview.GetComponent<Turret>();
         turretMaterial = newTurretPreview.GetComponent<MeshRenderer>();
         turretProperties.isPreview = true;
-        //newTurretPreview.GetComponent<BoxCollider>().enabled = false;
+        //turretProperties.canBePlaced = true;
         newTurretPreview.GetComponent<BoxCollider>().isTrigger = true;
-        //newTurretPreview.GetComponent<Rigidbody>().enabled = false;
-        //newTurretPreview.layer = 2;
+        //newTurretPreview.SetActive(true);
+        turretProperties.turretRadius.gameObject.GetComponent<BoxCollider>().enabled = false;
         newTurretPreview.SetActive(false);
 
         turretTemplate.GetComponent<FauxGravityBody>().isBuilding = true;
-        //newTurretPreview.SetActive(false);
     }
 
     // Update is called once per frame
@@ -34,7 +36,10 @@ public class TurretSpawner : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(2))
         {
-            Spawn();
+            if (turretProperties.canBePlaced)
+            {
+                Spawn();
+            } 
         }
 
         if(Input.GetKeyDown(KeyCode.Alpha0))
@@ -59,14 +64,33 @@ public class TurretSpawner : MonoBehaviour
             if (hit.transform.gameObject.tag != "turret")
             {
                 Debug.Log("Spawning");
-                //bulletProperties.isFired = true;
-                //bulletProperties.target = hit.point;
-                GameObject newTurret = Instantiate(turretTemplate, newTurretPreview.transform.position, newTurretPreview.transform.rotation);
-                newTurret.GetComponent<BoxCollider>().enabled = true;
-                //newTurret.transform.position = newTurret.transform.position ;
-                newTurret.SetActive(true);
-                //shootOnce = true;
+                if(spawnedTurrets.Count <= maxTurrets-1)
+                {
+                    GameObject newTurret = Instantiate(turretTemplate, hit.point + (hit.normal * 15), newTurretPreview.transform.rotation);
+                    newTurret.SetActive(true);
+                    spawnedTurrets.Add(newTurret);
+                }
+                
             }
+
+            /*if (hit.transform.gameObject.tag == "turret")
+            {
+                GameObject turretToDelete = null;
+
+                foreach (GameObject turret in spawnedTurrets)
+                {
+                    if(turret == hit.transform.gameObject)
+                    {
+                        turretToDelete = turret;
+                    }
+                }
+                
+                if(turretToDelete)
+                {
+                    spawnedTurrets.Remove(turretToDelete);
+                }
+                
+            }*/
         }
     }
 

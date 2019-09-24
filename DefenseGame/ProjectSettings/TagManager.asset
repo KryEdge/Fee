@@ -16,6 +16,7 @@ TagManager:
   - waypoint
   - npc
   - road
+  - turretZone
   layers:
   - Default
   - TransparentFX

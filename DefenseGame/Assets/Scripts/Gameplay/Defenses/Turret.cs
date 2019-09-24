@@ -16,12 +16,12 @@ public class Turret : MonoBehaviour
     private float lifespanTimer;
     private float fireRateTimer;
     private Proyectile proyectile;
-    private TurretRadius turretRadius;
+    public TurretRadius turretRadius;
     private Rigidbody rig;
     // Start is called before the first frame update
     void Start()
     {
-        turretRadius = transform.GetChild(0).gameObject.GetComponent<TurretRadius>();
+        //turretRadius = transform.GetChild(0).gameObject.GetComponent<TurretRadius>();
         proyectile = proyectileTemplate.GetComponent<Proyectile>();
         proyectile.speed = bulletSpeed;
         turretRadius.onTurretDetectEnemy = SetTarget;
@@ -32,56 +32,72 @@ public class Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lifespanTimer += Time.deltaTime;
-        
-        if(lifespanTimer >= lifespan)
+        if(!isPreview)
         {
-            Destroy(gameObject);
-        }
+            lifespanTimer += Time.deltaTime;
 
-        if(!canShoot)
-        {
-            fireRateTimer += Time.deltaTime;
-
-            if(fireRateTimer >= fireRate)
+            if (lifespanTimer >= lifespan)
             {
-                fireRateTimer = 0;
-                canShoot = true;
+                Destroy(gameObject);
             }
-        }
-        else
-        {
-            ShootTarget();
+
+            if (!canShoot)
+            {
+                fireRateTimer += Time.deltaTime;
+
+                if (fireRateTimer >= fireRate)
+                {
+                    fireRateTimer = 0;
+                    canShoot = true;
+                }
+            }
+            else
+            {
+                ShootTarget();
+            }
         }
     }
 
     private void SetTarget(GameObject newTarget)
     {
-        //Debug.Log("Seteando Target");
-        currentTarget = newTarget;
+        if (!isPreview)
+        {
+            currentTarget = newTarget;
+        }
+            //Debug.Log("Seteando Target");
+            
     }
 
     private void ShootTarget()
     {
-        if(currentTarget)
+        if (!isPreview)
         {
-            GameObject newProyectile = Instantiate(proyectileTemplate);
-            Proyectile proy = newProyectile.GetComponent<Proyectile>();
-            proy.startPosition = transform.position + transform.up * 7;
-            proy.target = currentTarget;
-            newProyectile.SetActive(true);
-            canShoot = false;
+            if (currentTarget)
+            {
+                GameObject newProyectile = Instantiate(proyectileTemplate);
+                Proyectile proy = newProyectile.GetComponent<Proyectile>();
+                proy.startPosition = transform.position + transform.up * 7;
+                proy.target = currentTarget;
+                newProyectile.SetActive(true);
+                canShoot = false;
+            }
         }
+        
     }
 
     private void ChangeTarget(GameObject newTarget)
     {
-        if(newTarget == currentTarget)
+        if (!isPreview)
         {
-            turretRadius.gameObject.SetActive(false);
-            proyectile.target = null;
-            turretRadius.gameObject.SetActive(true);
+            if (newTarget == currentTarget)
+            {
+                turretRadius.gameObject.SetActive(false);
+                proyectile.target = null;
+                turretRadius.gameObject.SetActive(true);
+            }
         }
+
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -99,6 +115,12 @@ public class Turret : MonoBehaviour
             Debug.Log("Torreta choca con " + other.gameObject.name);
             canBePlaced = false;
         }
+
+        if (other.gameObject.tag == "turretZone")
+        {
+            Debug.Log("Torreta choca con " + other.gameObject.name);
+            canBePlaced = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -107,6 +129,12 @@ public class Turret : MonoBehaviour
         {
             Debug.Log("Torreta DEJO de chocar con " + other.gameObject.name);
             canBePlaced = true;
+        }
+
+        if (other.gameObject.tag == "turretZone")
+        {
+            Debug.Log("Torreta choca con " + other.gameObject.name);
+            canBePlaced = false;
         }
     }
 }
