@@ -7,6 +7,7 @@ public class Ally : MonoBehaviour
     [Header("Ally Settings")]
     public float speed;
     public float originalSpeed;
+    public Color dangerColor;
 
     [Header("Assign References")]
     public AllyRadius radius;
@@ -31,6 +32,7 @@ public class Ally : MonoBehaviour
     private GameManager gm;
     private Vector3 destination;
     private float distanceToStop;
+    private Outline outline;
 
     private void Start()
     {
@@ -38,6 +40,7 @@ public class Ally : MonoBehaviour
         gm = GameManager.Get();
         rig = GetComponent<Rigidbody>();
         torque = GetComponent<TorqueLookRotation>();
+        outline = GetComponent<Outline>();
 
         radius.OnRadiusFindWaypoint += AddFoundWaypoint;
         radius2.OnRadiusFindWaypoint += AddFoundWaypoint;
@@ -83,7 +86,7 @@ public class Ally : MonoBehaviour
             {
                 if (!doOnce)
                 {
-                    Debug.Log("parte 0");
+                    ////("parte 0");
                     hasReachedWaypoint = true;
                     SwitchRadiusOn(radius.gameObject);
                     SwitchRadiusOn(radius2.gameObject);
@@ -100,7 +103,7 @@ public class Ally : MonoBehaviour
                 {
                     if (CheckForRandomWaypoint())
                     {
-                        Debug.Log("parte 0.5");
+                        ////("parte 0.5");
                         cf.enabled = false;
                         torque.enabled = true;
                         SwitchRadiusOff(radius.gameObject);
@@ -111,7 +114,7 @@ public class Ally : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("parte 1");
+                        ////("parte 1");
                         torque.enabled = false;
                         cf.enabled = true;
                         hasSelectedWaypoint = false;
@@ -148,8 +151,8 @@ public class Ally : MonoBehaviour
 
     private void AddFoundWaypoint(GameObject newWaypoint)
     {
-        Debug.Log("Initiate Finding waypoints");
-        Debug.Log("Waypoint name : " + newWaypoint.name);
+        //("Initiate Finding waypoints");
+        //("Waypoint name : " + newWaypoint.name);
         bool isTheSameWaypoint = false;
 
         if (hasReachedWaypoint)
@@ -171,7 +174,7 @@ public class Ally : MonoBehaviour
 
                 if (!hasSelectedWaypoint)
                 {
-                    Debug.Log("messi");
+                    ////("messi");
 
                     if (CheckForRandomWaypoint())
                     {
@@ -183,11 +186,11 @@ public class Ally : MonoBehaviour
                         hasSelectedWaypoint = true;
                         doOnce = false;
                         doOnce2 = false;
-                        Debug.Log("parte 1 EX");
+                        ////("parte 1 EX");
                     }
                     else
                     {
-                        Debug.Log("parte 2");
+                        ////("parte 2");
                         torque.enabled = false;
                         cf.enabled = true;
                         hasSelectedWaypoint = false;
@@ -206,7 +209,7 @@ public class Ally : MonoBehaviour
     {
         if (waypointsFound.Count != 0)
         {
-            Debug.Log("Found waypoint!!!");
+            ////("Found waypoint!!!");
             selectedWaypoint = waypointsFound[Random.Range(0, waypointsFound.Count)];
             waypointsFound.Clear();
             return true;
@@ -217,19 +220,19 @@ public class Ally : MonoBehaviour
 
     private void SwitchRadiusOn(GameObject target)
     {
-        Debug.Log("Switching On");
+        ////("Switching On");
         target.gameObject.SetActive(true);
     }
 
     private void SwitchRadiusOff(GameObject target)
     {
-        Debug.Log("Switching Off");
+        ////("Switching Off");
         target.gameObject.SetActive(false);
     }
 
     private void Escape(GameObject enemy)
     {
-        Debug.Log("Escaping from ENEMY");
+        ////("Escaping from ENEMY");
         foundEnemy = enemy;
         speed = originalSpeed * 2.0f;
         hasSelectedWaypoint = false;
@@ -241,11 +244,12 @@ public class Ally : MonoBehaviour
         SwitchRadiusOff(radius2.gameObject);
         SwitchRadiusOn(radius.gameObject);
         doOnce2 = false;
+        outline.OutlineColor = dangerColor;
     }
 
     private void SuccessfullEscape()
     {
-        Debug.Log("SUCCESSFULL ESCAPE");
+        //("SUCCESSFULL ESCAPE");
         speed = originalSpeed;
         foundEnemy = null;
         SwitchRadiusOff(findEnemyRadius.gameObject);
@@ -260,6 +264,7 @@ public class Ally : MonoBehaviour
             SwitchRadiusOn(radius.gameObject);
         }
         doOnce2 = false;
+        outline.OutlineColor = Color.white;
     }
 
     private void OnDestroy()

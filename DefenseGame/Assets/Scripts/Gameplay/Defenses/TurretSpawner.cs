@@ -9,11 +9,20 @@ public class TurretSpawner : MonoBehaviour
     public bool preview;
     public GameObject newTurretPreview;
 
+    private Turret turretProperties;
+    private MeshRenderer turretMaterial;
+
     // Start is called before the first frame update
     void Start()
     {
         newTurretPreview = Instantiate(turretTemplate, turretTemplate.transform.position, turretTemplate.transform.rotation);
-        newTurretPreview.GetComponent<Turret>().isPreview = true;
+        turretProperties = newTurretPreview.GetComponent<Turret>();
+        turretMaterial = newTurretPreview.GetComponent<MeshRenderer>();
+        turretProperties.isPreview = true;
+        //newTurretPreview.GetComponent<BoxCollider>().enabled = false;
+        newTurretPreview.GetComponent<BoxCollider>().isTrigger = true;
+        //newTurretPreview.GetComponent<Rigidbody>().enabled = false;
+        //newTurretPreview.layer = 2;
         newTurretPreview.SetActive(false);
 
         turretTemplate.GetComponent<FauxGravityBody>().isBuilding = true;
@@ -53,6 +62,7 @@ public class TurretSpawner : MonoBehaviour
                 //bulletProperties.isFired = true;
                 //bulletProperties.target = hit.point;
                 GameObject newTurret = Instantiate(turretTemplate, newTurretPreview.transform.position, newTurretPreview.transform.rotation);
+                newTurret.GetComponent<BoxCollider>().enabled = true;
                 //newTurret.transform.position = newTurret.transform.position ;
                 newTurret.SetActive(true);
                 //shootOnce = true;
@@ -71,6 +81,15 @@ public class TurretSpawner : MonoBehaviour
             {
                 newTurretPreview.transform.position = hit.point + (hit.normal * 5);
             }
+        }
+
+        if (turretProperties.canBePlaced)
+        {
+            turretMaterial.material.color = Color.green;
+        }
+        else
+        {
+            turretMaterial.material.color = Color.red;
         }
     }
 }

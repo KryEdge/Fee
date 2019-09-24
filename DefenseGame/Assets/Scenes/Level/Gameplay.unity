@@ -250,6 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   originalSpeed: 0
+  dangerColor: {r: 0, g: 0, b: 0, a: 0}
   radius: {fileID: 0}
   radius2: {fileID: 0}
   findEnemyRadius: {fileID: 0}
@@ -1240,7 +1241,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14890
+  m_Name: pb_Mesh14978
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1410,9 +1411,9 @@ GameObject:
   - component: {fileID: 173064162}
   - component: {fileID: 173064161}
   - component: {fileID: 173064160}
-  m_Layer: 19
+  m_Layer: 22
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: road
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2903,6 +2904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
+  originalSpeed: 0
   initialTarget: 4
   radius: {fileID: 1442257453}
   radius2: {fileID: 548690531}
@@ -3240,6 +3242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
+  originalSpeed: 0
   initialTarget: 0
   radius: {fileID: 0}
   radius2: {fileID: 0}
@@ -16531,6 +16534,7 @@ GameObject:
   - component: {fileID: 682759114}
   - component: {fileID: 682759115}
   - component: {fileID: 682759116}
+  - component: {fileID: 682759107}
   m_Layer: 17
   m_Name: Fairy
   m_TagString: npc
@@ -16538,6 +16542,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &682759107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682759106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 3
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!54 &682759108
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16690,6 +16712,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   originalSpeed: 0
+  dangerColor: {r: 1, g: 0, b: 0, a: 1}
   radius: {fileID: 1688085940}
   radius2: {fileID: 468008972}
   findEnemyRadius: {fileID: 26370212}
@@ -16708,7 +16731,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh15190
+  m_Name: pb_Mesh15302
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17374,6 +17397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
+  originalSpeed: 0
   initialTarget: 9
   radius: {fileID: 353721282}
   radius2: {fileID: 2000620456}
@@ -17537,9 +17561,9 @@ GameObject:
   - component: {fileID: 836409656}
   - component: {fileID: 836409655}
   - component: {fileID: 836409654}
-  m_Layer: 19
+  m_Layer: 22
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: road
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30953,9 +30977,9 @@ GameObject:
   - component: {fileID: 1099810547}
   - component: {fileID: 1099810546}
   - component: {fileID: 1099810545}
-  m_Layer: 19
+  m_Layer: 22
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: road
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33278,6 +33302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
+  originalSpeed: 0
   initialTarget: 0
   radius: {fileID: 0}
   radius2: {fileID: 0}
@@ -46038,6 +46063,7 @@ MonoBehaviour:
   lifespan: 360
   canShoot: 0
   isPreview: 0
+  canBePlaced: 0
 --- !u!65 &1302466423
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -60551,6 +60577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
+  originalSpeed: 0
   initialTarget: 0
   radius: {fileID: 0}
   radius2: {fileID: 0}
@@ -61613,9 +61640,9 @@ GameObject:
   - component: {fileID: 1609082634}
   - component: {fileID: 1609082633}
   - component: {fileID: 1609082632}
-  m_Layer: 19
+  m_Layer: 22
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: road
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62601,6 +62628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
+  originalSpeed: 0
   initialTarget: 0
   radius: {fileID: 321535970}
   radius2: {fileID: 1758000534}
@@ -63251,7 +63279,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14828
+  m_Name: pb_Mesh14916
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -63599,7 +63627,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh14598
+  m_Name: pb_Mesh14602
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

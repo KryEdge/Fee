@@ -10,6 +10,7 @@ public class Turret : MonoBehaviour
     public float lifespan;
     public bool canShoot;
     public bool isPreview;
+    public bool canBePlaced;
 
     private GameObject currentTarget;
     private float lifespanTimer;
@@ -56,7 +57,7 @@ public class Turret : MonoBehaviour
 
     private void SetTarget(GameObject newTarget)
     {
-        Debug.Log("Seteando Target");
+        //Debug.Log("Seteando Target");
         currentTarget = newTarget;
     }
 
@@ -88,6 +89,24 @@ public class Turret : MonoBehaviour
         if(collision.gameObject.tag == "planet")
         {
             rig.constraints = RigidbodyConstraints.FreezeAll;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "road")
+        {
+            Debug.Log("Torreta choca con " + other.gameObject.name);
+            canBePlaced = false;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "road")
+        {
+            Debug.Log("Torreta DEJO de chocar con " + other.gameObject.name);
+            canBePlaced = true;
         }
     }
 }

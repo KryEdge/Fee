@@ -15,6 +15,7 @@ TagManager:
   - proyectile
   - waypoint
   - npc
+  - road
   layers:
   - Default
   - TransparentFX
@@ -38,7 +39,7 @@ TagManager:
   - waypoint
   - proyectile
   - turret
-  - 
+  - road
   - 
   - 
   - 

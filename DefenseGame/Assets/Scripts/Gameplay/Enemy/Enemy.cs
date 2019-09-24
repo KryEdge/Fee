@@ -89,7 +89,7 @@ public class Enemy : MonoBehaviour
             {
                 if (!doOnce)
                 {
-                    Debug.Log("parte 0");
+                    //("parte 0");
                     hasReachedWaypoint = true;
                     SwitchRadiusOn(radius.gameObject);
                     SwitchRadiusOn(radius2.gameObject);
@@ -108,7 +108,7 @@ public class Enemy : MonoBehaviour
                 {
                     if (CheckForRandomWaypoint())
                     {
-                        Debug.Log("parte 0.5");
+                        //("parte 0.5");
                         cf.enabled = false;
                         torque.enabled = true;
                         SwitchRadiusOff(radius.gameObject);
@@ -119,7 +119,7 @@ public class Enemy : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("parte 1");
+                        //("parte 1");
                         torque.enabled = false;
                         cf.enabled = true;
                         hasSelectedWaypoint = false;
@@ -159,7 +159,7 @@ public class Enemy : MonoBehaviour
         {
             if(!allyOnSight)
             {
-                Debug.Log("Enemy is rotating!!");
+                //("Enemy is rotating!!");
                 cf.torque = new Vector3(0, 0.8f, 0);
             }
         }
@@ -170,8 +170,8 @@ public class Enemy : MonoBehaviour
     {
         if(!allyOnSight)
         {
-            Debug.Log("Initiate Finding waypoints");
-            Debug.Log("Waypoint name : " + newWaypoint.name);
+            //("Initiate Finding waypoints");
+            //("Waypoint name : " + newWaypoint.name);
             bool isTheSameWaypoint = false;
 
             if (hasReachedWaypoint)
@@ -193,7 +193,7 @@ public class Enemy : MonoBehaviour
 
                     if (!hasSelectedWaypoint)
                     {
-                        Debug.Log("messi");
+                        //("messi");
 
                         if (CheckForRandomWaypoint())
                         {
@@ -204,11 +204,11 @@ public class Enemy : MonoBehaviour
                             torque.target = selectedWaypoint.transform;
                             hasSelectedWaypoint = true;
                             doOnce = false;
-                            Debug.Log("parte 1 EX");
+                            //("parte 1 EX");
                         }
                         else
                         {
-                            Debug.Log("parte 2");
+                            //("parte 2");
                             torque.enabled = false;
                             cf.enabled = true;
                             hasSelectedWaypoint = false;
@@ -224,7 +224,7 @@ public class Enemy : MonoBehaviour
 
     private void AddFoundAlly(GameObject ally)
     {
-        Debug.Log("Found ALLY !!!");
+        //("Found ALLY !!!");
         allyOnSight = true;
         target = ally;
         Ally foundAlly = ally.GetComponent<Ally>();
@@ -246,14 +246,14 @@ public class Enemy : MonoBehaviour
 
     private void LostAlly(GameObject ally)
     {
-        Debug.Log("Enemy Escaped");
+        //("Enemy Escaped");
         allyOnSight = false;
         //Ally foundAlly = ally.GetComponent<Ally>();
         waypointsFound.Clear();
         hasSelectedWaypoint = false;
         hasReachedWaypoint = true;
         selectedWaypoint = null;
-        Debug.Log("parte V2");
+        //("parte V2");
         torque.enabled = false;
         cf.enabled = true;
         hasSelectedWaypoint = false;
@@ -272,7 +272,7 @@ public class Enemy : MonoBehaviour
         {
             if (waypointsFound.Count != 0)
             {
-                Debug.Log("Found waypoint!!!");
+                //("Found waypoint!!!");
                 selectedWaypoint = waypointsFound[Random.Range(0, waypointsFound.Count)];
                 waypointsFound.Clear();
                 return true;
@@ -284,13 +284,13 @@ public class Enemy : MonoBehaviour
 
     private void SwitchRadiusOn(GameObject target)
     {
-        Debug.Log("Switching On");
+        //("Switching On");
         target.gameObject.SetActive(true);
     }
 
     private void SwitchRadiusOff(GameObject target)
     {
-        Debug.Log("Switching Off");
+        //("Switching Off");
         target.gameObject.SetActive(false);
     }
 

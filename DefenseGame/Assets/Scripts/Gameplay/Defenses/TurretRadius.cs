@@ -12,7 +12,7 @@ public class TurretRadius : MonoBehaviour
     {
         if(other.gameObject.tag == "enemy")
         {
-            Debug.Log("Enemigo ha entrado");
+            //Debug.Log("Enemigo ha entrado");
             if(onTurretDetectEnemy != null)
             {
                 onTurretDetectEnemy(other.gameObject);
@@ -24,7 +24,7 @@ public class TurretRadius : MonoBehaviour
     {
         if (other.gameObject.tag == "enemy")
         {
-            Debug.Log("Enemigo ha salido");
+            //Debug.Log("Enemigo ha salido");
             if (onTurretLostEnemy != null)
             {
                 onTurretLostEnemy(other.gameObject);
