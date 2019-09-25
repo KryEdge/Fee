@@ -22,9 +22,7 @@ public class TurretSpawner : MonoBehaviour
         turretProperties = newTurretPreview.GetComponent<Turret>();
         turretMaterial = newTurretPreview.GetComponent<MeshRenderer>();
         turretProperties.isPreview = true;
-        //turretProperties.canBePlaced = true;
         newTurretPreview.GetComponent<BoxCollider>().isTrigger = true;
-        //newTurretPreview.SetActive(true);
         turretProperties.turretRadius.gameObject.GetComponent<BoxCollider>().enabled = false;
         newTurretPreview.SetActive(false);
 

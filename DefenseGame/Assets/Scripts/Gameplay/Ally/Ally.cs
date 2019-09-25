@@ -10,6 +10,8 @@ public class Ally : MonoBehaviour
     public Color dangerColor;
 
     [Header("Assign References")]
+    //public FlockManager fm;
+    
     public AllyRadius radius;
     public AllyRadius radius2;
     public AllyRadius findEnemyRadius;
@@ -17,6 +19,7 @@ public class Ally : MonoBehaviour
     public GameObject foundEnemy;
 
     [Header("Checking Variables")]
+    public Flock flock;
     public List<GameObject> waypointsFound;
     public GameObject selectedWaypoint;
     public bool hasReachedWaypoint;
@@ -36,6 +39,7 @@ public class Ally : MonoBehaviour
 
     private void Start()
     {
+        flock = GetComponent<Flock>();
         cf = GetComponent<ConstantForce>();
         gm = GameManager.Get();
         rig = GetComponent<Rigidbody>();
@@ -51,6 +55,8 @@ public class Ally : MonoBehaviour
         hasSelectedWaypoint = true;
         cf.enabled = false;
         originalSpeed = speed;
+
+        FlockManager.goalPosition = gm.playerWaypoints[0].transform.position;
 
         waypointsFound.Add(gm.playerWaypoints[0]);
         SwitchRadiusOff(radius.gameObject);
@@ -75,7 +81,7 @@ public class Ally : MonoBehaviour
 
             if(distanceFromEnemy >= 15.0f)
             {
-                speed = originalSpeed;
+                flock.finalSpeed = flock.originalFinalSpeed;
                 SuccessfullEscape();
             }
         }
@@ -130,8 +136,8 @@ public class Ally : MonoBehaviour
 
         if (hasSelectedWaypoint)
         {
-            Vector3 direction = (selectedWaypoint.transform.position - transform.position).normalized;
-            rig.MovePosition(rig.position + direction * speed * Time.deltaTime);
+            //Vector3 direction = (selectedWaypoint.transform.position - transform.position).normalized;
+            //rig.MovePosition(rig.position + direction * speed * Time.deltaTime);
         }
         else
         {
@@ -211,6 +217,8 @@ public class Ally : MonoBehaviour
         {
             ////("Found waypoint!!!");
             selectedWaypoint = waypointsFound[Random.Range(0, waypointsFound.Count)];
+            FlockManager.goalPosition = selectedWaypoint.transform.position;
+            flock.ApplyRules();
             waypointsFound.Clear();
             return true;
         }
@@ -234,7 +242,8 @@ public class Ally : MonoBehaviour
     {
         ////("Escaping from ENEMY");
         foundEnemy = enemy;
-        speed = originalSpeed * 2.0f;
+        //speed = originalSpeed * 2.0f;
+        flock.finalSpeed = flock.originalFinalSpeed * 2.0f;
         hasSelectedWaypoint = false;
         hasReachedWaypoint = true;
         torque.enabled = false;
@@ -250,7 +259,8 @@ public class Ally : MonoBehaviour
     private void SuccessfullEscape()
     {
         //("SUCCESSFULL ESCAPE");
-        speed = originalSpeed;
+        //speed = originalSpeed;
+        flock.finalSpeed = flock.originalFinalSpeed;
         foundEnemy = null;
         SwitchRadiusOff(findEnemyRadius.gameObject);
         SwitchRadiusOn(findEnemyRadius.gameObject);
