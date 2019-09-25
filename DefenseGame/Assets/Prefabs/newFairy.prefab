@@ -159,9 +159,7 @@ GameObject:
   - component: {fileID: 3287007890055980364}
   - component: {fileID: 3287007890055980367}
   - component: {fileID: 3287007890055980366}
-  - component: {fileID: 3287007890055980355}
   - component: {fileID: 3287007890055980352}
-  - component: {fileID: 3287007890055980353}
   - component: {fileID: 3287007890055980358}
   - component: {fileID: 3287007890055980361}
   - component: {fileID: -3901742579763415570}
@@ -267,21 +265,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &3287007890055980355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3287007890055980360}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23be9b4b07cf7a041b6643cd636ca0fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: 0
-  target: {fileID: 3287007890055980354}
-  force: 0.05
 --- !u!114 &3287007890055980352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,18 +281,6 @@ MonoBehaviour:
   useAlternativeGravity: 0
   isBuilding: 0
   newGravity: 0
---- !u!75 &3287007890055980353
-ConstantForce:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3287007890055980360}
-  m_Enabled: 0
-  m_Force: {x: 0, y: 0, z: 0}
-  m_RelativeForce: {x: 0, y: 0, z: 0}
-  m_Torque: {x: 0, y: 30, z: 0}
-  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!114 &3287007890055980358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,6 +342,8 @@ MonoBehaviour:
   maxSpeed: 7
   minSpeed: 6
   rotationSpeed: 8
+  originalFinalSpeed: 0
+  finalSpeed: 0
 --- !u!1 &3287007890628850855
 GameObject:
   m_ObjectHideFlags: 0

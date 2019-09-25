@@ -30,8 +30,8 @@ public class Ally : MonoBehaviour
 
     //Private
     private Rigidbody rig;
-    private ConstantForce cf;
-    private TorqueLookRotation torque;
+    //private ConstantForce cf;
+    //private TorqueLookRotation //torque;
     private GameManager gm;
     private Vector3 destination;
     private float distanceToStop;
@@ -40,20 +40,20 @@ public class Ally : MonoBehaviour
     private void Start()
     {
         flock = GetComponent<Flock>();
-        cf = GetComponent<ConstantForce>();
+        //cf = GetComponent<ConstantForce>();
         gm = GameManager.Get();
         rig = GetComponent<Rigidbody>();
-        torque = GetComponent<TorqueLookRotation>();
+        //torque = GetComponent<TorqueLookRotation>();
         outline = GetComponent<Outline>();
 
         radius.OnRadiusFindWaypoint += AddFoundWaypoint;
         radius2.OnRadiusFindWaypoint += AddFoundWaypoint;
         findEnemyRadius.OnRadiusFindEnemy += Escape;
         //radius2.OnRadiusFindEnemy += Escape;
-        torque.target = gm.playerWaypoints[0].transform;
+        ////torque.target = gm.playerWaypoints[0].transform;
         selectedWaypoint = gm.playerWaypoints[0];
         hasSelectedWaypoint = true;
-        cf.enabled = false;
+        //cf.enabled = false;
         originalSpeed = speed;
 
         FlockManager.goalPosition = gm.playerWaypoints[0].transform.position;
@@ -110,19 +110,19 @@ public class Ally : MonoBehaviour
                     if (CheckForRandomWaypoint())
                     {
                         ////("parte 0.5");
-                        cf.enabled = false;
-                        torque.enabled = true;
+                        //cf.enabled = false;
+                        //torque.enabled = true;
                         SwitchRadiusOff(radius.gameObject);
                         SwitchRadiusOff(radius2.gameObject);
-                        torque.target = selectedWaypoint.transform;
+                        //torque.target = selectedWaypoint.transform;
                         hasSelectedWaypoint = true;
                         doOnce = false;
                     }
                     else
                     {
                         ////("parte 1");
-                        torque.enabled = false;
-                        cf.enabled = true;
+                        //torque.enabled = false;
+                        //cf.enabled = true;
                         hasSelectedWaypoint = false;
                         SwitchRadiusOff(radius.gameObject);
                         SwitchRadiusOff(radius2.gameObject);
@@ -141,7 +141,7 @@ public class Ally : MonoBehaviour
         }
         else
         {
-            //cf.torque = new Vector3(0, 0.8f, 0);
+            ////cf.//torque = new Vector3(0, 0.8f, 0);
             if(randomDirection == 0)
             {
                 transform.Rotate(new Vector3(0, 0.8f, 0));
@@ -184,11 +184,11 @@ public class Ally : MonoBehaviour
 
                     if (CheckForRandomWaypoint())
                     {
-                        cf.enabled = false;
-                        torque.enabled = true;
+                        //cf.enabled = false;
+                        //torque.enabled = true;
                         SwitchRadiusOff(radius.gameObject);
                         SwitchRadiusOff(radius2.gameObject);
-                        torque.target = selectedWaypoint.transform;
+                        //torque.target = selectedWaypoint.transform;
                         hasSelectedWaypoint = true;
                         doOnce = false;
                         doOnce2 = false;
@@ -197,8 +197,8 @@ public class Ally : MonoBehaviour
                     else
                     {
                         ////("parte 2");
-                        torque.enabled = false;
-                        cf.enabled = true;
+                        //torque.enabled = false;
+                        //cf.enabled = true;
                         hasSelectedWaypoint = false;
                         SwitchRadiusOff(radius.gameObject);
                         SwitchRadiusOff(radius2.gameObject);
@@ -246,8 +246,8 @@ public class Ally : MonoBehaviour
         flock.finalSpeed = flock.originalFinalSpeed * 2.0f;
         hasSelectedWaypoint = false;
         hasReachedWaypoint = true;
-        torque.enabled = false;
-        cf.enabled = true;
+        //torque.enabled = false;
+        //cf.enabled = true;
         hasSelectedWaypoint = false;
         SwitchRadiusOff(radius.gameObject);
         SwitchRadiusOff(radius2.gameObject);
@@ -267,8 +267,8 @@ public class Ally : MonoBehaviour
         if(hasReachedWaypoint)
         {
             hasSelectedWaypoint = false;
-            torque.enabled = false;
-            cf.enabled = true;
+            //torque.enabled = false;
+            //cf.enabled = true;
             SwitchRadiusOff(radius.gameObject);
             SwitchRadiusOff(radius2.gameObject);
             SwitchRadiusOn(radius.gameObject);

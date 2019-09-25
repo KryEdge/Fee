@@ -303,4 +303,12 @@ public class Enemy : MonoBehaviour
         exitRadius.OnRadiusLostAlly -= LostAlly;
         //radius2.OnRadiusLostAlly -= LostAlly;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "proyectile")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
