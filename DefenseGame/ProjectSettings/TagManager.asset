@@ -17,6 +17,7 @@ TagManager:
   - npc
   - road
   - turretZone
+  - turret
   layers:
   - Default
   - TransparentFX
@@ -41,7 +42,7 @@ TagManager:
   - proyectile
   - turret
   - road
-  - 
+  - deleteTurret
   - 
   - 
   - 

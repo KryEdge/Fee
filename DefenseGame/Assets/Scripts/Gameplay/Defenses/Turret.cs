@@ -8,10 +8,13 @@ public class Turret : MonoBehaviour
     public GameObject proyectileTemplate;
     public float fireRate;
     public float lifespan;
+    public float exitDistance;
+    public float distance = 0;
     public bool canShoot;
     public bool isPreview;
     public bool canBePlaced;
 
+    private Outline outline;
     private GameObject currentTarget;
     private float lifespanTimer;
     private float fireRateTimer;
@@ -22,6 +25,7 @@ public class Turret : MonoBehaviour
     void Start()
     {
         //turretRadius = transform.GetChild(0).gameObject.GetComponent<TurretRadius>();
+        outline = GetComponent<Outline>();
         proyectile = proyectileTemplate.GetComponent<Proyectile>();
         proyectile.speed = bulletSpeed;
         turretRadius.onTurretDetectEnemy = SetTarget;
@@ -34,6 +38,20 @@ public class Turret : MonoBehaviour
     {
         if(!isPreview)
         {
+            if(currentTarget)
+            {
+                distance = Vector3.Distance(transform.position, currentTarget.transform.position);
+            }
+            else
+            {
+                distance = exitDistance;
+            }
+
+            if(distance >= exitDistance)
+            {
+                outline.OutlineColor = Color.white;
+            }
+
             lifespanTimer += Time.deltaTime;
 
             if (lifespanTimer >= lifespan)
@@ -62,6 +80,7 @@ public class Turret : MonoBehaviour
     {
         if (!isPreview)
         {
+            outline.OutlineColor = Color.red;
             currentTarget = newTarget;
         }
             //Debug.Log("Seteando Target");

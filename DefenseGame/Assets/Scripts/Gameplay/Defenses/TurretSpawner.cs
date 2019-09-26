@@ -5,6 +5,7 @@ using UnityEngine;
 public class TurretSpawner : MonoBehaviour
 {
     public LayerMask Mask;
+    public LayerMask deleteTurretMask;
     public GameObject turretTemplate;
     public bool preview;
     public int maxTurrets;
@@ -40,7 +41,12 @@ public class TurretSpawner : MonoBehaviour
             } 
         }
 
-        if(Input.GetKeyDown(KeyCode.Alpha0))
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            DeleteTurret();
+        }        
+
+        if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             newTurretPreview.SetActive(!newTurretPreview.activeSelf);
             preview = !preview;
@@ -70,9 +76,22 @@ public class TurretSpawner : MonoBehaviour
                 }
                 
             }
+        }
+    }
 
-            /*if (hit.transform.gameObject.tag == "turret")
+    private void DeleteTurret()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        
+        if (Physics.Raycast(ray.origin, ray.direction, out hit, 999, deleteTurretMask))
+        {
+            
+            if (hit.transform.gameObject.tag == "turret")
             {
+                Debug.Log("encontre");
+
                 GameObject turretToDelete = null;
 
                 foreach (GameObject turret in spawnedTurrets)
@@ -85,10 +104,19 @@ public class TurretSpawner : MonoBehaviour
                 
                 if(turretToDelete)
                 {
+                    Debug.Log("borranding");
                     spawnedTurrets.Remove(turretToDelete);
+                    Destroy(turretToDelete);
                 }
                 
-            }*/
+            }
+
+            Debug.DrawRay(ray.origin, ray.direction * hit.distance, Color.green);
+        }
+        else
+        {
+            Debug.Log("buscando torreta");
+            Debug.DrawRay(ray.origin, ray.direction * 999, Color.white);
         }
     }
 
@@ -99,10 +127,17 @@ public class TurretSpawner : MonoBehaviour
 
         if (Physics.Raycast(ray.origin, ray.direction, out hit, 999, Mask))
         {
+            //newTurretPreview.SetActive(true);
+
             if (hit.transform.gameObject.tag != "turret")
             {
-                newTurretPreview.transform.position = hit.point + (hit.normal * 5);
+                newTurretPreview.transform.position = hit.point + (hit.normal * 6.9f);
             }
+        }
+        else
+        {
+            newTurretPreview.transform.position = ray.origin * -3;
+            //newTurretPreview.SetActive(false);
         }
 
         if (turretProperties.canBePlaced)

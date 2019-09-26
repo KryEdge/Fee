@@ -6775,6 +6775,9 @@ MonoBehaviour:
   Mask:
     serializedVersion: 2
     m_Bits: 65536
+  deleteTurretMask:
+    serializedVersion: 2
+    m_Bits: 2097152
   turretTemplate: {fileID: 1302466421}
   preview: 0
   maxTurrets: 3
@@ -12787,6 +12790,11 @@ PrefabInstance:
       propertyPath: proyectileTemplate
       value: 
       objectReference: {fileID: 2011293474}
+    - target: {fileID: 4721122270732423177, guid: 7883692b4be6fcf4e92aa472921682e9,
+        type: 3}
+      propertyPath: exitDistance
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 4721122270732423172, guid: 7883692b4be6fcf4e92aa472921682e9,
         type: 3}
       propertyPath: attractor
