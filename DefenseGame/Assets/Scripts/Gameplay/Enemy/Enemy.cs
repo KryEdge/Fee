@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        // DELETE EXIT RADIUS AND REPLACE IT TO VECTOR3 DISTANCE.
         cf = GetComponent<ConstantForce>();
         gm = GameManager.Get();
         rig = GetComponent<Rigidbody>();
@@ -46,7 +47,6 @@ public class Enemy : MonoBehaviour
         radius.OnRadiusFindAlly += AddFoundAlly;
         radius2.OnRadiusFindAlly += AddFoundAlly;
         exitRadius.OnRadiusLostAlly += LostAlly;
-        //radius2.OnRadiusLostAlly += LostAlly;
         torque.target = gm.playerWaypoints[initialTarget].transform;
         selectedWaypoint = gm.playerWaypoints[initialTarget];
         hasSelectedWaypoint = true;
@@ -68,8 +68,7 @@ public class Enemy : MonoBehaviour
             distance = Vector3.Distance(selectedWaypoint.transform.position, transform.position);
 
         }
-        //float distance = Vector3.Distance(selectedWaypoint.transform.position, transform.position);
-        //float distanceAlly = 90.0f;
+
         if (target)
         {
             distanceAlly = Vector3.Distance(target.transform.position, transform.position);
@@ -89,7 +88,6 @@ public class Enemy : MonoBehaviour
             {
                 if (!doOnce)
                 {
-                    //("parte 0");
                     hasReachedWaypoint = true;
                     SwitchRadiusOn(radius.gameObject);
                     SwitchRadiusOn(radius2.gameObject);
@@ -108,7 +106,6 @@ public class Enemy : MonoBehaviour
                 {
                     if (CheckForRandomWaypoint())
                     {
-                        //("parte 0.5");
                         cf.enabled = false;
                         torque.enabled = true;
                         SwitchRadiusOff(radius.gameObject);
@@ -119,7 +116,6 @@ public class Enemy : MonoBehaviour
                     }
                     else
                     {
-                        //("parte 1");
                         torque.enabled = false;
                         cf.enabled = true;
                         hasSelectedWaypoint = false;
@@ -159,7 +155,6 @@ public class Enemy : MonoBehaviour
         {
             if(!allyOnSight)
             {
-                //("Enemy is rotating!!");
                 cf.torque = new Vector3(0, 0.8f, 0);
             }
         }
@@ -170,8 +165,6 @@ public class Enemy : MonoBehaviour
     {
         if(!allyOnSight)
         {
-            //("Initiate Finding waypoints");
-            //("Waypoint name : " + newWaypoint.name);
             bool isTheSameWaypoint = false;
 
             if (hasReachedWaypoint)
@@ -193,8 +186,6 @@ public class Enemy : MonoBehaviour
 
                     if (!hasSelectedWaypoint)
                     {
-                        //("messi");
-
                         if (CheckForRandomWaypoint())
                         {
                             cf.enabled = false;
@@ -204,11 +195,9 @@ public class Enemy : MonoBehaviour
                             torque.target = selectedWaypoint.transform;
                             hasSelectedWaypoint = true;
                             doOnce = false;
-                            //("parte 1 EX");
                         }
                         else
                         {
-                            //("parte 2");
                             torque.enabled = false;
                             cf.enabled = true;
                             hasSelectedWaypoint = false;
@@ -224,13 +213,11 @@ public class Enemy : MonoBehaviour
 
     private void AddFoundAlly(GameObject ally)
     {
-        //("Found ALLY !!!");
         allyOnSight = true;
         target = ally;
         Ally foundAlly = ally.GetComponent<Ally>();
         selectedWaypoint = foundAlly.selectedWaypoint;
         targetOffset = foundAlly.offset;
-        //torque.target = selectedWaypoint.transform;
         cf.enabled = false;
         torque.enabled = true;
         SwitchRadiusOff(radius.gameObject);
@@ -246,14 +233,11 @@ public class Enemy : MonoBehaviour
 
     private void LostAlly(GameObject ally)
     {
-        //("Enemy Escaped");
         allyOnSight = false;
-        //Ally foundAlly = ally.GetComponent<Ally>();
         waypointsFound.Clear();
         hasSelectedWaypoint = false;
         hasReachedWaypoint = true;
         selectedWaypoint = null;
-        //("parte V2");
         torque.enabled = false;
         cf.enabled = true;
         hasSelectedWaypoint = false;
@@ -272,7 +256,6 @@ public class Enemy : MonoBehaviour
         {
             if (waypointsFound.Count != 0)
             {
-                //("Found waypoint!!!");
                 selectedWaypoint = waypointsFound[Random.Range(0, waypointsFound.Count)];
                 waypointsFound.Clear();
                 return true;
@@ -284,13 +267,11 @@ public class Enemy : MonoBehaviour
 
     private void SwitchRadiusOn(GameObject target)
     {
-        //("Switching On");
         target.gameObject.SetActive(true);
     }
 
     private void SwitchRadiusOff(GameObject target)
     {
-        //("Switching Off");
         target.gameObject.SetActive(false);
     }
 
@@ -301,7 +282,6 @@ public class Enemy : MonoBehaviour
         radius.OnRadiusFindAlly -= AddFoundAlly;
         radius2.OnRadiusFindAlly -= AddFoundAlly;
         exitRadius.OnRadiusLostAlly -= LostAlly;
-        //radius2.OnRadiusLostAlly -= LostAlly;
     }
 
     private void OnCollisionEnter(Collision collision)
