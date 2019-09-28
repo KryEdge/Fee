@@ -23,7 +23,8 @@ public class Enemy : MonoBehaviour
     [Header("Assign References")]
     public EnemyRadius radius;
     public EnemyRadius radius2;
-    public EnemyRadius exitRadius;
+    public EnemyRadius followAllyRadius;
+    //public EnemyRadius exitRadius;
 
     [Header("Checking Variables")]
     public GameObject target;
@@ -47,7 +48,6 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        // DELETE EXIT RADIUS AND REPLACE IT TO VECTOR3 DISTANCE.
         cf = GetComponent<ConstantForce>();
         gm = GameManager.Get();
         rig = GetComponent<Rigidbody>();
@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
         radius2.OnRadiusFindWaypoint += AddFoundWaypoint;
         radius.OnRadiusFindAlly += AddFoundAlly;
         radius2.OnRadiusFindAlly += AddFoundAlly;
-        exitRadius.OnRadiusLostAlly += LostAlly;
+
         torque.target = gm.playerWaypoints[initialTarget].transform;
         selectedWaypoint = gm.playerWaypoints[initialTarget];
         hasSelectedWaypoint = true;
@@ -186,9 +186,21 @@ public class Enemy : MonoBehaviour
             }
             else
             {
-                Vector3 direction = (selectedWaypoint.transform.position - transform.position).normalized;
-                rig.MovePosition(rig.position + direction * speed * Time.deltaTime);
+                if(hasSelectedWaypoint)
+                {
+                    Vector3 direction = (selectedWaypoint.transform.position - transform.position).normalized;
+                    rig.MovePosition(rig.position + direction * speed * Time.deltaTime);
+                }
+                else
+                {
+                    currentState = enemyStates.search;
+                }
+                
             }
+        }
+        else
+        {
+            currentState = enemyStates.search;
         }
     }
 
@@ -258,9 +270,12 @@ public class Enemy : MonoBehaviour
         hasSelectedWaypoint = true;
         doOnce = false;
         waypointsFound.Clear();
-        SwitchRadiusOff(exitRadius.gameObject);
-        SwitchRadiusOn(exitRadius.gameObject);
-        speed = speed * 1.5f;
+
+        if(speed < originalSpeed * 1.5f)
+        {
+            speed = speed * 1.5f;
+        }
+        
         currentState = enemyStates.follow;
     }
 
@@ -278,8 +293,6 @@ public class Enemy : MonoBehaviour
         SwitchRadiusOff(radius.gameObject);
         SwitchRadiusOff(radius2.gameObject);
         SwitchRadiusOn(radius.gameObject);
-        SwitchRadiusOff(exitRadius.gameObject);
-        SwitchRadiusOn(exitRadius.gameObject);
         speed = originalSpeed;
         currentState = enemyStates.walk;
     }
@@ -316,7 +329,7 @@ public class Enemy : MonoBehaviour
         radius2.OnRadiusFindWaypoint -= AddFoundWaypoint;
         radius.OnRadiusFindAlly -= AddFoundAlly;
         radius2.OnRadiusFindAlly -= AddFoundAlly;
-        exitRadius.OnRadiusLostAlly -= LostAlly;
+        followAllyRadius.OnRadiusFindAlly -= AddFoundAlly;
     }
 
     private void OnCollisionEnter(Collision collision)

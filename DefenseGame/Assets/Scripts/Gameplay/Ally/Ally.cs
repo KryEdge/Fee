@@ -45,6 +45,7 @@ public class Ally : MonoBehaviour
     private Vector3 destination;
     private float distanceToStop;
     private Outline outline;
+    private TorqueLookRotation torque;
 
     private void Start()
     {
@@ -52,14 +53,16 @@ public class Ally : MonoBehaviour
         gm = GameManager.Get();
         rig = GetComponent<Rigidbody>();
         outline = GetComponent<Outline>();
+        torque = GetComponent<TorqueLookRotation>();
 
         radius.OnRadiusFindWaypoint += AddFoundWaypoint;
         radius2.OnRadiusFindWaypoint += AddFoundWaypoint;
-        findEnemyRadius.OnRadiusFindEnemy += Escape;
+        findEnemyRadius.OnRadiusFindEnemy += SeeEnemy;
         selectedWaypoint = gm.playerWaypoints[0];
         hasSelectedWaypoint = true;
         originalSpeed = speed;
         currentState = initialState;
+        torque.target = gm.playerWaypoints[0].transform;
 
         FlockManager.goalPosition = gm.playerWaypoints[0].transform.position;
 
@@ -96,7 +99,7 @@ public class Ally : MonoBehaviour
 
         if (foundEnemy)
         {
-            currentState = allyStates.search;
+            currentState = allyStates.escape;
         }
 
         if (distance <= 2.0f)
@@ -114,19 +117,22 @@ public class Ally : MonoBehaviour
             }
         }
 
-        if (distance <= 1.0f)
+        if (distance <= 1.3f)
         {
             if (!doOnce2)
             {
                 if (CheckForRandomWaypoint())
                 {
+                    torque.enabled = true;
                     SwitchRadiusOff(radius.gameObject);
                     SwitchRadiusOff(radius2.gameObject);
+                    torque.target = selectedWaypoint.transform;
                     hasSelectedWaypoint = true;
                     doOnce = false;
                 }
                 else
                 {
+                    torque.enabled = false;
                     hasSelectedWaypoint = false;
                     SwitchRadiusOff(radius.gameObject);
                     SwitchRadiusOff(radius2.gameObject);
@@ -138,6 +144,9 @@ public class Ally : MonoBehaviour
                 doOnce2 = true;
             }
         }
+
+        Vector3 direction = (selectedWaypoint.transform.position - transform.position).normalized;
+        rig.MovePosition(rig.position + direction * speed * Time.deltaTime);
     }
 
     private void Search()
@@ -157,18 +166,21 @@ public class Ally : MonoBehaviour
         float distance = Vector3.Distance(selectedWaypoint.transform.position, transform.position);
         float distanceFromEnemy = 90.0f;
 
-        distanceFromEnemy = Vector3.Distance(foundEnemy.transform.position, transform.position);
-
+        if(foundEnemy)
+        {
+            distanceFromEnemy = Vector3.Distance(foundEnemy.transform.position, transform.position);
+        }
+        
+        //
         if (distanceFromEnemy >= 15.0f)
         {
             flock.finalSpeed = flock.originalFinalSpeed;
+            speed = originalSpeed;
             SuccessfullEscape();
         }
 
         if (distance <= 2.0f)
         {
-            if (!foundEnemy)
-            {
                 if (!doOnce)
                 {
                     hasReachedWaypoint = true;
@@ -177,22 +189,24 @@ public class Ally : MonoBehaviour
                     doOnce2 = false;
                     doOnce = true;
                 }
-            }
         }
 
-        if (distance <= 1.0f)
+        if (distance <= 1.3f)
         {
             if (!doOnce2)
             {
                 if (CheckForRandomWaypoint())
                 {
+                    torque.enabled = true;
                     SwitchRadiusOff(radius.gameObject);
                     SwitchRadiusOff(radius2.gameObject);
                     hasSelectedWaypoint = true;
+                    torque.target = selectedWaypoint.transform;
                     doOnce = false;
                 }
                 else
                 {
+                    torque.enabled = false;
                     hasSelectedWaypoint = false;
                     SwitchRadiusOff(radius.gameObject);
                     SwitchRadiusOff(radius2.gameObject);
@@ -204,6 +218,9 @@ public class Ally : MonoBehaviour
                 doOnce2 = true;
             }
         }
+
+        Vector3 direction = (selectedWaypoint.transform.position - transform.position).normalized;
+        rig.MovePosition(rig.position + direction * speed * Time.deltaTime);
     }
 
     private void AddFoundWaypoint(GameObject newWaypoint)
@@ -231,14 +248,17 @@ public class Ally : MonoBehaviour
                 {
                     if (CheckForRandomWaypoint())
                     {
+                        torque.enabled = true;
                         SwitchRadiusOff(radius.gameObject);
                         SwitchRadiusOff(radius2.gameObject);
+                        torque.target = selectedWaypoint.transform;
                         hasSelectedWaypoint = true;
                         doOnce = false;
                         doOnce2 = false;
                     }
                     else
                     {
+                        torque.enabled = false;
                         hasSelectedWaypoint = false;
                         SwitchRadiusOff(radius.gameObject);
                         SwitchRadiusOff(radius2.gameObject);
@@ -266,7 +286,7 @@ public class Ally : MonoBehaviour
         {
             selectedWaypoint = waypointsFound[Random.Range(0, waypointsFound.Count)];
             FlockManager.goalPosition = selectedWaypoint.transform.position;
-            flock.ApplyRules();
+           // flock.ApplyRules();
             waypointsFound.Clear();
             currentState = allyStates.walk;
             return true;
@@ -285,10 +305,11 @@ public class Ally : MonoBehaviour
         target.gameObject.SetActive(false);
     }
 
-    private void Escape(GameObject enemy)
+    private void SeeEnemy(GameObject enemy)
     {
         foundEnemy = enemy;
         flock.finalSpeed = flock.originalFinalSpeed * 2.0f;
+        speed = originalSpeed * 2;
         hasSelectedWaypoint = false;
         hasReachedWaypoint = true;
         hasSelectedWaypoint = false;
@@ -302,6 +323,7 @@ public class Ally : MonoBehaviour
     private void SuccessfullEscape()
     {
         flock.finalSpeed = flock.originalFinalSpeed;
+        speed = originalSpeed;
         foundEnemy = null;
         SwitchRadiusOff(findEnemyRadius.gameObject);
         SwitchRadiusOn(findEnemyRadius.gameObject);
@@ -315,6 +337,7 @@ public class Ally : MonoBehaviour
         }
         else
         {
+            torque.enabled = false;
             currentState = allyStates.search;
         }
         doOnce2 = false;
@@ -325,6 +348,6 @@ public class Ally : MonoBehaviour
     {
         radius.OnRadiusFindWaypoint -= AddFoundWaypoint;
         radius2.OnRadiusFindWaypoint -= AddFoundWaypoint;
-        findEnemyRadius.OnRadiusFindEnemy -= Escape;
+        findEnemyRadius.OnRadiusFindEnemy -= SeeEnemy;
     }
 }
