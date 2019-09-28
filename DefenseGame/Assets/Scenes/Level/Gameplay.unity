@@ -2556,6 +2556,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemigo (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6866682756119539305, guid: f1d471a509838b64c9cf14808821d6d8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7570553504156671098, guid: f1d471a509838b64c9cf14808821d6d8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3163,6 +3168,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemigo (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6866682756119539305, guid: f1d471a509838b64c9cf14808821d6d8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7570553504156671098, guid: f1d471a509838b64c9cf14808821d6d8,
         type: 3}
@@ -12705,6 +12715,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.6193815
+      objectReference: {fileID: 0}
+    - target: {fileID: 3200571161939375980, guid: f1d471a509838b64c9cf14808821d6d8,
+        type: 3}
+      propertyPath: initialState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3200571161939375978, guid: f1d471a509838b64c9cf14808821d6d8,
         type: 3}

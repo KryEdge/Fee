@@ -6,7 +6,7 @@ public class FlockManager : MonoBehaviour
 {
     public FauxGravityAttractor planet;
     public GameObject prefab;
-    public static int prefabAmount = 6;
+    public static int prefabAmount = 5;
     public static GameObject[] allPrefabs = new GameObject[prefabAmount];
 
     public int groupSize = 3;

@@ -85,8 +85,6 @@ public class Ally : MonoBehaviour
             case allyStates.escape:
                 Escape();
                 break;
-            case allyStates.allStates:
-                break;
             default:
                 break;
         }
@@ -156,6 +154,7 @@ public class Ally : MonoBehaviour
 
     private void Escape()
     {
+        float distance = Vector3.Distance(selectedWaypoint.transform.position, transform.position);
         float distanceFromEnemy = 90.0f;
 
         distanceFromEnemy = Vector3.Distance(foundEnemy.transform.position, transform.position);
@@ -164,6 +163,46 @@ public class Ally : MonoBehaviour
         {
             flock.finalSpeed = flock.originalFinalSpeed;
             SuccessfullEscape();
+        }
+
+        if (distance <= 2.0f)
+        {
+            if (!foundEnemy)
+            {
+                if (!doOnce)
+                {
+                    hasReachedWaypoint = true;
+                    SwitchRadiusOn(radius.gameObject);
+                    SwitchRadiusOn(radius2.gameObject);
+                    doOnce2 = false;
+                    doOnce = true;
+                }
+            }
+        }
+
+        if (distance <= 1.0f)
+        {
+            if (!doOnce2)
+            {
+                if (CheckForRandomWaypoint())
+                {
+                    SwitchRadiusOff(radius.gameObject);
+                    SwitchRadiusOff(radius2.gameObject);
+                    hasSelectedWaypoint = true;
+                    doOnce = false;
+                }
+                else
+                {
+                    hasSelectedWaypoint = false;
+                    SwitchRadiusOff(radius.gameObject);
+                    SwitchRadiusOff(radius2.gameObject);
+                    SwitchRadiusOn(radius.gameObject);
+                    randomDirection = Random.Range(0, 2);
+                    currentState = allyStates.search;
+                }
+
+                doOnce2 = true;
+            }
         }
     }
 

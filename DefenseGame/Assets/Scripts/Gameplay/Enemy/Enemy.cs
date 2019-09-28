@@ -4,7 +4,18 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public enum enemyStates
+    {
+        idle,
+        search,
+        walk,
+        follow,
+        allStates
+    }
+
     [Header("Enemy Settings")]
+    public enemyStates initialState;
+    public enemyStates currentState;
     public float speed;
     public float originalSpeed;
     public int initialTarget;
@@ -52,35 +63,49 @@ public class Enemy : MonoBehaviour
         hasSelectedWaypoint = true;
         cf.enabled = false;
         originalSpeed = speed;
+        currentState = initialState;
 
         waypointsFound.Add(gm.playerWaypoints[initialTarget]);
         SwitchRadiusOff(radius.gameObject);
         SwitchRadiusOff(radius2.gameObject);
     }
 
-
     // Update is called once per frame
     private void Update()
+    {
+        switch (currentState)
+        {
+            case enemyStates.idle:
+                break;
+            case enemyStates.search:
+                Search();
+                break;
+            case enemyStates.walk:
+                Walk();
+                break;
+            case enemyStates.follow:
+                Follow();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void Search()
+    {
+        if (!allyOnSight)
+        {
+            cf.torque = new Vector3(0, 0.8f, 0);
+        }
+    }
+
+    private void Walk()
     {
         float distance = 90.0f;
         if (selectedWaypoint)
         {
             distance = Vector3.Distance(selectedWaypoint.transform.position, transform.position);
-
         }
-
-        if (target)
-        {
-            distanceAlly = Vector3.Distance(target.transform.position, transform.position);
-
-            if (distanceAlly >= 15.0f)
-            {
-                LostAlly(target);
-            }
-        }
-
-        
-        
 
         if (distance <= 2.0f)
         {
@@ -95,12 +120,12 @@ public class Enemy : MonoBehaviour
                     doOnce = true;
                 }
             }
-            
+
         }
 
         if (distance <= 1.0f)
         {
-            if(!allyOnSight)
+            if (!allyOnSight)
             {
                 if (!doOnce2)
                 {
@@ -122,6 +147,7 @@ public class Enemy : MonoBehaviour
                         SwitchRadiusOff(radius.gameObject);
                         SwitchRadiusOff(radius2.gameObject);
                         SwitchRadiusOn(radius.gameObject);
+                        currentState = enemyStates.search;
                     }
 
                     doOnce2 = true;
@@ -131,34 +157,39 @@ public class Enemy : MonoBehaviour
 
         if (hasSelectedWaypoint)
         {
-            if (allyOnSight)
+            if(!allyOnSight)
             {
-                if(distanceAlly <= 3.0f)
-                {
-                    Vector3 direction = (targetOffset.transform.position - transform.position).normalized;
-                    rig.MovePosition(rig.position + direction * speed * Time.deltaTime);
-                }
-                else
-                {
-                    Vector3 direction = (selectedWaypoint.transform.position - transform.position).normalized;
-                    rig.MovePosition(rig.position + direction * speed * Time.deltaTime);
-                }
+                Vector3 direction = (selectedWaypoint.transform.position - transform.position).normalized;
+                rig.MovePosition(rig.position + direction * speed * Time.deltaTime);
+            }
+        }
+    }
+
+    private void Follow()
+    {
+        if (target)
+        {
+            distanceAlly = Vector3.Distance(target.transform.position, transform.position);
+
+            if (distanceAlly >= 15.0f)
+            {
+                LostAlly(target);
+            }
+        }
+
+        if (allyOnSight)
+        {
+            if (distanceAlly <= 3.0f)
+            {
+                Vector3 direction = (targetOffset.transform.position - transform.position).normalized;
+                rig.MovePosition(rig.position + direction * speed * Time.deltaTime);
             }
             else
             {
                 Vector3 direction = (selectedWaypoint.transform.position - transform.position).normalized;
                 rig.MovePosition(rig.position + direction * speed * Time.deltaTime);
             }
-            
         }
-        else
-        {
-            if(!allyOnSight)
-            {
-                cf.torque = new Vector3(0, 0.8f, 0);
-            }
-        }
-
     }
 
     private void AddFoundWaypoint(GameObject newWaypoint)
@@ -204,6 +235,7 @@ public class Enemy : MonoBehaviour
                             SwitchRadiusOff(radius.gameObject);
                             SwitchRadiusOff(radius2.gameObject);
                             SwitchRadiusOn(radius.gameObject);
+                            currentState = enemyStates.search;
                         }
                     }
                 }
@@ -229,6 +261,7 @@ public class Enemy : MonoBehaviour
         SwitchRadiusOff(exitRadius.gameObject);
         SwitchRadiusOn(exitRadius.gameObject);
         speed = speed * 1.5f;
+        currentState = enemyStates.follow;
     }
 
     private void LostAlly(GameObject ally)
@@ -248,6 +281,7 @@ public class Enemy : MonoBehaviour
         SwitchRadiusOff(exitRadius.gameObject);
         SwitchRadiusOn(exitRadius.gameObject);
         speed = originalSpeed;
+        currentState = enemyStates.walk;
     }
 
     private bool CheckForRandomWaypoint()
@@ -258,6 +292,7 @@ public class Enemy : MonoBehaviour
             {
                 selectedWaypoint = waypointsFound[Random.Range(0, waypointsFound.Count)];
                 waypointsFound.Clear();
+                currentState = enemyStates.walk;
                 return true;
             }
         }
