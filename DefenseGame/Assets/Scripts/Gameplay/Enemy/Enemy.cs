@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     public enemyStates currentState;
     public float speed;
     public float originalSpeed;
-    public int initialTarget;
+    public GameObject initialTarget;
 
     [Header("Assign References")]
     public EnemyRadius radius;
@@ -58,14 +58,14 @@ public class Enemy : MonoBehaviour
         radius.OnRadiusFindAlly += AddFoundAlly;
         radius2.OnRadiusFindAlly += AddFoundAlly;
 
-        torque.target = gm.playerWaypoints[initialTarget].transform;
-        selectedWaypoint = gm.playerWaypoints[initialTarget];
+        torque.target = initialTarget.transform;
+        selectedWaypoint = initialTarget;
         hasSelectedWaypoint = true;
         cf.enabled = false;
         originalSpeed = speed;
         currentState = initialState;
 
-        waypointsFound.Add(gm.playerWaypoints[initialTarget]);
+        waypointsFound.Add(initialTarget);
         SwitchRadiusOff(radius.gameObject);
         SwitchRadiusOff(radius2.gameObject);
     }
