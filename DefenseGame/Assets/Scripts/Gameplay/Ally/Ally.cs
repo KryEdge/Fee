@@ -324,11 +324,11 @@ public class Ally : MonoBehaviour
 
     private void KillFairy(GameObject enemy)
     {
-        if(GameManager.Get().fairies.Count > 0)
+        /*if(GameManager.Get().fairies.Count > 0)
         {
             Destroy(GameManager.Get().fairies[0]);
             GameManager.Get().fairies.RemoveAt(0);
-        }
+        }*/
     }
 
     private void SuccessfullEscape()

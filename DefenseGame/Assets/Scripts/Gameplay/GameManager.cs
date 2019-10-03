@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public int baseWaypoint;
 
     public GameObject[] playerWaypoints;
-    public List<GameObject> fairies;
+    //private GameObject[] fairies;
+    //public List<GameObject> fairies;
 
 
     /*// Start is called before the first frame update

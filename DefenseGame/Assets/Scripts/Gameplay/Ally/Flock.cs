@@ -38,7 +38,7 @@ public class Flock : MonoBehaviour
     public void ApplyRules()
     {
         GameObject[] gos;
-        gos = FlockManager.allPrefabs;
+        gos = FlockManager.fairies;
 
         Vector3 vcentre = Vector3.zero;
         Vector3 vavoid = Vector3.zero;
