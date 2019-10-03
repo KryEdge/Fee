@@ -26,6 +26,7 @@ public class Ally : MonoBehaviour
     public AllyRadius radius;
     public AllyRadius radius2;
     public AllyRadius findEnemyRadius;
+    public AllyRadius enemyHurt;
     public GameObject offset;
     public GameObject foundEnemy;
 
@@ -58,6 +59,7 @@ public class Ally : MonoBehaviour
         radius.OnRadiusFindWaypoint += AddFoundWaypoint;
         radius2.OnRadiusFindWaypoint += AddFoundWaypoint;
         findEnemyRadius.OnRadiusFindEnemy += SeeEnemy;
+        enemyHurt.OnRadiusTouchEnemy += KillFairy;
         selectedWaypoint = gm.playerWaypoints[0];
         hasSelectedWaypoint = true;
         originalSpeed = speed;
@@ -320,6 +322,15 @@ public class Ally : MonoBehaviour
         outline.OutlineColor = dangerColor;
     }
 
+    private void KillFairy(GameObject enemy)
+    {
+        if(GameManager.Get().fairies.Count > 0)
+        {
+            Destroy(GameManager.Get().fairies[0]);
+            GameManager.Get().fairies.RemoveAt(0);
+        }
+    }
+
     private void SuccessfullEscape()
     {
         flock.finalSpeed = flock.originalFinalSpeed;
@@ -349,5 +360,6 @@ public class Ally : MonoBehaviour
         radius.OnRadiusFindWaypoint -= AddFoundWaypoint;
         radius2.OnRadiusFindWaypoint -= AddFoundWaypoint;
         findEnemyRadius.OnRadiusFindEnemy -= SeeEnemy;
+        enemyHurt.OnRadiusTouchEnemy -= KillFairy;
     }
 }

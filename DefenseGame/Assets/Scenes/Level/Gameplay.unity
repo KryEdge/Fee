@@ -120,6 +120,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &72236568 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 419503674608866354, guid: 624e104c361d2ab4796177ab6cd932dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 419503675390170002}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &98568880
 GameObject:
   m_ObjectHideFlags: 0
@@ -2028,6 +2034,12 @@ Transform:
   m_Father: {fileID: 1356289097}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &301123477 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 419503675855034440, guid: 624e104c361d2ab4796177ab6cd932dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 419503675390170002}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &306854692
 GameObject:
   m_ObjectHideFlags: 0
@@ -2441,6 +2453,12 @@ Transform:
   m_Father: {fileID: 1356289097}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &444732026 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 419503674537287250, guid: 624e104c361d2ab4796177ab6cd932dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 419503675390170002}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &470078371
 GameObject:
   m_ObjectHideFlags: 0
@@ -4727,6 +4745,12 @@ Transform:
   m_Father: {fileID: 375527609}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1002831121 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 419503675636021879, guid: 624e104c361d2ab4796177ab6cd932dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 419503675390170002}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1042695609
 GameObject:
   m_ObjectHideFlags: 0
@@ -7178,6 +7202,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 93169aa1882b0cf45968b5677bdcabed,
     type: 3}
   m_PrefabInstance: {fileID: 1200854616}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1229190408 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 419503675803397660, guid: 624e104c361d2ab4796177ab6cd932dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 419503675390170002}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1246094963
 GameObject:
@@ -13413,6 +13443,12 @@ MonoBehaviour:
   - {fileID: 98568880}
   - {fileID: 1256182001}
   - {fileID: 1473851433}
+  fairies:
+  - {fileID: 444732026}
+  - {fileID: 1002831121}
+  - {fileID: 72236568}
+  - {fileID: 1229190408}
+  - {fileID: 301123477}
 --- !u!4 &1816399119
 Transform:
   m_ObjectHideFlags: 0

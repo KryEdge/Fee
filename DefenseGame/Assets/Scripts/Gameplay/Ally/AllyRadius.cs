@@ -7,11 +7,25 @@ public class AllyRadius : MonoBehaviour
     public delegate void OnRadiusAction(GameObject target);
     public OnRadiusAction OnRadiusFindWaypoint;
     public OnRadiusAction OnRadiusFindEnemy;
+    public OnRadiusAction OnRadiusTouchEnemy;
 
+    public bool isHurtAreaActivated;
     public bool findEnemy;
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.tag == "enemy")
+        {
+            if(isHurtAreaActivated)
+            {
+                if (OnRadiusTouchEnemy != null)
+                {
+                    OnRadiusTouchEnemy(other.gameObject);
+                }
+            }
+        }
+
+
         if(findEnemy)
         {
             if (other.gameObject.tag == "enemy")
