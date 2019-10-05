@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Ally : MonoBehaviour
-{
+{/*
     public enum allyStates
     {
         idle,
@@ -56,19 +56,19 @@ public class Ally : MonoBehaviour
         outline = GetComponent<Outline>();
         torque = GetComponent<TorqueLookRotation>();
 
-        radius.OnRadiusFindWaypoint += AddFoundWaypoint;
-        radius2.OnRadiusFindWaypoint += AddFoundWaypoint;
+        //radius.OnRadiusFindWaypoint += AddFoundWaypoint;
+        //radius2.OnRadiusFindWaypoint += AddFoundWaypoint;
         findEnemyRadius.OnRadiusFindEnemy += SeeEnemy;
-        enemyHurt.OnRadiusTouchEnemy += KillFairy;
+        //enemyHurt.OnRadiusTouchEnemy += KillFairy;
         selectedWaypoint = gm.playerWaypoints[0];
         hasSelectedWaypoint = true;
         originalSpeed = speed;
         currentState = initialState;
         torque.target = gm.playerWaypoints[0].transform;
 
-        FlockManager.goalPosition = gm.playerWaypoints[0].transform.position;
+        F/lockManager.goalPosition = gm.playerWaypoints[0].transform.position;
 
-        waypointsFound.Add(gm.playerWaypoints[0]);
+        //waypointsFound.Add(gm.playerWaypoints[0]);
         SwitchRadiusOff(radius.gameObject);
         SwitchRadiusOff(radius2.gameObject);
     }
@@ -176,7 +176,7 @@ public class Ally : MonoBehaviour
         //
         if (distanceFromEnemy >= 15.0f)
         {
-            flock.finalSpeed = flock.originalFinalSpeed;
+            //flock.finalSpeed = flock.originalFinalSpeed;
             speed = originalSpeed;
             SuccessfullEscape();
         }
@@ -310,7 +310,7 @@ public class Ally : MonoBehaviour
     private void SeeEnemy(GameObject enemy)
     {
         foundEnemy = enemy;
-        flock.finalSpeed = flock.originalFinalSpeed * 2.0f;
+        //flock.finalSpeed = flock.originalFinalSpeed * 2.0f;
         speed = originalSpeed * 2;
         hasSelectedWaypoint = false;
         hasReachedWaypoint = true;
@@ -324,16 +324,16 @@ public class Ally : MonoBehaviour
 
     private void KillFairy(GameObject enemy)
     {
-        /*if(GameManager.Get().fairies.Count > 0)
+        if(GameManager.Get().fairies.Count > 0)
         {
             Destroy(GameManager.Get().fairies[0]);
             GameManager.Get().fairies.RemoveAt(0);
-        }*/
+        }
     }
 
     private void SuccessfullEscape()
     {
-        flock.finalSpeed = flock.originalFinalSpeed;
+       // flock.finalSpeed = flock.originalFinalSpeed;
         speed = originalSpeed;
         foundEnemy = null;
         SwitchRadiusOff(findEnemyRadius.gameObject);
@@ -362,4 +362,5 @@ public class Ally : MonoBehaviour
         findEnemyRadius.OnRadiusFindEnemy -= SeeEnemy;
         enemyHurt.OnRadiusTouchEnemy -= KillFairy;
     }
+    */
 }

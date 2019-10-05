@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    /*
     public enum enemyStates
     {
         idle,
@@ -339,4 +340,5 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    */
 }

@@ -5,46 +5,27 @@ using UnityEngine;
 public class AllyRadius : MonoBehaviour
 {
     public delegate void OnRadiusAction(GameObject target);
-    public OnRadiusAction OnRadiusFindWaypoint;
     public OnRadiusAction OnRadiusFindEnemy;
-    public OnRadiusAction OnRadiusTouchEnemy;
-
-    public bool isHurtAreaActivated;
-    public bool findEnemy;
+    public OnRadiusAction OnRadiusFindAlly;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "enemy")
+        switch (other.gameObject.tag)
         {
-            if(isHurtAreaActivated)
-            {
-                if (OnRadiusTouchEnemy != null)
-                {
-                    OnRadiusTouchEnemy(other.gameObject);
-                }
-            }
-        }
-
-
-        if(findEnemy)
-        {
-            if (other.gameObject.tag == "enemy")
-            {
-                if (OnRadiusFindEnemy != null)
+            case "enemy":
+                if(OnRadiusFindEnemy != null)
                 {
                     OnRadiusFindEnemy(other.gameObject);
                 }
-            }
-        }
-        else
-        {
-            if (other.gameObject.tag == "waypoint")
-            {
-                if (OnRadiusFindWaypoint != null)
+                break;
+            case "npc":
+                if (OnRadiusFindAlly != null)
                 {
-                    OnRadiusFindWaypoint(other.gameObject);
+                    OnRadiusFindAlly(other.gameObject);
                 }
-            }
+                break;
+            default:
+                break;
         }
     }
 }

@@ -7,7 +7,8 @@ public class FlockManager : MonoBehaviour
     public FauxGravityAttractor planet;
     public GameObject prefab;
     public static int prefabAmount = 3;
-    public static GameObject[] fairies = new GameObject[prefabAmount];
+    //public static GameObject[] fairies = new GameObject[prefabAmount];
+    public static List<GameObject> fairies = new List<GameObject>();
 
     public int groupSize = 3;
     public static Vector3 goalPosition = Vector3.zero;
@@ -26,8 +27,12 @@ public class FlockManager : MonoBehaviour
                                         transform.position.y,
                                         transform.position.z + Random.Range(-groupSize, groupSize + 1)
                                      );
+            //fairies[i] = Instantiate(prefab, pos, Quaternion.identity);
+            fairies.Add(Instantiate(prefab, pos, Quaternion.identity));
 
-            fairies[i] = Instantiate(prefab, pos, Quaternion.identity);
+            
+
+            
             fairies[i].GetComponent<FauxGravityBody>().attractor = planet;
             fairies[i].SetActive(true);
         }

@@ -11,40 +11,53 @@ public class Flock : MonoBehaviour
     Vector3 averageAvoidance;
     float neighbourDistance = 30f;
 
-    public float originalFinalSpeed;
-    public float finalSpeed;
+    static public float originalFinalSpeed;
+    static public float finalSpeed;
+    public bool isAlone;
+    public Vector3 goalPos;
     private Rigidbody rig;
+    private TorqueLookRotation torque;
+    //private GameObject goalPosTransform;
 
     // Start is called before the first frame update
     void Start()
     {
+        isAlone = false;
         finalSpeed = Random.Range(minSpeed, maxSpeed);
         originalFinalSpeed = finalSpeed;
+        goalPos = FlockManager.goalPosition;
         rig = GetComponent<Rigidbody>();
+        torque = GetComponent<TorqueLookRotation>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        rig.MovePosition(rig.position + transform.forward * finalSpeed * Time.deltaTime);
+        //Debug.Log(finalSpeed);
+
+        if(isAlone)
+        {
+            Vector3 direction = (goalPos - transform.position).normalized;
+            rig.MovePosition(rig.position + direction * finalSpeed * Time.deltaTime);
+        }
+        else
+        {
+            rig.MovePosition(rig.position + transform.forward * finalSpeed * Time.deltaTime);
+        }
+        
 
         ApplyRules();
-        /*if(Random.Range(0,5) < 1)
-        {
-            
-        }*/
     }
 
     public void ApplyRules()
     {
-        GameObject[] gos;
+        List<GameObject> gos;
         gos = FlockManager.fairies;
 
         Vector3 vcentre = Vector3.zero;
         Vector3 vavoid = Vector3.zero;
-        float gSpeed = 0.1f;
 
-        Vector3 goalPos = FlockManager.goalPosition;
+        goalPos = FlockManager.goalPosition;
 
         float distance;
 
@@ -52,7 +65,7 @@ public class Flock : MonoBehaviour
 
         foreach (GameObject go in gos)
         {
-            if(go != gameObject)
+            if(go != gameObject && go != null)
             {
                 distance = Vector3.Distance(go.transform.position, transform.position);
 
@@ -67,21 +80,29 @@ public class Flock : MonoBehaviour
                     }
 
                     Flock anotherFlock = go.GetComponent<Flock>();
-                    //gSpeed = gSpeed + anotherFlock.finalSpeed;
+
                 }
             }
         }
 
         if(groupSize > 0)
         {
+            torque.enabled = false;
             vcentre = vcentre / groupSize + (goalPos - transform.position);
-            //finalSpeed = gSpeed / groupSize;
 
             Vector3 direction = (vcentre + vavoid) - transform.position;
             if(direction != Vector3.zero)
             {
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
             }
+
+            isAlone = false;
+        }
+        else
+        {
+            torque.enabled = true;
+            torque.target = NewAlly.selectedWaypoint.transform;
+            isAlone = true;
         }
     }
 }

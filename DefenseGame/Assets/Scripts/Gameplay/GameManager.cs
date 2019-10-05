@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviourSingleton<GameManager>
 {
-    public GameObject[] waypoints;
-    public int baseWaypoint;
+    public int maxEnemies;
+    public List<GameObject> enemies;
 
-    public GameObject[] playerWaypoints;
+    //public GameObject[] waypoints;
+    //public int baseWaypoint;
+
+    //public GameObject[] playerWaypoints;
     //private GameObject[] fairies;
     //public List<GameObject> fairies;
 
+    private void Start()
+    {
+
+    }
 
     /*// Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 
     // Update is called once per frame
     void Update()

@@ -7,25 +7,42 @@ public class NewAlly : MonoBehaviour
     public enum allyStates
     {
         idle,
-        walk,
-        run,
+        move,
         allStates
     }
 
-    [Header("Ally Settings")]
+    [Header("General Settings")]
     public GameObject initialWaypoint;
     public allyStates initialState;
-    public allyStates currentState;
+
+    [Header("Damage Settings")]
+    public float invincibilityMaxTime;
+    static public bool canBeDamaged = true;
+
+    [Header("Speed Settings")]
     public float speed;
-    public float runSpeed;
+    public float runSpeedMultiplier;
+
+    [Header("Outline Color Settings")]
     public Color normalColor;
     public Color dangerColor;
+    static public Color currentColor;
+
+    [Header("Distance Settings")]
     [Range(0, 3)]
     public float distanceToStop;
+    [Range(1, 30)]
+    public float escapeDistance;
 
-    [Header("Checking Variables // Private")]
+    [Header("Assign GameObjects/Components")]
+    public AllyRadius radius;
+
+    [Header("Checking Private Variables")]
+    public allyStates currentState;
     static public GameObject selectedWaypoint;
     static public GameObject oldWaypoint;
+    static public GameObject currentEnemySpotted;
+    static public float invincibilityTimer;
 
     //Private
     private Rigidbody rig;
@@ -40,10 +57,15 @@ public class NewAlly : MonoBehaviour
         torque = GetComponent<TorqueLookRotation>();
         outline = GetComponent<Outline>();
 
+        radius.OnRadiusFindEnemy += StartEscape;
+        NewEnemy.OnDeath += CheckEnemySpotted;
+
         currentState = initialState;
         selectedWaypoint = initialWaypoint;
 
         SwitchRotationTarget();
+        currentColor = normalColor;
+        outline.OutlineColor = currentColor;
     }
 
     // Update is called once per frame
@@ -53,27 +75,46 @@ public class NewAlly : MonoBehaviour
         {
             case allyStates.idle:
                 break;
-            case allyStates.walk:
-                Walk();
-                break;
-            case allyStates.run:
+            case allyStates.move:
+                Move();
                 break;
             default:
                 break;
         }
+
+        outline.OutlineColor = currentColor;
+
+        if(!canBeDamaged)
+        {
+            invincibilityTimer += Time.deltaTime;
+
+            if(invincibilityTimer >= invincibilityMaxTime)
+            {
+                canBeDamaged = true;
+                invincibilityTimer = 0;
+            }
+        }
     }
 
-    private void Walk()
+    private void Move()
     {
         float distance = Vector3.Distance(selectedWaypoint.transform.position, transform.position);
+        float enemyDistance = 100.0f;
 
         if(distance <= distanceToStop)
         {
             ChangeWaypoint();
         }
 
-        Vector3 direction = (selectedWaypoint.transform.position - transform.position).normalized;
-        rig.MovePosition(rig.position + direction * speed * Time.deltaTime);
+        if(currentEnemySpotted)
+        {
+            enemyDistance = Vector3.Distance(currentEnemySpotted.transform.position, transform.position);
+
+            if (enemyDistance >= escapeDistance)
+            {
+                EndEscape();
+            }
+        }
     }
 
     private void ChangeWaypoint()
@@ -99,7 +140,71 @@ public class NewAlly : MonoBehaviour
     private void SwitchRotationTarget()
     {
         Debug.Log("Applying new Target");
-        torque.target = selectedWaypoint.transform;
         FlockManager.goalPosition = selectedWaypoint.transform.position;
+    }
+
+    private void StartEscape(GameObject enemy)
+    {
+        if(currentEnemySpotted != enemy)
+        {
+            float enemyCurrentDistance = Vector3.Distance(enemy.transform.position, transform.position);
+            Debug.Log("enemy spotted!");
+
+            if (currentEnemySpotted == null)
+            {
+                if (enemyCurrentDistance >= 4.0f)
+                {
+                    GameObject aux = selectedWaypoint;
+                    selectedWaypoint = oldWaypoint;
+                    oldWaypoint = aux;
+
+                    FlockManager.goalPosition = selectedWaypoint.transform.position;
+                }
+            }           
+
+            currentEnemySpotted = enemy;
+            Flock.finalSpeed = Flock.originalFinalSpeed * runSpeedMultiplier;
+            currentColor = dangerColor;
+        }
+    }
+
+    private void EndEscape()
+    {
+        Debug.Log("ESCAPED!");
+        currentEnemySpotted = null;
+        Flock.finalSpeed = Flock.originalFinalSpeed;
+        currentColor = normalColor;
+    }
+
+    private void CheckEnemySpotted(GameObject enemy)
+    {
+        if(enemy == currentEnemySpotted)
+        {
+            EndEscape();
+        }
+    }
+
+    //Fairy Death
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "enemy":
+                if (canBeDamaged)
+                {
+                    canBeDamaged = false;
+                    Destroy(gameObject);
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        radius.OnRadiusFindEnemy -= StartEscape;
+        NewEnemy.OnDeath -= CheckEnemySpotted;
     }
 }
