@@ -15,7 +15,6 @@ public class UIFairies : MonoBehaviour
 
     public void UpdateText()
     {
-        Debug.Log("Messi");
         fairiesText.text = GameManager.Get().currentFairies + "/" + GameManager.Get().maxFairies;
     }
 }

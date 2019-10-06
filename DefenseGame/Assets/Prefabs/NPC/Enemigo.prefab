@@ -222,6 +222,7 @@ MonoBehaviour:
   distanceToStop: 1.54
   npcLostDistance: 20
   radius: {fileID: 7745548211734356911}
+  ally: {fileID: 0}
   currentState: 0
   currentTarget: {fileID: 0}
   selectedWaypoint: {fileID: 0}
