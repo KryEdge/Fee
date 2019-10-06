@@ -11,8 +11,8 @@ public class CameraMovement : MonoBehaviour
 
     [Header("Speed")]
     public int speed;
+    public int fasterSpeed;
     public int torqueSpeed;
-    
     public float zoomSpeed = 10;
 
     [Header("Acceleration Decay")]
@@ -28,6 +28,9 @@ public class CameraMovement : MonoBehaviour
     [Header("Camera Rotation")]
     public bool isInverted;
 
+    [Header("Checking Variables")]
+    public int finalSpeed;
+
     private Rigidbody rig;
     private Vector3 direction;
     private Vector3 torque;
@@ -39,11 +42,21 @@ public class CameraMovement : MonoBehaviour
     void Start()
     {
         rig = GetComponent<Rigidbody>();
+        finalSpeed = speed;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            finalSpeed = fasterSpeed;
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            finalSpeed = speed;
+        }
+
         if (Input.GetMouseButton(1))
         {
             if(isInverted)
@@ -81,7 +94,7 @@ public class CameraMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rig.MovePosition(rig.position + transform.TransformDirection(direction) * speed * Time.deltaTime);
+        rig.MovePosition(rig.position + transform.TransformDirection(direction) * finalSpeed * Time.deltaTime);
     }
 
     private void chooseDirection()

@@ -39,11 +39,6 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
         {
             DeleteTurret();
         }        
-
-        /*if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            SwitchPreview();
-        }*/
         
         if(preview)
         {
@@ -132,7 +127,6 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
 
         if (Physics.Raycast(ray.origin, ray.direction, out hit, 999, Mask))
         {
-            //newTurretPreview.SetActive(true);
 
             if (hit.transform.gameObject.tag != "turret")
             {
@@ -142,7 +136,6 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
         else
         {
             newTurretPreview.transform.position = ray.origin * -3;
-            //newTurretPreview.SetActive(false);
         }
 
         if (turretProperties.canBePlaced)

@@ -10938,6 +10938,8 @@ MonoBehaviour:
   lowestZoom: {fileID: 516633366}
   highestZoom: {fileID: 1296255666}
   speed: 25
+  fasterSpeed: 35
+  finalSpeed: 0
   torqueSpeed: 45
   zoomSpeed: 2
   torqueDecay: 9.4
