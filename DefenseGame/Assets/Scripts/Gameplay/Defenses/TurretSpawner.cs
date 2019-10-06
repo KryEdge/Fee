@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretSpawner : MonoBehaviour
+public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
 {
     public LayerMask Mask;
     public LayerMask deleteTurretMask;
@@ -15,10 +15,12 @@ public class TurretSpawner : MonoBehaviour
 
     private Turret turretProperties;
     private MeshRenderer turretMaterial;
+    private GameObject myEventSystem;
 
     // Start is called before the first frame update
     void Start()
     {
+        myEventSystem = GameObject.Find("EventSystem");
         newTurretPreview = Instantiate(turretTemplate, turretTemplate.transform.position, turretTemplate.transform.rotation);
         turretProperties = newTurretPreview.GetComponent<Turret>();
         turretMaterial = newTurretPreview.GetComponent<MeshRenderer>();
@@ -33,27 +35,26 @@ public class TurretSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(2))
-        {
-            if (turretProperties.canBePlaced)
-            {
-                Spawn();
-            } 
-        }
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             DeleteTurret();
         }        
 
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        /*if (Input.GetKeyDown(KeyCode.Alpha0))
         {
-            newTurretPreview.SetActive(!newTurretPreview.activeSelf);
-            preview = !preview;
-        }
+            SwitchPreview();
+        }*/
         
         if(preview)
         {
+            if (Input.GetMouseButtonDown(2))
+            {
+                if (turretProperties.canBePlaced)
+                {
+                    Spawn();
+                }
+            }
+
             PreviewTurret();
         }
     }
@@ -73,6 +74,7 @@ public class TurretSpawner : MonoBehaviour
                     GameObject newTurret = Instantiate(turretTemplate, hit.point + (hit.normal * 15), newTurretPreview.transform.rotation);
                     newTurret.SetActive(true);
                     spawnedTurrets.Add(newTurret);
+                    GameManager.Get().UpdateUI();
                 }
                 
             }
@@ -107,6 +109,7 @@ public class TurretSpawner : MonoBehaviour
                     Debug.Log("borranding");
                     spawnedTurrets.Remove(turretToDelete);
                     Destroy(turretToDelete);
+                    GameManager.Get().UpdateUI();
                 }
                 
             }
@@ -122,6 +125,8 @@ public class TurretSpawner : MonoBehaviour
 
     private void PreviewTurret()
     {
+        //Debug.Log("DOOU");
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
@@ -148,5 +153,12 @@ public class TurretSpawner : MonoBehaviour
         {
             turretMaterial.material.color = Color.red;
         }
+    }
+
+    public void SwitchPreview()
+    {
+        newTurretPreview.SetActive(!newTurretPreview.activeSelf);
+        preview = !preview;
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
     }
 }

@@ -49,7 +49,6 @@ public class NewAlly : MonoBehaviour
     private TorqueLookRotation torque;
     private Outline outline;
 
-
     // Start is called before the first frame update
     private void Start()
     {
@@ -66,6 +65,8 @@ public class NewAlly : MonoBehaviour
         SwitchRotationTarget();
         currentColor = normalColor;
         outline.OutlineColor = currentColor;
+        GameManager.Get().currentFairies++;
+        GameManager.Get().UpdateUI();
     }
 
     // Update is called once per frame
@@ -206,5 +207,7 @@ public class NewAlly : MonoBehaviour
     {
         radius.OnRadiusFindEnemy -= StartEscape;
         NewEnemy.OnDeath -= CheckEnemySpotted;
+        GameManager.Get().currentFairies--;
+        GameManager.Get().UpdateUI();
     }
 }
