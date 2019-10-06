@@ -1,5 +1,62 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1955177666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1955177667}
+  - component: {fileID: 1955177669}
+  - component: {fileID: 1955177668}
+  m_Layer: 0
+  m_Name: damageTrigger
+  m_TagString: hurt
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1955177667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955177666}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1733479570982487949}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1955177669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955177666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58323aae80f9ac04ea7d032ee0098ff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1955177668
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955177666}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 4.93, z: 4}
+  m_Center: {x: -0.03, y: -0.02, z: 0}
 --- !u!1 &3338811800997606814
 GameObject:
   m_ObjectHideFlags: 0
@@ -22,7 +79,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1733479570982487949
 Transform:
   m_ObjectHideFlags: 0
@@ -35,6 +92,7 @@ Transform:
   m_LocalScale: {x: 0.6193815, y: 0.619381, z: 0.6193815}
   m_Children:
   - {fileID: 7745548211734356881}
+  - {fileID: 1955177667}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
@@ -157,21 +215,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117b4c9680cdfdb4e9e0e458e08c03ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: {fileID: 7745548211734356911}
   initialWaypoint: {fileID: 0}
   initialState: 1
-  currentState: 0
   speed: 8
   runSpeedMultiplier: 1.3
-  normalColor: {r: 0, g: 0, b: 0, a: 0}
-  dangerColor: {r: 0, g: 0, b: 0, a: 0}
   distanceToStop: 1.54
   npcLostDistance: 20
+  radius: {fileID: 7745548211734356911}
+  currentState: 0
   currentTarget: {fileID: 0}
-  finalSpeed: 0
   selectedWaypoint: {fileID: 0}
   oldWaypoint: {fileID: 0}
   nextWaypointTarget: {fileID: 0}
+  finalSpeed: 0
   originalDistanceToStop: 0
   finalDistanceToStop: 0
 --- !u!1 &7745548211734356880

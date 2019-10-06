@@ -30,6 +30,7 @@ public class NewEnemy : MonoBehaviour
 
     [Header("Assign Variables/Components")]
     public AllyRadius radius; // CHANGE NAME TO RADIUS
+    public NewAlly ally;
 
     [Header("Checking Private Variables")]
     public allyStates currentState;
@@ -106,7 +107,7 @@ public class NewEnemy : MonoBehaviour
             torque.target = currentTarget.transform;
             selectedWaypoint = NewAlly.selectedWaypoint;
             finalDistanceToStop = originalDistanceToStop * 8.0f;
-            Vector3 direction = (currentTarget.transform.position - transform.position).normalized;
+            Vector3 direction = (ally.offset.transform.position - transform.position).normalized;
             rig.MovePosition(rig.position + direction * finalSpeed * Time.deltaTime);
         }
         else
@@ -161,6 +162,7 @@ public class NewEnemy : MonoBehaviour
         {
             Debug.Log("ASSIGNED ALLY");
             currentTarget = npc;
+            ally = currentTarget.GetComponent<NewAlly>();
             nextWaypointTarget = NewAlly.selectedWaypoint;
             finalSpeed = speed * runSpeedMultiplier;
         }

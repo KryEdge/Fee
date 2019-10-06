@@ -7,7 +7,7 @@ public class FlockManager : MonoBehaviour
     public FauxGravityAttractor planet;
     public GameObject prefab;
     public static int prefabAmount;
-    public static List<GameObject> fairies = new List<GameObject>();
+    public static List<GameObject> fairies;
 
     public int groupSize = 3;
     public static Vector3 goalPosition = Vector3.zero;
@@ -15,6 +15,7 @@ public class FlockManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        fairies = new List<GameObject>();
         prefabAmount = GameManager.Get().maxFairies;
 
         for (int i = 0; i < prefabAmount; i++)
@@ -27,5 +28,12 @@ public class FlockManager : MonoBehaviour
             fairies[i].GetComponent<FauxGravityBody>().attractor = planet;
             fairies[i].SetActive(true);
         }
+    }
+
+    private void OnDestroy()
+    {
+        //prefabAmount = null;
+        fairies = null;
+
     }
 }

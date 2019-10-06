@@ -18,6 +18,7 @@ TagManager:
   - road
   - turretZone
   - turret
+  - hurt
   layers:
   - Default
   - TransparentFX

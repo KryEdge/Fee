@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+    public List<GameObject> enteredZones;
+
+
     public int bulletSpeed;
     public GameObject proyectileTemplate;
     public float fireRate;
@@ -13,6 +16,7 @@ public class Turret : MonoBehaviour
     public bool canShoot;
     public bool isPreview;
     public bool canBePlaced;
+    public bool isInTurretZone;
 
     private Outline outline;
     private GameObject currentTarget;
@@ -138,7 +142,12 @@ public class Turret : MonoBehaviour
         if (other.gameObject.tag == "turretZone")
         {
             Debug.Log("Torreta choca con " + other.gameObject.name);
-            canBePlaced = true;
+            enteredZones.Add(other.gameObject);
+            if(enteredZones.Count > 0)
+            {
+                isInTurretZone = true;
+            }
+            
         }
     }
 
@@ -153,7 +162,11 @@ public class Turret : MonoBehaviour
         if (other.gameObject.tag == "turretZone")
         {
             Debug.Log("Torreta choca con " + other.gameObject.name);
-            canBePlaced = false;
+            enteredZones.Remove(other.gameObject);
+            if (enteredZones.Count <= 0)
+            {
+                isInTurretZone = false;
+            }
         }
     }
 }

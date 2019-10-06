@@ -57,6 +57,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9, y: 29.9, z: 17.74}
   m_Center: {x: 0, y: 0, z: 6.6}
+--- !u!1 &2083620151
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2083620152}
+  m_Layer: 17
+  m_Name: offset
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2083620152
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083620151}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1.021}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2114926399131904611}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1727168784617659053
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,13 +102,14 @@ GameObject:
   - component: {fileID: 1727168784617659051}
   - component: {fileID: 1727168784617659050}
   - component: {fileID: 1727168784617659063}
+  - component: {fileID: 5616048077341586476}
   m_Layer: 17
   m_Name: Fairy
   m_TagString: npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2114926399131904611
 Transform:
   m_ObjectHideFlags: 0
@@ -92,6 +123,7 @@ Transform:
   m_Children:
   - {fileID: 6941299926374859400}
   - {fileID: 2065552874}
+  - {fileID: 2083620152}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -168,16 +200,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b2d37033f20b040baf8bfada4aa2cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: {fileID: 2065552872}
   initialWaypoint: {fileID: 0}
   initialState: 1
-  currentState: 0
+  invincibilityMaxTime: 12
   speed: 6
   runSpeedMultiplier: 1.8
-  normalColor: {r: 0, g: 0, b: 0, a: 0}
-  dangerColor: {r: 0, g: 0, b: 0, a: 0}
-  distanceToStop: 1.11
+  normalColor: {r: 0.0865334, g: 0.6981132, b: 0.049394794, a: 1}
+  dangerColor: {r: 0.6603774, g: 0.05918475, b: 0.05918475, a: 1}
+  distanceToStop: 2.03
   escapeDistance: 25
+  radius: {fileID: 2065552872}
+  offset: {fileID: 2083620151}
+  currentState: 0
 --- !u!114 &1727168784617659063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +227,26 @@ MonoBehaviour:
   maxSpeed: 5
   minSpeed: 5
   rotationSpeed: 5
+  isAlone: 0
+  goalPos: {x: 0, y: 0, z: 0}
+--- !u!114 &5616048077341586476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727168784617659053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &6604846215432493820
 GameObject:
   m_ObjectHideFlags: 0

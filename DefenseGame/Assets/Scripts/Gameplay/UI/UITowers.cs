@@ -15,6 +15,6 @@ public class UITowers : MonoBehaviour
 
     public void UpdateText()
     {
-        towersText.text = TurretSpawner.Get().spawnedTurrets.Count + "/" + TurretSpawner.Get().maxTurrets;
+        towersText.text = TurretSpawner.Get().spawnedTurrets.Count + "/" + GameManager.Get().maxTurrets;
     }
 }

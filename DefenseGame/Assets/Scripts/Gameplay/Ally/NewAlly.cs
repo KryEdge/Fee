@@ -36,6 +36,7 @@ public class NewAlly : MonoBehaviour
 
     [Header("Assign GameObjects/Components")]
     public AllyRadius radius;
+    public GameObject offset;
 
     [Header("Checking Private Variables")]
     public allyStates currentState;
@@ -202,6 +203,22 @@ public class NewAlly : MonoBehaviour
                 break;
         }
     }
+
+    /*private void OnTriggerEnter(Collider other)
+    {
+        switch (other.gameObject.tag)
+        {
+            case "hurt":
+                if (canBeDamaged)
+                {
+                    canBeDamaged = false;
+                    Destroy(gameObject);
+                }
+                break;
+            default:
+                break;
+        }
+    }*/
 
     private void OnDestroy()
     {

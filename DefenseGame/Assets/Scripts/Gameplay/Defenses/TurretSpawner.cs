@@ -8,10 +8,8 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
     public LayerMask deleteTurretMask;
     public GameObject turretTemplate;
     public bool preview;
-    public int maxTurrets;
     public GameObject newTurretPreview;
     public List<GameObject> spawnedTurrets;
-
 
     private Turret turretProperties;
     private MeshRenderer turretMaterial;
@@ -44,7 +42,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
         {
             if (Input.GetMouseButtonDown(2))
             {
-                if (turretProperties.canBePlaced)
+                if (turretProperties.canBePlaced && turretProperties.isInTurretZone)
                 {
                     Spawn();
                 }
@@ -64,7 +62,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
             if (hit.transform.gameObject.tag != "turret")
             {
                 Debug.Log("Spawning");
-                if(spawnedTurrets.Count <= maxTurrets-1)
+                if(spawnedTurrets.Count <= GameManager.Get().maxTurrets - 1)
                 {
                     GameObject newTurret = Instantiate(turretTemplate, hit.point + (hit.normal * 15), newTurretPreview.transform.rotation);
                     newTurret.SetActive(true);
@@ -138,7 +136,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
             newTurretPreview.transform.position = ray.origin * -3;
         }
 
-        if (turretProperties.canBePlaced)
+        if (turretProperties.canBePlaced && turretProperties.isInTurretZone)
         {
             turretMaterial.material.color = Color.green;
         }

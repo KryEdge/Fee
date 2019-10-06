@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     [Header("Level Settings")]
     public int maxEnemies;
     public int maxFairies;
+    public int maxTurrets;
 
     [Header("Score Settings")]
     public int increaseMilestoneScoreAmount;
@@ -17,12 +18,16 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public UIFairies fairies;
     public UITowers towers;
     public UIScore scoreUI;
+    public GameObject GameOverPanel;
+    public CameraMovement movement;
+    public Shoot shoot;
 
     [Header("Check Variables")]
     public int score;
     public int currentFairies;
     public int givePointsMultiplier;
     public List<GameObject> enemies;
+    public bool gameOver;
 
     private int increaseScoreMilestone;
     private float pointsTimer;
@@ -36,13 +41,27 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     // Update is called once per frame
     private void Update()
     {
-        pointsTimer += Time.deltaTime;
-
-        if(pointsTimer >= givePointsTime)
+        if (currentFairies <= 0)
         {
-            pointsTimer = 0;
-            score += scoreAmount * givePointsMultiplier;
-            scoreUI.UpdateText();
+            if (!gameOver)
+            {
+                GameOver();
+                gameOver = true;
+            }
+        }
+        else
+        {
+            pointsTimer += Time.deltaTime;
+        }
+
+        if (pointsTimer >= givePointsTime)
+        {
+            if (!gameOver)
+            {
+                pointsTimer = 0;
+                score += scoreAmount * givePointsMultiplier;
+                scoreUI.UpdateText();
+            } 
         }
 
         if(score >= increaseScoreMilestone)
@@ -63,5 +82,12 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         {
             towers.UpdateText();
         }
+    }
+
+    private void GameOver()
+    {
+        movement.enabled = false;
+        shoot.enabled = false;
+        GameOverPanel.SetActive(true);
     }
 }
