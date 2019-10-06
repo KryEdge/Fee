@@ -142,6 +142,7 @@ public class NewAlly : MonoBehaviour
     private void SwitchRotationTarget()
     {
         Debug.Log("Applying new Target");
+        Debug.Log("This waypoint: " + selectedWaypoint.name);
         FlockManager.goalPosition = selectedWaypoint.transform.position;
     }
 

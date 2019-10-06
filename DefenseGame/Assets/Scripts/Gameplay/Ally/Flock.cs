@@ -35,7 +35,7 @@ public class Flock : MonoBehaviour
     {
         //Debug.Log(finalSpeed);
 
-        if(isAlone)
+        /*if(isAlone)
         {
             Vector3 direction = (goalPos - transform.position).normalized;
             rig.MovePosition(rig.position + direction * finalSpeed * Time.deltaTime);
@@ -43,10 +43,16 @@ public class Flock : MonoBehaviour
         else
         {
             rig.MovePosition(rig.position + transform.forward * finalSpeed * Time.deltaTime);
-        }
-        
+        }*/
+
 
         ApplyRules();
+    }
+
+    private void FixedUpdate()
+    {
+        Vector3 direction = (goalPos - transform.position).normalized;
+        rig.MovePosition(rig.position + direction * finalSpeed * Time.deltaTime);
     }
 
     public void ApplyRules()
