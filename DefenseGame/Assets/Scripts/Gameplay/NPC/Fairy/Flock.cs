@@ -23,8 +23,8 @@ public class Flock : MonoBehaviour
     void Start()
     {
         isAlone = false;
-        finalSpeed = Random.Range(minSpeed, maxSpeed);
-        originalFinalSpeed = finalSpeed;
+        //finalSpeed = Random.Range(minSpeed, maxSpeed);
+        //originalFinalSpeed = finalSpeed;
         goalPos = FlockManager.goalPosition;
         rig = GetComponent<Rigidbody>();
         torque = GetComponent<TorqueLookRotation>();

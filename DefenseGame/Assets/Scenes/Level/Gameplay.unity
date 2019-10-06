@@ -13354,6 +13354,10 @@ PrefabInstance:
       propertyPath: initialWaypoint
       value: 
       objectReference: {fileID: 340141985}
+    - target: {fileID: 2140015892, guid: 88c01bbd517efb945b45d385fa6ad5c8, type: 3}
+      propertyPath: speed
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88c01bbd517efb945b45d385fa6ad5c8, type: 3}
 --- !u!1001 &4721122272030695295

@@ -68,6 +68,9 @@ public class Fairy : MonoBehaviour
         outline.OutlineColor = currentColor;
         GameManager.Get().currentFairies++;
         GameManager.Get().UpdateUI();
+
+        Flock.finalSpeed = speed;
+        Flock.originalFinalSpeed = speed;
     }
 
     // Update is called once per frame
