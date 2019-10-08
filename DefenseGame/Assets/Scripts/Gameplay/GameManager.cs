@@ -109,5 +109,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     private void OnDestroy()
     {
         Fairy.OnFairyDeath -= CheckFairiesCount;
+        Destroy(TurretSpawner.Get());
     }
 }
