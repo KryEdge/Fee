@@ -11,6 +11,9 @@ public class Fairy : MonoBehaviour
         allStates
     }
 
+    public delegate void OnFairyAction();
+    public static OnFairyAction OnFairyDeath;
+
     [Header("General Settings")]
     public GameObject initialWaypoint;
     public allyStates initialState;
@@ -229,5 +232,10 @@ public class Fairy : MonoBehaviour
         Enemy.OnDeath -= CheckEnemySpotted;
         GameManager.Get().currentFairies--;
         GameManager.Get().UpdateUI();
+
+        if (OnFairyDeath != null)
+        {
+            OnFairyDeath();
+        }
     }
 }

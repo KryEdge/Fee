@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public UIFairies fairies;
     public UITowers towers;
     public UIScore scoreUI;
+    public UIVignette vignette;
     public GameObject GameOverPanel;
     public CameraMovement movement;
     public Shoot shoot;
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     private void Start()
     {
         increaseScoreMilestone += increaseMilestoneScoreAmount;
+        Fairy.OnFairyDeath += CheckFairiesCount;
         UpdateUI();
     }
 
@@ -89,5 +91,22 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         movement.enabled = false;
         shoot.enabled = false;
         GameOverPanel.SetActive(true);
+    }
+
+    private void CheckFairiesCount()
+    {
+        if(currentFairies == 1)
+        {
+            vignette.SwitchMask();
+        }
+        else if(currentFairies == 0)
+        {
+            vignette.SwitchMask();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        Fairy.OnFairyDeath -= CheckFairiesCount;
     }
 }
