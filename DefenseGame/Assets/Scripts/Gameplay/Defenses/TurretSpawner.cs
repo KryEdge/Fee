@@ -21,7 +21,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
         myEventSystem = GameObject.Find("EventSystem");
         newTurretPreview = Instantiate(turretTemplate, turretTemplate.transform.position, turretTemplate.transform.rotation);
         turretProperties = newTurretPreview.GetComponent<Turret>();
-        turretMaterial = newTurretPreview.GetComponent<MeshRenderer>();
+        turretMaterial = newTurretPreview.transform.GetChild(1).GetComponent<MeshRenderer>();
         turretProperties.isPreview = true;
         newTurretPreview.GetComponent<BoxCollider>().isTrigger = true;
         turretProperties.turretRadius.gameObject.GetComponent<BoxCollider>().enabled = false;
@@ -64,7 +64,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                 Debug.Log("Spawning");
                 if(spawnedTurrets.Count <= GameManager.Get().maxTurrets - 1)
                 {
-                    GameObject newTurret = Instantiate(turretTemplate, hit.point + (hit.normal * 15), newTurretPreview.transform.rotation);
+                    GameObject newTurret = Instantiate(turretTemplate, hit.point + (hit.normal * 1), newTurretPreview.transform.rotation);
                     newTurret.SetActive(true);
                     spawnedTurrets.Add(newTurret);
                     GameManager.Get().UpdateUI();
@@ -128,7 +128,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
 
             if (hit.transform.gameObject.tag != "turret")
             {
-                newTurretPreview.transform.position = hit.point + (hit.normal * 6.9f);
+                newTurretPreview.transform.position = hit.point + (hit.normal * -3.0f);
             }
         }
         else

@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         movement.enabled = false;
         shoot.enabled = false;
         GameOverPanel.SetActive(true);
+        TurretSpawner.Get().preview = false;
     }
 
     private void CheckFairiesCount()
