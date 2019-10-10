@@ -3879,7 +3879,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &526215440
 GameObject:
@@ -8602,6 +8602,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1253472065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1253472067}
+  - component: {fileID: 1253472066}
+  m_Layer: 0
+  m_Name: WavesSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1253472066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253472065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a08270c60e8eb243bc96c5d62f98b8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawners: []
+  maxEnemies: 
+  maxWaitTime: 3
+  enemiesAdd: 5
+  timerHasStarted: 0
+  waitingTimer: 0
+--- !u!4 &1253472067
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253472065}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1265442393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12162,9 +12211,10 @@ MonoBehaviour:
   maxEnemies: 35
   maxFairies: 7
   maxTurrets: 10
-  increaseMilestoneScoreAmount: 100
+  increaseMilestoneScoreAmount: 50
   scoreAmount: 2
   givePointsTime: 0.7
+  milestoneMultiplier: 2
   fairies: {fileID: 968637912}
   towers: {fileID: 684024027}
   scoreUI: {fileID: 786872882}
@@ -12172,11 +12222,13 @@ MonoBehaviour:
   GameOverPanel: {fileID: 2049798895}
   movement: {fileID: 1655585302}
   shoot: {fileID: 154038950}
+  waves: {fileID: 0}
   score: 0
   currentFairies: 0
   givePointsMultiplier: 1
   enemies: []
   gameOver: 0
+  increaseScoreMilestone: 0
 --- !u!4 &1816399119
 Transform:
   m_ObjectHideFlags: 0
@@ -13551,7 +13603,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1280, y: 720}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 1
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -13613,7 +13665,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 15, y: -20.90039}
+  m_AnchoredPosition: {x: 15, y: -20.900421}
   m_SizeDelta: {x: 784.8, y: 482.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2049798897

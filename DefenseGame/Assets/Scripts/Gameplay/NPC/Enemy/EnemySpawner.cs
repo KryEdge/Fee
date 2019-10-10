@@ -28,6 +28,7 @@ public class EnemySpawner : MonoBehaviour
         radius = transform.GetChild(1).GetComponent<EnemySpawnerRadius>();
         enemyProperties = enemyTemplate.GetComponent<Enemy>();
         SetRandomSpawnTime();
+        WaveSystem.Get().spawners.Add(this);
     }
 
     // Update is called once per frame

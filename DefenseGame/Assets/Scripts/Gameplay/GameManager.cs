@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviourSingleton<GameManager>
 {
+
     [Header("Level Settings")]
     public int maxEnemies;
     public int maxFairies;
     public int maxTurrets;
 
     [Header("Score Settings")]
-    public int increaseMilestoneScoreAmount;
+    public int initialMilestone;
     public int scoreAmount;
     public float givePointsTime;
+    public int milestoneMultiplier;
 
     [Header("Assign Components/GameObjects")]
     public UIFairies fairies;
@@ -22,20 +24,23 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public GameObject GameOverPanel;
     public CameraMovement movement;
     public Shoot shoot;
+    public WaveSystem waves;
 
     [Header("Check Variables")]
     public int score;
     public int currentFairies;
     public int givePointsMultiplier;
     public List<GameObject> enemies;
+    public GameObject[] enemiesToDelete;
     public bool gameOver;
 
-    private int increaseScoreMilestone;
+    public int increaseScoreMilestone;
     private float pointsTimer;
 
     private void Start()
     {
-        increaseScoreMilestone += increaseMilestoneScoreAmount;
+        //waves = WaveSystem.Get();
+        increaseScoreMilestone = initialMilestone;
         Fairy.OnFairyDeath += CheckFairiesCount;
         UpdateUI();
     }
@@ -69,7 +74,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         if(score >= increaseScoreMilestone)
         {
             givePointsMultiplier++;
-            increaseScoreMilestone += increaseMilestoneScoreAmount;
+            increaseScoreMilestone = increaseScoreMilestone * milestoneMultiplier;
+            StopWave();
         }
     }
 
@@ -109,6 +115,22 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     private void OnDestroy()
     {
         Fairy.OnFairyDeath -= CheckFairiesCount;
-        Destroy(TurretSpawner.Get());
+    }
+
+    private void StopWave()
+    {
+        enemiesToDelete = new GameObject[enemies.Count];
+
+        waves.StopWave();
+        waves.SetNextWave();
+        maxEnemies = waves.maxEnemies[waves.maxEnemies.Count - 1];
+
+        for (int i = 0; i < enemiesToDelete.Length; i++)
+        {
+            enemiesToDelete[i] = enemies[i];
+            Destroy(enemiesToDelete[i]);
+        }
+
+        enemies.Clear();
     }
 }
