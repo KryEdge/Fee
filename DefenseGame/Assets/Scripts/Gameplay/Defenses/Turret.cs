@@ -25,6 +25,7 @@ public class Turret : MonoBehaviour
     private Proyectile proyectile;
     public TurretRadius turretRadius;
     private Rigidbody rig;
+    
     // Start is called before the first frame update
     void Start()
     {

@@ -21,9 +21,11 @@ public class EnemySpawner : MonoBehaviour
     private float spawnTimer;
     private float finalSpawnTime;
     private Enemy enemyProperties;
+    private EnemySpawnerRadius radius;
 
     private void Start()
     {
+        radius = transform.GetChild(1).GetComponent<EnemySpawnerRadius>();
         enemyProperties = enemyTemplate.GetComponent<Enemy>();
         SetRandomSpawnTime();
     }
@@ -31,21 +33,24 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(automaticSpawn)
+        if(radius.canSpawn)
         {
-            spawnTimer += Time.deltaTime;
+            if (automaticSpawn)
+            {
+                spawnTimer += Time.deltaTime;
 
-            if (spawnTimer >= finalSpawnTime)
+                if (spawnTimer >= finalSpawnTime)
+                {
+                    SpawnEnemy();
+                    SetRandomSpawnTime();
+                    spawnTimer = 0;
+                }
+            }
+
+            if (Input.GetKeyDown(spawnKey))
             {
                 SpawnEnemy();
-                SetRandomSpawnTime();
-                spawnTimer = 0;
             }
-        }
-
-        if(Input.GetKeyDown(spawnKey))
-        {
-                SpawnEnemy();
         }
     }
 
