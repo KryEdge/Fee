@@ -40,6 +40,7 @@ public class Fairy : MonoBehaviour
     [Header("Assign GameObjects/Components")]
     public NPCRadius radius;
     public GameObject offset;
+    public Animator animator;
 
     [Header("Checking Private Variables")]
     public allyStates currentState;
@@ -59,6 +60,7 @@ public class Fairy : MonoBehaviour
         rig = GetComponent<Rigidbody>();
         torque = GetComponent<TorqueLookRotation>();
         outline = GetComponent<Outline>();
+        animator = GetComponentInChildren<Animator>();
 
         radius.OnRadiusFindEnemy += StartEscape;
         Enemy.OnDeath += CheckEnemySpotted;
