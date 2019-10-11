@@ -44,13 +44,13 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
-    m_EnvironmentLightingMode: 0
+    m_EnvironmentLightingMode: 1
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
@@ -71,7 +71,7 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-    m_MixedBakeMode: 2
+    m_MixedBakeMode: 1
     m_BakeBackend: 1
     m_PVRSampling: 1
     m_PVRDirectSampleCount: 32
@@ -96,8 +96,9 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
-  m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_LightingDataAsset: {fileID: 112000000, guid: ad63705787f2e0347a65683e16f6c4f3,
+    type: 2}
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -131,6 +132,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Planta (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302633013980459636, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5000043851619663975, guid: 16582c8c29521224b8f4ce47ce715196,
         type: 3}
@@ -221,6 +227,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: -1.3321604e+34
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488283278721520739, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16582c8c29521224b8f4ce47ce715196, type: 3}
@@ -521,7 +532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PolyMesh:
-    name: PolybrushMesh25292
+    name: PolybrushMesh23296
     vertices:
     - {x: 562.8726, y: 30.880798, z: -45.003998}
     - {x: 563.8311, y: 24.713867, z: -30.919037}
@@ -24147,6 +24158,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planta (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 8302633013980459636, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5000043851619663975, guid: 16582c8c29521224b8f4ce47ce715196,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24237,6 +24253,11 @@ PrefabInstance:
       propertyPath: m_BoundingSphereOverride.w
       value: 4e-45
       objectReference: {fileID: 0}
+    - target: {fileID: 2488283278721520739, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16582c8c29521224b8f4ce47ce715196, type: 3}
 --- !u!4 &194650878 stripped
@@ -24289,6 +24310,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Planta (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302633013980459636, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5000043851619663975, guid: 16582c8c29521224b8f4ce47ce715196,
         type: 3}
@@ -24379,6 +24405,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: -1.509755e-12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488283278721520739, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16582c8c29521224b8f4ce47ce715196, type: 3}
@@ -24550,6 +24581,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planta (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 8302633013980459636, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5000043851619663975, guid: 16582c8c29521224b8f4ce47ce715196,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24624,6 +24660,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 3.393e-42
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488283278721520739, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16582c8c29521224b8f4ce47ce715196, type: 3}
@@ -24923,6 +24964,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planta
       objectReference: {fileID: 0}
+    - target: {fileID: 8302633013980459636, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5000043851619663975, guid: 16582c8c29521224b8f4ce47ce715196,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -24977,6 +25023,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 11.080001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488283278721520739, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16582c8c29521224b8f4ce47ce715196, type: 3}
@@ -25611,6 +25662,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planta (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8302633013980459636, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5000043851619663975, guid: 16582c8c29521224b8f4ce47ce715196,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25685,6 +25741,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488283278721520739, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16582c8c29521224b8f4ce47ce715196, type: 3}
@@ -28168,6 +28229,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planta (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8302633013980459636, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5000043851619663975, guid: 16582c8c29521224b8f4ce47ce715196,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28257,6 +28323,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BoundingSphereOverride.y
       value: 1.781e-42
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488283278721520739, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16582c8c29521224b8f4ce47ce715196, type: 3}
@@ -29101,7 +29172,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PolybrushMesh25292
+  m_Name: PolybrushMesh23296
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -29855,6 +29926,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planta (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8302633013980459636, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5000043851619663975, guid: 16582c8c29521224b8f4ce47ce715196,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29930,6 +30006,11 @@ PrefabInstance:
       propertyPath: m_BoundingSphereOverride.w
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2488283278721520739, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16582c8c29521224b8f4ce47ce715196, type: 3}
 --- !u!4 &1015910572 stripped
@@ -29949,6 +30030,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Planta (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302633013980459636, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5000043851619663975, guid: 16582c8c29521224b8f4ce47ce715196,
         type: 3}
@@ -30039,6 +30125,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488283278721520739, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16582c8c29521224b8f4ce47ce715196, type: 3}
@@ -30154,6 +30245,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planta (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8302633013980459636, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5000043851619663975, guid: 16582c8c29521224b8f4ce47ce715196,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30243,6 +30339,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 4e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488283278721520739, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16582c8c29521224b8f4ce47ce715196, type: 3}
@@ -30648,6 +30749,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planta (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8302633013980459636, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5000043851619663975, guid: 16582c8c29521224b8f4ce47ce715196,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30737,6 +30843,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 4e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488283278721520739, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16582c8c29521224b8f4ce47ce715196, type: 3}
@@ -30848,6 +30959,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planta (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8302633013980459636, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5000043851619663975, guid: 16582c8c29521224b8f4ce47ce715196,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30937,6 +31053,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 4e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488283278721520739, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16582c8c29521224b8f4ce47ce715196, type: 3}
@@ -32203,7 +32324,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 7d1572c2f3dc1ea418d8eb3fa0e56b4a,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7d1572c2f3dc1ea418d8eb3fa0e56b4a,
         type: 3}
@@ -32525,6 +32646,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planta (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 8302633013980459636, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5000043851619663975, guid: 16582c8c29521224b8f4ce47ce715196,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -32599,6 +32725,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: -1.367957e-12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488283278721520739, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16582c8c29521224b8f4ce47ce715196, type: 3}
@@ -32788,6 +32919,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planta (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 8302633013980459636, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5000043851619663975, guid: 16582c8c29521224b8f4ce47ce715196,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -32877,6 +33013,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488283278721520739, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16582c8c29521224b8f4ce47ce715196, type: 3}
@@ -33663,6 +33804,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planta (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8302633013980459636, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5000043851619663975, guid: 16582c8c29521224b8f4ce47ce715196,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -33752,6 +33898,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 1.742e-42
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488283278721520739, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16582c8c29521224b8f4ce47ce715196, type: 3}
@@ -33854,6 +34005,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planta (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 8302633013980459636, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5000043851619663975, guid: 16582c8c29521224b8f4ce47ce715196,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -33943,6 +34099,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: -1.3321604e+34
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488283278721520739, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16582c8c29521224b8f4ce47ce715196, type: 3}
@@ -35177,6 +35338,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planta (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8302633013980459636, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5000043851619663975, guid: 16582c8c29521224b8f4ce47ce715196,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -35266,6 +35432,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488283278721520739, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16582c8c29521224b8f4ce47ce715196, type: 3}
@@ -35637,6 +35808,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Planta (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8302633013980459636, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5000043851619663975, guid: 16582c8c29521224b8f4ce47ce715196,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -35712,6 +35888,11 @@ PrefabInstance:
       propertyPath: m_BoundingSphereOverride.w
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2488283278721520739, guid: 16582c8c29521224b8f4ce47ce715196,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16582c8c29521224b8f4ce47ce715196, type: 3}
 --- !u!4 &1954742349 stripped
@@ -35782,7 +35963,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2006177661
 Transform:
   m_ObjectHideFlags: 0
@@ -35847,7 +36028,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -37162,12 +37343,17 @@ PrefabInstance:
     - target: {fileID: 1243962028849539501, guid: 3d88195a85e5fe34a940a4c4c6066f31,
         type: 3}
       propertyPath: m_Intensity
-      value: 2
+      value: 931.1
       objectReference: {fileID: 0}
     - target: {fileID: 1243962028849539501, guid: 3d88195a85e5fe34a940a4c4c6066f31,
         type: 3}
       propertyPath: m_Range
-      value: 242.23
+      value: 300.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1243962028849539500, guid: 3d88195a85e5fe34a940a4c4c6066f31,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.74
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d88195a85e5fe34a940a4c4c6066f31, type: 3}
@@ -37830,6 +38016,11 @@ PrefabInstance:
       propertyPath: runSpeedMultiplier
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3920666772202193218, guid: 4edcf3a4fe919b642912445f5d82f5ab,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cfe1c51765ca7b44880864146d5c7809, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4edcf3a4fe919b642912445f5d82f5ab, type: 3}
 --- !u!1001 &8404260919192903850

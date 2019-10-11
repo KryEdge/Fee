@@ -81,7 +81,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -150,7 +150,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: d599d8fb4fe64704bbdd04e2cab70781, type: 2}
-  - {fileID: -183530207247392898, guid: 76ccedfd90a47274884b1e304ca803e3, type: 3}
+  - {fileID: 2100000, guid: d599d8fb4fe64704bbdd04e2cab70781, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
