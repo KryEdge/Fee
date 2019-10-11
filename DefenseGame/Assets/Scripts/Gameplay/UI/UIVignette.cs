@@ -9,6 +9,7 @@ public class UIVignette : MonoBehaviour
     [Range(0,3)]
     public float fadeSpeed;
     public float maxFadeValue;
+    public float minFadeValue;
     public bool isFadeOn;
     public bool switchTimer;
 
@@ -39,7 +40,7 @@ public class UIVignette : MonoBehaviour
             {
                 switchTimer = true;
             }
-            else if(fadeValueTimer <= 0)
+            else if(fadeValueTimer <= minFadeValue)
             {
                 switchTimer = false;
             }
@@ -59,7 +60,7 @@ public class UIVignette : MonoBehaviour
         isFadeOn = !isFadeOn;
         if(!isFadeOn)
         {
-            fadeValueTimer = 0;
+            fadeValueTimer = minFadeValue;
             switchTimer = false;
         }
     }
