@@ -64,6 +64,7 @@ public class Fairy : MonoBehaviour
 
         radius.OnRadiusFindEnemy += StartEscape;
         Enemy.OnDeath += CheckEnemySpotted;
+        GameManager.OnLevelEndWave += EndEscape;
 
         currentState = initialState;
         selectedWaypoint = initialWaypoint;
@@ -232,6 +233,7 @@ public class Fairy : MonoBehaviour
     {
         radius.OnRadiusFindEnemy -= StartEscape;
         Enemy.OnDeath -= CheckEnemySpotted;
+        GameManager.OnLevelEndWave -= EndEscape;
         GameManager.Get().currentFairies--;
         GameManager.Get().UpdateUI();
 
@@ -239,5 +241,10 @@ public class Fairy : MonoBehaviour
         {
             OnFairyDeath();
         }
+    }
+
+    private void ForceEndEscape()
+    {
+        EndEscape();
     }
 }

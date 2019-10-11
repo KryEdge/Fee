@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviourSingleton<GameManager>
 {
+    public delegate void OnLevelAction();
+    public static OnLevelAction OnLevelEndWave;
+
 
     [Header("Level Settings")]
     public int maxEnemies;
@@ -132,5 +135,10 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         }
 
         enemies.Clear();
+
+        if(OnLevelEndWave != null)
+        {
+            OnLevelEndWave();
+        }
     }
 }

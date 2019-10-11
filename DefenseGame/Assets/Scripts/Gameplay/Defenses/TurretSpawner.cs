@@ -14,6 +14,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
     private Turret turretProperties;
     private MeshRenderer turretMaterial;
     private GameObject myEventSystem;
+    private MaterialPropertyBlock material;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,8 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
         newTurretPreview.SetActive(false);
 
         turretTemplate.GetComponent<FauxGravityBody>().isBuilding = true;
+
+        material = new MaterialPropertyBlock();
     }
 
     // Update is called once per frame
@@ -138,11 +141,15 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
 
         if (turretProperties.canBePlaced && turretProperties.isInTurretZone)
         {
-            turretMaterial.material.color = Color.green;
+            //turretMaterial.material.color = Color.green;
+            material.SetColor("_BaseColor", Color.green);
+            turretMaterial.SetPropertyBlock(material);
         }
         else
         {
-            turretMaterial.material.color = Color.red;
+            //turretMaterial.material.color = Color.red;
+            material.SetColor("_BaseColor", Color.red);
+            turretMaterial.SetPropertyBlock(material);
         }
     }
 
