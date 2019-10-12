@@ -205,6 +205,7 @@ public class Fairy : MonoBehaviour
                 if (canBeDamaged)
                 {
                     canBeDamaged = false;
+                    FlockManager.fairies.Remove(gameObject);
                     Destroy(gameObject);
                 }
                 break;
