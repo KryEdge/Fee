@@ -8,14 +8,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GlowPlanet
-  m_Shader: {fileID: 4800000, guid: a66bf7eab02ab8c43bf499451ee0bfe7, type: 3}
-  m_ShaderKeywords: _ALPHABLEND_ON
+  m_Shader: {fileID: -6465566751694194690, guid: 8c0aedd7d4c7cc242b79aecfd658733c,
+    type: 3}
+  m_ShaderKeywords: SCREENDISSOLVE _ALPHABLEND_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
-  stringTagMap:
-    RenderType: Transparent
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -53,7 +53,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: daa7e92e401f2c840a990df95ef09a0b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTexRing:
@@ -76,6 +76,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecularMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -95,6 +99,9 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
+    - _GlowColFac: 0.62
+    - _GlowIntensity: 2.56
+    - _GlowScale: 3.8
     - _HeightmapIntensity: 5
     - _Light: 3.3
     - _LightStretch: 0.34
@@ -115,12 +122,24 @@ Material:
     - _Transparency: 17.32
     - _TransparencyPlanet: -14
     - _UVSec: 0
+    - _UseColorMap: 0
+    - _UseEmissiveMap: 0
+    - _UseMetallicMap: 0
+    - _UseNormalMap: 0
+    - _UseRoughnessMap: 0
     - _ZWrite: 0
+    - _dissolve: 1
+    - _doubleSided: 0
+    - _inverse: 0
     m_Colors:
     - _AtmoColor: {r: 0.5, g: 0.5, b: 1, a: 1}
     - _AtmosphereColor: {r: 1, g: 0, b: 0.07058811, a: 1}
     - _CityLightColor: {r: 0, g: 0, b: 0, a: 0}
     - _CloudColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Color: {r: 0, g: 0.58661413, b: 1, a: 1}
+    - _Color: {r: 0.10453011, g: 0.49254245, b: 0.764151, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    - _Glow: {r: 1, g: 0.9921569, b: 0, a: 0}
+    - _GlowEnd: {r: 0.990566, g: 0.03270739, b: 0.03270739, a: 0}
     - _TextureColor: {r: 0, g: 0, b: 0, a: 0}
+    - _UvOffset: {r: 0, g: 0, b: 0, a: 0}
+    - _UvTiling: {r: 1, g: 1, b: 0, a: 0}
