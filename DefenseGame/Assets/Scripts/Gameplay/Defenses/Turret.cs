@@ -170,4 +170,9 @@ public class Turret : MonoBehaviour
             }
         }
     }
+
+    public void TurnOffOutline()
+    {
+        outline.enabled = false;
+    }
 }

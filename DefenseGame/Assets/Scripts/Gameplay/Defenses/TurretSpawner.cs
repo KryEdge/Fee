@@ -159,4 +159,12 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
         preview = !preview;
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
     }
+
+    public void StopAllOutlines()
+    {
+        foreach (GameObject turret in spawnedTurrets)
+        {
+            turret.GetComponent<Turret>().TurnOffOutline();
+        }
+    }
 }

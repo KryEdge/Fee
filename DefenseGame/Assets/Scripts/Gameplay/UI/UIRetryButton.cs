@@ -11,5 +11,6 @@ public class UIRetryButton : MonoBehaviour
         Destroy(WaveSystem.Get().gameObject);
         Destroy(TurretSpawner.Get().gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
     }
 }
