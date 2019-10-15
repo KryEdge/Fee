@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class UIMeteor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class UIMeteor : MonoBehaviour
 {
-    public delegate void OnMouseAction();
+    /*public delegate void OnMouseAction();
     public static OnMouseAction OnMouseOverButton;
     public static OnMouseAction OnMouseExitButton;
 
@@ -23,5 +22,5 @@ public class UIMeteor : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             OnMouseExitButton();
         }
-    }
+    }*/
 }

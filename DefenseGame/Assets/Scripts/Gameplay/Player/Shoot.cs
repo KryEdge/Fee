@@ -26,8 +26,8 @@ public class Shoot : MonoBehaviour
     void Start()
     {
         bulletProperties = bulletTemplate.GetComponent<Bullet>();
-        UIMeteor.OnMouseOverButton = SetMouseOverOn;
-        UIMeteor.OnMouseExitButton = SetMouseOverOff;
+        //UIMeteor.OnMouseOverButton = SetMouseOverOn;
+        //UIMeteor.OnMouseExitButton = SetMouseOverOff;
 
         currentMeteors = maxMeteors;
 
@@ -67,17 +67,21 @@ public class Shoot : MonoBehaviour
             {
                 if(isActivated && !GameManager.Get().turretSpawner.preview && !isMouseOver)
                 {
-                    shootOnce = false;
-                    canShoot = false;
-                    ShootWeapon();
+                    if(ShootWeapon())
+                    {
+                        shootOnce = false;
+                        canShoot = false;
+                    }
                 }
             }
 
         }
     }
 
-    private void ShootWeapon()
+    private bool ShootWeapon()
     {
+        bool couldShoot = false;
+
         if(currentMeteors > 0)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -85,23 +89,29 @@ public class Shoot : MonoBehaviour
 
             if (Physics.Raycast(ray.origin, ray.direction, out hit, 999, Mask))
             {
-                if (hit.transform.gameObject.tag != "explosion")
+                if (hit.transform.gameObject.tag != "explosion" && Time.timeScale != 0)
                 {
                     if (!shootOnce)
                     {
+                        Debug.Log(hit.transform.gameObject.tag);
                         bulletProperties.isFired = true;
                         bulletProperties.target = hit.point;
                         GameObject newBullet = Instantiate(bulletTemplate);
                         newBullet.SetActive(true);
+                        couldShoot = true;
                         shootOnce = true;
                     }
                 }
-
             }
 
-            currentMeteors--;
-            UpdateText();
+            if(couldShoot)
+            {
+                currentMeteors--;
+                UpdateText();
+            }
         }
+
+        return couldShoot;
     }
 
     public void SwitchActivation()

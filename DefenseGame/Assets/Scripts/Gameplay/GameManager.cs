@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     private void Start()
     {
         //waves = WaveSystem.Get();
+        Time.timeScale = 1;
         increaseScoreMilestone = initialMilestone;
         Fairy.OnFairyDeath += CheckFairiesCount;
         UpdateUI();
