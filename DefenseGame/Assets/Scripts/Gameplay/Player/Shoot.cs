@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Shoot : MonoBehaviour
 {
-    public Image meteorButton;
+    public Button meteorButton;
     public Text meteorCountText;
     public GameObject bulletTemplate;
     public float fireRate;
@@ -20,11 +20,14 @@ public class Shoot : MonoBehaviour
     private bool shootOnce;
     private bool canShoot;
     public bool isActivated;
+    public bool isMouseOver;
     private float fireRateTimer;
     // Start is called before the first frame update
     void Start()
     {
         bulletProperties = bulletTemplate.GetComponent<Bullet>();
+        UIMeteor.OnMouseOverButton = SetMouseOverOn;
+        UIMeteor.OnMouseExitButton = SetMouseOverOff;
 
         currentMeteors = maxMeteors;
 
@@ -39,13 +42,13 @@ public class Shoot : MonoBehaviour
 
             float fill = ((rechargeTimer * 100) / rechargeTime) * 0.01f;
 
-            meteorButton.fillAmount = fill;
+            meteorButton.image.fillAmount = fill;
 
             if (rechargeTimer >= rechargeTime)
             {
                 rechargeTimer = 0;
                 currentMeteors++;
-                meteorButton.fillAmount = 1;
+                meteorButton.image.fillAmount = 1;
                 UpdateText();
             }
         }
@@ -62,7 +65,7 @@ public class Shoot : MonoBehaviour
         {
             if (canShoot)
             {
-                if(isActivated && !GameManager.Get().turretSpawner.preview)
+                if(isActivated && !GameManager.Get().turretSpawner.preview && !isMouseOver)
                 {
                     shootOnce = false;
                     canShoot = false;
@@ -110,16 +113,26 @@ public class Shoot : MonoBehaviour
 
         if(isActivated)
         {
-            meteorButton.color = Color.green;
+            meteorButton.image.color = Color.green;
         }
         else
         {
-            meteorButton.color = Color.cyan;
+            meteorButton.image.color = Color.cyan;
         }
     }
 
     private void UpdateText()
     {
         meteorCountText.text = "X" + currentMeteors;
+    }
+
+    private void SetMouseOverOff()
+    {
+        isMouseOver = false;
+    }
+
+    private void SetMouseOverOn()
+    {
+        isMouseOver = true;
     }
 }

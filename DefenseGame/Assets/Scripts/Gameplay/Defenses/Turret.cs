@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+    public delegate void OnTurretAction(GameObject turret);
+    public OnTurretAction OnTurretDead;
+
+
     public List<GameObject> enteredZones;
     public List<GameObject> enteredTurrets;
 
@@ -61,6 +65,10 @@ public class Turret : MonoBehaviour
 
             if (lifespanTimer >= lifespan)
             {
+                if(OnTurretDead != null)
+                {
+                    OnTurretDead(gameObject);
+                }
                 Destroy(gameObject);
             }
 
@@ -100,7 +108,7 @@ public class Turret : MonoBehaviour
             {
                 GameObject newProyectile = Instantiate(proyectileTemplate);
                 Proyectile proy = newProyectile.GetComponent<Proyectile>();
-                proy.startPosition = transform.position + transform.up * 7;
+                proy.startPosition = transform.position + transform.up * 12;
                 proy.target = currentTarget;
                 newProyectile.SetActive(true);
                 canShoot = false;
@@ -197,5 +205,13 @@ public class Turret : MonoBehaviour
     public void TurnOffOutline()
     {
         outline.enabled = false;
+    }
+
+    public void CheckIfCanBePlaced()
+    {
+        if (enteredTurrets.Count <= 0)
+        {
+            canBePlaced = true;
+        }
     }
 }

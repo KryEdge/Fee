@@ -12,6 +12,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
     public bool preview;
     public GameObject newTurretPreview;
     public List<GameObject> spawnedTurrets;
+    //public List<Turret> spawnedTurretsProperties;
 
     private Turret turretProperties;
     private MeshRenderer turretMaterial;
@@ -78,6 +79,8 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                     newTurret.SetActive(true);
                     spawnedTurrets.Add(newTurret);
                     GameManager.Get().UpdateUI();
+
+                    newTurret.GetComponent<Turret>().OnTurretDead = DeleteTurretTimer;
                 }
                 
             }
@@ -113,6 +116,9 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                     spawnedTurrets.Remove(turretToDelete);
                     Destroy(turretToDelete);
                     GameManager.Get().UpdateUI();
+
+                    newTurretPreview.GetComponent<Turret>().enteredTurrets.Remove(turretToDelete);
+                    newTurretPreview.GetComponent<Turret>().CheckIfCanBePlaced();
                 }
                 
             }
@@ -124,6 +130,12 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
             Debug.Log("buscando torreta");
             Debug.DrawRay(ray.origin, ray.direction * 999, Color.white);
         }
+    }
+
+    private void DeleteTurretTimer(GameObject turret)
+    {
+        spawnedTurrets.Remove(turret);
+        GameManager.Get().UpdateUI();
     }
 
     private void PreviewTurret()
