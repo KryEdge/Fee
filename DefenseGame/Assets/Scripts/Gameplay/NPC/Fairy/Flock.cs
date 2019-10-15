@@ -80,7 +80,7 @@ public class Flock : MonoBehaviour
                     vcentre += go.transform.position;
                     groupSize++;
 
-                    if(distance < 1.0f)
+                    if(distance < 10.0f)
                     {
                         vavoid = vavoid + (transform.position - go.transform.position);
                     }
