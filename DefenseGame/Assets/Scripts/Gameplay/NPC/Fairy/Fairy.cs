@@ -13,6 +13,7 @@ public class Fairy : MonoBehaviour
 
     public delegate void OnFairyAction();
     public static OnFairyAction OnFairyDeath;
+    public OnFairyAction OnFairyEaten;
 
     [Header("General Settings")]
     public GameObject initialWaypoint;

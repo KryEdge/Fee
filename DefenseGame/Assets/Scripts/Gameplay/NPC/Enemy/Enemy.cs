@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public enum allyStates
+    public enum enemyStates
     {
         idle,
         move,
+        eating,
         allStates
     }
 
@@ -16,11 +17,15 @@ public class Enemy : MonoBehaviour
 
     [Header("General Settings")]
     public GameObject initialWaypoint;
-    public allyStates initialState;
+    public enemyStates initialState;
     
     [Header("Speed Settings")]
     public float speed;
     public float runSpeedMultiplier;
+
+    [Header("Eat Settings")]
+    public float eatingTime;
+    public float eatingTimer;
 
     [Header("Distance Settings")]
     [Range(0, 3)]
@@ -33,7 +38,7 @@ public class Enemy : MonoBehaviour
     public Fairy ally;
 
     [Header("Checking Private Variables")]
-    public allyStates currentState;
+    public enemyStates currentState;
     public GameObject currentTarget;
     public GameObject selectedWaypoint;
     public GameObject oldWaypoint;
@@ -55,6 +60,7 @@ public class Enemy : MonoBehaviour
         outline = GetComponent<Outline>();
 
         radius.OnRadiusFindAlly += StartPursuit;
+        //Fairy.OnFairyDeath += StartEating;
 
         currentState = initialState;
         selectedWaypoint = initialWaypoint;
@@ -72,13 +78,34 @@ public class Enemy : MonoBehaviour
     {
         switch (currentState)
         {
-            case allyStates.idle:
+            case enemyStates.idle:
                 break;
-            case allyStates.move:
+            case enemyStates.move:
                 Move();
+                break;
+            case enemyStates.eating:
+                Eat();
                 break;
             default:
                 break;
+        }
+    }
+
+    public void StartEating()
+    {
+        currentState = enemyStates.eating;
+        finalSpeed = 0;
+    }
+
+    private void Eat()
+    {
+        eatingTimer += Time.deltaTime;
+
+        if(eatingTimer >= eatingTime)
+        {
+            eatingTimer = 0;
+            finalSpeed = speed;
+            currentState = enemyStates.move;
         }
     }
 
@@ -177,6 +204,17 @@ public class Enemy : MonoBehaviour
         finalDistanceToStop = originalDistanceToStop;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "npc")
+        {
+            if(Fairy.canBeDamaged)
+            {
+                StartEating();
+            }
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         switch (other.gameObject.tag)
@@ -204,5 +242,6 @@ public class Enemy : MonoBehaviour
     {
         GameManager.Get().enemies.Remove(gameObject);
         radius.OnRadiusFindEnemy -= StartPursuit;
+        //Fairy.OnFairyDeath -= StartEating;
     }
 }
