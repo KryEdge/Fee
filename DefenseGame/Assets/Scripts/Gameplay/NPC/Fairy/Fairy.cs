@@ -109,6 +109,9 @@ public class Fairy : MonoBehaviour
 
     private void Move()
     {
+        animator.SetBool("isWalking", true);
+        animator.SetBool("isIdle", false);
+
         float distance = Vector3.Distance(selectedWaypoint.transform.position, transform.position);
         float enemyDistance = 100.0f;
 
