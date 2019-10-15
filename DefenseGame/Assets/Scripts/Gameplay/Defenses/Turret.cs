@@ -5,7 +5,7 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     public List<GameObject> enteredZones;
-
+    public List<GameObject> enteredTurrets;
 
     public int bulletSpeed;
     public GameObject proyectileTemplate;
@@ -134,7 +134,19 @@ public class Turret : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "road")
+        if (other.gameObject.tag == "turret")
+        {
+            enteredTurrets.Add(other.gameObject);
+            if (enteredTurrets.Count > 0)
+            {
+                canBePlaced = false;
+            }
+
+            Debug.Log("Torreta choca con " + other.gameObject.name);
+            
+        }
+
+        if (other.gameObject.tag == "road")
         {
             Debug.Log("Torreta choca con " + other.gameObject.name);
             canBePlaced = false;
@@ -154,6 +166,17 @@ public class Turret : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.gameObject.tag == "turret")
+        {
+            enteredTurrets.Remove(other.gameObject);
+            if (enteredTurrets.Count <= 0)
+            {
+                canBePlaced = true;
+            }
+
+            Debug.Log("Torreta DEJO de chocar con " + other.gameObject.name);
+        }
+
         if (other.gameObject.tag == "road")
         {
             Debug.Log("Torreta DEJO de chocar con " + other.gameObject.name);

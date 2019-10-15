@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public GameObject GameOverPanel;
     public CameraMovement movement;
     public Shoot shoot;
+    public TurretSpawner turretSpawner;
     public WaveSystem waves;
 
     [Header("Check Variables")]
