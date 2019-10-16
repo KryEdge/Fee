@@ -6,8 +6,10 @@ public class Waypoints : MonoBehaviour
 {
     public GameObject[] nextWaypoints;
 
-    /*public void GetRandomWaypoint()
+    private void Start()
     {
-
-    }*/
+#if UNITY_STANDALONE && !UNITY_EDITOR
+        GetComponent<MeshRenderer>().enabled = false;
+#endif
+    }
 }
