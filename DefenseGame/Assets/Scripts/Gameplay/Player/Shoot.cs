@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Shoot : MonoBehaviour
 {
+    public KeyCode activateKey;
     public Button meteorButton;
     public Text meteorCountText;
     public GameObject bulletTemplate;
@@ -36,7 +37,12 @@ public class Shoot : MonoBehaviour
 
     private void Update()
     {
-        if(currentMeteors < maxMeteors)
+        if (Input.GetKeyDown(activateKey))
+        {
+            SwitchActivation();
+        }
+
+        if (currentMeteors < maxMeteors)
         {
             rechargeTimer += Time.deltaTime;
 
@@ -116,12 +122,28 @@ public class Shoot : MonoBehaviour
 
     public void SwitchActivation()
     {
-        if(!GameManager.Get().turretSpawner.preview)
+        if(GameManager.Get().turretSpawner.preview)
         {
-            isActivated = !isActivated;
+            GameManager.Get().SwitchTurretActivation();
         }
 
-        if(isActivated)
+        isActivated = !isActivated;
+
+        if (isActivated)
+        {
+            meteorButton.image.color = Color.green;
+        }
+        else
+        {
+            meteorButton.image.color = Color.cyan;
+        }
+    }
+
+    public void SwitchActivationForced()
+    {
+        isActivated = !isActivated;
+
+        if (isActivated)
         {
             meteorButton.image.color = Color.green;
         }

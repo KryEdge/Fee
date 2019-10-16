@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
 {
+    public KeyCode activateKey;
     public Button turretButton;
     public LayerMask Mask;
     public LayerMask deleteTurretMask;
@@ -18,7 +19,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
     private MeshRenderer turretMaterial;
     private GameObject myEventSystem;
     private MaterialPropertyBlock material;
-    private bool canSpawn;
+    public bool canSpawn;
 
     // Start is called before the first frame update
     void Start()
@@ -35,12 +36,17 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
         turretTemplate.GetComponent<FauxGravityBody>().isBuilding = true;
 
         material = new MaterialPropertyBlock();
-        canSpawn = !GameManager.Get().shoot.isActivated;
+        canSpawn = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(activateKey))
+        {
+            SwitchPreview();
+        }
+
         if (Input.GetMouseButtonDown(2))
         {
             DeleteTurret();
@@ -176,20 +182,46 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
     {
         canSpawn = !GameManager.Get().shoot.isActivated;
 
-        if (canSpawn)
+        if(!canSpawn)
         {
-            newTurretPreview.SetActive(!newTurretPreview.activeSelf);
-            preview = !preview;
-            myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+            GameManager.Get().SwitchMeteorActivation();
+        }
 
-            if (preview)
-            {
-                turretButton.image.color = Color.green;
-            }
-            else
-            {
-                turretButton.image.color = Color.white;
-            }
+        canSpawn = !GameManager.Get().shoot.isActivated;
+        newTurretPreview.SetActive(!newTurretPreview.activeSelf);
+        preview = !preview;
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+
+        if (preview)
+        {
+            turretButton.image.color = Color.green;
+        }
+        else
+        {
+            turretButton.image.color = Color.white;
+            newTurretPreview.GetComponent<Turret>().enteredZones.Clear();
+            newTurretPreview.GetComponent<Turret>().enteredTurrets.Clear();
+            newTurretPreview.GetComponent<Turret>().isInTurretZone = false;
+        }
+    }
+
+    public void SwitchPreviewForced()
+    {
+        canSpawn = !canSpawn;
+        newTurretPreview.SetActive(!newTurretPreview.activeSelf);
+        preview = !preview;
+        myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+
+        if (preview)
+        {
+            turretButton.image.color = Color.green;
+        }
+        else
+        {
+            turretButton.image.color = Color.white;
+            newTurretPreview.GetComponent<Turret>().enteredZones.Clear();
+            newTurretPreview.GetComponent<Turret>().enteredTurrets.Clear();
+            newTurretPreview.GetComponent<Turret>().isInTurretZone = false;
         }
     }
 

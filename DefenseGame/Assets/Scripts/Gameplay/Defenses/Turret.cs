@@ -167,6 +167,11 @@ public class Turret : MonoBehaviour
             if(enteredZones.Count > 0)
             {
                 isInTurretZone = true;
+
+                if (enteredTurrets.Count <= 0)
+                {
+                    canBePlaced = true;
+                }
             }
             
         }

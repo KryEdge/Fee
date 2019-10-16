@@ -84,6 +84,16 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         }
     }
 
+    public void SwitchMeteorActivation()
+    {
+        shoot.SwitchActivationForced();
+    }
+
+    public void SwitchTurretActivation()
+    {
+        turretSpawner.SwitchPreviewForced();
+    }
+
     public void UpdateUI()
     {
         if(fairies)
