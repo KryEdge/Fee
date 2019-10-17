@@ -13,6 +13,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
     public bool preview;
     public GameObject newTurretPreview;
     public List<GameObject> spawnedTurrets;
+    public UITowersState towerUIState;
     //public List<Turret> spawnedTurretsProperties;
 
     private Turret turretProperties;
@@ -89,7 +90,21 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                     spawnedTurrets.Add(newTurret);
                     GameManager.Get().UpdateUI();
 
-                    newTurret.GetComponent<Turret>().OnTurretDead = DeleteTurretTimer;
+                    Turret currentTurretProperties = newTurret.GetComponent<Turret>();
+                    List<UITowersState> state = GameManager.Get().towersUI;
+
+                    currentTurretProperties.OnTurretDead = DeleteTurretTimer;
+
+                    for (int i = state.Count-1; i >= 0; i--)
+                    {
+                        if (!state[i].isBeingUsed)
+                        {
+                            currentTurretProperties.stateUI = state[i];
+                            state[i].assignedTurret = currentTurretProperties;
+                            state[i].isBeingUsed = true;
+                            i = -1;
+                        }
+                    }
                 }
                 
             }

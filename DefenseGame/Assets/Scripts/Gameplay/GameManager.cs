@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public int currentFairies;
     public int givePointsMultiplier;
     public List<GameObject> enemies;
+    public List<UITowersState> towersUI;
     public GameObject[] enemiesToDelete;
     public bool gameOver;
 

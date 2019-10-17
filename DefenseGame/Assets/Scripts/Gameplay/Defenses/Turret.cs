@@ -7,9 +7,9 @@ public class Turret : MonoBehaviour
     public delegate void OnTurretAction(GameObject turret);
     public OnTurretAction OnTurretDead;
 
-
     public List<GameObject> enteredZones;
     public List<GameObject> enteredTurrets;
+    public UITowersState stateUI;
 
     public int bulletSpeed;
     public GameObject proyectileTemplate;
@@ -24,7 +24,7 @@ public class Turret : MonoBehaviour
 
     private Outline outline;
     private GameObject currentTarget;
-    private float lifespanTimer;
+    public float lifespanTimer;
     private float fireRateTimer;
     private Proyectile proyectile;
     public TurretRadius turretRadius;
@@ -217,6 +217,14 @@ public class Turret : MonoBehaviour
         if (enteredTurrets.Count <= 0)
         {
             canBePlaced = true;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if(stateUI)
+        {
+            stateUI.isBeingUsed = false;
         }
     }
 }
