@@ -91,24 +91,19 @@ public class Flock : MonoBehaviour
             }
         }
 
-        if(groupSize > 0)
+        /*if(groupSize > 0)
         {
-            torque.enabled = false;
-            vcentre = vcentre / groupSize + (goalPos - transform.position);
-
-            Vector3 direction = (vcentre + vavoid) - transform.position;
-            if(direction != Vector3.zero)
-            {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
-            }
-
-            isAlone = false;
+            torque.enabled = true;
+            torque.target = Fairy.selectedWaypoint.transform;
+            isAlone = true;
         }
         else
         {
             torque.enabled = true;
             torque.target = Fairy.selectedWaypoint.transform;
             isAlone = true;
-        }
+        }*/
+
+        torque.target = Fairy.selectedWaypoint.transform;
     }
 }
