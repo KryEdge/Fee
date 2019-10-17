@@ -49,7 +49,10 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
 
         if (Input.GetMouseButtonDown(2))
         {
-            DeleteTurret();
+            if (GameManager.Get().areCheatsOn)
+            {
+                DeleteTurret();
+            }
         }        
         
         if(preview)
@@ -202,6 +205,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
             newTurretPreview.GetComponent<Turret>().enteredZones.Clear();
             newTurretPreview.GetComponent<Turret>().enteredTurrets.Clear();
             newTurretPreview.GetComponent<Turret>().isInTurretZone = false;
+            GameManager.Get().SwitchMeteorActivation();
         }
     }
 

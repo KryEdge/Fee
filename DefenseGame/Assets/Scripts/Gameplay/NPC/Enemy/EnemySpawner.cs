@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemyTemplate;
     public GameObject entryWaypoint;
     public KeyCode spawnKey;
+    public int pointsToGive;
     public bool automaticSpawn;
 
     [Header("Speed Settings")]
@@ -66,6 +67,7 @@ public class EnemySpawner : MonoBehaviour
         {
             enemyProperties.speed = Random.Range(minSpeed, maxSpeed);
             enemyProperties.initialWaypoint = entryWaypoint;
+            enemyProperties.pointsToGive = pointsToGive;
             GameObject newEnemy = Instantiate(enemyTemplate);
             newEnemy.transform.position = entryWaypoint.transform.position;
             newEnemy.SetActive(true);

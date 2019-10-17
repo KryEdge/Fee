@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public delegate void OnLevelAction();
     public static OnLevelAction OnLevelEndWave;
 
+    [Header("Cheat Settings")]
+    public bool areCheatsOn;
 
     [Header("Level Settings")]
     public int maxEnemies;
@@ -43,10 +45,10 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     private void Start()
     {
-        //waves = WaveSystem.Get();
         Time.timeScale = 1;
         increaseScoreMilestone = initialMilestone;
         Fairy.OnFairyDeath += CheckFairiesCount;
+        Enemy.OnDeath += AddPoints;
         UpdateUI();
     }
 
@@ -131,6 +133,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     private void OnDestroy()
     {
         Fairy.OnFairyDeath -= CheckFairiesCount;
+        Enemy.OnDeath -= AddPoints;
     }
 
     private void StopWave()
@@ -141,17 +144,16 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         waves.SetNextWave();
         maxEnemies = waves.maxEnemies[waves.maxEnemies.Count - 1];
 
-        for (int i = 0; i < enemiesToDelete.Length; i++)
-        {
-            enemiesToDelete[i] = enemies[i];
-            Destroy(enemiesToDelete[i]);
-        }
-
-        enemies.Clear();
-
         if(OnLevelEndWave != null)
         {
             OnLevelEndWave();
         }
+    }
+
+    private void AddPoints(GameObject enemy, int pointsToGive)
+    {
+        Debug.Log("Gave " + pointsToGive + "Points to the player.");
+        score += pointsToGive;
+        scoreUI.UpdateText();
     }
 }

@@ -12,12 +12,13 @@ public class Enemy : MonoBehaviour
         allStates
     }
 
-    public delegate void OnAction(GameObject enemy);
+    public delegate void OnAction(GameObject enemy, int pointsToGive);
     public static OnAction OnDeath;
 
     [Header("General Settings")]
     public GameObject initialWaypoint;
     public enemyStates initialState;
+    public int pointsToGive;
     
     [Header("Speed Settings")]
     public float speed;
@@ -222,14 +223,14 @@ public class Enemy : MonoBehaviour
             case "explosion":
                 if(OnDeath != null)
                 {
-                    OnDeath(gameObject);
+                    OnDeath(gameObject, pointsToGive);
                 }
                 Destroy(gameObject);
                 break;
             case "proyectile":
                 if (OnDeath != null)
                 {
-                    OnDeath(gameObject);
+                    OnDeath(gameObject, pointsToGive);
                 }
                 Destroy(gameObject);
                 break;

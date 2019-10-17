@@ -12,6 +12,7 @@ public class Shoot : MonoBehaviour
     public float fireRate;
     public float rechargeTime;
     public float rechargeTimer;
+    public float meteorSpeed;
 
     public LayerMask Mask;
     public int maxMeteors;
@@ -27,21 +28,15 @@ public class Shoot : MonoBehaviour
     void Start()
     {
         bulletProperties = bulletTemplate.GetComponent<Bullet>();
-        //UIMeteor.OnMouseOverButton = SetMouseOverOn;
-        //UIMeteor.OnMouseExitButton = SetMouseOverOff;
 
         currentMeteors = maxMeteors;
 
         UpdateText();
+        SwitchActivation();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(activateKey))
-        {
-            SwitchActivation();
-        }
-
         if (currentMeteors < maxMeteors)
         {
             rechargeTimer += Time.deltaTime;
@@ -102,6 +97,7 @@ public class Shoot : MonoBehaviour
                         Debug.Log(hit.transform.gameObject.tag);
                         bulletProperties.isFired = true;
                         bulletProperties.target = hit.point;
+                        bulletProperties.meteorSpeed = meteorSpeed;
                         GameObject newBullet = Instantiate(bulletTemplate);
                         newBullet.SetActive(true);
                         couldShoot = true;

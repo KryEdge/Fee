@@ -191,7 +191,7 @@ public class Fairy : MonoBehaviour
         currentColor = normalColor;
     }
 
-    private void CheckEnemySpotted(GameObject enemy)
+    private void CheckEnemySpotted(GameObject enemy, int pointsToGive)
     {
         if(enemy == currentEnemySpotted)
         {
@@ -217,22 +217,6 @@ public class Fairy : MonoBehaviour
                 break;
         }
     }
-
-    /*private void OnTriggerEnter(Collider other)
-    {
-        switch (other.gameObject.tag)
-        {
-            case "hurt":
-                if (canBeDamaged)
-                {
-                    canBeDamaged = false;
-                    Destroy(gameObject);
-                }
-                break;
-            default:
-                break;
-        }
-    }*/
 
     private void OnDestroy()
     {

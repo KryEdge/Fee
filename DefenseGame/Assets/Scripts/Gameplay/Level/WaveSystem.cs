@@ -5,29 +5,26 @@ using UnityEngine.UI;
 
 public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
 {
-    /*[System.Serializable]
-    public class Wave
-    {
-        int waveNumber;
-        List<EnemySpawner> typeOfEnemies;
-        List<GameObject> spawnPoints;
-        int maxEnemies;
-    }*/
+    [Header("Current Wave")]
+    public int currentWave;
 
-    public Text waveText;
-    public List<EnemySpawner> spawners;
-    public List<int> maxEnemies;
+    [Header("Wave Settings")]
     public float maxWaitTime;
+    public float initialWaitTime;
     public float textScreenTime;
     public int enemiesAdd;
-    public int currentWave;
+
+    [Header("UI")]
+    public Text waveText;
+
+    [Header("Checking Variables")]
+    public List<EnemySpawner> spawners;
+    public List<int> maxEnemies;
     public bool timerHasStarted;
     public bool screenTimerStarted;
-    //public bool waveIsOff;
-    
-
     public float waitingTimer;
     public float textTimer;
+    public float originalWaitTime;
 
     // Start is called before the first frame update
     private void Start()
@@ -39,6 +36,8 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
         StopWave();
         waveText.text = "Game is about to Start!";
         timerHasStarted = true;
+        originalWaitTime = maxWaitTime;
+        maxWaitTime = initialWaitTime;
     }
 
     private void Update()
@@ -49,6 +48,10 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
 
             if(waitingTimer >= maxWaitTime)
             {
+                if(currentWave == 1)
+                {
+                    maxWaitTime = originalWaitTime;
+                }
                 waitingTimer = 0;
                 timerHasStarted = false;
                 StartWave();
@@ -90,7 +93,7 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
 
         waveText.enabled = true;
         timerHasStarted = true;
-        waveText.text = "Wave Ended...";
+        waveText.text = "Wave Ended... Destroy the remaining enemies!";
         screenTimerStarted = true;
         textTimer = 0;
     }

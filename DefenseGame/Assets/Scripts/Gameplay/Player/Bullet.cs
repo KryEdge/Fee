@@ -17,6 +17,7 @@ public class Bullet : MonoBehaviour
     public bool hasCrashed;
     public Vector3 target;
     public Vector3 dirFrom;
+    public float meteorSpeed;
     public float lifespanLimit;
     public float lifespan;
     public float explosionLimit;
@@ -25,7 +26,7 @@ public class Bullet : MonoBehaviour
     private Vector3 dir;
     private GameObject objectAffected;
     private Rigidbody rig;
-    private SphereCollider collider;
+    private SphereCollider colliderMeteor;
     private MeshRenderer mesh;
     private FauxGravityBody fauxBody;
     private float distance;
@@ -36,7 +37,7 @@ public class Bullet : MonoBehaviour
         rig = GetComponent<Rigidbody>();
         mesh = GetComponent<MeshRenderer>();
         fauxBody = GetComponent<FauxGravityBody>();
-        collider = GetComponent<SphereCollider>();
+        colliderMeteor = GetComponent<SphereCollider>();
 
         dirFrom = from.transform.position;
         transform.position = dirFrom;
@@ -81,7 +82,7 @@ public class Bullet : MonoBehaviour
         if (!hasCrashed)
         {
             Vector3 direction = (target - transform.position).normalized;
-            rig.MovePosition(transform.position + direction * 120 * Time.deltaTime);
+            rig.MovePosition(transform.position + direction * meteorSpeed * Time.deltaTime);
             transform.LookAt(target);
         }
     }
@@ -95,7 +96,7 @@ public class Bullet : MonoBehaviour
                 rig.constraints = RigidbodyConstraints.FreezeAll;
                 mesh.enabled = false;
                 fauxBody.enabled = false;
-                collider.enabled = false;
+                colliderMeteor.enabled = false;
 
                 transform.GetChild(0).gameObject.SetActive(true);
                 hasCrashed = true;
