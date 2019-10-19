@@ -11,6 +11,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
     public LayerMask deleteTurretMask;
     public GameObject turretTemplate;
     public bool preview;
+    public bool canDelete;
     public GameObject newTurretPreview;
     public List<GameObject> spawnedTurrets;
     public UITowersState towerUIState;
@@ -50,7 +51,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
 
         if (Input.GetMouseButtonDown(2))
         {
-            if (GameManager.Get().areCheatsOn)
+            if (canDelete)
             {
                 DeleteTurret();
             }

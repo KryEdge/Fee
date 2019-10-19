@@ -139,9 +139,9 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         Enemy.OnDeath -= AddPoints;
     }
 
-    private void StopWave()
+    public void StopWave()
     {
-        enemiesToDelete = new GameObject[enemies.Count];
+        //enemiesToDelete = new GameObject[enemies.Count];
 
         waves.StopWave();
         waves.SetNextWave();
@@ -158,5 +158,19 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         Debug.Log("Gave " + pointsToGive + "Points to the player.");
         score += pointsToGive;
         scoreUI.UpdateText();
+    }
+
+    public void KillAllEnemies()
+    {
+        //Debug.Log("Killed all enemies");
+        enemiesToDelete = new GameObject[enemies.Count];
+
+        for (int i = 0; i < enemiesToDelete.Length; i++)
+        {
+            enemiesToDelete[i] = enemies[i];
+            Destroy(enemiesToDelete[i]);
+        }
+
+        enemies.Clear();
     }
 }

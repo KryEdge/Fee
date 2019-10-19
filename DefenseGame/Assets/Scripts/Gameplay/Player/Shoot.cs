@@ -47,10 +47,7 @@ public class Shoot : MonoBehaviour
 
             if (rechargeTimer >= rechargeTime)
             {
-                rechargeTimer = 0;
-                currentMeteors++;
-                meteorButton.image.fillAmount = 1;
-                UpdateText();
+                Reload();
             }
         }
 
@@ -162,5 +159,13 @@ public class Shoot : MonoBehaviour
     private void SetMouseOverOn()
     {
         isMouseOver = true;
+    }
+
+    public void Reload()
+    {
+        rechargeTimer = 0;
+        currentMeteors++;
+        meteorButton.image.fillAmount = 1;
+        UpdateText();
     }
 }

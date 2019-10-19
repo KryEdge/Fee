@@ -16,6 +16,7 @@ public class Fairy : MonoBehaviour
     public OnFairyAction OnFairyEaten;
 
     [Header("General Settings")]
+    public static bool isInmunityOn;
     public GameObject initialWaypoint;
     public allyStates initialState;
 
@@ -208,9 +209,12 @@ public class Fairy : MonoBehaviour
             case "enemy":
                 if (canBeDamaged)
                 {
-                    canBeDamaged = false;
-                    FlockManager.fairies.Remove(gameObject);
-                    Destroy(gameObject);
+                    if(!isInmunityOn)
+                    {
+                        canBeDamaged = false;
+                        FlockManager.fairies.Remove(gameObject);
+                        Destroy(gameObject);
+                    }
                 }
                 break;
             default:
@@ -235,5 +239,11 @@ public class Fairy : MonoBehaviour
     private void ForceEndEscape()
     {
         EndEscape();
+    }
+
+    public static void SwitchInvincibility()
+    {
+        isInmunityOn = !isInmunityOn;
+        Debug.Log(isInmunityOn);
     }
 }
