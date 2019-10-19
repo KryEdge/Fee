@@ -5,6 +5,7 @@ using UnityEngine;
 public class FlockManager : MonoBehaviour
 {
     public FauxGravityAttractor planet;
+    public GameObject light;
     public GameObject prefab;
     public static int prefabAmount;
     public static List<GameObject> fairies;
@@ -27,6 +28,21 @@ public class FlockManager : MonoBehaviour
             fairies.Add(Instantiate(prefab, pos, Quaternion.identity));
             fairies[i].GetComponent<FauxGravityBody>().attractor = planet;
             fairies[i].SetActive(true);
+        }
+
+        
+    }
+
+    private void Update()
+    {
+        if (fairies.Count > 0)
+        {
+            light.transform.position = fairies[0].transform.position + fairies[0].transform.up * 3;
+            light.transform.rotation = fairies[0].transform.rotation;
+        }
+        else
+        {
+            light.SetActive(false);
         }
     }
 
