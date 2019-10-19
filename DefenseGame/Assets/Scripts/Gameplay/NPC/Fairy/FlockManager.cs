@@ -9,7 +9,7 @@ public class FlockManager : MonoBehaviour
     public static int prefabAmount;
     public static List<GameObject> fairies;
 
-    public int groupSize = 3;
+    public int groupSize = 2;
     public static Vector3 goalPosition = Vector3.zero;
 
     // Start is called before the first frame update

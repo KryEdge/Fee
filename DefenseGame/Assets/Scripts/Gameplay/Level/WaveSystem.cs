@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
 {
+    public delegate void OnWaveAction();
+    public static OnWaveAction OnStartWave;
+
     [Header("Current Wave")]
     public int currentWave;
 
@@ -73,6 +76,11 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
 
     public void StartWave()
     {
+        if(OnStartWave != null)
+        {
+            OnStartWave();
+        }
+
         foreach (EnemySpawner spawner in spawners)
         {
             spawner.automaticSpawn = true;

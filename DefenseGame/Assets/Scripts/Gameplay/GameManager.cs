@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 {
     public delegate void OnLevelAction();
     public static OnLevelAction OnLevelEndWave;
+    
 
     [Header("Cheat Settings")]
     public bool areCheatsOn;
@@ -123,6 +124,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     {
         if(currentFairies == 1)
         {
+            vignette.SetLowHealthColor();
             vignette.SwitchMask();
         }
         else if(currentFairies == 0)

@@ -17,35 +17,21 @@ public class Flock : MonoBehaviour
     public Vector3 goalPos;
     private Rigidbody rig;
     private TorqueLookRotation torque;
-    //private GameObject goalPosTransform;
+    private Quaternion oldRotation;
 
     // Start is called before the first frame update
     void Start()
     {
         isAlone = false;
-        //finalSpeed = Random.Range(minSpeed, maxSpeed);
-        //originalFinalSpeed = finalSpeed;
         goalPos = FlockManager.goalPosition;
         rig = GetComponent<Rigidbody>();
         torque = GetComponent<TorqueLookRotation>();
+        torque.enabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(finalSpeed);
-
-        /*if(isAlone)
-        {
-            Vector3 direction = (goalPos - transform.position).normalized;
-            rig.MovePosition(rig.position + direction * finalSpeed * Time.deltaTime);
-        }
-        else
-        {
-            rig.MovePosition(rig.position + transform.forward * finalSpeed * Time.deltaTime);
-        }*/
-
-
         ApplyRules();
     }
 
@@ -90,19 +76,6 @@ public class Flock : MonoBehaviour
                 }
             }
         }
-
-        /*if(groupSize > 0)
-        {
-            torque.enabled = true;
-            torque.target = Fairy.selectedWaypoint.transform;
-            isAlone = true;
-        }
-        else
-        {
-            torque.enabled = true;
-            torque.target = Fairy.selectedWaypoint.transform;
-            isAlone = true;
-        }*/
 
         torque.target = Fairy.selectedWaypoint.transform;
     }
