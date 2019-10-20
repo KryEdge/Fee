@@ -49,7 +49,6 @@ public class Bullet : MonoBehaviour
         {
             lifespan += Time.deltaTime;
             distance = Vector3.Distance(target, transform.position);
-            //Debug.Log(distance);
 
             if (lifespan > lifespanLimit)
             {

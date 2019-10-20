@@ -7,16 +7,20 @@ public class Turret : MonoBehaviour
     public delegate void OnTurretAction(GameObject turret);
     public OnTurretAction OnTurretDead;
 
-    public List<GameObject> enteredZones;
-    public List<GameObject> enteredTurrets;
-    public UITowersState stateUI;
-
-    public int bulletSpeed;
+    [Header("General Settings")]
     public GameObject proyectileTemplate;
+    public int bulletSpeed;
     public float fireRate;
     public float lifespan;
     public float exitDistance;
     public float distance = 0;
+
+    [Header("Checking Variables")]
+    public List<GameObject> enteredZones;
+    public List<GameObject> enteredTurrets;
+    public TurretRadius turretRadius;
+    public UITowersState stateUI;
+    public float lifespanTimer;
     public bool canShoot;
     public bool isPreview;
     public bool canBePlaced;
@@ -24,16 +28,13 @@ public class Turret : MonoBehaviour
 
     private Outline outline;
     private GameObject currentTarget;
-    public float lifespanTimer;
-    private float fireRateTimer;
     private Proyectile proyectile;
-    public TurretRadius turretRadius;
     private Rigidbody rig;
-    
+    private float fireRateTimer;
+
     // Start is called before the first frame update
     void Start()
     {
-        //turretRadius = transform.GetChild(0).gameObject.GetComponent<TurretRadius>();
         outline = GetComponent<Outline>();
         proyectile = proyectileTemplate.GetComponent<Proyectile>();
         proyectile.speed = bulletSpeed;
@@ -95,9 +96,7 @@ public class Turret : MonoBehaviour
         {
             outline.OutlineColor = Color.red;
             currentTarget = newTarget;
-        }
-            //Debug.Log("Seteando Target");
-            
+        }           
     }
 
     private void ShootTarget()

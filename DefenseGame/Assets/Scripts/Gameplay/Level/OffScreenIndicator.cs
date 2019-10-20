@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class OffScreenIndicator : MonoBehaviour
 {
     public GameObject target;
-    [SerializeField] private Image _uiArrow;
-    [SerializeField] private Image _uiIndicator;
-    [SerializeField] private Transform _trackingObject;
+    public Image _uiArrow;
+    public Image _uiIndicator;
+    public Transform _trackingObject;
 
     // Use this for initialization
     void Start()

@@ -14,6 +14,7 @@ public class UIVignette : MonoBehaviour
     public bool isFadeOn;
     public bool switchTimer;
     public bool isLooping;
+    public bool lowHealthActivated;
     public int loopTimes;
     public ColorParameter lowHealthColor;
     public ColorParameter newWaveColor;
@@ -131,10 +132,13 @@ public class UIVignette : MonoBehaviour
 
     public void SetWaveColor()
     {
-        isFadeOn = true;
-        isLooping = false;
-        lowHealthMask.color.value = newWaveColor;
-        lowHealthMask.enabled.value = true;
+        if(!lowHealthActivated)
+        {
+            isFadeOn = true;
+            isLooping = false;
+            lowHealthMask.color.value = newWaveColor;
+            lowHealthMask.enabled.value = true;
+        }
     }
 
     public void SetLowHealthColor()
@@ -143,5 +147,6 @@ public class UIVignette : MonoBehaviour
         isLooping = true;
         lowHealthMask.enabled.value = false;
         lowHealthMask.color.value = lowHealthColor;
+        lowHealthActivated = true;
     }
 }

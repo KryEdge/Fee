@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 {
     public delegate void OnLevelAction();
     public static OnLevelAction OnLevelEndWave;
-    
 
     [Header("Cheat Settings")]
     public bool areCheatsOn;
@@ -35,6 +34,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     [Header("Check Variables")]
     public int score;
+    public int enemiesKilled;
     public int currentFairies;
     public int givePointsMultiplier;
     public List<GameObject> enemies;
@@ -158,6 +158,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         Debug.Log("Gave " + pointsToGive + "Points to the player.");
         score += pointsToGive;
         scoreUI.UpdateText();
+        enemiesKilled++;
     }
 
     public void KillAllEnemies()

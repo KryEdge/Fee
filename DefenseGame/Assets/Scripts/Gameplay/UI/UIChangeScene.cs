@@ -15,6 +15,7 @@ public class UIChangeScene : MonoBehaviour
             Destroy(WaveSystem.Get().gameObject);
             Destroy(TurretSpawner.Get().gameObject);
             Destroy(Highscore.Get().gameObject);
+            Destroy(MilestoneManager.Get().gameObject);
         }
 
         SceneManager.LoadScene(sceneName);

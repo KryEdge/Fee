@@ -86,7 +86,7 @@ public class Shoot : MonoBehaviour
 
             if (Physics.Raycast(ray.origin, ray.direction, out hit, 999, Mask))
             {
-                if (hit.transform.gameObject.tag != "explosion" && Time.timeScale != 0)
+                if (hit.transform.gameObject.tag != "explosion" && Time.timeScale != 0 && !CheatSystem.isActivated)
                 {
                     if (!shootOnce)
                     {

@@ -52,6 +52,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody rig;
     private TorqueLookRotation torque;
     private Outline outline;
+    private bool hasAlreadyDied;
 
     // Start is called before the first frame update
     private void Start()
@@ -221,18 +222,26 @@ public class Enemy : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "explosion":
-                if(OnDeath != null)
+                if(!hasAlreadyDied)
                 {
-                    OnDeath(gameObject, pointsToGive);
+                    if (OnDeath != null)
+                    {
+                        OnDeath(gameObject, pointsToGive);
+                    }
+                    Destroy(gameObject);
+                    hasAlreadyDied = true;
                 }
-                Destroy(gameObject);
                 break;
             case "proyectile":
-                if (OnDeath != null)
+                if (!hasAlreadyDied)
                 {
-                    OnDeath(gameObject, pointsToGive);
+                    if (OnDeath != null)
+                    {
+                        OnDeath(gameObject, pointsToGive);
+                    }
+                    Destroy(gameObject);
+                    hasAlreadyDied = true;
                 }
-                Destroy(gameObject);
                 break;
             default:
                 break;

@@ -5,28 +5,33 @@ using UnityEngine.UI;
 
 public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
 {
+    [Header("General Settings")]
     public KeyCode activateKey;
-    public Button turretButton;
     public LayerMask Mask;
     public LayerMask deleteTurretMask;
+
+    [Header("Assign Components/GameObjects")]
+    public Button turretButton;
     public GameObject turretTemplate;
-    public bool preview;
-    public bool canDelete;
-    public GameObject newTurretPreview;
+
+    [Header("Checking Variables")]
     public List<GameObject> spawnedTurrets;
     public UITowersState towerUIState;
-    //public List<Turret> spawnedTurretsProperties;
+    public GameObject newTurretPreview;
+    public bool preview;
+    public bool canDelete;
 
     private Turret turretProperties;
     private MeshRenderer turretMaterial;
     private GameObject myEventSystem;
     private MaterialPropertyBlock material;
-    public bool canSpawn;
+    private bool canSpawn;
 
     // Start is called before the first frame update
     void Start()
     {
         myEventSystem = GameObject.Find("EventSystem");
+
         newTurretPreview = Instantiate(turretTemplate, turretTemplate.transform.position, turretTemplate.transform.rotation);
         turretProperties = newTurretPreview.GetComponent<Turret>();
         turretMaterial = newTurretPreview.transform.GetChild(1).GetComponent<MeshRenderer>();
@@ -165,8 +170,6 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
 
     private void PreviewTurret()
     {
-        //Debug.Log("DOOU");
-
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
@@ -185,13 +188,11 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
 
         if (turretProperties.canBePlaced && turretProperties.isInTurretZone)
         {
-            //turretMaterial.material.color = Color.green;
             material.SetColor("_BaseColor", Color.green);
             turretMaterial.SetPropertyBlock(material);
         }
         else
         {
-            //turretMaterial.material.color = Color.red;
             material.SetColor("_BaseColor", Color.red);
             turretMaterial.SetPropertyBlock(material);
         }

@@ -13,9 +13,12 @@ public class TorqueLookRotation : MonoBehaviour
     public directions direction;
     public Transform target;
     public float force = 0.1f;
+    public bool notTorque;
+    public float rotationSpeed;
 
     private Rigidbody rig;
     private Vector3 currentDirection;
+    
 
     private void Start()
     {
@@ -24,34 +27,49 @@ public class TorqueLookRotation : MonoBehaviour
 
     private void Update()
     {
-        switch (direction)
+        if(!notTorque)
         {
-            case directions.forward:
-                currentDirection = transform.forward;
-                break;
-            case directions.backwards:
-                currentDirection = transform.forward*-1;
-                break;
-            default:
-                break;
+            switch (direction)
+            {
+                case directions.forward:
+                    currentDirection = transform.forward;
+                    break;
+                case directions.backwards:
+                    currentDirection = transform.forward * -1;
+                    break;
+                default:
+                    break;
+            }
+        }
+        else
+        {
+            if (target)
+            {             
+                Quaternion newRotation = Quaternion.LookRotation(target.transform.position - transform.position, transform.up);
+                transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * rotationSpeed);
+            }
         }
     }
 
     void FixedUpdate()
     {
-        if(target)
+        if (!notTorque)
         {
-            Vector3 targetDelta = target.position - transform.position;
+            if (target)
+            {
+                Vector3 targetDelta = target.position - transform.position;
 
-            //get the angle between transform.forward and target delta
-            float angleDiff = Vector3.Angle(currentDirection, targetDelta);
+                //get the angle between transform.forward and target delta
+                float angleDiff = Vector3.Angle(currentDirection, targetDelta);
 
-            // get its cross product, which is the axis of rotation to
-            // get from one vector to the other
-            Vector3 cross = Vector3.Cross(currentDirection, targetDelta);
+                // get its cross product, which is the axis of rotation to
+                // get from one vector to the other
+                Vector3 cross = Vector3.Cross(currentDirection, targetDelta);
 
-            // apply torque along that axis according to the magnitude of the angle.
-            rig.AddTorque(cross * angleDiff * force);
+                // apply torque along that axis according to the magnitude of the angle.
+                rig.AddTorque(cross * angleDiff * force);
+            }
         }
+            
     }
 }

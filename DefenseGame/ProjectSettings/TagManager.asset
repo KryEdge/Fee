@@ -19,6 +19,7 @@ TagManager:
   - turretZone
   - turret
   - hurt
+  - ui
   layers:
   - Default
   - TransparentFX

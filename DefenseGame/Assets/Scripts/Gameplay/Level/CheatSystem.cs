@@ -6,7 +6,7 @@ public class CheatSystem : MonoBehaviour
 {
     [Header("General Settings")]
     public GameObject cheatsScreen;
-    public bool isActivated;
+    public static bool isActivated;
     public bool isTimeNormal;
 
     [Header("Assign Components")]
