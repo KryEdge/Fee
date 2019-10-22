@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   objectiveText: Kill 10 enemies
-  rewardPoints: 50
+  rewardPoints: 100
   isMultipleSteps: 1
   amountOfSteps: 10
   isActive: 0

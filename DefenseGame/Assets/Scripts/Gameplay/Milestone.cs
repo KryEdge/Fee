@@ -11,6 +11,7 @@ public class Milestone : MonoBehaviour
     public Text progressTextUI;
     public Slider progressBar;
 
+    private bool doOnce;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,10 +58,22 @@ public class Milestone : MonoBehaviour
             }
             else
             {
-                //MilestoneManager.Get().RemoveOldMilestone(this);
-                //MilestoneManager.Get().SetNewMilestone();
-                progressTextUI.text = "Done!";
-                progressBar.value = 1;
+                if(!doOnce)
+                {
+                    MilestoneManager.Get().milestonesToMove.Add(this);
+                    MilestoneManager.Get().canSwitch = true;
+
+                    if(!milestone.hasGivenReward)
+                    {
+                        GameManager.Get().upgradePointsCurrentMatch += milestone.rewardPoints;
+                        milestone.hasGivenReward = true;
+                    }
+                    
+                    progressTextUI.text = "Done!";
+                    progressBar.value = 1;
+                    doOnce = true;
+                }
+                
             }
         }
     }
@@ -95,7 +108,8 @@ public class Milestone : MonoBehaviour
 
     private void OnDestroy()
     {
-        //milestone.isDone = false;
+        milestone.hasGivenReward = false;
+        milestone.isDone = false;
         milestone.isActive = false;
         milestone.currentStep = 0;
     }

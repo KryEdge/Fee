@@ -14,8 +14,10 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public int maxEnemies;
     public int maxFairies;
     public int maxTurrets;
+    public float towerFireRate;
 
     [Header("Score Settings")]
+    public int upgradePointsCurrentMatch;
     public int initialMilestone;
     public int scoreAmount;
     public float givePointsTime;
@@ -44,14 +46,21 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     public int increaseScoreMilestone;
     private float pointsTimer;
+    private UpgradeSystem upgrades;
 
     private void Start()
     {
         Time.timeScale = 1;
+        upgrades = UpgradeSystem.Get();
         increaseScoreMilestone = initialMilestone;
         Fairy.OnFairyDeath += CheckFairiesCount;
         Enemy.OnDeath += AddPoints;
         UpdateUI();
+
+        maxFairies = (int)upgrades.GetUpgradeAmount(upgrades.fairiesUpgrade);
+        maxTurrets = (int)upgrades.GetUpgradeAmount(upgrades.towersUpgrade);
+        towerFireRate = upgrades.GetUpgradeAmount(upgrades.towersFireRateUpgrade);
+        turretSpawner.fireRate = towerFireRate;
     }
 
     // Update is called once per frame
@@ -113,6 +122,10 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     private void GameOver()
     {
+        int originalPoints = PlayerPrefs.GetInt("UpgradePoints", 0);
+        PlayerPrefs.SetInt("UpgradePoints", originalPoints + upgradePointsCurrentMatch);
+        UpgradeSystem.Get().UpdatePoints();
+        upgradePointsCurrentMatch = 0;
         movement.enabled = false;
         shoot.enabled = false;
         GameOverPanel.SetActive(true);

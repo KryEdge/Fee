@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19215ae6c0a766c43b2981b86b19e661, type: 3}
   m_Name: Milestone Test 3
   m_EditorClassIdentifier: 
-  type: 0
-  objectiveText: Get 600 Score
-  rewardPoints: 50
+  type: 1
+  objectiveText: Kill 15 Enemies
+  rewardPoints: 150
   isMultipleSteps: 1
-  amountOfSteps: 600
+  amountOfSteps: 15
   isActive: 0
   isDone: 0
   hasGivenReward: 0

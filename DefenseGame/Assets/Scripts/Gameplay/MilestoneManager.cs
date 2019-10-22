@@ -5,14 +5,19 @@ using UnityEngine;
 public class MilestoneManager : MonoBehaviourSingleton<MilestoneManager>
 {
     public List<Milestone> allMilestones;
+    public List<Milestone> milestonesToMove;
     public GameObject milestonePanel;
     public int maxMilestones;
     public int currentMilestones;
 
     public int maxMilestonesTotal;
     public int currentMilestonesTotal;
+    public float maxSwitchMilestoneTime;
+
+    public float switchMilestoneTimer;
 
     private bool doOnce;
+    public bool canSwitch;
     // Update is called once per frame
     void Update()
     {
@@ -20,16 +25,23 @@ public class MilestoneManager : MonoBehaviourSingleton<MilestoneManager>
         {
             if(currentMilestonesTotal >= maxMilestonesTotal)
             {
-                SetNewMilestone();
+                SetNewMilestoneUpdate();
                 doOnce = true;
             }
         }
 
-        /*
-        if(currentMilestones < maxMilestones)
+        if(canSwitch)
         {
-            SetNewMilestone();
-        }*/
+            switchMilestoneTimer += Time.deltaTime;
+
+            if(switchMilestoneTimer >= maxSwitchMilestoneTime)
+            {
+                RemoveOldMilestone();
+                SetNewMilestoneUpdate();
+                switchMilestoneTimer = 0;
+                canSwitch = false;
+            }
+        }
     }
 
     public void SetNewMilestone()
@@ -48,33 +60,49 @@ public class MilestoneManager : MonoBehaviourSingleton<MilestoneManager>
                 currentMilestones++;
             }
             random = Random.Range(0, allMilestones.Count);
-        }
-
-        /*foreach (Milestone item in allMilestones)
-        {
-            if(!item.milestone.isDone && !item.milestone.isActive && currentMilestones < maxMilestones)
-            {
-                Debug.Log("Choosen " + item.gameObject.name);
-                item.milestone.isActive = true;
-                item.transform.SetParent(milestonePanel.transform);
-                currentMilestones++;
-            }
-        }*/
-        
+        }        
     }
 
-    public void RemoveOldMilestone(Milestone oldMilestone)
+    public void SetNewMilestoneUpdate()
+    {
+        Debug.Log("Setting new Milestones 2");
+
+        for (int i = 0; i < allMilestones.Count; i++)
+        {
+            if(currentMilestones < maxMilestones)
+            {
+                if (!allMilestones[i].milestone.isDone && !allMilestones[i].milestone.isActive && currentMilestones < maxMilestones)
+                {
+                    Debug.Log("Choosen " + allMilestones[i].gameObject.name);
+                    allMilestones[i].milestone.isActive = true;
+                    allMilestones[i].transform.SetParent(milestonePanel.transform);
+                    currentMilestones++;
+                }
+            }
+            else
+            {
+                i = allMilestones.Count;
+            }
+        }
+    }
+
+    public void RemoveOldMilestone()
     {
         if(allMilestones.Count > maxMilestones)
         {
-            if (oldMilestone.milestone.isDone)
+            foreach (Milestone item in milestonesToMove)
             {
-                Debug.Log("rip");
-                currentMilestones--;
-                Debug.Log("rip " + currentMilestones);
-                oldMilestone.milestone.isActive = false;
-                oldMilestone.transform.SetParent(transform);
+                if (item.milestone.isDone)
+                {
+                    Debug.Log("rip");
+                    currentMilestones--;
+                    Debug.Log("rip " + currentMilestones);
+                    item.milestone.isActive = false;
+                    item.transform.SetParent(transform);
+                }
             }
+
+            milestonesToMove.Clear();
         }
     }
 }

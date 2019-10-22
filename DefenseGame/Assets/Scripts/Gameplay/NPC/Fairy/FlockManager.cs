@@ -14,7 +14,7 @@ public class FlockManager : MonoBehaviour
     public static Vector3 goalPosition = Vector3.zero;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         fairies = new List<GameObject>();
         prefabAmount = GameManager.Get().maxFairies;
@@ -52,5 +52,15 @@ public class FlockManager : MonoBehaviour
         //prefabAmount = null;
         fairies = null;
 
+    }
+
+    public void KillAllFairies()
+    {
+        foreach (GameObject item in fairies)
+        {
+            Destroy(item);
+        }
+
+        fairies.Clear();
     }
 }

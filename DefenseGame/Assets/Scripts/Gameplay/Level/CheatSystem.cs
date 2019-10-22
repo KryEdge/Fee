@@ -10,6 +10,7 @@ public class CheatSystem : MonoBehaviour
     public bool isTimeNormal;
 
     [Header("Assign Components")]
+    public FlockManager flockManager;
     public Shoot meteor;
     private GameManager gameManager;
 
@@ -55,6 +56,11 @@ public class CheatSystem : MonoBehaviour
     public void KillAllEnemies()
     {
         gameManager.KillAllEnemies();
+    }
+
+    public void KillAllFairies()
+    {
+        flockManager.KillAllFairies();
     }
 
     public void StopTime()

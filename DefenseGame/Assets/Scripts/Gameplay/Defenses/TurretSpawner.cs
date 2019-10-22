@@ -9,6 +9,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
     public KeyCode activateKey;
     public LayerMask Mask;
     public LayerMask deleteTurretMask;
+    public float fireRate;
 
     [Header("Assign Components/GameObjects")]
     public Button turretButton;
@@ -100,6 +101,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                     List<UITowersState> state = GameManager.Get().towersUI;
 
                     currentTurretProperties.OnTurretDead = DeleteTurretTimer;
+                    currentTurretProperties.fireRate = fireRate;
 
                     for (int i = state.Count-1; i >= 0; i--)
                     {

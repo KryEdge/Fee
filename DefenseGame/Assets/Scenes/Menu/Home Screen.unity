@@ -856,6 +856,7 @@ GameObject:
   - component: {fileID: 985932004}
   - component: {fileID: 985932003}
   - component: {fileID: 985932002}
+  - component: {fileID: 985932005}
   m_Layer: 5
   m_Name: Share Button
   m_TagString: Untagged
@@ -900,7 +901,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -911,7 +912,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 21300000, guid: 304e96e7fbfab37488633652ac1f555f, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -924,7 +925,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 985932003}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 985932005}
+        m_MethodName: ChangeScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &985932003
@@ -940,7 +952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -965,6 +977,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 985932000}
   m_CullTransparentMesh: 0
+--- !u!114 &985932005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985932000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cbc2cc7b64e8da4ea28db6e0b94b9bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Upgrade Screen
 --- !u!1 &1136616205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,6 +1193,76 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1528703223}
   m_CullTransparentMesh: 0
+--- !u!1 &1545671769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1545671771}
+  - component: {fileID: 1545671770}
+  m_Layer: 0
+  m_Name: Upgrade System
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1545671770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545671769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b00bfd0b9812584439f69639eb2cb323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradePoints: 0
+  initialPoints: 0
+  resetToInitialPoints: 0
+  fairiesUpgrade:
+    upgradeName: Max Fairies
+    currentLevel: 0
+    amountPerLevel:
+    - 4
+    - 6
+    - 8
+    costPerLevel: 00000000960000002c010000
+  towersUpgrade:
+    upgradeName: Max Towers
+    currentLevel: 0
+    amountPerLevel:
+    - 5
+    - 7
+    - 10
+    costPerLevel: 64000000c80000002c010000
+  towersFireRateUpgrade:
+    upgradeName: Towers Fire Rate
+    currentLevel: 0
+    amountPerLevel:
+    - 1
+    - 0.7
+    - 0.4
+    costPerLevel: c8000000fa00000090010000
+--- !u!4 &1545671771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545671769}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 326.0827, y: 503.64807, z: -25.104858}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1687811529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1350,6 +1445,10 @@ MonoBehaviour:
   fairyButton: {fileID: 0}
   towerButton: {fileID: 0}
   timeButton: {fileID: 0}
+  upgradePointsText: {fileID: 0}
+  fairiesUpgradeText: {fileID: 0}
+  towerUpgradeText: {fileID: 0}
+  fireRateUpgradeText: {fileID: 0}
 --- !u!4 &1825785797
 Transform:
   m_ObjectHideFlags: 0

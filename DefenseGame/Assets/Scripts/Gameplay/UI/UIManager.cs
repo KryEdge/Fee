@@ -16,15 +16,26 @@ public class UIManager : MonoBehaviour
     public Image towerButton;
     public Image timeButton;
 
+    [Header("Upgrade System")]
+    public Text upgradePointsText;
+
+    [Header("Max Fairies Upgrade")]
+    public Text fairiesUpgradeText;
+    public Text towerUpgradeText;
+    public Text fireRateUpgradeText;
+    UpgradeSystem upgrades;
+
     // Start is called before the first frame update
     void Start()
     {
+        upgrades = UpgradeSystem.Get();
         highscore = Highscore.Get();
         if(newHighscoreText)
         {
             newHighscoreText.enabled = false;
         }
-        
+
+        UpdateText();
     }
 
     // Update is called once per frame
@@ -38,11 +49,16 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        highscoreText.text = "" + highscore.highscore;
-        if(highscore.hasNewHighscore)
+        if(highscoreText)
         {
-            newHighscoreText.enabled = true;
+            highscoreText.text = "" + highscore.highscore;
+            if (highscore.hasNewHighscore)
+            {
+                newHighscoreText.enabled = true;
+            }
         }
+
+        
     }
 
     public void CheatsReloadMeteor()
@@ -93,6 +109,11 @@ public class UIManager : MonoBehaviour
         cheatsComponent.KillAllEnemies();
     }
 
+    public void CheatsKillAllFairies()
+    {
+        cheatsComponent.KillAllFairies();
+    }
+
     public void CheatsStopTime()
     {
         cheatsComponent.StopTime();
@@ -112,5 +133,56 @@ public class UIManager : MonoBehaviour
         //newHighscoreText.enabled = false;
         highscore.ResetHighscoreBool();
         //
+    }
+
+    public void UpdateText()
+    {
+        if(upgradePointsText)
+        {
+            upgradePointsText.text = "Upgrade Points: " + upgrades.upgradePoints;
+
+            fairiesUpgradeText.text = upgrades.GetUpgradeName(upgrades.fairiesUpgrade) + "                          "
+                + "Next Level: " + upgrades.GetNextUpgradeLevel(upgrades.fairiesUpgrade)
+                + " Cost: " + ItExists(upgrades.fairiesUpgrade);
+
+            towerUpgradeText.text = upgrades.GetUpgradeName(upgrades.towersUpgrade) + "                          "
+                + "Next Level: " + upgrades.GetNextUpgradeLevel(upgrades.towersUpgrade)
+                + " Cost: " + ItExists(upgrades.towersUpgrade);
+
+
+            fireRateUpgradeText.text = upgrades.GetUpgradeName(upgrades.towersFireRateUpgrade) + "                          "
+                + "Next Level: " + upgrades.GetNextUpgradeLevel(upgrades.towersFireRateUpgrade)
+                + " Cost: " + ItExists(upgrades.towersFireRateUpgrade);
+        }
+    }
+
+    public void UpgradeBuyMaxFaires()
+    {
+        upgrades.BuyUpgrade(upgrades.fairiesUpgrade);
+        UpdateText();
+    }
+
+    public void UpgradeBuyMaxTowers()
+    {
+        upgrades.BuyUpgrade(upgrades.towersUpgrade);
+        UpdateText();
+    }
+
+    public void UpgradeBuyFireRate()
+    {
+        upgrades.BuyUpgrade(upgrades.towersFireRateUpgrade);
+        UpdateText();
+    }
+
+    private string ItExists(UpgradeSystem.Upgrade upgrade)
+    {
+        if(upgrades.GetNextLevelUpgradeCost(upgrade) == 0)
+        {
+            return "???";
+        }
+        else
+        {
+            return "" + upgrades.GetNextLevelUpgradeCost(upgrade);
+        }
     }
 }

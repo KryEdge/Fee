@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   objectiveText: Get 900 Score
-  rewardPoints: 50
+  rewardPoints: 300
   isMultipleSteps: 1
   amountOfSteps: 900
   isActive: 0
