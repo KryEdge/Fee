@@ -216,11 +216,19 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
 
         if (preview)
         {
-            turretButton.image.color = Color.green;
+            if(turretButton)
+            {
+                turretButton.image.color = Color.green;
+            }
+            
         }
         else
         {
-            turretButton.image.color = Color.white;
+            if(turretButton)
+            {
+                turretButton.image.color = Color.white;
+            }
+            
             newTurretPreview.GetComponent<Turret>().enteredZones.Clear();
             newTurretPreview.GetComponent<Turret>().enteredTurrets.Clear();
             newTurretPreview.GetComponent<Turret>().isInTurretZone = false;
