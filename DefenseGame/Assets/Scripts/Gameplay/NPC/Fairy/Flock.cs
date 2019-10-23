@@ -77,6 +77,10 @@ public class Flock : MonoBehaviour
             }
         }
 
-        torque.target = Fairy.selectedWaypoint.transform;
+        if(torque.target)
+        {
+            torque.target = Fairy.selectedWaypoint.transform;
+        }
+        
     }
 }
