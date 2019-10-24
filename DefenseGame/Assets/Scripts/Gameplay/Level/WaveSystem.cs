@@ -41,6 +41,11 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
         timerHasStarted = true;
         originalWaitTime = maxWaitTime;
         maxWaitTime = initialWaitTime;
+
+        foreach (EnemySpawner spawner in spawners)
+        {
+            spawner.automaticSpawn = false;
+        }
     }
 
     private void Update()
@@ -76,6 +81,8 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
 
     public void StartWave()
     {
+        Debug.Log("gg bois");
+
         if(OnStartWave != null)
         {
             OnStartWave();
