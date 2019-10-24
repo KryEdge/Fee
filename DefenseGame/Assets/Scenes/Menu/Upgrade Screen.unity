@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -336,6 +336,80 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 167640500}
   m_CullTransparentMesh: 0
+--- !u!1001 &371596947
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8471564798365896350, guid: eee84d9bf39f2944c9945f4a8afff61f,
+        type: 3}
+      propertyPath: m_Name
+      value: Upgrade System (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471564798365896344, guid: eee84d9bf39f2944c9945f4a8afff61f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 326.0827
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471564798365896344, guid: eee84d9bf39f2944c9945f4a8afff61f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 503.64807
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471564798365896344, guid: eee84d9bf39f2944c9945f4a8afff61f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -25.104858
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471564798365896344, guid: eee84d9bf39f2944c9945f4a8afff61f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471564798365896344, guid: eee84d9bf39f2944c9945f4a8afff61f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471564798365896344, guid: eee84d9bf39f2944c9945f4a8afff61f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471564798365896344, guid: eee84d9bf39f2944c9945f4a8afff61f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471564798365896344, guid: eee84d9bf39f2944c9945f4a8afff61f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471564798365896344, guid: eee84d9bf39f2944c9945f4a8afff61f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471564798365896344, guid: eee84d9bf39f2944c9945f4a8afff61f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471564798365896344, guid: eee84d9bf39f2944c9945f4a8afff61f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471564798365896345, guid: eee84d9bf39f2944c9945f4a8afff61f,
+        type: 3}
+      propertyPath: meteorCooldownUpgrade.upgradeName
+      value: Meteor Cooldown
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eee84d9bf39f2944c9945f4a8afff61f, type: 3}
 --- !u!1 &375883773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1637,7 +1711,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1825377885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1661,14 +1735,6 @@ MonoBehaviour:
     - 6
     - 8
     costPerLevel: 00000000960000002c010000
-  towersUpgrade:
-    upgradeName: Max Towers
-    currentLevel: 0
-    amountPerLevel:
-    - 5
-    - 7
-    - 10
-    costPerLevel: 64000000c80000002c010000
   towersFireRateUpgrade:
     upgradeName: Towers Fire Rate
     currentLevel: 0
@@ -1677,6 +1743,11 @@ MonoBehaviour:
     - 0.7
     - 0.4
     costPerLevel: c8000000fa00000090010000
+  meteorCooldownUpgrade:
+    upgradeName: 
+    currentLevel: 0
+    amountPerLevel: []
+    costPerLevel: 
 --- !u!4 &1825377886
 Transform:
   m_ObjectHideFlags: 0
@@ -1729,7 +1800,7 @@ MonoBehaviour:
   timeButton: {fileID: 0}
   upgradePointsText: {fileID: 1120245477}
   fairiesUpgradeText: {fileID: 629530168}
-  towerUpgradeText: {fileID: 1697313340}
+  meteorCooldownText: {fileID: 1697313340}
   fireRateUpgradeText: {fileID: 375883775}
 --- !u!4 &1825785797
 Transform:

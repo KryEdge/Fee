@@ -20,8 +20,8 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
 
     [Header("Upgrades")]
     public Upgrade fairiesUpgrade;
-    public Upgrade towersUpgrade;
     public Upgrade towersFireRateUpgrade;
+    public Upgrade meteorCooldownUpgrade;
 
     // Start is called before the first frame update
     void Start()

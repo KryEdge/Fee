@@ -8,7 +8,7 @@ public class UIUpgradeButton : MonoBehaviour
     public enum UpgradeType
     {
         maxFairies,
-        maxTowers,
+        meteorCooldown,
         towersFireRate,
         allTypes
     }
@@ -34,8 +34,8 @@ public class UIUpgradeButton : MonoBehaviour
             case UpgradeType.maxFairies:
                 manager.UpgradeBuyMaxFaires();
                 break;
-            case UpgradeType.maxTowers:
-                manager.UpgradeBuyMaxTowers();
+            case UpgradeType.meteorCooldown:
+                manager.UpgradeBuyMeteorCooldown();
                 break;
             case UpgradeType.towersFireRate:
                 manager.UpgradeBuyFireRate();

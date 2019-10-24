@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Max Fairies Upgrade")]
     public Text fairiesUpgradeText;
-    public Text towerUpgradeText;
+    public Text meteorCooldownText;
     public Text fireRateUpgradeText;
     UpgradeSystem upgrades;
 
@@ -159,9 +159,9 @@ public class UIManager : MonoBehaviour
                 + "Next Level: " + upgrades.GetNextUpgradeLevel(upgrades.fairiesUpgrade)
                 + " Cost: " + ItExists(upgrades.fairiesUpgrade);
 
-            towerUpgradeText.text = upgrades.GetUpgradeName(upgrades.towersUpgrade) + "                          "
-                + "Next Level: " + upgrades.GetNextUpgradeLevel(upgrades.towersUpgrade)
-                + " Cost: " + ItExists(upgrades.towersUpgrade);
+            meteorCooldownText.text = upgrades.GetUpgradeName(upgrades.meteorCooldownUpgrade) + "                          "
+                + "Next Level: " + upgrades.GetNextUpgradeLevel(upgrades.meteorCooldownUpgrade)
+                + " Cost: " + ItExists(upgrades.meteorCooldownUpgrade);
 
 
             fireRateUpgradeText.text = upgrades.GetUpgradeName(upgrades.towersFireRateUpgrade) + "                          "
@@ -176,9 +176,9 @@ public class UIManager : MonoBehaviour
         UpdateText();
     }
 
-    public void UpgradeBuyMaxTowers()
+    public void UpgradeBuyMeteorCooldown()
     {
-        upgrades.BuyUpgrade(upgrades.towersUpgrade);
+        upgrades.BuyUpgrade(upgrades.meteorCooldownUpgrade);
         UpdateText();
     }
 
