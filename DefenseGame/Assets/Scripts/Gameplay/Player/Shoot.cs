@@ -17,6 +17,8 @@ public class Shoot : MonoBehaviour
     public LayerMask Mask;
     public int maxMeteors;
     public int currentMeteors;
+    public Color disableColor;
+    public Color enableColor;
 
     private Bullet bulletProperties;
     private bool shootOnce;
@@ -124,11 +126,11 @@ public class Shoot : MonoBehaviour
 
         if (isActivated)
         {
-            meteorButton.image.color = Color.green;
+            meteorButton.image.color = enableColor;
         }
         else
         {
-            meteorButton.image.color = Color.cyan;
+            meteorButton.image.color = disableColor;
         }
     }
 
@@ -138,11 +140,11 @@ public class Shoot : MonoBehaviour
 
         if (isActivated)
         {
-            meteorButton.image.color = Color.green;
+            meteorButton.image.color = enableColor;
         }
         else
         {
-            meteorButton.image.color = Color.cyan;
+            meteorButton.image.color = disableColor;
         }
     }
 
