@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.UI;
 
 public class UIVignette : MonoBehaviour
 {
@@ -11,13 +12,15 @@ public class UIVignette : MonoBehaviour
     public float newWaveFadeSpeed;
     public float maxFadeValue;
     public float minFadeValue;
+    public float maxFadeValueMask;
     public bool isFadeOn;
     public bool switchTimer;
     public bool isLooping;
     public bool lowHealthActivated;
     public int loopTimes;
     public ColorParameter lowHealthColor;
-    public ColorParameter newWaveColor;
+    public Color newWaveColor;
+    public Image VignetteMask;
 
     public bool doOnce;
 
@@ -29,14 +32,12 @@ public class UIVignette : MonoBehaviour
     {
         WaveSystem.OnStartWave += SetWaveColor;
         post.profile.TryGetSettings(out lowHealthMask);
-        if(isLooping)
-        {
-            lowHealthMask.color.value = lowHealthColor;
-        }
-        else
-        {
-            lowHealthMask.color.value = newWaveColor;
-        }
+
+        lowHealthMask.color.value = lowHealthColor;
+
+        newWaveColor.a = 0;
+        VignetteMask.color = newWaveColor;
+        VignetteMask.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -44,55 +45,57 @@ public class UIVignette : MonoBehaviour
     {
         if (isFadeOn)
         {
-            if(!isLooping)
-            {
-                if(loopTimes > 1)
-                {
-                    fadeValueTimer = 0;
-                    loopTimes = 0;
-                    isFadeOn = false;
-                }
-            }
 
-            if (switchTimer)
+            if(isLooping)
             {
-                if(isLooping)
+                if (switchTimer)
                 {
                     fadeValueTimer -= Time.deltaTime * fadeSpeed;
                 }
                 else
                 {
-                    fadeValueTimer -= Time.deltaTime * newWaveFadeSpeed;
+                    fadeValueTimer += Time.deltaTime * fadeSpeed;
                 }
-                
+
+
+                if (fadeValueTimer >= maxFadeValue)
+                {
+                    switchTimer = true;
+                    doOnce = false;
+                }
+                else if (fadeValueTimer <= minFadeValue)
+                {
+                    switchTimer = false;
+                }
+
+                lowHealthMask.intensity.value = fadeValueTimer;
             }
             else
             {
-                if (isLooping)
+                if (loopTimes > 1)
                 {
-                    fadeValueTimer += Time.deltaTime * fadeSpeed;
+                    fadeValueTimer = 0;
+                    loopTimes = 0;
+                    isFadeOn = false;
+                }
+
+                if(switchTimer)
+                {
+                    fadeValueTimer -= Time.deltaTime * newWaveFadeSpeed;
                 }
                 else
                 {
                     fadeValueTimer += Time.deltaTime * newWaveFadeSpeed;
                 }
-            }
-            
 
-            if (fadeValueTimer >= maxFadeValue)
-            {
-                switchTimer = true;
-                doOnce = false;
-            }
-            else if(fadeValueTimer <= minFadeValue)
-            {
-                if(isLooping)
+                if (fadeValueTimer >= maxFadeValueMask)
                 {
-                    switchTimer = false;
+                    switchTimer = true;
+                    doOnce = false;
                 }
-                else
+                else if (fadeValueTimer <= minFadeValue)
                 {
-                    if(fadeValueTimer <= 0)
+                    if (fadeValueTimer <= 0)
                     {
                         switchTimer = false;
                         if (!doOnce)
@@ -102,10 +105,10 @@ public class UIVignette : MonoBehaviour
                         }
                     }
                 }
-               
             }
 
-            lowHealthMask.intensity.value = fadeValueTimer;
+            newWaveColor.a = fadeValueTimer;
+            VignetteMask.color = newWaveColor;
         }
     }
 
@@ -136,17 +139,17 @@ public class UIVignette : MonoBehaviour
         {
             isFadeOn = true;
             isLooping = false;
-            lowHealthMask.color.value = newWaveColor;
-            lowHealthMask.enabled.value = true;
+            VignetteMask.gameObject.SetActive(true);
         }
     }
 
     public void SetLowHealthColor()
     {
-        isFadeOn = false;
+        isFadeOn = true;
         isLooping = true;
         lowHealthMask.enabled.value = false;
         lowHealthMask.color.value = lowHealthColor;
         lowHealthActivated = true;
+        VignetteMask.enabled = false;
     }
 }
