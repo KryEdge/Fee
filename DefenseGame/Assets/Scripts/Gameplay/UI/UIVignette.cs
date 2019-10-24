@@ -145,9 +145,9 @@ public class UIVignette : MonoBehaviour
 
     public void SetLowHealthColor()
     {
-        isFadeOn = true;
+        //isFadeOn = true;
         isLooping = true;
-        lowHealthMask.enabled.value = false;
+        //lowHealthMask.enabled.value = true;
         lowHealthMask.color.value = lowHealthColor;
         lowHealthActivated = true;
         if(VignetteMask)
