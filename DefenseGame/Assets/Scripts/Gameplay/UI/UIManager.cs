@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour
     public Text fairiesUpgradeText;
     public Text meteorCooldownText;
     public Text fireRateUpgradeText;
+    public Text fairySpeedUpgradeText;
     UpgradeSystem upgrades;
 
     // Start is called before the first frame update
@@ -167,6 +168,10 @@ public class UIManager : MonoBehaviour
             fireRateUpgradeText.text = upgrades.GetUpgradeName(upgrades.towersFireRateUpgrade) + "                          "
                 + "Next Level: " + upgrades.GetNextUpgradeLevel(upgrades.towersFireRateUpgrade)
                 + " Cost: " + ItExists(upgrades.towersFireRateUpgrade);
+
+            fairySpeedUpgradeText.text = upgrades.GetUpgradeName(upgrades.fairySpeedUpgrade) + "                          "
+                + "Next Level: " + upgrades.GetNextUpgradeLevel(upgrades.fairySpeedUpgrade)
+                + " Cost: " + ItExists(upgrades.fairySpeedUpgrade);
         }
     }
 
@@ -185,6 +190,12 @@ public class UIManager : MonoBehaviour
     public void UpgradeBuyFireRate()
     {
         upgrades.BuyUpgrade(upgrades.towersFireRateUpgrade);
+        UpdateText();
+    }
+
+    public void UpgradeBuyFairySpeed()
+    {
+        upgrades.BuyUpgrade(upgrades.fairySpeedUpgrade);
         UpdateText();
     }
 

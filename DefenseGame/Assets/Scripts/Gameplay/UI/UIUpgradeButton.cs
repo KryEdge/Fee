@@ -10,6 +10,7 @@ public class UIUpgradeButton : MonoBehaviour
         maxFairies,
         meteorCooldown,
         towersFireRate,
+        fairySpeed,
         allTypes
     }
 
@@ -39,6 +40,9 @@ public class UIUpgradeButton : MonoBehaviour
                 break;
             case UpgradeType.towersFireRate:
                 manager.UpgradeBuyFireRate();
+                break;
+            case UpgradeType.fairySpeed:
+                manager.UpgradeBuyFairySpeed();
                 break;
             default:
                 break;

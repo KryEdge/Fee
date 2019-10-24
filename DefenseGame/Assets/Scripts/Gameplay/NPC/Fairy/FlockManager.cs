@@ -7,6 +7,7 @@ public class FlockManager : MonoBehaviour
     public FauxGravityAttractor planet;
     public GameObject lightPrefab;
     public GameObject prefab;
+    public static int fairySpeed;
     public static int prefabAmount;
     public static List<GameObject> fairies;
 
@@ -27,6 +28,7 @@ public class FlockManager : MonoBehaviour
                                      );
             fairies.Add(Instantiate(prefab, pos, Quaternion.identity));
             fairies[i].GetComponent<FauxGravityBody>().attractor = planet;
+            fairies[i].GetComponent<Fairy>().speed = fairySpeed;
             fairies[i].transform.position = fairies[i].transform.position - fairies[i].transform.up*4;
             fairies[i].SetActive(true);
         }

@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         shoot.rechargeTime = upgrades.GetUpgradeAmount(upgrades.meteorCooldownUpgrade);
         //maxTurrets = (int)upgrades.GetUpgradeAmount(upgrades.towersUpgrade);
         towerFireRate = upgrades.GetUpgradeAmount(upgrades.towersFireRateUpgrade);
+        FlockManager.fairySpeed = (int)upgrades.GetUpgradeAmount(upgrades.fairySpeedUpgrade);
+
         turretSpawner.fireRate = towerFireRate;
     }
 

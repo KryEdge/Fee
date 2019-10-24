@@ -26,6 +26,7 @@ public class Fairy : MonoBehaviour
 
     [Header("Speed Settings")]
     public float speed;
+    //public float speedMultiplier;
     public float runSpeedMultiplier;
 
     [Header("Outline Color Settings")]
