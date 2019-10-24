@@ -157,6 +157,7 @@ public class Fairy : MonoBehaviour
     {
         //Debug.Log("This waypoint: " + selectedWaypoint.name);
         FlockManager.goalPosition = selectedWaypoint.transform.position;
+        //torque.target = selectedWaypoint.transform;
     }
 
     private void StartEscape(GameObject enemy)
