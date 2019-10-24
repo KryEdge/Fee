@@ -108,6 +108,7 @@ public class Enemy : MonoBehaviour
             eatingTimer = 0;
             finalSpeed = speed;
             currentState = enemyStates.move;
+            SwitchRotationTarget();
         }
     }
 
