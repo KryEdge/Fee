@@ -105,12 +105,15 @@ public class Turret : MonoBehaviour
         {
             if (currentTarget)
             {
-                GameObject newProyectile = Instantiate(proyectileTemplate);
-                Proyectile proy = newProyectile.GetComponent<Proyectile>();
-                proy.startPosition = transform.position + transform.up * 12;
-                proy.target = currentTarget;
-                newProyectile.SetActive(true);
-                canShoot = false;
+                if(currentTarget.gameObject.tag != "dead")
+                {
+                    GameObject newProyectile = Instantiate(proyectileTemplate);
+                    Proyectile proy = newProyectile.GetComponent<Proyectile>();
+                    proy.startPosition = transform.position + transform.up * 12;
+                    proy.target = currentTarget;
+                    newProyectile.SetActive(true);
+                    canShoot = false;
+                }
             }
         }
         

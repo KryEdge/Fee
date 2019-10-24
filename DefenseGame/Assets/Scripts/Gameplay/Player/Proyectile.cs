@@ -46,5 +46,13 @@ public class Proyectile : MonoBehaviour
             Debug.Log("Proyectile hit enemy");
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.tag == "dead")
+        {
+            Debug.Log("Proyectile hit enemy");
+            Destroy(gameObject);
+        }
+
+        Debug.Log("Bullet collision with : " + collision.gameObject.tag);
     }
 }

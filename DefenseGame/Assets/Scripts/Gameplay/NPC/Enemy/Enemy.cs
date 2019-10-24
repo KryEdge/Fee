@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
         idle,
         move,
         eating,
+        dead,
         allStates
     }
 
@@ -17,9 +18,15 @@ public class Enemy : MonoBehaviour
 
     [Header("General Settings")]
     public GameObject initialWaypoint;
+    public Shader deathShader;
     public enemyStates initialState;
     public int pointsToGive;
-    
+
+    [Header("Death Settings")]
+    public float deathTime;
+    private float deathTimer;
+    private int deathLayer;
+
     [Header("Speed Settings")]
     public float speed;
     public float runSpeedMultiplier;
@@ -35,6 +42,7 @@ public class Enemy : MonoBehaviour
     public float npcLostDistance;
 
     [Header("Assign Variables/Components")]
+    public SkinnedMeshRenderer attachedModel;
     public NPCRadius radius;
     public Fairy ally;
 
@@ -57,6 +65,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        deathLayer = 24;
         rig = GetComponent<Rigidbody>();
         torque = GetComponent<TorqueLookRotation>();
         outline = GetComponent<Outline>();
@@ -88,6 +97,9 @@ public class Enemy : MonoBehaviour
             case enemyStates.eating:
                 Eat();
                 break;
+            case enemyStates.dead:
+                Die();
+                break;
             default:
                 break;
         }
@@ -109,6 +121,16 @@ public class Enemy : MonoBehaviour
             finalSpeed = speed;
             currentState = enemyStates.move;
             SwitchRotationTarget();
+        }
+    }
+
+    private void Die()
+    {
+        deathTimer += Time.deltaTime;
+
+        if(deathTimer >= deathTime)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -229,7 +251,12 @@ public class Enemy : MonoBehaviour
                     {
                         OnDeath(gameObject, pointsToGive);
                     }
-                    Destroy(gameObject);
+                    attachedModel.material.shader = deathShader;
+                    gameObject.layer = deathLayer;
+                    gameObject.tag = "dead";
+                    currentState = enemyStates.dead;
+                    // GetComponent<CapsuleCollider>().enabled = false;
+                    //Destroy(gameObject);
                     hasAlreadyDied = true;
                 }
                 break;
@@ -240,7 +267,12 @@ public class Enemy : MonoBehaviour
                     {
                         OnDeath(gameObject, pointsToGive);
                     }
-                    Destroy(gameObject);
+                    gameObject.layer = deathLayer;
+                    gameObject.tag = "dead";
+                    currentState = enemyStates.dead;
+                    //Destroy(gameObject);
+                    //GetComponent<CapsuleCollider>().enabled = false;
+                    attachedModel.material.shader = deathShader;
                     hasAlreadyDied = true;
                 }
                 break;

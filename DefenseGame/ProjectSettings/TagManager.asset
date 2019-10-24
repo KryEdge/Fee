@@ -19,6 +19,7 @@ TagManager:
   - turretZone
   - turret
   - hurt
+  - dead
   layers:
   - Default
   - TransparentFX
@@ -44,7 +45,7 @@ TagManager:
   - turret
   - road
   - deleteTurret
-  - 
+  - dead
   - 
   - 
   - 
