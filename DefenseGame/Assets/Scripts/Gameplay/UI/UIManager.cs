@@ -7,7 +7,8 @@ public class UIManager : MonoBehaviour
 {
     [Header("HighScore")]
     public Highscore highscore;
-    public Text highscoreText;
+    public Text[] highscoreTexts;
+    //public Text highscoreText;
     public Text newHighscoreText;
 
     [Header("Cheat System")]
@@ -49,16 +50,25 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        if(highscoreText)
+        if (newHighscoreText)
         {
-            highscoreText.text = "" + highscore.highscore;
-            if (highscore.hasNewHighscore)
+            if (highscoreTexts.Length > 0)
             {
-                newHighscoreText.enabled = true;
+                for (int i = 0; i < highscoreTexts.Length; i++)
+                {
+                    highscoreTexts[i].text = "" + highscore.highscore;
+
+                }
+
+                if (highscore.hasNewHighscore)
+                {
+                    newHighscoreText.enabled = true;
+                }
             }
         }
 
-        
+            
+
     }
 
     public void CheatsReloadMeteor()
@@ -131,7 +141,11 @@ public class UIManager : MonoBehaviour
     private void OnDestroy()
     {
         //newHighscoreText.enabled = false;
-        highscore.ResetHighscoreBool();
+        if(highscore)
+        {
+            highscore.ResetHighscoreBool();
+        }
+        
         //
     }
 

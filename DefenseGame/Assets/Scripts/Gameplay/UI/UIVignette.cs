@@ -150,6 +150,9 @@ public class UIVignette : MonoBehaviour
         lowHealthMask.enabled.value = false;
         lowHealthMask.color.value = lowHealthColor;
         lowHealthActivated = true;
-        VignetteMask.enabled = false;
+        if(VignetteMask)
+        {
+            VignetteMask.enabled = false;
+        }
     }
 }
