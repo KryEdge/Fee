@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/Upgrade Screen.unity
     guid: b155a7a6fa393d94a95fc4d80fa6e511
   - enabled: 1
+    path: Assets/Scenes/Menu/Settings.unity
+    guid: 2e18d327ba2cf524e9a117ce6f069034
+  - enabled: 1
     path: Assets/Scenes/Menu/Tutorial.unity
     guid: 1243522b38a1fbc41851d46e6b3eef1a
   - enabled: 1
