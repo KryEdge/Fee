@@ -23,7 +23,8 @@ public class Enemy : MonoBehaviour
     public int pointsToGive;
 
     [Header("Death Settings")]
-    public float deathTime;
+    public float deathSpeed;
+    private float deathTime;
     private float deathTimer;
     private int deathLayer;
 
@@ -82,6 +83,9 @@ public class Enemy : MonoBehaviour
         originalDistanceToStop = distanceToStop;
         finalDistanceToStop = originalDistanceToStop;
         GameManager.Get().enemies.Add(gameObject);
+        deathTimer = -1;
+        deathTime = 1;
+        //Debug.Log("Disolve value " + attachedModel.material.GetFloat("_dissolve"));
     }
 
     // Update is called once per frame
@@ -126,9 +130,11 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        deathTimer += Time.deltaTime;
+        deathTimer += Time.deltaTime * deathSpeed;
 
-        if(deathTimer >= deathTime)
+        attachedModel.material.SetFloat("_dissolve", deathTimer);
+
+        if (deathTimer >= deathTime)
         {
             Destroy(gameObject);
         }
@@ -208,11 +214,11 @@ public class Enemy : MonoBehaviour
 
     private void StartPursuit(GameObject npc)
     {
-        Debug.Log("ENTERED FIND ALLY");
+        //Debug.Log("ENTERED FIND ALLY");
 
         if (!currentTarget)
         {
-            Debug.Log("ASSIGNED ALLY");
+            //Debug.Log("ASSIGNED ALLY");
             currentTarget = npc;
             ally = currentTarget.GetComponent<Fairy>();
             nextWaypointTarget = Fairy.selectedWaypoint;
@@ -222,7 +228,7 @@ public class Enemy : MonoBehaviour
 
     private void EndPursuit()
     {
-        Debug.Log("Deleting npc target");
+        //Debug.Log("Deleting npc target");
         currentTarget = null;
         nextWaypointTarget = null;
         finalSpeed = speed;
@@ -236,6 +242,23 @@ public class Enemy : MonoBehaviour
             if(Fairy.canBeDamaged)
             {
                 StartEating();
+            }
+        }
+
+        if (collision.gameObject.tag == "proyectile")
+        {
+            if (!hasAlreadyDied)
+            {
+                if (OnDeath != null)
+                {
+                    OnDeath(gameObject, pointsToGive);
+                }
+                gameObject.layer = deathLayer;
+                gameObject.tag = "dead";
+                currentState = enemyStates.dead;
+                attachedModel.material.shader = deathShader;
+                Debug.Log(gameObject.name + " has been killed by: " + collision.gameObject.name);
+                hasAlreadyDied = true;
             }
         }
     }
@@ -255,24 +278,8 @@ public class Enemy : MonoBehaviour
                     gameObject.layer = deathLayer;
                     gameObject.tag = "dead";
                     currentState = enemyStates.dead;
-                    // GetComponent<CapsuleCollider>().enabled = false;
-                    //Destroy(gameObject);
-                    hasAlreadyDied = true;
-                }
-                break;
-            case "proyectile":
-                if (!hasAlreadyDied)
-                {
-                    if (OnDeath != null)
-                    {
-                        OnDeath(gameObject, pointsToGive);
-                    }
-                    gameObject.layer = deathLayer;
-                    gameObject.tag = "dead";
-                    currentState = enemyStates.dead;
-                    //Destroy(gameObject);
-                    //GetComponent<CapsuleCollider>().enabled = false;
-                    attachedModel.material.shader = deathShader;
+
+                    Debug.Log(gameObject.name + " has been killed by: " + other.gameObject.name);
                     hasAlreadyDied = true;
                 }
                 break;

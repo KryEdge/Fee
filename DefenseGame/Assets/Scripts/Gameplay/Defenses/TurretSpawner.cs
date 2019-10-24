@@ -159,7 +159,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
         }
         else
         {
-            Debug.Log("buscando torreta");
+            //Debug.Log("buscando torreta");
             Debug.DrawRay(ray.origin, ray.direction * 999, Color.white);
         }
     }

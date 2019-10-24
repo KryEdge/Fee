@@ -88,6 +88,8 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //Debug.Log("im gonna kill this guy: " + collision.gameObject.name);
+
         if (mode == Mode.meteor)
         {
             if (collision.gameObject.tag == "planet")
@@ -99,7 +101,7 @@ public class Bullet : MonoBehaviour
 
                 transform.GetChild(0).gameObject.SetActive(true);
                 hasCrashed = true;
-                Debug.Log(collision.gameObject.tag);
+                //Debug.Log(collision.gameObject.tag);
             }
         }
     }

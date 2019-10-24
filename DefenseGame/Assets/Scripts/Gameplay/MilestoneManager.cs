@@ -73,7 +73,7 @@ public class MilestoneManager : MonoBehaviourSingleton<MilestoneManager>
             {
                 if (!allMilestones[i].milestone.isDone && !allMilestones[i].milestone.isActive && currentMilestones < maxMilestones)
                 {
-                    Debug.Log("Choosen " + allMilestones[i].gameObject.name);
+                    //Debug.Log("Choosen " + allMilestones[i].gameObject.name);
                     allMilestones[i].milestone.isActive = true;
                     allMilestones[i].transform.SetParent(milestonePanel.transform);
                     currentMilestones++;
@@ -94,9 +94,9 @@ public class MilestoneManager : MonoBehaviourSingleton<MilestoneManager>
             {
                 if (item.milestone.isDone)
                 {
-                    Debug.Log("rip");
+                   // Debug.Log("rip");
                     currentMilestones--;
-                    Debug.Log("rip " + currentMilestones);
+                    //Debug.Log("rip " + currentMilestones);
                     item.milestone.isActive = false;
                     item.transform.SetParent(transform);
                 }
