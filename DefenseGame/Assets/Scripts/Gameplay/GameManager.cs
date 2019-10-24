@@ -168,10 +168,13 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     private void AddPoints(GameObject enemy, int pointsToGive)
     {
-        Debug.Log("Gave " + pointsToGive + "Points to the player.");
-        score += pointsToGive;
-        scoreUI.UpdateText();
-        enemiesKilled++;
+        if(!gameOver)
+        {
+            Debug.Log("Gave " + pointsToGive + "Points to the player.");
+            score += pointsToGive;
+            scoreUI.UpdateText();
+            enemiesKilled++;
+        }
     }
 
     public void KillAllEnemies()

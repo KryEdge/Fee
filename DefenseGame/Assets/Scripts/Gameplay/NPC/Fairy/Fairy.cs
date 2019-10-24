@@ -165,7 +165,7 @@ public class Fairy : MonoBehaviour
         if(currentEnemySpotted != enemy)
         {
             float enemyCurrentDistance = Vector3.Distance(enemy.transform.position, transform.position);
-            Debug.Log("enemy spotted!");
+            //Debug.Log("enemy spotted!");
 
             if (currentEnemySpotted == null)
             {
@@ -187,7 +187,7 @@ public class Fairy : MonoBehaviour
 
     private void EndEscape()
     {
-        Debug.Log("ESCAPED!");
+        //Debug.Log("ESCAPED!");
         currentEnemySpotted = null;
         Flock.finalSpeed = Flock.originalFinalSpeed;
         currentColor = normalColor;
