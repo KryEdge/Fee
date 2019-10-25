@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Shoot : MonoBehaviour
@@ -86,13 +87,15 @@ public class Shoot : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
+            
+
             if (Physics.Raycast(ray.origin, ray.direction, out hit, 999, Mask))
             {
-                if (hit.transform.gameObject.tag != "explosion" && Time.timeScale != 0 && !CheatSystem.isActivated)
+                if (hit.transform.gameObject.tag != "explosion" && Time.timeScale != 0 && !EventSystem.current.IsPointerOverGameObject())
                 {
                     if (!shootOnce)
                     {
-                       // Debug.Log(hit.transform.gameObject.tag);
+                        Debug.Log(hit.transform.gameObject.tag);
                         bulletProperties.isFired = true;
                         bulletProperties.target = hit.point;
                         //Debug.Log(hit.point);

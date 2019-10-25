@@ -53,7 +53,7 @@ MonoBehaviour:
     - 4
     - 6
     - 8
-    costPerLevel: 32000000960000002c010000
+    costPerLevel: 000000002c010000c2010000
   towersFireRateUpgrade:
     upgradeName: Towers Fire Rate
     currentLevel: 0
@@ -61,20 +61,20 @@ MonoBehaviour:
     - 1
     - 0.7
     - 0.4
-    costPerLevel: c8000000fa00000090010000
+    costPerLevel: 000000002c010000c2010000
   meteorCooldownUpgrade:
-    upgradeName: 
+    upgradeName: Meteor Cooldown
     currentLevel: 0
     amountPerLevel:
     - 5
     - 4.5
     - 3.8
-    costPerLevel: 00000000c80000002c010000
+    costPerLevel: 000000005e010000f4010000
   fairySpeedUpgrade:
-    upgradeName: 
+    upgradeName: Fairies' Speed
     currentLevel: 0
     amountPerLevel:
+    - 6
     - 8
     - 10
-    - 12
-    costPerLevel: 000000002c010000f4010000
+    costPerLevel: 00000000f401000058020000

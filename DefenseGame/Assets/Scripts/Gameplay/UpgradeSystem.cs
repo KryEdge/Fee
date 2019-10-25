@@ -111,6 +111,6 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
 
     public int GetNextUpgradeLevel(Upgrade upgrade)
     {
-        return upgrade.currentLevel + 1;
+        return upgrade.currentLevel + 2;
     }
 }
