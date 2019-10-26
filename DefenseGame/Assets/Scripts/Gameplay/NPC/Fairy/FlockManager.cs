@@ -10,8 +10,9 @@ public class FlockManager : MonoBehaviour
     public static int fairySpeed;
     public static int prefabAmount;
     public static List<GameObject> fairies;
+    public Transform[] positions;
 
-    public int groupSize = 2;
+    public int groupSize = 7;
     public static Vector3 goalPosition = Vector3.zero;
 
     // Start is called before the first frame update
@@ -22,14 +23,10 @@ public class FlockManager : MonoBehaviour
 
         for (int i = 0; i < prefabAmount; i++)
         {
-            Vector3 pos = new Vector3(  transform.position.x + Random.Range(-groupSize, groupSize+1),
-                                        transform.position.y,
-                                        transform.position.z + Random.Range(-groupSize, groupSize + 1)
-                                     );
-            fairies.Add(Instantiate(prefab, pos, Quaternion.identity));
+            fairies.Add(Instantiate(prefab, prefab.transform.position, Quaternion.identity));
             fairies[i].GetComponent<FauxGravityBody>().attractor = planet;
             fairies[i].GetComponent<Fairy>().speed = fairySpeed;
-            fairies[i].transform.position = fairies[i].transform.position - fairies[i].transform.up*4;
+            fairies[i].transform.position = positions[i].position;
             fairies[i].SetActive(true);
         }
 
