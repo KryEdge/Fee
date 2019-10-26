@@ -153,4 +153,13 @@ public class CameraMovement : MonoBehaviour
             }
         }
     }
+
+    public void GoToFairies()
+    {
+        Debug.Log("Touched Pointer");
+        if (FlockManager.fairies[0])
+        {
+            gameObject.transform.position = FlockManager.fairies[0].transform.position + FlockManager.fairies[0].transform.up * 2.0f;
+        }
+    }
 }
