@@ -163,25 +163,28 @@ public class Fairy : MonoBehaviour
     {
         if (currentEnemySpotted != enemy)
         {
-            float enemyCurrentDistance = Vector3.Distance(enemy.transform.position, transform.position);
-            //Debug.Log("enemy spotted!");
-
-            if (currentEnemySpotted == null)
+            if(currentEnemySpotted)
             {
-                if (enemyCurrentDistance >= 4.0f)
+                float enemyCurrentDistance = Vector3.Distance(enemy.transform.position, transform.position);
+                //Debug.Log("enemy spotted!");
+
+                if (currentEnemySpotted == null)
                 {
-                    GameObject aux = selectedWaypoint;
-                    selectedWaypoint = oldWaypoint;
-                    oldWaypoint = aux;
+                    if (enemyCurrentDistance >= 4.0f)
+                    {
+                        GameObject aux = selectedWaypoint;
+                        selectedWaypoint = oldWaypoint;
+                        oldWaypoint = aux;
 
-                    FlockManager.goalPosition = selectedWaypoint.transform.position;
+                        FlockManager.goalPosition = selectedWaypoint.transform.position;
+                    }
                 }
-            }
 
-            currentEnemySpotted = enemy;
-            Flock.finalSpeed = Flock.originalFinalSpeed * runSpeedMultiplier;
-            currentColor = dangerColor;
-            Debug.Log("Final Speed :  " + Flock.finalSpeed);
+                currentEnemySpotted = enemy;
+                Flock.finalSpeed = Flock.originalFinalSpeed * runSpeedMultiplier;
+                currentColor = dangerColor;
+                Debug.Log("Final Speed :  " + Flock.finalSpeed);
+            }
         }
     }
 

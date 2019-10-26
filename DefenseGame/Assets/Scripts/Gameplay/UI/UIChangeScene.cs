@@ -18,7 +18,17 @@ public class UIChangeScene : MonoBehaviour
             Destroy(MilestoneManager.Get().gameObject);
         }
 
-        SceneManager.LoadScene(sceneName);
+        if(sceneName == "Gameplay")
+        {
+            LoaderManager.Get().LoadScene(sceneName);
+            UILoadingScreen.Get().SetVisible(true);
+        }
+        else
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+
+        Time.timeScale = 1;
     }
 
     public void QuitGame()
