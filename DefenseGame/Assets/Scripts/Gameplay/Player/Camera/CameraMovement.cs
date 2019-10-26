@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+    [Header("General Settings")]
+    public GameObject initialWaypoint;
+
     [Header("References")]
     public GameObject cameraGO;
     public Transform lowestZoom;
@@ -43,6 +46,8 @@ public class CameraMovement : MonoBehaviour
     {
         rig = GetComponent<Rigidbody>();
         finalSpeed = speed;
+        transform.position = initialWaypoint.transform.position;
+        transform.position += transform.forward;
     }
 
     // Update is called once per frame
