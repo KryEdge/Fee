@@ -25,7 +25,7 @@ public class MilestoneManager : MonoBehaviourSingleton<MilestoneManager>
         {
             if(currentMilestonesTotal >= maxMilestonesTotal)
             {
-                SetNewMilestoneUpdate();
+                SetNewMilestone();
                 doOnce = true;
             }
         }
@@ -37,7 +37,7 @@ public class MilestoneManager : MonoBehaviourSingleton<MilestoneManager>
             if(switchMilestoneTimer >= maxSwitchMilestoneTime)
             {
                 RemoveOldMilestone();
-                SetNewMilestoneUpdate();
+                SetNewMilestone();
                 switchMilestoneTimer = 0;
                 canSwitch = false;
             }
@@ -48,34 +48,14 @@ public class MilestoneManager : MonoBehaviourSingleton<MilestoneManager>
     {
         Debug.Log("Setting new Milestones");
 
-        int random = Random.Range(0, allMilestones.Count);
-
-        while(currentMilestones < maxMilestones)
-        {
-            if (!allMilestones[random].milestone.isDone && !allMilestones[random].milestone.isActive && currentMilestones < maxMilestones)
-            {
-                Debug.Log("Choosen " + allMilestones[random].gameObject.name);
-                allMilestones[random].milestone.isActive = true;
-                allMilestones[random].transform.SetParent(milestonePanel.transform);
-                currentMilestones++;
-            }
-            random = Random.Range(0, allMilestones.Count);
-        }        
-    }
-
-    public void SetNewMilestoneUpdate()
-    {
-        Debug.Log("Setting new Milestones 2");
-
         for (int i = 0; i < allMilestones.Count; i++)
         {
             if(currentMilestones < maxMilestones)
             {
                 if (!allMilestones[i].milestone.isDone && !allMilestones[i].milestone.isActive && currentMilestones < maxMilestones)
                 {
-                    //Debug.Log("Choosen " + allMilestones[i].gameObject.name);
                     allMilestones[i].milestone.isActive = true;
-                    allMilestones[i].transform.SetParent(milestonePanel.transform);
+                    allMilestones[i].transform.SetParent(milestonePanel.transform, false);
                     currentMilestones++;
                 }
             }
@@ -98,7 +78,7 @@ public class MilestoneManager : MonoBehaviourSingleton<MilestoneManager>
                     currentMilestones--;
                     //Debug.Log("rip " + currentMilestones);
                     item.milestone.isActive = false;
-                    item.transform.SetParent(transform);
+                    item.transform.SetParent(transform, false);
                 }
             }
 
