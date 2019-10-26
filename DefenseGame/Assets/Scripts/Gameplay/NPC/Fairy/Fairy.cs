@@ -67,6 +67,7 @@ public class Fairy : MonoBehaviour
 
         radius.OnRadiusFindEnemy += StartEscape;
         Enemy.OnDeath += CheckEnemySpotted;
+        OnFairyDeath += ForceStartEscape;
         GameManager.OnLevelEndWave += EndEscape;
 
         currentState = initialState;
@@ -77,9 +78,6 @@ public class Fairy : MonoBehaviour
         outline.OutlineColor = currentColor;
         GameManager.Get().currentFairies++;
         GameManager.Get().UpdateUI();
-
-        Flock.finalSpeed = speed;
-        Flock.originalFinalSpeed = speed;
     }
 
     // Update is called once per frame
@@ -98,11 +96,11 @@ public class Fairy : MonoBehaviour
 
         outline.OutlineColor = currentColor;
 
-        if(!canBeDamaged)
+        if (!canBeDamaged)
         {
             invincibilityTimer += Time.deltaTime;
 
-            if(invincibilityTimer >= invincibilityMaxTime)
+            if (invincibilityTimer >= invincibilityMaxTime)
             {
                 canBeDamaged = true;
                 invincibilityTimer = 0;
@@ -118,12 +116,12 @@ public class Fairy : MonoBehaviour
         float distance = Vector3.Distance(selectedWaypoint.transform.position, transform.position);
         float enemyDistance = 100.0f;
 
-        if(distance <= distanceToStop)
+        if (distance <= distanceToStop)
         {
             ChangeWaypoint();
         }
 
-        if(currentEnemySpotted)
+        if (currentEnemySpotted)
         {
             enemyDistance = Vector3.Distance(currentEnemySpotted.transform.position, transform.position);
 
@@ -163,7 +161,7 @@ public class Fairy : MonoBehaviour
 
     private void StartEscape(GameObject enemy)
     {
-        if(currentEnemySpotted != enemy)
+        if (currentEnemySpotted != enemy)
         {
             float enemyCurrentDistance = Vector3.Distance(enemy.transform.position, transform.position);
             //Debug.Log("enemy spotted!");
@@ -178,12 +176,18 @@ public class Fairy : MonoBehaviour
 
                     FlockManager.goalPosition = selectedWaypoint.transform.position;
                 }
-            }           
+            }
 
             currentEnemySpotted = enemy;
             Flock.finalSpeed = Flock.originalFinalSpeed * runSpeedMultiplier;
             currentColor = dangerColor;
+            Debug.Log("Final Speed :  " + Flock.finalSpeed);
         }
+    }
+
+    private void ForceStartEscape()
+    {
+        StartEscape(oldWaypoint);
     }
 
     private void EndEscape()
@@ -196,7 +200,7 @@ public class Fairy : MonoBehaviour
 
     private void CheckEnemySpotted(GameObject enemy, int pointsToGive)
     {
-        if(enemy == currentEnemySpotted)
+        if (enemy == currentEnemySpotted)
         {
             EndEscape();
         }
@@ -211,7 +215,7 @@ public class Fairy : MonoBehaviour
             case "enemy":
                 if (canBeDamaged)
                 {
-                    if(!isInmunityOn)
+                    if (!isInmunityOn)
                     {
                         canBeDamaged = false;
                         FlockManager.fairies.Remove(gameObject);
@@ -229,6 +233,7 @@ public class Fairy : MonoBehaviour
         radius.OnRadiusFindEnemy -= StartEscape;
         Enemy.OnDeath -= CheckEnemySpotted;
         GameManager.OnLevelEndWave -= EndEscape;
+
         GameManager.Get().currentFairies--;
         GameManager.Get().UpdateUI();
 
@@ -236,6 +241,8 @@ public class Fairy : MonoBehaviour
         {
             OnFairyDeath();
         }
+
+        OnFairyDeath -= ForceStartEscape;
     }
 
     private void ForceEndEscape()
@@ -247,5 +254,11 @@ public class Fairy : MonoBehaviour
     {
         isInmunityOn = !isInmunityOn;
         Debug.Log(isInmunityOn);
+    }
+
+    public void ChangeSpeed(float newSpeed)
+    {
+        Flock.finalSpeed = newSpeed;
+        Flock.originalFinalSpeed = newSpeed;
     }
 }

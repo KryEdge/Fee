@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public int maxFairies;
     public int maxTurrets;
     public float towerFireRate;
+    public float fairySpeed;
 
     [Header("Score Settings")]
     public int upgradePointsCurrentMatch;
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         shoot.rechargeTime = upgrades.GetUpgradeAmount(upgrades.meteorCooldownUpgrade);
         //maxTurrets = (int)upgrades.GetUpgradeAmount(upgrades.towersUpgrade);
         towerFireRate = upgrades.GetUpgradeAmount(upgrades.towersFireRateUpgrade);
-        FlockManager.fairySpeed = (int)upgrades.GetUpgradeAmount(upgrades.fairySpeedUpgrade);
+        fairySpeed = (int)upgrades.GetUpgradeAmount(upgrades.fairySpeedUpgrade);
 
         turretSpawner.fireRate = towerFireRate;
     }
