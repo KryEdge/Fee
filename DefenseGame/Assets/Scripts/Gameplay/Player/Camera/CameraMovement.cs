@@ -12,6 +12,11 @@ public class CameraMovement : MonoBehaviour
     public Transform lowestZoom;
     public Transform highestZoom;
 
+    [Header("Fairy Follow")]
+    public float followTime;
+    private float followTimer;
+    private bool canFollow;
+
     [Header("Speed")]
     public int speed;
     public int fasterSpeed;
@@ -48,44 +53,66 @@ public class CameraMovement : MonoBehaviour
         finalSpeed = speed;
         transform.position = initialWaypoint.transform.position;
         transform.position += transform.forward;
+        canFollow = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.LeftShift))
+        if(!canFollow)
         {
-            finalSpeed = fasterSpeed;
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            finalSpeed = speed;
-        }
-
-        if (Input.GetMouseButton(1))
-        {
-            if(isInverted)
+            if (Input.GetKey(KeyCode.LeftShift))
             {
-                h = Input.GetAxis("Mouse X") * -1 * torqueSpeed * Time.deltaTime;
+                finalSpeed = fasterSpeed;
             }
-            else
+            else if (Input.GetKeyUp(KeyCode.LeftShift))
             {
-                h = Input.GetAxis("Mouse X") * torqueSpeed * Time.deltaTime;
+                finalSpeed = speed;
             }
+
+            if (Input.GetMouseButton(1))
+            {
+                if (isInverted)
+                {
+                    h = Input.GetAxis("Mouse X") * -1 * torqueSpeed * Time.deltaTime;
+                }
+                else
+                {
+                    h = Input.GetAxis("Mouse X") * torqueSpeed * Time.deltaTime;
+                }
+            }
+
+            accelerationInput = Input.GetAxis("Mouse ScrollWheel") * -1;
+
+            if (Mathf.Abs(accelerationInput) > 0.01f)
+            {
+                acceleration += Input.GetAxis("Mouse ScrollWheel") * -1 * zoomSpeed * Time.deltaTime;
+            }
+
+            
         }
-
-        accelerationInput = Input.GetAxis("Mouse ScrollWheel") *-1;
-
-        if(Mathf.Abs(accelerationInput) > 0.01f)
+        else
         {
-            acceleration += Input.GetAxis("Mouse ScrollWheel") * -1 * zoomSpeed * Time.deltaTime;            
+            followTimer += Time.deltaTime;
+
+            if(FlockManager.fairies[0])
+            {
+                gameObject.transform.position = FlockManager.fairies[0].transform.position + FlockManager.fairies[0].transform.up * 2.0f;
+            }
+            
+
+            if (followTimer >= followTime)
+            {
+                canFollow = false;
+                followTimer = 0;
+            }
         }
 
         CheckAcceleration(ref acceleration, ref accelerationDecay);
 
         zoomAmount += acceleration;
 
-        zoomAmount = Mathf.Clamp(zoomAmount,0, 1);
+        zoomAmount = Mathf.Clamp(zoomAmount, 0, 1);
 
         cameraGO.transform.position = Vector3.Slerp(lowestZoom.transform.position, highestZoom.transform.position, zoomAmount);
         cameraGO.transform.rotation = Quaternion.Slerp(lowestZoom.transform.rotation, highestZoom.transform.rotation, zoomAmount);
