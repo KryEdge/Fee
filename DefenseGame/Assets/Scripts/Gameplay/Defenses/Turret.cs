@@ -109,7 +109,7 @@ public class Turret : MonoBehaviour
                 {
                     GameObject newProyectile = Instantiate(proyectileTemplate);
                     Proyectile proy = newProyectile.GetComponent<Proyectile>();
-                    proy.startPosition = transform.position + transform.up * 12;
+                    proy.startPosition = transform.position + transform.up * 15;
                     proy.target = currentTarget;
                     newProyectile.SetActive(true);
                     canShoot = false;
