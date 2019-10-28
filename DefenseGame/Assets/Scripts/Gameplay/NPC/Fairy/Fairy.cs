@@ -78,6 +78,7 @@ public class Fairy : MonoBehaviour
         outline.OutlineColor = currentColor;
         GameManager.Get().currentFairies++;
         GameManager.Get().UpdateUI();
+        animator.speed = Random.Range(0.8f, 1.4f);
     }
 
     // Update is called once per frame

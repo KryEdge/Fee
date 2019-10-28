@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9145438936992139318}
   - component: {fileID: 5281705014252034536}
   - component: {fileID: 2351810377410725063}
+  - component: {fileID: 8112206486785101905}
   m_Layer: 0
   m_Name: Grass (1)
   m_TagString: Untagged
@@ -98,6 +99,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8112206486785101905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3152696709517828488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7936677f405dff46a43144d05c8cc5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4217732933506732121
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,9 +134,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4217732933506732121}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -36.635296, y: 38.374, z: 220.25835}
-  m_LocalScale: {x: 0.46586, y: 0.46586, z: 0.46586}
+  m_LocalScale: {x: 5.176223, y: 5.176223, z: 5.1762223}
   m_Children:
   - {fileID: 7067039142668070310}
   m_Father: {fileID: 0}
