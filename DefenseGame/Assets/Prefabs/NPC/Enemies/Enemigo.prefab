@@ -72,12 +72,12 @@ GameObject:
   - component: {fileID: 5948605231176055619}
   - component: {fileID: 2426417544878891584}
   m_Layer: 8
-  m_Name: Enemigo 1
+  m_Name: Enemigo
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1726853647811137618
 Transform:
   m_ObjectHideFlags: 0
@@ -85,7 +85,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2426417544878891585}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 36.54, y: 35.700005, z: 190.46}
   m_LocalScale: {x: 0.6193822, y: 0.619381, z: 0.6193822}
   m_Children:
@@ -110,7 +110,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!136 &5948605231176055622
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -156,6 +156,8 @@ MonoBehaviour:
   direction: 0
   target: {fileID: 0}
   force: 0.05
+  notTorque: 0
+  rotationSpeed: 0
 --- !u!114 &2426417544878891584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,13 +171,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialWaypoint: {fileID: 0}
+  deathShader: {fileID: -6465566751694194690, guid: 82eebf03bf1699b468b813aa6099b038,
+    type: 3}
   initialState: 1
+  pointsToGive: 5
+  deathSpeed: 3
   speed: 6
   runSpeedMultiplier: 1.5
   eatingTime: 3
   eatingTimer: 0
   distanceToStop: 1.54
   npcLostDistance: 20
+  attachedModel: {fileID: 3455260392030529289}
   radius: {fileID: 7242981503821853808}
   ally: {fileID: 0}
   currentState: 0
@@ -325,11 +332,22 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 03c1baf2c1ca87b4da7ae96515e5ca96,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5b8e6bd6f4648e44abafef9281ad7f3f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03c1baf2c1ca87b4da7ae96515e5ca96, type: 3}
 --- !u!4 &2449546445017072044 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 03c1baf2c1ca87b4da7ae96515e5ca96,
+    type: 3}
+  m_PrefabInstance: {fileID: 7242981505759832758}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &3455260392030529289 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5438008902199086527, guid: 03c1baf2c1ca87b4da7ae96515e5ca96,
     type: 3}
   m_PrefabInstance: {fileID: 7242981505759832758}
   m_PrefabAsset: {fileID: 0}
