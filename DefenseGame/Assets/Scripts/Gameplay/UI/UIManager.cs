@@ -146,8 +146,6 @@ public class UIManager : MonoBehaviour
         {
             highscore.ResetHighscoreBool();
         }
-        
-        //
     }
 
     public void UpdateText()
@@ -156,22 +154,10 @@ public class UIManager : MonoBehaviour
         {
             upgradePointsText.text = "Upgrade Points: " + upgrades.upgradePoints;
 
-            fairiesUpgradeText.text = upgrades.GetUpgradeName(upgrades.fairiesUpgrade) + "                          "
-                + "Next Level: " + upgrades.GetNextUpgradeLevel(upgrades.fairiesUpgrade)
-                + " Cost: " + ItExists(upgrades.fairiesUpgrade);
-
-            meteorCooldownText.text = upgrades.GetUpgradeName(upgrades.meteorCooldownUpgrade) + "                          "
-                + "Next Level: " + upgrades.GetNextUpgradeLevel(upgrades.meteorCooldownUpgrade)
-                + " Cost: " + ItExists(upgrades.meteorCooldownUpgrade);
-
-
-            fireRateUpgradeText.text = upgrades.GetUpgradeName(upgrades.towersFireRateUpgrade) + "                          "
-                + "Next Level: " + upgrades.GetNextUpgradeLevel(upgrades.towersFireRateUpgrade)
-                + " Cost: " + ItExists(upgrades.towersFireRateUpgrade);
-
-            fairySpeedUpgradeText.text = upgrades.GetUpgradeName(upgrades.fairySpeedUpgrade) + "                          "
-                + "Next Level: " + upgrades.GetNextUpgradeLevel(upgrades.fairySpeedUpgrade)
-                + " Cost: " + ItExists(upgrades.fairySpeedUpgrade);
+            UpdateSpecificText(fairiesUpgradeText, upgrades.fairiesUpgrade);
+            UpdateSpecificText(meteorCooldownText, upgrades.meteorCooldownUpgrade);
+            UpdateSpecificText(fireRateUpgradeText, upgrades.towersFireRateUpgrade);
+            UpdateSpecificText(fairySpeedUpgradeText, upgrades.fairySpeedUpgrade);
         }
     }
 
@@ -209,5 +195,12 @@ public class UIManager : MonoBehaviour
         {
             return "" + upgrades.GetNextLevelUpgradeCost(upgrade);
         }
+    }
+
+    private void UpdateSpecificText(Text currentText, UpgradeSystem.Upgrade upgrade)
+    {
+        currentText.text = upgrades.GetUpgradeName(upgrade) +
+                "\n\r Next Level: " + upgrades.GetNextUpgradeLevel(upgrade)
+                + "\n\r Cost: " + ItExists(upgrade);
     }
 }
