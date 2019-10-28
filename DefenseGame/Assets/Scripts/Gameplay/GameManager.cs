@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     [Header("Score Settings")]
     public int upgradePointsCurrentMatch;
+    public int upgradePointsToGive;
+    public int upgradePointsGiveMilestonesOriginal;
     public int initialMilestone;
     public int scoreAmount;
     public float givePointsTime;
@@ -47,6 +49,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     public int increaseScoreMilestone;
     private float pointsTimer;
+    private int upgradePointsGiveMilestone;
     private UpgradeSystem upgrades;
 
     private void Start()
@@ -65,6 +68,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         fairySpeed = (int)upgrades.GetUpgradeAmount(upgrades.fairySpeedUpgrade);
 
         turretSpawner.fireRate = towerFireRate;
+        //upgradePointsGiveMilestonesOriginal = upgradePointsGiveMilestone;
+        upgradePointsGiveMilestone = upgradePointsGiveMilestonesOriginal;
     }
 
     // Update is called once per frame
@@ -88,7 +93,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             if (!gameOver)
             {
                 pointsTimer = 0;
-                score += scoreAmount * givePointsMultiplier;
+                AddPoints(null, scoreAmount * givePointsMultiplier);
+                //score += scoreAmount * givePointsMultiplier;
                 scoreUI.UpdateText();
             } 
         }
@@ -177,7 +183,18 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             Debug.Log("Gave " + pointsToGive + "Points to the player.");
             score += pointsToGive;
             scoreUI.UpdateText();
-            enemiesKilled++;
+
+            if(enemy)
+            {
+                enemiesKilled++;
+            }
+
+            if(score >= upgradePointsGiveMilestone)
+            {
+                Debug.Log("Added upgrade points!");
+                upgradePointsCurrentMatch += upgradePointsToGive;
+                upgradePointsGiveMilestone += upgradePointsGiveMilestonesOriginal;
+            }
         }
     }
 
