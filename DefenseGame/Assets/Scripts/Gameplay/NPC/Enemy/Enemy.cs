@@ -56,6 +56,7 @@ public class Enemy : MonoBehaviour
     public float finalSpeed;
     public float originalDistanceToStop;
     public float finalDistanceToStop;
+    private float npcDistance;
 
     //Private
     private Rigidbody rig;
@@ -66,6 +67,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        npcDistance = 99;
         deathLayer = 24;
         rig = GetComponent<Rigidbody>();
         torque = GetComponent<TorqueLookRotation>();
@@ -109,6 +111,26 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        switch (currentState)
+        {
+            case enemyStates.idle:
+                break;
+            case enemyStates.move:
+                MoveFixedUpdate();
+                break;
+            case enemyStates.eating:
+                ///Eat();
+                break;
+            case enemyStates.dead:
+                //Die();
+                break;
+            default:
+                break;
+        }
+    }
+
     public void StartEating()
     {
         currentState = enemyStates.eating;
@@ -143,7 +165,7 @@ public class Enemy : MonoBehaviour
     private void Move()
     {
         float distance = Vector3.Distance(selectedWaypoint.transform.position, transform.position);
-        float npcDistance = 100.0f;
+        npcDistance = 100.0f;
 
         if (distance <= finalDistanceToStop)
         {
@@ -160,20 +182,7 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        if(npcDistance <= 4.0f)
-        {
-            torque.target = currentTarget.transform;
-            selectedWaypoint = Fairy.selectedWaypoint;
-            finalDistanceToStop = originalDistanceToStop * 8.0f;
-            Vector3 direction = (ally.offset.transform.position - transform.position).normalized;
-            rig.MovePosition(rig.position + direction * finalSpeed * Time.deltaTime);
-        }
-        else
-        {
-            finalDistanceToStop = originalDistanceToStop;
-            Vector3 direction = (selectedWaypoint.transform.position - transform.position).normalized;
-            rig.MovePosition(rig.position + direction * finalSpeed * Time.deltaTime);
-        }
+        
     }
 
     private void ChangeWaypoint()
@@ -244,7 +253,7 @@ public class Enemy : MonoBehaviour
                 StartEating();
             }
         }
-
+        
         if (collision.gameObject.tag == "proyectile")
         {
             if (!hasAlreadyDied)
@@ -258,6 +267,7 @@ public class Enemy : MonoBehaviour
                 currentState = enemyStates.dead;
                 attachedModel.material.shader = deathShader;
                 Debug.Log(gameObject.name + " has been killed by: " + collision.gameObject.name);
+                Destroy(collision.gameObject);
                 hasAlreadyDied = true;
             }
         }
@@ -293,5 +303,26 @@ public class Enemy : MonoBehaviour
         GameManager.Get().enemies.Remove(gameObject);
         radius.OnRadiusFindEnemy -= StartPursuit;
         //Fairy.OnFairyDeath -= StartEating;
+    }
+
+    private void MoveFixedUpdate()
+    {
+        if (npcDistance <= 4.0f)
+        {
+            if(currentTarget)
+            {
+                torque.target = currentTarget.transform;
+                selectedWaypoint = Fairy.selectedWaypoint;
+                finalDistanceToStop = originalDistanceToStop * 8.0f;
+                Vector3 direction = (ally.offset.transform.position - transform.position).normalized;
+                rig.MovePosition(rig.position + direction * finalSpeed * Time.deltaTime);
+            }
+        }
+        else
+        {
+            finalDistanceToStop = originalDistanceToStop;
+            Vector3 direction = (selectedWaypoint.transform.position - transform.position).normalized;
+            rig.MovePosition(rig.position + direction * finalSpeed * Time.deltaTime);
+        }
     }
 }
