@@ -92,7 +92,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                 Debug.Log("Spawning");
                 if(spawnedTurrets.Count <= GameManager.Get().maxTurrets - 1)
                 {
-                    GameObject newTurret = Instantiate(turretTemplate, hit.point + (hit.normal * 1), newTurretPreview.transform.rotation);
+                    GameObject newTurret = Instantiate(turretTemplate, hit.point + (hit.normal * -5), newTurretPreview.transform.rotation);
                     newTurret.SetActive(true);
                     spawnedTurrets.Add(newTurret);
                     GameManager.Get().UpdateUI();
