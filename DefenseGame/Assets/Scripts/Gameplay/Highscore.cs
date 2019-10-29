@@ -24,14 +24,19 @@ public class Highscore : MonoBehaviourSingleton<Highscore>
 
             if (GameManager.Get().score >= highscore)
             {
+                if (!doOnce)
+                {
+                    if (highscore != 0)
+                    {
+                        GameManager.Get().isConfettiOn = true;
+                    }
+
+                    doOnce = true;
+                }
+
                 highscore = GameManager.Get().score;
                 PlayerPrefs.SetInt("highscore", highscore);
                 hasNewHighscore = true;
-                if(!doOnce)
-                {
-                    GameManager.Get().isConfettiOn = true;
-                    doOnce = true;
-                }
             }
         }
     }
