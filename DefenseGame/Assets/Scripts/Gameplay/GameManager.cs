@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     [Header("Assign Components/GameObjects")]
     public ParticleSystem[] confetti;
+    public UIPauseButton pause;
     public UIFairies fairies;
     public UITowers towers;
     public UIScore scoreUI;
@@ -189,6 +190,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         GameOverPanel.SetActive(true);
         TurretSpawner.Get().preview = false;
         TurretSpawner.Get().StopAllOutlines();
+        pause.pauseMenu.SetActive(false);
+        pause.enabled = false;
     }
 
     private void CheckFairiesCount()
