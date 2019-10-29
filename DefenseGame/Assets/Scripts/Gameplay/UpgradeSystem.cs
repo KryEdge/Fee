@@ -121,5 +121,6 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
         meteorCooldownUpgrade.currentLevel = 0;
         fairySpeedUpgrade.currentLevel = 0;
         upgradePoints = 0;
+        PlayerPrefs.SetInt("UpgradePoints", upgradePoints);
     }
 }
