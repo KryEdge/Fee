@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIPauseButton : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject warningMenu;
     public bool isSecondaryPauseButton;
 
     private bool isGamePaused;
@@ -23,51 +24,82 @@ public class UIPauseButton : MonoBehaviour
             myEventSystem = GameObject.Find("EventSystem");
             isGamePaused = false;
         }
+
+        if(warningMenu)
+        {
+            warningMenu.SetActive(false);
+        }
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
+        if (!warningMenu.activeSelf)
         {
-            if (!isSecondaryPauseButton)
+            if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
             {
-                PauseGame();
+                if (!isSecondaryPauseButton)
+                {
+                    PauseGame();
+                }
             }
         }
     }
 
     public void PauseGame()
     {
-        if (!isSecondaryPauseButton)
+        if (!warningMenu.activeSelf)
         {
-            isGamePaused = !isGamePaused;
+            if (!isSecondaryPauseButton)
+            {
+                isGamePaused = !isGamePaused;
 
-            if (isGamePaused)
-            {
-                Time.timeScale = 0;
-                pauseMenu.SetActive(true);
-                //ColorBlock colors = GetComponent<Button>().colors;
-                //originalColors = colors;
-                //colors.normalColor = Color.red;
-                //GetComponent<Button>().colors = colors;
-                myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
-            }
-            else
-            {
-                Time.timeScale = 1;
-                pauseMenu.SetActive(false);
-                //GetComponent<Button>().colors = originalColors;
-                myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+                if (isGamePaused)
+                {
+                    Time.timeScale = 0;
+                    pauseMenu.SetActive(true);
+                    //ColorBlock colors = GetComponent<Button>().colors;
+                    //originalColors = colors;
+                    //colors.normalColor = Color.red;
+                    //GetComponent<Button>().colors = colors;
+                    myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+                }
+                else
+                {
+                    Time.timeScale = 1;
+                    pauseMenu.SetActive(false);
+                    //GetComponent<Button>().colors = originalColors;
+                    myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+                }
             }
         }
     }
 
     public void ContinueGame()
     {
-        if (isSecondaryPauseButton)
+        if (!warningMenu.activeSelf)
         {
-            primaryPauseButton.GetComponent<UIPauseButton>().PauseGame();
+            if (isSecondaryPauseButton)
+            {
+                primaryPauseButton.GetComponent<UIPauseButton>().PauseGame();
+            }
+        }
+        
+    }
+
+    public void OpenWarningMenu()
+    {
+        if (warningMenu)
+        {
+            warningMenu.SetActive(true);
+        }
+    }
+
+    public void CloseWarningMenu()
+    {
+        if (warningMenu)
+        {
+            warningMenu.SetActive(false);
         }
     }
 }
