@@ -25,8 +25,11 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public int scoreAmount;
     public float givePointsTime;
     public int milestoneMultiplier;
+    public float confettiTime;
+    public bool isConfettiOn;
 
     [Header("Assign Components/GameObjects")]
+    public ParticleSystem[] confetti;
     public UIFairies fairies;
     public UITowers towers;
     public UIScore scoreUI;
@@ -46,6 +49,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public List<UITowersState> towersUI;
     public GameObject[] enemiesToDelete;
     public bool gameOver;
+    public float confettiTimer;
 
     public int increaseScoreMilestone;
     private float pointsTimer;
@@ -70,6 +74,12 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         turretSpawner.fireRate = towerFireRate;
         //upgradePointsGiveMilestonesOriginal = upgradePointsGiveMilestone;
         upgradePointsGiveMilestone = upgradePointsGiveMilestonesOriginal;
+        //isConfettiOn = true;
+        for (int i = 0; i < confetti.Length; i++)
+        {
+            confetti[i].Stop();
+        }
+        
     }
 
     // Update is called once per frame
@@ -94,7 +104,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             {
                 pointsTimer = 0;
                 AddPoints(null, scoreAmount * givePointsMultiplier);
-                //score += scoreAmount * givePointsMultiplier;
                 scoreUI.UpdateText();
             } 
         }
@@ -104,6 +113,45 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             givePointsMultiplier++;
             increaseScoreMilestone = increaseScoreMilestone * milestoneMultiplier;
             StopWave();
+        }
+
+        if(isConfettiOn)
+        {
+            Debug.Log("Confetti is on");
+
+            for (int i = 0; i < confetti.Length; i++)
+            {
+                if (!confetti[i].isPlaying)
+                {
+                    confetti[i].Play();
+                }
+            }
+            
+            confettiTimer += Time.deltaTime;
+
+            if(confettiTimer >= confettiTime)
+            {
+                isConfettiOn = false;
+                confettiTimer = 0;
+
+                for (int i = 0; i < confetti.Length; i++)
+                {
+                    if (!confetti[i].isStopped)
+                    {
+                        confetti[i].Stop();
+                    }
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < confetti.Length; i++)
+            {
+                if (!confetti[i].isStopped)
+                {
+                    confetti[i].Stop();
+                }
+            }
         }
     }
 

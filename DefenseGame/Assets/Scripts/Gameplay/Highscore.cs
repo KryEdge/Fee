@@ -6,6 +6,7 @@ public class Highscore : MonoBehaviourSingleton<Highscore>
 {
     public int highscore;
     public bool hasNewHighscore;
+    private bool doOnce;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,11 @@ public class Highscore : MonoBehaviourSingleton<Highscore>
                 highscore = GameManager.Get().score;
                 PlayerPrefs.SetInt("highscore", highscore);
                 hasNewHighscore = true;
+                if(!doOnce)
+                {
+                    GameManager.Get().isConfettiOn = true;
+                    doOnce = true;
+                }
             }
         }
     }
