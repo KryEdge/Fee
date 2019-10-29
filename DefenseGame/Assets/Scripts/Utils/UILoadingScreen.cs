@@ -21,7 +21,7 @@ public class UILoadingScreen : MonoBehaviourSingleton<UILoadingScreen>
 
     public void Update()
     {
-        int loadingVal = (int)(LoaderManager.Get().loadingProgress * 100);
+        int loadingVal = (int)(LoaderManager.Get().loadingProgress * 100) + 1;
         loadingText.text = "LOADING LEVEL " + loadingVal + "%";
         loadingBar.value = loadingVal;
         if (LoaderManager.Get().loadingProgress >= 1)
