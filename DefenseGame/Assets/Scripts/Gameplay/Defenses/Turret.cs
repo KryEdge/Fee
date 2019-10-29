@@ -8,8 +8,10 @@ public class Turret : MonoBehaviour
     public OnTurretAction OnTurretDead;
 
     [Header("General Settings")]
+    public MeshRenderer attachedModel;
     public GameObject proyectileTemplate;
     public int bulletSpeed;
+    public float spawnSpeed;
     public float fireRate;
     public float lifespan;
     public float exitDistance;
@@ -25,12 +27,14 @@ public class Turret : MonoBehaviour
     public bool isPreview;
     public bool canBePlaced;
     public bool isInTurretZone;
+    public bool isSpawned;
 
     private Outline outline;
     private GameObject currentTarget;
     private Proyectile proyectile;
     private Rigidbody rig;
     private float fireRateTimer;
+    private float generateTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +45,8 @@ public class Turret : MonoBehaviour
         turretRadius.onTurretDetectEnemy = SetTarget;
         turretRadius.onTurretLostEnemy = ChangeTarget;
         rig = GetComponent<Rigidbody>();
+        isSpawned = true;
+        generateTimer = 1;
     }
 
     // Update is called once per frame
@@ -86,6 +92,19 @@ public class Turret : MonoBehaviour
             else
             {
                 ShootTarget();
+            }
+
+            if(isSpawned)
+            {
+                generateTimer -= Time.deltaTime * spawnSpeed;
+
+                attachedModel.material.SetFloat("_dissolve", generateTimer);
+
+                if (generateTimer <= -1)
+                {
+                    generateTimer = -1;
+                    isSpawned = false;
+                }
             }
         }
     }

@@ -14,6 +14,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
     [Header("Assign Components/GameObjects")]
     public Button turretButton;
     public GameObject turretTemplate;
+    public Shader spawnShader;
 
     [Header("Checking Variables")]
     public List<GameObject> spawnedTurrets;
@@ -27,6 +28,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
     private GameObject myEventSystem;
     private MaterialPropertyBlock material;
     private bool canSpawn;
+    //private bool hasSpawned;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
         turretProperties.isPreview = true;
         newTurretPreview.GetComponent<BoxCollider>().isTrigger = true;
         turretProperties.turretRadius.gameObject.GetComponent<BoxCollider>().enabled = false;
+        //turretProperties.isSpawned = true;
         newTurretPreview.SetActive(false);
 
         turretTemplate.GetComponent<FauxGravityBody>().isBuilding = true;
@@ -102,6 +105,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
 
                     currentTurretProperties.OnTurretDead = DeleteTurretTimer;
                     currentTurretProperties.fireRate = fireRate;
+                    currentTurretProperties.attachedModel.material.shader = spawnShader;
 
                     for (int i = state.Count-1; i >= 0; i--)
                     {
