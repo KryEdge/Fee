@@ -113,4 +113,13 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
     {
         return upgrade.currentLevel + 2;
     }
+
+    public void ResetUpgrades()
+    {
+        fairiesUpgrade.currentLevel = 0;
+        towersFireRateUpgrade.currentLevel = 0;
+        meteorCooldownUpgrade.currentLevel = 0;
+        fairySpeedUpgrade.currentLevel = 0;
+        upgradePoints = 0;
+    }
 }

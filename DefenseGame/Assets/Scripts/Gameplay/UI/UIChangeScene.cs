@@ -18,7 +18,27 @@ public class UIChangeScene : MonoBehaviour
             Destroy(MilestoneManager.Get().gameObject);
         }
 
-        if(sceneName == "Gameplay")
+        if (sceneName == "Upgrade Screen")
+        {
+            Debug.Log("ahre");
+            bool goToTutorial = FirstTimePlayingCheck.Get().isFirstTimePlaying;
+
+            if (goToTutorial)
+            {
+                FirstTimePlayingCheck.Get().isFirstTimePlaying = false;
+                SceneManager.LoadScene("Tutorial");
+            }
+            else
+            {
+                SceneManager.LoadScene(sceneName);
+            }
+        }
+        else if(sceneName == "Tutorial")
+        {
+            FirstTimePlayingCheck.Get().isFirstTimePlaying = false;
+            SceneManager.LoadScene(sceneName);
+        }
+        else if (sceneName == "Gameplay")
         {
             LoaderManager.Get().LoadScene(sceneName);
             UILoadingScreen.Get().SetVisible(true);
