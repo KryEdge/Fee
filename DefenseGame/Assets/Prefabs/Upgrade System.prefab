@@ -66,9 +66,9 @@ MonoBehaviour:
     upgradeName: Meteor Cooldown
     currentLevel: 0
     amountPerLevel:
+    - 20
+    - 10
     - 5
-    - 4.5
-    - 3.8
     costPerLevel: 000000005e010000f4010000
   fairySpeedUpgrade:
     upgradeName: Fairies' Speed
