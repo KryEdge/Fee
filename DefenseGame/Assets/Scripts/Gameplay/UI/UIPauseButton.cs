@@ -7,6 +7,7 @@ public class UIPauseButton : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject warningMenu;
+    public GameObject warningMenu2;
     public bool isSecondaryPauseButton;
 
     private bool isGamePaused;
@@ -29,12 +30,17 @@ public class UIPauseButton : MonoBehaviour
         {
             warningMenu.SetActive(false);
         }
+
+        if (warningMenu2)
+        {
+            warningMenu2.SetActive(false);
+        }
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (!warningMenu.activeSelf)
+        if (!warningMenu.activeSelf && !warningMenu2.activeSelf)
         {
             if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
             {
@@ -48,7 +54,7 @@ public class UIPauseButton : MonoBehaviour
 
     public void PauseGame()
     {
-        if (!warningMenu.activeSelf)
+        if (!warningMenu.activeSelf && !warningMenu2.activeSelf)
         {
             if (!isSecondaryPauseButton)
             {
@@ -77,7 +83,7 @@ public class UIPauseButton : MonoBehaviour
 
     public void ContinueGame()
     {
-        if (!warningMenu.activeSelf)
+        if (!warningMenu.activeSelf && !warningMenu2.activeSelf)
         {
             if (isSecondaryPauseButton)
             {
@@ -100,6 +106,22 @@ public class UIPauseButton : MonoBehaviour
         if (warningMenu)
         {
             warningMenu.SetActive(false);
+        }
+    }
+
+    public void OpenWarningMenu2()
+    {
+        if (warningMenu2)
+        {
+            warningMenu2.SetActive(true);
+        }
+    }
+
+    public void CloseWarningMenu2()
+    {
+        if (warningMenu2)
+        {
+            warningMenu2.SetActive(false);
         }
     }
 }
