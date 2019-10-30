@@ -37,7 +37,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
 
         newTurretPreview = Instantiate(turretTemplate, turretTemplate.transform.position, turretTemplate.transform.rotation);
         turretProperties = newTurretPreview.GetComponent<Turret>();
-        turretMaterial = newTurretPreview.transform.GetChild(1).GetComponent<MeshRenderer>();
+        turretMaterial = newTurretPreview.transform.GetChild(2).transform.GetChild(0).GetComponent<MeshRenderer>();
         turretProperties.isPreview = true;
         newTurretPreview.GetComponent<BoxCollider>().isTrigger = true;
         turretProperties.turretRadius.gameObject.GetComponent<BoxCollider>().enabled = false;
