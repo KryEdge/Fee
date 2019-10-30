@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1892,37 +1892,37 @@ PrefabInstance:
     - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 74.74
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 974.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 457.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0.03520995
       objectReference: {fileID: 0}
     - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0.24300699
       objectReference: {fileID: 0}
     - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0.96885145
       objectReference: {fileID: 0}
     - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 0.9600016
       objectReference: {fileID: 0}
     - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
@@ -1968,6 +1968,11 @@ PrefabInstance:
     - target: {fileID: 4726397872711480176, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480176, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_PreserveAspect
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
