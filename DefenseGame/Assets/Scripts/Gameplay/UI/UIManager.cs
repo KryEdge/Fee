@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    [Header("Gems System")]
+    public Text gemsText;
+
     [Header("HighScore")]
     public Highscore highscore;
     public Text[] highscoreTexts;
@@ -32,6 +35,8 @@ public class UIManager : MonoBehaviour
     {
         upgrades = UpgradeSystem.Get();
         highscore = Highscore.Get();
+        GameManager.Get().OnLevelGameOver = UpdateText;
+
         if(newHighscoreText)
         {
             newHighscoreText.enabled = false;
@@ -158,6 +163,11 @@ public class UIManager : MonoBehaviour
             UpdateSpecificText(meteorCooldownText, upgrades.meteorCooldownUpgrade);
             UpdateSpecificText(fireRateUpgradeText, upgrades.towersFireRateUpgrade);
             UpdateSpecificText(fairySpeedUpgradeText, upgrades.fairySpeedUpgrade);
+        }
+
+        if(gemsText)
+        {
+            gemsText.text = "Gems Collected: " + GameManager.Get().upgradePointsCurrentMatch;
         }
     }
 

@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 {
     public delegate void OnLevelAction();
     public static OnLevelAction OnLevelEndWave;
+    public OnLevelAction OnLevelGameOver;
 
     [Header("Cheat Settings")]
     public bool areCheatsOn;
@@ -184,7 +185,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         int originalPoints = PlayerPrefs.GetInt("UpgradePoints", 0);
         PlayerPrefs.SetInt("UpgradePoints", originalPoints + upgradePointsCurrentMatch);
         UpgradeSystem.Get().UpdatePoints();
-        upgradePointsCurrentMatch = 0;
         movement.enabled = false;
         shoot.enabled = false;
         GameOverPanel.SetActive(true);
@@ -192,6 +192,11 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         TurretSpawner.Get().StopAllOutlines();
         pause.pauseMenu.SetActive(false);
         pause.enabled = false;
+
+        if(OnLevelGameOver != null)
+        {
+            OnLevelGameOver();
+        }
     }
 
     private void CheckFairiesCount()
@@ -211,6 +216,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     {
         Fairy.OnFairyDeath -= CheckFairiesCount;
         Enemy.OnDeath -= AddPoints;
+        upgradePointsCurrentMatch = 0;
     }
 
     public void StopWave()
