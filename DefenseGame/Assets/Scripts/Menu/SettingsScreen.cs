@@ -19,8 +19,8 @@ public class SettingsScreen : MonoBehaviour
         for (int i = 0; i < resolutions.Length; i++)
         {
             Dropdown.OptionData data = new Dropdown.OptionData();
-            Debug.Log(resolutions[i].width + "x" + resolutions[i].height + " : " + resolutions[i].refreshRate);
-            data.text = resolutions[i].width + "x" + resolutions[i].height;
+            Debug.Log(resolutions[i].width + "x" + resolutions[i].height + " : " + resolutions[i].refreshRate + " Hz");
+            data.text = resolutions[i].width + "x" + resolutions[i].height + " : " + resolutions[i].refreshRate + " Hz";
             dropdown.options.Add(data);
         }
 
@@ -48,5 +48,14 @@ public class SettingsScreen : MonoBehaviour
 
             Screen.SetResolution(width, height, windowed);
         }
+    }
+
+    public void SwitchFullscreen()
+    {
+        windowed = !windowed;
+        int width = resolutions[dropdown.value].width;
+        int height = resolutions[dropdown.value].height;
+
+        Screen.SetResolution(width, height, windowed);
     }
 }

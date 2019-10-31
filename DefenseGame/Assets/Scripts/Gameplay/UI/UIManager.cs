@@ -34,6 +34,10 @@ public class UIManager : MonoBehaviour
     public Text fairySpeedUpgradeText;
     UpgradeSystem upgrades;
 
+    [Header("Settings")]
+    public SettingsScreen settings;
+    public Toggle fullscreenButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +56,15 @@ public class UIManager : MonoBehaviour
         }
 
         UpdateText();
+
+        if (Screen.fullScreen)
+        {
+            fullscreenButton.image.color = Color.green;
+        }
+        else
+        {
+            fullscreenButton.image.color = Color.white;
+        }
     }
 
     // Update is called once per frame
@@ -218,6 +231,20 @@ public class UIManager : MonoBehaviour
     {
 
     }*/
+
+    public void SettingsSwitchFullscreen()
+    {
+        settings.SwitchFullscreen();
+
+        if(Screen.fullScreen)
+        {
+            fullscreenButton.image.color = Color.green;
+        }
+        else
+        {
+            fullscreenButton.image.color = Color.white;
+        }
+    }
 
     private void OnDestroy()
     {
