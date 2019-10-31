@@ -8,6 +8,10 @@ public class UIManager : MonoBehaviour
     [Header("Gems System")]
     public Text gemsText;
 
+    /*[Header("Milestones Panel")]
+    public GameObject milestonePanel;
+    private Animator milestoneAnimator;*/
+
     [Header("HighScore")]
     public Highscore highscore;
     public Text[] highscoreTexts;
@@ -35,6 +39,7 @@ public class UIManager : MonoBehaviour
     {
         upgrades = UpgradeSystem.Get();
         highscore = Highscore.Get();
+       // milestoneAnimator = milestonePanel.GetComponent<Animator>();
         GameManager.Get().OnLevelGameOver = UpdateText;
 
         if(newHighscoreText)
@@ -72,9 +77,6 @@ public class UIManager : MonoBehaviour
                 }
             }
         }
-
-            
-
     }
 
     public void CheatsReloadMeteor()
@@ -144,14 +146,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
-    {
-        //newHighscoreText.enabled = false;
-        if(highscore)
-        {
-            highscore.ResetHighscoreBool();
-        }
-    }
+    
 
     public void UpdateText()
     {
@@ -213,5 +208,18 @@ public class UIManager : MonoBehaviour
                 + "\n\r Current Level: " + (upgrades.GetCurrentLevel(upgrade) + 1) + " /" + upgrades.GetMaxAmountOfUpgrades(upgrade)
                 + "\n\r Next Level: " + upgrades.GetNextUpgradeLevel(upgrade)
                 + "\n\r Cost: " + ItExists(upgrade);
+    }
+
+    /*private void SwitchPanelAnimation()
+    {
+
+    }*/
+
+    private void OnDestroy()
+    {
+        if (highscore)
+        {
+            highscore.ResetHighscoreBool();
+        }
     }
 }

@@ -7,6 +7,7 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
 {
     public delegate void OnWaveAction();
     public static OnWaveAction OnStartWave;
+    public static OnWaveAction OnStartWaveFirstTime;
 
     [Header("Current Wave")]
     public int currentWave;
@@ -87,6 +88,17 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
         {
             OnStartWave();
         }
+
+        if(currentWave == 1)
+        {
+            Debug.Log("First Wave");
+
+            if (OnStartWaveFirstTime != null)
+            {
+                OnStartWaveFirstTime();
+            }
+        }
+        
 
         foreach (EnemySpawner spawner in spawners)
         {

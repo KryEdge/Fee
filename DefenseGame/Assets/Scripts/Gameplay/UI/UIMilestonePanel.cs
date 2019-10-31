@@ -11,6 +11,7 @@ public class UIMilestonePanel : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        WaveSystem.OnStartWaveFirstTime = Hide;
     }
 
     public void SwitchAnimation()
@@ -26,6 +27,17 @@ public class UIMilestonePanel : MonoBehaviour
         {
             animator.SetBool("isHiding", false);
             animator.SetBool("isShowing", true);
+        }
+    }
+
+    private void Hide()
+    {
+        if(!animationSwitch)
+        {
+            animationSwitch = true;
+
+            animator.SetBool("isHiding", true);
+            animator.SetBool("isShowing", false);
         }
     }
 }
