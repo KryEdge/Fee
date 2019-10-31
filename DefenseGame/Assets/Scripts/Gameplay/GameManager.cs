@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public List<UITowersState> towersUI;
     public GameObject[] enemiesToDelete;
     public bool gameOver;
+    public bool canGivePoints;
     public float confettiTimer;
 
     public int increaseScoreMilestone;
@@ -63,20 +64,19 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         Time.timeScale = 1;
         upgrades = UpgradeSystem.Get();
         increaseScoreMilestone = initialMilestone;
+        WaveSystem.OnStartWaveFirstTime = StartGivingPoints;
         Fairy.OnFairyDeath += CheckFairiesCount;
         Enemy.OnDeath += AddPoints;
         UpdateUI();
 
         maxFairies = (int)upgrades.GetUpgradeAmount(upgrades.fairiesUpgrade);
         shoot.rechargeTime = upgrades.GetUpgradeAmount(upgrades.meteorCooldownUpgrade);
-        //maxTurrets = (int)upgrades.GetUpgradeAmount(upgrades.towersUpgrade);
         towerFireRate = upgrades.GetUpgradeAmount(upgrades.towersFireRateUpgrade);
         fairySpeed = (int)upgrades.GetUpgradeAmount(upgrades.fairySpeedUpgrade);
 
         turretSpawner.fireRate = towerFireRate;
-        //upgradePointsGiveMilestonesOriginal = upgradePointsGiveMilestone;
         upgradePointsGiveMilestone = upgradePointsGiveMilestonesOriginal;
-        //isConfettiOn = true;
+
         for (int i = 0; i < confetti.Length; i++)
         {
             confetti[i].Stop();
@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
         if (pointsTimer >= givePointsTime)
         {
-            if (!gameOver)
+            if (!gameOver && canGivePoints)
             {
                 pointsTimer = 0;
                 AddPoints(null, scoreAmount * givePointsMultiplier);
@@ -267,5 +267,10 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         }
 
         enemies.Clear();
+    }
+
+    private void StartGivingPoints()
+    {
+        canGivePoints = true;
     }
 }
