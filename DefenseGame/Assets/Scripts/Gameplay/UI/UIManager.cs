@@ -40,7 +40,11 @@ public class UIManager : MonoBehaviour
         upgrades = UpgradeSystem.Get();
         highscore = Highscore.Get();
        // milestoneAnimator = milestonePanel.GetComponent<Animator>();
-        GameManager.Get().OnLevelGameOver = UpdateText;
+        if(GameManager.Get())
+        {
+            GameManager.Get().OnLevelGameOver = UpdateText;
+        }
+        
 
         if(newHighscoreText)
         {
@@ -55,7 +59,7 @@ public class UIManager : MonoBehaviour
     {
         if(cheatsComponent)
         {
-            if (Input.GetKeyDown(KeyCode.C))
+            if (Input.GetKeyDown(KeyCode.F12))
             {
                 cheatsComponent.SwitchScreen();
             }
