@@ -57,14 +57,18 @@ public class UIManager : MonoBehaviour
 
         UpdateText();
 
-        if (Screen.fullScreen)
+        if(fullscreenButton)
         {
-            fullscreenButton.image.color = Color.green;
+            if (Screen.fullScreen)
+            {
+                fullscreenButton.image.color = Color.green;
+            }
+            else
+            {
+                fullscreenButton.image.color = Color.white;
+            }
         }
-        else
-        {
-            fullscreenButton.image.color = Color.white;
-        }
+        
     }
 
     // Update is called once per frame
