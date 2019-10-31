@@ -80,7 +80,9 @@ MonoBehaviour:
     m_LineSpacing: 1.12
   m_Text: 'AAAAAAAAAAAAAAAA
 
-    Level: 99999
+    Current Level: 99/99
+
+    Next Level: 99
 
     Cost: 999999'
 --- !u!1 &6766706284747932663

@@ -199,8 +199,9 @@ public class UIManager : MonoBehaviour
 
     private void UpdateSpecificText(Text currentText, UpgradeSystem.Upgrade upgrade)
     {
-        currentText.text = upgrades.GetUpgradeName(upgrade) +
-                "\n\r Next Level: " + upgrades.GetNextUpgradeLevel(upgrade)
+        currentText.text = upgrades.GetUpgradeName(upgrade)
+                + "\n\r Current Level: " + (upgrades.GetCurrentLevel(upgrade) + 1) + " /" + upgrades.GetMaxAmountOfUpgrades(upgrade)
+                + "\n\r Next Level: " + upgrades.GetNextUpgradeLevel(upgrade)
                 + "\n\r Cost: " + ItExists(upgrade);
     }
 }

@@ -114,6 +114,16 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
         return upgrade.currentLevel + 2;
     }
 
+    public int GetMaxAmountOfUpgrades(Upgrade upgrade)
+    {
+        return upgrade.amountPerLevel.Length;
+    }
+
+    public int GetCurrentLevel(Upgrade upgrade)
+    {
+        return upgrade.currentLevel;
+    }
+
     public void ResetUpgrades()
     {
         fairiesUpgrade.currentLevel = 0;
