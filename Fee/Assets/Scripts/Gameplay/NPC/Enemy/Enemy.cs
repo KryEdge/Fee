@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour
     public float npcLostDistance;
 
     [Header("Assign Variables/Components")]
+    public Animator animator;
     public SkinnedMeshRenderer attachedModel;
     public NPCRadius radius;
     public Fairy ally;
@@ -72,6 +73,7 @@ public class Enemy : MonoBehaviour
         rig = GetComponent<Rigidbody>();
         torque = GetComponent<TorqueLookRotation>();
         outline = GetComponent<Outline>();
+        //animator = GetComponent<Animator>();
 
         radius.OnRadiusFindAlly += StartPursuit;
         //Fairy.OnFairyDeath += StartEating;
@@ -87,6 +89,10 @@ public class Enemy : MonoBehaviour
         GameManager.Get().enemies.Add(gameObject);
         deathTimer = -1;
         deathTime = 1;
+
+        animator.SetBool("isEating", false);
+        animator.SetBool("isWalking", true);
+        animator.SetBool("isDead", false);
         //Debug.Log("Disolve value " + attachedModel.material.GetFloat("_dissolve"));
     }
 
@@ -135,6 +141,11 @@ public class Enemy : MonoBehaviour
     {
         currentState = enemyStates.eating;
         finalSpeed = 0;
+
+        //Method 1
+        animator.SetBool("isEating", true);
+        animator.SetBool("isWalking", false);
+        animator.SetBool("isDead", false);
     }
 
     private void Eat()
@@ -146,6 +157,11 @@ public class Enemy : MonoBehaviour
             eatingTimer = 0;
             finalSpeed = speed;
             currentState = enemyStates.move;
+
+            animator.SetBool("isEating", false);
+            animator.SetBool("isWalking", true);
+            animator.SetBool("isDead", false);
+
             SwitchRotationTarget();
         }
     }
@@ -269,6 +285,9 @@ public class Enemy : MonoBehaviour
                 Debug.Log(gameObject.name + " has been killed by: " + collision.gameObject.name);
                 Destroy(collision.gameObject);
                 hasAlreadyDied = true;
+                animator.SetBool("isEating", false);
+                animator.SetBool("isWalking", false);
+                animator.SetBool("isDead", true);
             }
         }
     }
@@ -291,6 +310,10 @@ public class Enemy : MonoBehaviour
 
                     Debug.Log(gameObject.name + " has been killed by: " + other.gameObject.name);
                     hasAlreadyDied = true;
+
+                    animator.SetBool("isEating", false);
+                    animator.SetBool("isWalking", false);
+                    animator.SetBool("isDead", true);
                 }
                 break;
             default:

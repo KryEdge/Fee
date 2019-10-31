@@ -2605,6 +2605,8 @@ MonoBehaviour:
   direction: 0
   target: {fileID: 0}
   force: 0.02
+  notTorque: 0
+  rotationSpeed: 0
 --- !u!114 &2140015894
 MonoBehaviour:
   m_ObjectHideFlags: 0
