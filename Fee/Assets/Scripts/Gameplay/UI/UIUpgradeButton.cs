@@ -30,7 +30,7 @@ public class UIUpgradeButton : MonoBehaviour
 
     public void GetUpgrade()
     {
-        switch (type)
+        /*switch (type)
         {
             case UpgradeType.maxFairies:
                 manager.UpgradeBuyMaxFaires();
@@ -46,6 +46,6 @@ public class UIUpgradeButton : MonoBehaviour
                 break;
             default:
                 break;
-        }
+        }*/
     }
 }

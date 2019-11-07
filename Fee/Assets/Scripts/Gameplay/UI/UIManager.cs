@@ -27,7 +27,8 @@ public class UIManager : MonoBehaviour
     [Header("Upgrade System")]
     public Text upgradePointsText;
 
-    [Header("Max Fairies Upgrade")]
+    [Header("Upgrades")]
+    public List<Text> upgradesText;
     public Text fairiesUpgradeText;
     public Text meteorCooldownText;
     public Text fireRateUpgradeText;
@@ -167,18 +168,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    
-
     public void UpdateText()
     {
         if(upgradePointsText)
         {
             upgradePointsText.text = "Upgrade Points: " + upgrades.upgradePoints;
-
-            UpdateSpecificText(fairiesUpgradeText, upgrades.fairiesUpgrade);
-            UpdateSpecificText(meteorCooldownText, upgrades.meteorCooldownUpgrade);
-            UpdateSpecificText(fireRateUpgradeText, upgrades.towersFireRateUpgrade);
-            UpdateSpecificText(fairySpeedUpgradeText, upgrades.fairySpeedUpgrade);
         }
 
         if(gemsText)
@@ -186,55 +180,6 @@ public class UIManager : MonoBehaviour
             gemsText.text = "Gems Collected: " + GameManager.Get().upgradePointsCurrentMatch;
         }
     }
-
-    public void UpgradeBuyMaxFaires()
-    {
-        upgrades.BuyUpgrade(upgrades.fairiesUpgrade);
-        UpdateText();
-    }
-
-    public void UpgradeBuyMeteorCooldown()
-    {
-        upgrades.BuyUpgrade(upgrades.meteorCooldownUpgrade);
-        UpdateText();
-    }
-
-    public void UpgradeBuyFireRate()
-    {
-        upgrades.BuyUpgrade(upgrades.towersFireRateUpgrade);
-        UpdateText();
-    }
-
-    public void UpgradeBuyFairySpeed()
-    {
-        upgrades.BuyUpgrade(upgrades.fairySpeedUpgrade);
-        UpdateText();
-    }
-
-    private string ItExists(UpgradeSystem.Upgrade upgrade)
-    {
-        if(upgrades.GetNextLevelUpgradeCost(upgrade) == 0)
-        {
-            return "???";
-        }
-        else
-        {
-            return "" + upgrades.GetNextLevelUpgradeCost(upgrade);
-        }
-    }
-
-    private void UpdateSpecificText(Text currentText, UpgradeSystem.Upgrade upgrade)
-    {
-        currentText.text = upgrades.GetUpgradeName(upgrade)
-                + "\n\r Current Level: " + (upgrades.GetCurrentLevel(upgrade) + 1) + " /" + upgrades.GetMaxAmountOfUpgrades(upgrade)
-                + "\n\r Next Level: " + upgrades.GetNextUpgradeLevel(upgrade)
-                + "\n\r Cost: " + ItExists(upgrade);
-    }
-
-    /*private void SwitchPanelAnimation()
-    {
-
-    }*/
 
     public void SettingsSwitchFullscreen()
     {

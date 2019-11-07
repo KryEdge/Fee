@@ -43,38 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b00bfd0b9812584439f69639eb2cb323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradesTemplates:
+  - {fileID: 11400000, guid: c71388169e4e0bd4bb2805736ca1bb5a, type: 2}
+  template: {fileID: 6766706284747932663, guid: aab7a2f4225bab6448ba53cd4268429c,
+    type: 3}
+  parent: {fileID: 0}
   upgradePoints: 0
   initialPoints: 0
   resetToInitialPoints: 0
-  fairiesUpgrade:
-    upgradeName: Max Fairies
-    currentLevel: 0
-    amountPerLevel:
-    - 4
-    - 6
-    - 8
-    costPerLevel: 000000002c010000c2010000
-  towersFireRateUpgrade:
-    upgradeName: Towers Fire Rate
-    currentLevel: 0
-    amountPerLevel:
-    - 1
-    - 0.7
-    - 0.4
-    costPerLevel: 000000002c010000c2010000
-  meteorCooldownUpgrade:
-    upgradeName: Meteor Cooldown
-    currentLevel: 0
-    amountPerLevel:
-    - 20
-    - 10
-    - 5
-    costPerLevel: 000000005e010000f4010000
-  fairySpeedUpgrade:
-    upgradeName: Fairies' Speed
-    currentLevel: 0
-    amountPerLevel:
-    - 6
-    - 8
-    - 10
-    costPerLevel: 00000000f401000058020000
+  allUpgrades: []

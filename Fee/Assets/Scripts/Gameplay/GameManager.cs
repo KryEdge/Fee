@@ -69,10 +69,10 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         Enemy.OnDeath += AddPoints;
         UpdateUI();
 
-        maxFairies = (int)upgrades.GetUpgradeAmount(upgrades.fairiesUpgrade);
-        shoot.rechargeTime = upgrades.GetUpgradeAmount(upgrades.meteorCooldownUpgrade);
-        towerFireRate = upgrades.GetUpgradeAmount(upgrades.towersFireRateUpgrade);
-        fairySpeed = (int)upgrades.GetUpgradeAmount(upgrades.fairySpeedUpgrade);
+        maxFairies = (int)upgrades.GetUpgrade(0).GetCurrentAmount();
+        shoot.rechargeTime = upgrades.GetUpgrade(1).GetCurrentAmount();
+        towerFireRate = upgrades.GetUpgrade(2).GetCurrentAmount();
+        fairySpeed = (int)upgrades.GetUpgrade(3).GetCurrentAmount();
 
         turretSpawner.fireRate = towerFireRate;
         upgradePointsGiveMilestone = upgradePointsGiveMilestonesOriginal;
