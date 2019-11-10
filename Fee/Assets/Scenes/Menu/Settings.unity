@@ -398,7 +398,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &195909985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,7 +406,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195909984}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a965af2ff97db64690a7239bde8e3a0, type: 3}
   m_Name: 
@@ -420,12 +420,11 @@ MonoBehaviour:
   towerButton: {fileID: 0}
   timeButton: {fileID: 0}
   upgradePointsText: {fileID: 0}
+  upgradesText: []
   fairiesUpgradeText: {fileID: 0}
   meteorCooldownText: {fileID: 0}
   fireRateUpgradeText: {fileID: 0}
   fairySpeedUpgradeText: {fileID: 0}
-  settings: {fileID: 1378480770}
-  fullscreenButton: {fileID: 1963101560}
 --- !u!4 &195909986
 Transform:
   m_ObjectHideFlags: 0
@@ -2225,6 +2224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d9d7b0d40ebb94cbd95cf4d11b9765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fullscreenButton: {fileID: 1963101560}
   windowed: 0
   dropdown: {fileID: 76705767}
 --- !u!4 &1378480771

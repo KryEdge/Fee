@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
 {
+    public delegate void OnSpawnerAction();
+    public OnSpawnerAction OnSpawnerSpawnTurret;
+    public OnSpawnerAction OnSpawnerDeleteTurret;
+
     [Header("General Settings")]
     public KeyCode activateKey;
     public LayerMask Mask;
@@ -98,7 +102,11 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                     GameObject newTurret = Instantiate(turretTemplate, hit.point + (hit.normal * -5), newTurretPreview.transform.rotation);
                     newTurret.SetActive(true);
                     spawnedTurrets.Add(newTurret);
-                    GameManager.Get().UpdateUI();
+
+                    if(OnSpawnerSpawnTurret != null)
+                    {
+                        OnSpawnerSpawnTurret();
+                    }
 
                     Turret currentTurretProperties = newTurret.GetComponent<Turret>();
                     List<UITowersState> state = GameManager.Get().towersUI;
@@ -151,7 +159,11 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                     Debug.Log("borranding");
                     spawnedTurrets.Remove(turretToDelete);
                     Destroy(turretToDelete);
-                    GameManager.Get().UpdateUI();
+
+                    if (OnSpawnerDeleteTurret != null)
+                    {
+                        OnSpawnerDeleteTurret();
+                    }
 
                     newTurretPreview.GetComponent<Turret>().enteredTurrets.Remove(turretToDelete);
                     newTurretPreview.GetComponent<Turret>().CheckIfCanBePlaced();
@@ -171,7 +183,11 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
     private void DeleteTurretTimer(GameObject turret)
     {
         spawnedTurrets.Remove(turret);
-        GameManager.Get().UpdateUI();
+
+        if (OnSpawnerDeleteTurret != null)
+        {
+            OnSpawnerDeleteTurret();
+        }
     }
 
     private void PreviewTurret()

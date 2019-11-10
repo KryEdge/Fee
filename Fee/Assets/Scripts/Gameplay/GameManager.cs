@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public delegate void OnLevelAction();
     public static OnLevelAction OnLevelEndWave;
     public OnLevelAction OnLevelGameOver;
+    public OnLevelAction OnGameGivePoints;
 
     [Header("Cheat Settings")]
     public bool areCheatsOn;
@@ -32,9 +33,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     [Header("Assign Components/GameObjects")]
     public ParticleSystem[] confetti;
     public UIPauseButton pause;
-    public UIFairies fairies;
-    public UITowers towers;
-    public UIScore scoreUI;
     public UIVignette vignette;
     public GameObject GameOverPanel;
     public CameraMovement movement;
@@ -64,10 +62,10 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         Time.timeScale = 1;
         upgrades = UpgradeSystem.Get();
         increaseScoreMilestone = initialMilestone;
-        WaveSystem.OnStartWaveFirstTime = StartGivingPoints;
+        WaveSystem.OnStartWaveFirstTime += StartGivingPoints;
         Fairy.OnFairyDeath += CheckFairiesCount;
         Enemy.OnDeath += AddPoints;
-        UpdateUI();
+        //UpdateUI();
 
         maxFairies = (int)upgrades.GetUpgrade(0).GetCurrentAmount();
         shoot.rechargeTime = upgrades.GetUpgrade(1).GetCurrentAmount();
@@ -106,7 +104,13 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             {
                 pointsTimer = 0;
                 AddPoints(null, scoreAmount * givePointsMultiplier);
-                scoreUI.UpdateText();
+
+                if (OnGameGivePoints != null)
+                {
+                    OnGameGivePoints();
+                }
+
+                //scoreUI.UpdateText();
             } 
         }
 
@@ -167,7 +171,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         turretSpawner.SwitchPreviewForced();
     }
 
-    public void UpdateUI()
+    /*public void UpdateUI()
     {
         if(fairies)
         {
@@ -178,7 +182,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         {
             towers.UpdateText();
         }
-    }
+    }*/
 
     private void GameOver()
     {
@@ -216,6 +220,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     {
         Fairy.OnFairyDeath -= CheckFairiesCount;
         Enemy.OnDeath -= AddPoints;
+        WaveSystem.OnStartWaveFirstTime -= StartGivingPoints;
         upgradePointsCurrentMatch = 0;
     }
 
@@ -239,7 +244,11 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         {
             Debug.Log("Gave " + pointsToGive + "Points to the player.");
             score += pointsToGive;
-            scoreUI.UpdateText();
+
+            if (OnGameGivePoints != null)
+            {
+                OnGameGivePoints();
+            }
 
             if(enemy)
             {
@@ -271,6 +280,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     private void StartGivingPoints()
     {
+        Debug.Log("ahre");
         canGivePoints = true;
     }
 }

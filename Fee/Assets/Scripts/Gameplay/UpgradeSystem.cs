@@ -24,14 +24,19 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
         }
 
         upgradePoints = PlayerPrefs.GetInt("UpgradePoints", 0);
+    }
 
+    public void AssignUpgrades()
+    {
         for (int i = 0; i < upgradesTemplates.Length; i++)
         {
             GameObject newUpgrade = Instantiate(template);
+            Upgrade currentUpgrade = newUpgrade.GetComponent<Upgrade>();
 
-            newUpgrade.GetComponent<Upgrade>().data = upgradesTemplates[i];
-            newUpgrade.GetComponent<Upgrade>().AssignData();
+            currentUpgrade.data = upgradesTemplates[i];
+            currentUpgrade.AssignData();
             newUpgrade.transform.SetParent(parent.transform, false);
+            CheckButtonActivation(currentUpgrade);
         }
     }
 
@@ -74,9 +79,18 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
                 DiscountPoints(upgrade.data.costPerLevel[upgrade.currentLevel + 1]);
                 upgrade.currentLevel++;
 
-                //PlayerPrefs.SetInt(upgrade.upgradeName, upgrade.currentLevel);
+                CheckButtonActivation(upgrade);
+
                 return true;
             }
+            else
+            {
+                upgrade.button.interactable = false;
+            }
+        }
+        else
+        {
+            upgrade.button.interactable = false;
         }
 
         return false;
@@ -110,5 +124,17 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
         }
 
         return null;
+    }
+
+    public void CheckButtonActivation(Upgrade upgrade)
+    {
+        if (upgrade.currentLevel + 1 >= upgrade.data.amountPerLevel.Length)
+        {
+            upgrade.button.interactable = false;
+        }
+        else
+        {
+            upgrade.button.interactable = true;
+        }
     }
 }

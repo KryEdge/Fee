@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2155e1526ef5e97469bb812897b7bcfc, type: 3}
+  m_Name: Fairies Speed
+  m_EditorClassIdentifier: 
+  upgradeName: Fairies Speed
+  amountPerLevel:
+  - 10
+  - 12
+  - 15
+  costPerLevel: 00000000640000002c010000
+  buttonIdle: {fileID: 21300000, guid: 7521c2abdf44c0e429dc48afb84f30dd, type: 3}
+  buttonPressed: {fileID: 21300000, guid: 9af623e37a2685d42bddb11d43dec42c, type: 3}
+  buttonDisabled: {fileID: 21300000, guid: 25df6143969665442b3937e209f2fcdc, type: 3}
+  id: 3
+  currentLevel: 0
+  isUnlocked: 0

@@ -1229,28 +1229,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.9440052
       objectReference: {fileID: 0}
-    - target: {fileID: 6766706285516288794, guid: aab7a2f4225bab6448ba53cd4268429c,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: dc3e931f0e393a74f90354be4b6c92ae,
-        type: 3}
-    - target: {fileID: 6766706285516288795, guid: aab7a2f4225bab6448ba53cd4268429c,
-        type: 3}
-      propertyPath: m_SpriteState.m_PressedSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 427ace502494b094aa80195d91d0ba97,
-        type: 3}
-    - target: {fileID: 6766706285516288792, guid: aab7a2f4225bab6448ba53cd4268429c,
-        type: 3}
-      propertyPath: manager
-      value: 
-      objectReference: {fileID: 1825785796}
-    - target: {fileID: 6766706285516288792, guid: aab7a2f4225bab6448ba53cd4268429c,
-        type: 3}
-      propertyPath: type
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6766706284687561321, guid: aab7a2f4225bab6448ba53cd4268429c,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -1291,20 +1269,30 @@ PrefabInstance:
       propertyPath: m_Pivot.x
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6766706285516288794, guid: aab7a2f4225bab6448ba53cd4268429c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dc3e931f0e393a74f90354be4b6c92ae,
+        type: 3}
+    - target: {fileID: 6766706285516288795, guid: aab7a2f4225bab6448ba53cd4268429c,
+        type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 427ace502494b094aa80195d91d0ba97,
+        type: 3}
+    - target: {fileID: 6766706285516288792, guid: aab7a2f4225bab6448ba53cd4268429c,
+        type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6766706285516288792, guid: aab7a2f4225bab6448ba53cd4268429c,
+        type: 3}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aab7a2f4225bab6448ba53cd4268429c, type: 3}
---- !u!114 &943952156 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6766706284687561320, guid: aab7a2f4225bab6448ba53cd4268429c,
-    type: 3}
-  m_PrefabInstance: {fileID: 943952154}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1083233668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1869,8 +1857,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 866783127}
   m_HandleRect: {fileID: 866783126}
   m_Direction: 2
-  m_Value: 0.99987864
-  m_Size: 0.39588946
+  m_Value: 1
+  m_Size: 0.29871914
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2232,8 +2220,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -206}
-  m_SizeDelta: {x: 0, y: 412.1}
+  m_AnchoredPosition: {x: 0, y: -317}
+  m_SizeDelta: {x: 0, y: 634}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1801455152
 MonoBehaviour:
@@ -2276,7 +2264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1825785797}
-  - component: {fileID: 1825785796}
+  - component: {fileID: 1825785798}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -2284,34 +2272,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1825785796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825785795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a965af2ff97db64690a7239bde8e3a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gemsText: {fileID: 0}
-  highscore: {fileID: 0}
-  highscoreTexts: []
-  newHighscoreText: {fileID: 0}
-  cheatsComponent: {fileID: 0}
-  fairyButton: {fileID: 0}
-  towerButton: {fileID: 0}
-  timeButton: {fileID: 0}
-  upgradePointsText: {fileID: 1120245477}
-  upgradesText: []
-  fairiesUpgradeText: {fileID: 0}
-  meteorCooldownText: {fileID: 0}
-  fireRateUpgradeText: {fileID: 943952156}
-  fairySpeedUpgradeText: {fileID: 0}
-  settings: {fileID: 0}
-  fullscreenButton: {fileID: 0}
 --- !u!4 &1825785797
 Transform:
   m_ObjectHideFlags: 0
@@ -2326,6 +2286,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1825785798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825785795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7670009873954154fa7355b56517c116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gemsText: {fileID: 1120245477}
 --- !u!1 &1895838731
 GameObject:
   m_ObjectHideFlags: 0

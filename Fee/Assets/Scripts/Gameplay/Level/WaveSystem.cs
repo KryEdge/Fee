@@ -95,6 +95,7 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
 
             if (OnStartWaveFirstTime != null)
             {
+                //Debug.Log("First Wave ENTERRINGG");
                 OnStartWaveFirstTime();
             }
         }

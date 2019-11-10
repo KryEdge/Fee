@@ -45,10 +45,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradesTemplates:
   - {fileID: 11400000, guid: c71388169e4e0bd4bb2805736ca1bb5a, type: 2}
+  - {fileID: 11400000, guid: eeafbb12ad6c2cc4bb361065f681504b, type: 2}
+  - {fileID: 11400000, guid: 3852810ac1db1134880054aa90ff41af, type: 2}
+  - {fileID: 11400000, guid: a73d84f57cc64ff418096f9fa882fb93, type: 2}
   template: {fileID: 6766706284747932663, guid: aab7a2f4225bab6448ba53cd4268429c,
     type: 3}
   parent: {fileID: 0}
-  upgradePoints: 0
-  initialPoints: 0
-  resetToInitialPoints: 0
+  upgradePoints: 500
+  initialPoints: 500
+  resetToInitialPoints: 1
   allUpgrades: []

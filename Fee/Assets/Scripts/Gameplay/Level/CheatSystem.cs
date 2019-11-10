@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CheatSystem : MonoBehaviour
 {
+    public delegate void OnCheatAction();
+    public OnCheatAction OnCheatGivePoints;
+
     [Header("General Settings")]
     public GameObject cheatsScreen;
     public static bool isActivated;
@@ -45,7 +48,14 @@ public class CheatSystem : MonoBehaviour
     public void GivePoints()
     {
         gameManager.score += 100;
-        gameManager.scoreUI.UpdateText();
+
+        if(OnCheatGivePoints != null)
+        {
+            Debug.Log("Cheats enabled");
+            OnCheatGivePoints();
+        }
+
+        //gameManager.scoreUI.UpdateText();
     }
 
     public void SwitchTowerDeletion()

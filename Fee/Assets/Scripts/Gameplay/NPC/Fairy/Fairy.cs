@@ -12,6 +12,7 @@ public class Fairy : MonoBehaviour
     }
 
     public delegate void OnFairyAction();
+    public static OnFairyAction OnFairySpawn;
     public static OnFairyAction OnFairyDeath;
     public OnFairyAction OnFairyEaten;
 
@@ -77,8 +78,14 @@ public class Fairy : MonoBehaviour
         currentColor = normalColor;
         outline.OutlineColor = currentColor;
         GameManager.Get().currentFairies++;
-        GameManager.Get().UpdateUI();
+        //GameManager.Get().UpdateUI();
         animator.speed = Random.Range(0.8f, 1.4f);
+
+
+        if(OnFairySpawn != null)
+        {
+            OnFairySpawn();
+        }
     }
 
     // Update is called once per frame
@@ -243,7 +250,7 @@ public class Fairy : MonoBehaviour
         GameManager.OnLevelEndWave -= EndEscape;
 
         GameManager.Get().currentFairies--;
-        GameManager.Get().UpdateUI();
+        //GameManager.Get().UpdateUI();
 
         if (OnFairyDeath != null)
         {
