@@ -35,26 +35,15 @@ public class Proyectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("im gonna kill this guy: " + collision.gameObject.name);
 
         if (collision.gameObject.tag == "planet")
         {
-            Debug.Log("Bullet didnt make it.");
             Destroy(gameObject);
         }
 
         if (collision.gameObject.tag == "enemy")
         {
-            Debug.Log("Proyectile hit enemy");
             Destroy(gameObject);
         }
-
-        /*if (collision.gameObject.tag == "dead")
-        {
-            Debug.Log("Proyectile hit enemy");
-            Destroy(gameObject);
-        }*/
-
-        //Debug.Log("Bullet collision with : " + collision.gameObject.tag);
     }
 }

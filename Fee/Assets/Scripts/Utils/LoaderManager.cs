@@ -25,13 +25,10 @@ public class LoaderManager : MonoBehaviourSingleton<LoaderManager>
 
         while (!ao.isDone)
         {
-            Debug.Log("LOADING " + timeLoading);
 
             timeLoading += Time.deltaTime*1.5f;
             loadingProgress = ao.progress + 0.1f;
             loadingProgress = loadingProgress * timeLoading / minTimeToLoad;
-
-            Debug.Log("LOADING 2 " + timeLoading);
 
             // Loading completed
             if (loadingProgress >= 1)

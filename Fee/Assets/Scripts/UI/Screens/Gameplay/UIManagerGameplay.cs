@@ -36,6 +36,12 @@ public class UIManagerGameplay : MonoBehaviour
     public Image towerButton;
     public Image timeButton;
 
+    [Header("Pause")]
+    public UIPauseButton pause;
+
+    [Header("Vignette")]
+    public UIVignette vignette;
+
     [Header("Assign Components")]
     public CheatSystem cheats;
     private GameManager gm;
@@ -55,7 +61,9 @@ public class UIManagerGameplay : MonoBehaviour
         Fairy.OnFairySpawn += UpdateText;
         turretSpawner.OnSpawnerSpawnTurret = UpdateText;
         turretSpawner.OnSpawnerDeleteTurret = UpdateText;
-        GameManager.Get().OnLevelGameOver = UpdateText;
+        GameManager.Get().OnLevelGameOver += UpdateText;
+        GameManager.Get().OnLevelGameOver += GameOverConfiguration;
+        GameManager.Get().OnLastFairyAlive = ActivateVignette;
 
         animator = panel.GetComponent<Animator>();
         WaveSystem.OnStartWaveFirstTime += Hide;
@@ -218,6 +226,19 @@ public class UIManagerGameplay : MonoBehaviour
         }
     }
 
+    public void GameOverConfiguration()
+    {
+        pause.pauseMenu.SetActive(false);
+        pause.enabled = false;
+        vignette.SwitchMask();
+    }
+
+    public void ActivateVignette()
+    {
+        vignette.SetLowHealthColor();
+        vignette.SwitchMask();
+    }
+
     public void OnDestroy()
     {
         Fairy.OnFairyDeath -= UpdateText;
@@ -225,6 +246,8 @@ public class UIManagerGameplay : MonoBehaviour
         cheats.OnCheatGivePoints -= UpdateText;
         gm.OnGameGivePoints -= UpdateText;
         WaveSystem.OnStartWaveFirstTime -= Hide;
+        GameManager.Get().OnLevelGameOver -= UpdateText;
+        GameManager.Get().OnLevelGameOver -= GameOverConfiguration;
 
         if (highscore)
         {

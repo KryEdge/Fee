@@ -82,7 +82,6 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
 
     public void StartWave()
     {
-        Debug.Log("gg bois");
 
         if(OnStartWave != null)
         {
@@ -91,7 +90,6 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
 
         if(currentWave == 1)
         {
-            Debug.Log("First Wave");
 
             if (OnStartWaveFirstTime != null)
             {

@@ -59,7 +59,6 @@ public class SettingsScreen : MonoBehaviour
             int height = resolutions[dropdown.value].height;
 
             Debug.Log("NEW RESOLUTION: " + width + "x" + height);
-            //Debug.Log("NEW RESOLUTION: " + Screen.currentResolution.width + "x" + Screen.currentResolution.height);
 
             Screen.SetResolution(width, height, windowed);
         }

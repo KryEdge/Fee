@@ -196,7 +196,6 @@ public class Fairy : MonoBehaviour
 
             Flock.finalSpeed = Flock.originalFinalSpeed * runSpeedMultiplier;
             currentColor = dangerColor;
-            Debug.Log("Final Speed :  " + Flock.finalSpeed);
         }
     }
 
@@ -268,7 +267,6 @@ public class Fairy : MonoBehaviour
     public static void SwitchInvincibility()
     {
         isInmunityOn = !isInmunityOn;
-        Debug.Log(isInmunityOn);
     }
 
     public void ChangeSpeed(float newSpeed)

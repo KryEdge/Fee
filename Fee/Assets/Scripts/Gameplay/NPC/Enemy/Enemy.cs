@@ -282,7 +282,6 @@ public class Enemy : MonoBehaviour
                 gameObject.tag = "dead";
                 currentState = enemyStates.dead;
                 attachedModel.material.shader = deathShader;
-                Debug.Log(gameObject.name + " has been killed by: " + collision.gameObject.name);
                 Destroy(collision.gameObject);
                 hasAlreadyDied = true;
                 animator.SetBool("isEating", false);
@@ -308,7 +307,6 @@ public class Enemy : MonoBehaviour
                     gameObject.tag = "dead";
                     currentState = enemyStates.dead;
 
-                    Debug.Log(gameObject.name + " has been killed by: " + other.gameObject.name);
                     hasAlreadyDied = true;
 
                     animator.SetBool("isEating", false);

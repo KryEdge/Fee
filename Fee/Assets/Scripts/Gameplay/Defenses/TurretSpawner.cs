@@ -96,7 +96,6 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
         {
             if (hit.transform.gameObject.tag != "turret")
             {
-                Debug.Log("Spawning");
                 if(spawnedTurrets.Count <= GameManager.Get().maxTurrets - 1)
                 {
                     GameObject newTurret = Instantiate(turretTemplate, hit.point + (hit.normal * -5), newTurretPreview.transform.rotation);
@@ -142,7 +141,6 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
             
             if (hit.transform.gameObject.tag == "turret")
             {
-                Debug.Log("encontre");
 
                 GameObject turretToDelete = null;
 
@@ -156,7 +154,6 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                 
                 if(turretToDelete)
                 {
-                    Debug.Log("borranding");
                     spawnedTurrets.Remove(turretToDelete);
                     Destroy(turretToDelete);
 
@@ -175,7 +172,6 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
         }
         else
         {
-            //Debug.Log("buscando torreta");
             Debug.DrawRay(ray.origin, ray.direction * 999, Color.white);
         }
     }

@@ -51,7 +51,6 @@ public class CheatSystem : MonoBehaviour
 
         if(OnCheatGivePoints != null)
         {
-            Debug.Log("Cheats enabled");
             OnCheatGivePoints();
         }
 

@@ -46,7 +46,6 @@ public class MilestoneManager : MonoBehaviourSingleton<MilestoneManager>
 
     public void SetNewMilestone()
     {
-        Debug.Log("Setting new Milestones");
 
         for (int i = 0; i < allMilestones.Count; i++)
         {

@@ -170,20 +170,16 @@ public class Turret : MonoBehaviour
             {
                 canBePlaced = false;
             }
-
-            Debug.Log("Torreta choca con " + other.gameObject.name);
             
         }
 
         if (other.gameObject.tag == "road")
         {
-            Debug.Log("Torreta choca con " + other.gameObject.name);
             canBePlaced = false;
         }
 
         if (other.gameObject.tag == "turretZone")
         {
-            Debug.Log("Torreta choca con " + other.gameObject.name);
             enteredZones.Add(other.gameObject);
             if(enteredZones.Count > 0)
             {
@@ -207,19 +203,15 @@ public class Turret : MonoBehaviour
             {
                 canBePlaced = true;
             }
-
-            Debug.Log("Torreta DEJO de chocar con " + other.gameObject.name);
         }
 
         if (other.gameObject.tag == "road")
         {
-            Debug.Log("Torreta DEJO de chocar con " + other.gameObject.name);
             canBePlaced = true;
         }
 
         if (other.gameObject.tag == "turretZone")
         {
-            Debug.Log("Torreta choca con " + other.gameObject.name);
             enteredZones.Remove(other.gameObject);
             if (enteredZones.Count <= 0)
             {

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public static OnLevelAction OnLevelEndWave;
     public OnLevelAction OnLevelGameOver;
     public OnLevelAction OnGameGivePoints;
+    public OnLevelAction OnLastFairyAlive;
 
     [Header("Cheat Settings")]
     public bool areCheatsOn;
@@ -32,8 +33,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     [Header("Assign Components/GameObjects")]
     public ParticleSystem[] confetti;
-    public UIPauseButton pause;
-    public UIVignette vignette;
     public GameObject GameOverPanel;
     public CameraMovement movement;
     public Shoot shoot;
@@ -44,16 +43,17 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public int score;
     public int enemiesKilled;
     public int currentFairies;
-    public int givePointsMultiplier;
     public List<GameObject> enemies;
     public List<UITowersState> towersUI;
-    public GameObject[] enemiesToDelete;
-    public bool gameOver;
-    public bool canGivePoints;
-    public float confettiTimer;
 
-    public int increaseScoreMilestone;
+    
+    private GameObject[] enemiesToDelete;
+    private bool gameOver;
+    private bool canGivePoints;
+    private float confettiTimer;
     private float pointsTimer;
+    private int increaseScoreMilestone;
+    private int givePointsMultiplier;
     private int upgradePointsGiveMilestone;
     private UpgradeSystem upgrades;
 
@@ -65,7 +65,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         WaveSystem.OnStartWaveFirstTime += StartGivingPoints;
         Fairy.OnFairyDeath += CheckFairiesCount;
         Enemy.OnDeath += AddPoints;
-        //UpdateUI();
 
         maxFairies = (int)upgrades.GetUpgrade(0).GetCurrentAmount();
         shoot.rechargeTime = upgrades.GetUpgrade(1).GetCurrentAmount();
@@ -109,8 +108,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
                 {
                     OnGameGivePoints();
                 }
-
-                //scoreUI.UpdateText();
             } 
         }
 
@@ -123,7 +120,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
         if(isConfettiOn)
         {
-            Debug.Log("Confetti is on");
 
             for (int i = 0; i < confetti.Length; i++)
             {
@@ -171,19 +167,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         turretSpawner.SwitchPreviewForced();
     }
 
-    /*public void UpdateUI()
-    {
-        if(fairies)
-        {
-            fairies.UpdateText();
-        }
-
-        if(towers)
-        {
-            towers.UpdateText();
-        }
-    }*/
-
     private void GameOver()
     {
         int originalPoints = PlayerPrefs.GetInt("UpgradePoints", 0);
@@ -194,8 +177,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         GameOverPanel.SetActive(true);
         TurretSpawner.Get().preview = false;
         TurretSpawner.Get().StopAllOutlines();
-        pause.pauseMenu.SetActive(false);
-        pause.enabled = false;
 
         if(OnLevelGameOver != null)
         {
@@ -207,12 +188,11 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     {
         if(currentFairies == 1)
         {
-            vignette.SetLowHealthColor();
-            vignette.SwitchMask();
-        }
-        else if(currentFairies == 0)
-        {
-            vignette.SwitchMask();
+            if(OnLastFairyAlive != null)
+            {
+                OnLastFairyAlive();
+            }
+            
         }
     }
 
@@ -226,7 +206,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     public void StopWave()
     {
-        //enemiesToDelete = new GameObject[enemies.Count];
 
         waves.StopWave();
         waves.SetNextWave();
@@ -242,7 +221,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     {
         if(!gameOver)
         {
-            Debug.Log("Gave " + pointsToGive + "Points to the player.");
             score += pointsToGive;
 
             if (OnGameGivePoints != null)
@@ -257,7 +235,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
             if(score >= upgradePointsGiveMilestone)
             {
-                Debug.Log("Added upgrade points!");
                 upgradePointsCurrentMatch += upgradePointsToGive;
                 upgradePointsGiveMilestone += upgradePointsGiveMilestonesOriginal;
             }
@@ -266,7 +243,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     public void KillAllEnemies()
     {
-        //Debug.Log("Killed all enemies");
         enemiesToDelete = new GameObject[enemies.Count];
 
         for (int i = 0; i < enemiesToDelete.Length; i++)
@@ -280,7 +256,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     private void StartGivingPoints()
     {
-        Debug.Log("ahre");
         canGivePoints = true;
     }
 }

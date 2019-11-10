@@ -95,10 +95,8 @@ public class Shoot : MonoBehaviour
                 {
                     if (!shootOnce)
                     {
-                        Debug.Log(hit.transform.gameObject.tag);
                         bulletProperties.isFired = true;
                         bulletProperties.target = hit.point;
-                        //Debug.Log(hit.point);
                         bulletProperties.meteorSpeed = meteorSpeed;
                         GameObject newBullet = Instantiate(bulletTemplate);
                         newBullet.SetActive(true);

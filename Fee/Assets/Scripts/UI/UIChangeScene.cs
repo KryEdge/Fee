@@ -20,7 +20,6 @@ public class UIChangeScene : MonoBehaviour
 
         if (sceneName == "Upgrade Screen")
         {
-            Debug.Log("ahre");
             bool goToTutorial = FirstTimePlayingCheck.Get().isFirstTimePlaying;
 
             if (goToTutorial)
