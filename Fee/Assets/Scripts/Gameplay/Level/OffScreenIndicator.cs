@@ -11,13 +11,13 @@ public class OffScreenIndicator : MonoBehaviour
     public Transform _trackingObject;
 
     // Use this for initialization
-    void Start()
+    private void Start()
     {
         target = FlockManager.fairies[0];
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if(FlockManager.fairies.Count > 0)
         {

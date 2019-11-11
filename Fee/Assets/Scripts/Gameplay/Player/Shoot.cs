@@ -6,27 +6,33 @@ using UnityEngine.UI;
 
 public class Shoot : MonoBehaviour
 {
+    [Header("General Settings")]
     public KeyCode activateKey;
-    public Button meteorButton;
-    public Text meteorCountText;
-    public GameObject bulletTemplate;
     public float fireRate;
     public float rechargeTime;
-    public float rechargeTimer;
     public float meteorSpeed;
-
-    public LayerMask Mask;
     public int maxMeteors;
-    public int currentMeteors;
+    public LayerMask Mask;
+
+    [Header("Assign Components")]
+    public GameObject bulletTemplate;
+
+    [Header("UI Settings")]
+    public Button meteorButton;
+    public Text meteorCountText;
     public Color disableColor;
     public Color enableColor;
+
+    [Header("Checking Variables")]
+    public bool isActivated;
 
     private Bullet bulletProperties;
     private bool shootOnce;
     private bool canShoot;
-    public bool isActivated;
-    public bool isMouseOver;
+    private bool isMouseOver;
+    private int currentMeteors;
     private float fireRateTimer;
+    private float rechargeTimer;
     // Start is called before the first frame update
     void Start()
     {

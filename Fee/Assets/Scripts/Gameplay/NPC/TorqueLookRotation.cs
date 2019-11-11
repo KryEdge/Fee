@@ -10,6 +10,7 @@ public class TorqueLookRotation : MonoBehaviour
         allDirs
     }
 
+    [Header("General Settings")]
     public directions direction;
     public Transform target;
     public float force = 0.1f;
@@ -19,7 +20,6 @@ public class TorqueLookRotation : MonoBehaviour
     private Rigidbody rig;
     private Vector3 currentDirection;
     
-
     private void Start()
     {
         rig = GetComponent<Rigidbody>();

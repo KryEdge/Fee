@@ -73,10 +73,8 @@ public class Enemy : MonoBehaviour
         rig = GetComponent<Rigidbody>();
         torque = GetComponent<TorqueLookRotation>();
         outline = GetComponent<Outline>();
-        //animator = GetComponent<Animator>();
 
         radius.OnRadiusFindAlly += StartPursuit;
-        //Fairy.OnFairyDeath += StartEating;
 
         currentState = initialState;
         selectedWaypoint = initialWaypoint;
@@ -90,10 +88,8 @@ public class Enemy : MonoBehaviour
         deathTimer = -1;
         deathTime = 1;
 
-        animator.SetBool("isEating", false);
-        animator.SetBool("isWalking", true);
-        animator.SetBool("isDead", false);
-        //Debug.Log("Disolve value " + attachedModel.material.GetFloat("_dissolve"));
+        animator.SetBool("IsWalking", true);
+        animator.SetBool("IsEating", false);
     }
 
     // Update is called once per frame
@@ -142,10 +138,8 @@ public class Enemy : MonoBehaviour
         currentState = enemyStates.eating;
         finalSpeed = 0;
 
-        //Method 1
-        animator.SetBool("isEating", true);
-        animator.SetBool("isWalking", false);
-        animator.SetBool("isDead", false);
+        animator.SetBool("IsWalking", false);
+        animator.SetBool("IsEating", true);
     }
 
     private void Eat()
@@ -158,9 +152,8 @@ public class Enemy : MonoBehaviour
             finalSpeed = speed;
             currentState = enemyStates.move;
 
-            animator.SetBool("isEating", false);
-            animator.SetBool("isWalking", true);
-            animator.SetBool("isDead", false);
+            animator.SetBool("IsWalking", true);
+            animator.SetBool("IsEating", false);
 
             SwitchRotationTarget();
         }
@@ -239,11 +232,8 @@ public class Enemy : MonoBehaviour
 
     private void StartPursuit(GameObject npc)
     {
-        //Debug.Log("ENTERED FIND ALLY");
-
         if (!currentTarget)
         {
-            //Debug.Log("ASSIGNED ALLY");
             currentTarget = npc;
             ally = currentTarget.GetComponent<Fairy>();
             nextWaypointTarget = Fairy.selectedWaypoint;
@@ -253,7 +243,6 @@ public class Enemy : MonoBehaviour
 
     private void EndPursuit()
     {
-        //Debug.Log("Deleting npc target");
         currentTarget = null;
         nextWaypointTarget = null;
         finalSpeed = speed;
@@ -284,9 +273,8 @@ public class Enemy : MonoBehaviour
                 attachedModel.material.shader = deathShader;
                 Destroy(collision.gameObject);
                 hasAlreadyDied = true;
-                animator.SetBool("isEating", false);
-                animator.SetBool("isWalking", false);
-                animator.SetBool("isDead", true);
+
+                animator.SetTrigger("Die");
             }
         }
     }
@@ -308,10 +296,7 @@ public class Enemy : MonoBehaviour
                     currentState = enemyStates.dead;
 
                     hasAlreadyDied = true;
-
-                    animator.SetBool("isEating", false);
-                    animator.SetBool("isWalking", false);
-                    animator.SetBool("isDead", true);
+                    animator.SetTrigger("Die");
                 }
                 break;
             default:
@@ -323,7 +308,6 @@ public class Enemy : MonoBehaviour
     {
         GameManager.Get().enemies.Remove(gameObject);
         radius.OnRadiusFindEnemy -= StartPursuit;
-        //Fairy.OnFairyDeath -= StartEating;
     }
 
     private void MoveFixedUpdate()

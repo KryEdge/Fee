@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Waypoints : MonoBehaviour
 {
+    [Header("Waypoint Connections")]
     public GameObject[] nextWaypoints;
 
     private void Start()

@@ -22,20 +22,19 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
 
     [Header("Checking Variables")]
     public List<GameObject> spawnedTurrets;
-    public UITowersState towerUIState;
-    public GameObject newTurretPreview;
     public bool preview;
     public bool canDelete;
 
+    private UITowersState towerUIState;
     private Turret turretProperties;
     private MeshRenderer turretMaterial;
     private GameObject myEventSystem;
+    private GameObject newTurretPreview;
     private MaterialPropertyBlock material;
     private bool canSpawn;
-    //private bool hasSpawned;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         myEventSystem = GameObject.Find("EventSystem");
 
@@ -45,7 +44,6 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
         turretProperties.isPreview = true;
         newTurretPreview.GetComponent<BoxCollider>().isTrigger = true;
         turretProperties.turretRadius.gameObject.GetComponent<BoxCollider>().enabled = false;
-        //turretProperties.isSpawned = true;
         newTurretPreview.SetActive(false);
 
         turretTemplate.GetComponent<FauxGravityBody>().isBuilding = true;
@@ -55,7 +53,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if(Input.GetKeyDown(activateKey))
         {

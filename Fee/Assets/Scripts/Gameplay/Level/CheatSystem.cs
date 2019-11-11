@@ -53,8 +53,6 @@ public class CheatSystem : MonoBehaviour
         {
             OnCheatGivePoints();
         }
-
-        //gameManager.scoreUI.UpdateText();
     }
 
     public void SwitchTowerDeletion()

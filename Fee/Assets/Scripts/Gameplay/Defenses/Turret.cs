@@ -37,7 +37,7 @@ public class Turret : MonoBehaviour
     private float generateTimer;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         outline = GetComponent<Outline>();
         proyectile = proyectileTemplate.GetComponent<Proyectile>();
@@ -50,7 +50,7 @@ public class Turret : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if(!isPreview)
         {

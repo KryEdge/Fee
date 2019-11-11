@@ -27,7 +27,6 @@ public class Fairy : MonoBehaviour
 
     [Header("Speed Settings")]
     public float speed;
-    //public float speedMultiplier;
     public float runSpeedMultiplier;
 
     [Header("Outline Color Settings")]
@@ -78,7 +77,6 @@ public class Fairy : MonoBehaviour
         currentColor = normalColor;
         outline.OutlineColor = currentColor;
         GameManager.Get().currentFairies++;
-        //GameManager.Get().UpdateUI();
         animator.speed = Random.Range(0.8f, 1.4f);
 
 
@@ -162,9 +160,7 @@ public class Fairy : MonoBehaviour
 
     private void SwitchRotationTarget()
     {
-        //Debug.Log("This waypoint: " + selectedWaypoint.name);
         FlockManager.goalPosition = selectedWaypoint.transform.position;
-        //torque.target = selectedWaypoint.transform;
     }
 
     private void StartEscape(GameObject enemy)
@@ -177,8 +173,6 @@ public class Fairy : MonoBehaviour
             {
                 enemyCurrentDistance = Vector3.Distance(enemy.transform.position, transform.position);
             }
-            
-            //Debug.Log("enemy spotted!");
 
             if (currentEnemySpotted == null)
             {
@@ -206,7 +200,6 @@ public class Fairy : MonoBehaviour
 
     private void EndEscape()
     {
-        //Debug.Log("ESCAPED!");
         currentEnemySpotted = null;
         Flock.finalSpeed = Flock.originalFinalSpeed;
         currentColor = normalColor;
@@ -219,8 +212,6 @@ public class Fairy : MonoBehaviour
             EndEscape();
         }
     }
-
-    //Fairy Death
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -249,7 +240,6 @@ public class Fairy : MonoBehaviour
         GameManager.OnLevelEndWave -= EndEscape;
 
         GameManager.Get().currentFairies--;
-        //GameManager.Get().UpdateUI();
 
         if (OnFairyDeath != null)
         {

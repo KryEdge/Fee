@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
 {
     public delegate void OnWaveAction();
     public static OnWaveAction OnStartWave;
     public static OnWaveAction OnStartWaveFirstTime;
+    public static OnWaveAction OnEndUI;
+
+    public delegate void OnUIAction(int id);
+    public static OnUIAction OnStartUI;
+    public static OnUIAction OnEndWave;
 
     [Header("Current Wave")]
     public int currentWave;
@@ -17,9 +21,6 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
     public float initialWaitTime;
     public float textScreenTime;
     public int enemiesAdd;
-
-    [Header("UI")]
-    public Text waveText;
 
     [Header("Checking Variables")]
     public List<EnemySpawner> spawners;
@@ -38,7 +39,6 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
         GameManager.Get().maxEnemies = enemiesAdd;
         currentWave = maxEnemies.Count;
         StopWave();
-        waveText.text = "Game is about to Start!";
         timerHasStarted = true;
         originalWaitTime = maxWaitTime;
         maxWaitTime = initialWaitTime;
@@ -73,7 +73,11 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
 
             if(textTimer >= textScreenTime)
             {
-                waveText.enabled = false;
+                if(OnEndUI != null)
+                {
+                    OnEndUI();
+                }
+
                 screenTimerStarted = false;
                 textTimer = 0;
             }
@@ -93,7 +97,6 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
 
             if (OnStartWaveFirstTime != null)
             {
-                //Debug.Log("First Wave ENTERRINGG");
                 OnStartWaveFirstTime();
             }
         }
@@ -104,8 +107,12 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
             spawner.automaticSpawn = true;
         }
 
-        waveText.enabled = true;
-        waveText.text = "Wave Start!";
+        if(OnStartUI != null)
+        {
+            OnStartUI(0);
+        }
+
+
         screenTimerStarted = true;
         textTimer = 0;
     }
@@ -117,11 +124,14 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
             spawner.automaticSpawn = false;
         }
 
-        waveText.enabled = true;
         timerHasStarted = true;
-        waveText.text = "Wave Ended... Destroy the remaining enemies!";
         screenTimerStarted = true;
         textTimer = 0;
+
+        if(OnEndWave != null)
+        {
+            OnEndWave(1);
+        }
     }
 
     public void SetNextWave()

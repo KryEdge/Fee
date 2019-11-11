@@ -6,37 +6,18 @@ using UnityEngine.UI.Extensions;
 
 public class Milestone : MonoBehaviour
 {
+    [Header("General Settings")]
     public MilestoneScriptableObject milestone;
+
+    [Header("Assign Components")]
     public Text titleUI;
     public Text progressTextUI;
     public Slider progressBar;
 
     private bool doOnce;
-    // Start is called before the first frame update
-    void Start()
-    {
-        titleUI.text = milestone.objectiveText;
-
-        switch (milestone.type)
-        {
-            case MilestoneScriptableObject.MilestoneType.Score:
-                CheckScoreType();
-                break;
-            case MilestoneScriptableObject.MilestoneType.EnemiesKilled:
-                CheckEnemiesKilledType();
-                break;
-            case MilestoneScriptableObject.MilestoneType.TowersPlaced:
-                break;
-            default:
-                break;
-        }
-
-        MilestoneManager.Get().allMilestones.Add(this);
-        MilestoneManager.Get().currentMilestonesTotal++;
-    }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if(milestone.isActive)
         {
@@ -104,6 +85,28 @@ public class Milestone : MonoBehaviour
         {
             milestone.isDone = true;
         }
+    }
+
+    public void AssignData()
+    {
+        titleUI.text = milestone.objectiveText;
+
+        switch (milestone.type)
+        {
+            case MilestoneScriptableObject.MilestoneType.Score:
+                CheckScoreType();
+                break;
+            case MilestoneScriptableObject.MilestoneType.EnemiesKilled:
+                CheckEnemiesKilledType();
+                break;
+            case MilestoneScriptableObject.MilestoneType.TowersPlaced:
+                break;
+            default:
+                break;
+        }
+
+        MilestoneManager.Get().allMilestones.Add(this);
+        MilestoneManager.Get().currentMilestonesTotal++;
     }
 
     private void OnDestroy()

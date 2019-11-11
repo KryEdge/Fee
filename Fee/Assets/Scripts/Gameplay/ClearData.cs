@@ -5,16 +5,26 @@ using UnityEngine;
 public class ClearData : MonoBehaviour
 {
     public GameObject button;
-    private UpgradeSystem upgrades;
-    private FirstTimePlayingCheck firstTime;
-    private int buttonAppearCounter;
     public bool firstTimePlaying;
-    
+
+    private UpgradeSystem upgrades;
+    private int buttonAppearCounter;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        firstTime = FirstTimePlayingCheck.Get();
+        string goToTutorial = PlayerPrefs.GetString("isFirstTimePlaying", "yes");
+
+        if (goToTutorial == "yes")
+        {
+            PlayerPrefs.SetString("isFirstTimePlaying", "yes");
+        }
+        else if (goToTutorial == "no")
+        {
+            PlayerPrefs.SetString("isFirstTimePlaying", "no");
+        }
+
+        Debug.Log(goToTutorial);
         upgrades = UpgradeSystem.Get();
         button.SetActive(false);
     }
@@ -35,13 +45,13 @@ public class ClearData : MonoBehaviour
     public void ResetEverything()
     {
         upgrades = UpgradeSystem.Get();
-        firstTime = FirstTimePlayingCheck.Get();
 
         if(upgrades)
         {
             upgrades.ResetUpgrades();
         }
-        firstTime.isFirstTimePlaying = true;
+
+        PlayerPrefs.SetString("isFirstTimePlaying", "yes");
 
         buttonAppearCounter = 0;
         button.SetActive(false);

@@ -30,6 +30,12 @@ public class UIManagerGameplay : MonoBehaviour
     public Text[] highscoreTexts;
     public Text newHighscoreText;
 
+    [Header("Wave System")]
+    public string initialText;
+    public string startText;
+    public string endText;
+    public Text waveText;
+
     [Header("Cheat System")]
     public CheatSystem cheatsComponent;
     public Image fairyButton;
@@ -64,6 +70,9 @@ public class UIManagerGameplay : MonoBehaviour
         GameManager.Get().OnLevelGameOver += UpdateText;
         GameManager.Get().OnLevelGameOver += GameOverConfiguration;
         GameManager.Get().OnLastFairyAlive = ActivateVignette;
+        WaveSystem.OnStartUI = ChangeWaveText;
+        WaveSystem.OnEndUI = TurnOffUI;
+        WaveSystem.OnEndWave = ChangeWaveText;
 
         animator = panel.GetComponent<Animator>();
         WaveSystem.OnStartWaveFirstTime += Hide;
@@ -72,6 +81,8 @@ public class UIManagerGameplay : MonoBehaviour
         {
             newHighscoreText.enabled = false;
         }
+
+        waveText.text = initialText;
 
         UpdateText();
     }
@@ -125,6 +136,28 @@ public class UIManagerGameplay : MonoBehaviour
         {
             gemsText.text = "Gems Collected: " + GameManager.Get().upgradePointsCurrentMatch;
         }
+    }
+
+    public void ChangeWaveText(int id)
+    {
+        switch (id)
+        {
+            case 0:
+                waveText.enabled = true;
+                waveText.text = startText;
+                break;
+            case 1:
+                waveText.enabled = true;
+                waveText.text = endText;
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void TurnOffUI()
+    {
+        waveText.enabled = false;
     }
 
     public void SwitchAnimation()

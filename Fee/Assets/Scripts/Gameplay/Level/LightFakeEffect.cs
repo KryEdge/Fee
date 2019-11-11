@@ -7,7 +7,7 @@ public class LightFakeEffect : MonoBehaviour
     public GameObject target;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         transform.LookAt(target.transform);
     }

@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class FlockManager : MonoBehaviour
 {
+    [Header("General Settings")]
+    public Transform[] positions;
+    public int groupSize = 7;
+
+    [Header("Asssign Components")]
     public FauxGravityAttractor planet;
     public GameObject lightPrefab;
     public GameObject prefab;
-    //public static int fairySpeed;
+
+    [Header("Checking Variables")]
     public static int prefabAmount;
     public static List<GameObject> fairies;
-    public Transform[] positions;
-
-    public int groupSize = 7;
     public static Vector3 goalPosition = Vector3.zero;
 
     // Start is called before the first frame update
@@ -29,8 +32,6 @@ public class FlockManager : MonoBehaviour
             fairies[i].transform.position = positions[i].position;
             fairies[i].SetActive(true);
         }
-
-        
     }
 
     private void Update()
@@ -48,9 +49,7 @@ public class FlockManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        //prefabAmount = null;
         fairies = null;
-
     }
 
     public void KillAllFairies()

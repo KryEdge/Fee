@@ -4,32 +4,43 @@ using UnityEngine;
 
 public class MilestoneManager : MonoBehaviourSingleton<MilestoneManager>
 {
-    public List<Milestone> allMilestones;
-    public List<Milestone> milestonesToMove;
-    public GameObject milestonePanel;
-    public int maxMilestones;
-    public int currentMilestones;
-
-    public int maxMilestonesTotal;
-    public int currentMilestonesTotal;
+    [Header("General Settings")]
+    public MilestoneScriptableObject[] milestonesSO;
+    public int maxMilestones; 
     public float maxSwitchMilestoneTime;
 
-    public float switchMilestoneTimer;
+    [Header("Assign Components")]
+    public GameObject milestonePrefab;
+    public GameObject milestonePanel;
 
-    private bool doOnce;
+    [Header("Checking Variables")]
+    public int currentMilestones;
+    public int currentMilestonesTotal;
+    public List<Milestone> allMilestones;
+    public List<Milestone> milestonesToMove;
     public bool canSwitch;
+
+    private float switchMilestoneTimer;
+
+    private void Start()
+    {
+        for (int i = 0; i < milestonesSO.Length; i++)
+        {
+            GameObject newMilestoneObject = Instantiate(milestonePrefab);
+            Milestone newMilestone = newMilestoneObject.GetComponent<Milestone>();
+
+            newMilestone.milestone = milestonesSO[i];
+            newMilestone.AssignData();
+            newMilestone.transform.SetParent(transform, false);
+        }
+
+        SetNewMilestone();
+    }
+
+
     // Update is called once per frame
     void Update()
     {
-        if(!doOnce)
-        {
-            if(currentMilestonesTotal >= maxMilestonesTotal)
-            {
-                SetNewMilestone();
-                doOnce = true;
-            }
-        }
-
         if(canSwitch)
         {
             switchMilestoneTimer += Time.deltaTime;
@@ -73,9 +84,7 @@ public class MilestoneManager : MonoBehaviourSingleton<MilestoneManager>
             {
                 if (item.milestone.isDone)
                 {
-                   // Debug.Log("rip");
                     currentMilestones--;
-                    //Debug.Log("rip " + currentMilestones);
                     item.milestone.isActive = false;
                     item.transform.SetParent(transform, false);
                 }

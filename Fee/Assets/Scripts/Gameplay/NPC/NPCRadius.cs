@@ -15,7 +15,6 @@ public class NPCRadius : MonoBehaviour
             case "enemy":
                 if(OnRadiusFindEnemy != null)
                 {
-                    //Debug.Log("se murio este: " + other.gameObject.name);
                     OnRadiusFindEnemy(other.gameObject);
                 }
                 break;
