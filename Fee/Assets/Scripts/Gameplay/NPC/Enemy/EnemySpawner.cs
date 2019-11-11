@@ -11,6 +11,9 @@ public class EnemySpawner : MonoBehaviour
     public int pointsToGive;
     public bool automaticSpawn;
 
+    [Header("Assign Components")]
+    public GameObject list;
+
     [Header("Speed Settings")]
     public float minSpeed;
     public float maxSpeed;
@@ -71,7 +74,7 @@ public class EnemySpawner : MonoBehaviour
             GameObject newEnemy = Instantiate(enemyTemplate);
             newEnemy.transform.position = entryWaypoint.transform.position;
             newEnemy.SetActive(true);
-            //GameManager.Get().enemies.Add(newEnemy);
+            newEnemy.transform.SetParent(list.transform);
         }
             
     }

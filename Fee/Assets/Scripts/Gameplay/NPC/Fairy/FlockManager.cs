@@ -9,6 +9,7 @@ public class FlockManager : MonoBehaviour
     public int groupSize = 7;
 
     [Header("Asssign Components")]
+    public GameObject list;
     public FauxGravityAttractor planet;
     public GameObject lightPrefab;
     public GameObject prefab;
@@ -31,6 +32,7 @@ public class FlockManager : MonoBehaviour
             fairies[i].GetComponent<Fairy>().ChangeSpeed(GameManager.Get().fairySpeed);
             fairies[i].transform.position = positions[i].position;
             fairies[i].SetActive(true);
+            fairies[i].transform.SetParent(list.transform);
         }
     }
 
