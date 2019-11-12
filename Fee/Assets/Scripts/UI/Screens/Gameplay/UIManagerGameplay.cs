@@ -143,12 +143,20 @@ public class UIManagerGameplay : MonoBehaviour
         switch (id)
         {
             case 0:
-                waveText.enabled = true;
-                waveText.text = startText;
+                if(waveText)
+                {
+                    waveText.enabled = true;
+                    waveText.text = startText;
+                }
+                
                 break;
             case 1:
-                waveText.enabled = true;
-                waveText.text = endText;
+                if (waveText)
+                {
+                    waveText.enabled = true;
+                    waveText.text = endText;
+                }
+                    
                 break;
             default:
                 break;

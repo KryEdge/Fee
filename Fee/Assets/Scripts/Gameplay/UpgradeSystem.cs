@@ -30,10 +30,7 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
 
         for (int i = 0; i < upgradesTemplates.Length; i++)
         {
-            GameObject newUpgrade = Instantiate(template);
-            Upgrade currentUpgrade = newUpgrade.GetComponent<Upgrade>();
-
-            allUpgradesCurrentLevel[currentUpgrade.id] = currentUpgrade.currentLevel;
+            allUpgradesCurrentLevel[upgradesTemplates[i].id] = upgradesTemplates[i].currentLevel;
         }
     }
 
