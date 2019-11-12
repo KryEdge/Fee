@@ -225,9 +225,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a725dea9c07b4e045b024a69d05f4b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialWaypoint: {fileID: 0}
   cameraGO: {fileID: 5688603488065929710}
   lowestZoom: {fileID: 5688603488475172581}
   highestZoom: {fileID: 5688603489254782785}
+  followTime: 0
   speed: 25
   fasterSpeed: 35
   torqueSpeed: 45
@@ -832,20 +834,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateKey: 50
-  meteorButton: {fileID: 0}
-  meteorCountText: {fileID: 0}
-  bulletTemplate: {fileID: 0}
   fireRate: 0.6
   rechargeTime: 20
-  rechargeTimer: 0
-  meteorSpeed: 300
+  meteorSpeed: 600
+  maxMeteors: 3
   Mask:
     serializedVersion: 2
     m_Bits: 2048
-  maxMeteors: 3
-  currentMeteors: 0
+  bulletTemplate: {fileID: 0}
+  explosionRadiusTemplate: {fileID: 7006309633104016194, guid: 908b64fefff9b1b488ffd0a4211a9b41,
+    type: 3}
+  meteorButton: {fileID: 0}
+  meteorCountText: {fileID: 0}
+  disableColor: {r: 1, g: 0, b: 0, a: 1}
+  enableColor: {r: 0.9686152, g: 0.9716981, b: 0.45376468, a: 1}
   isActivated: 0
-  isMouseOver: 0
 --- !u!1 &6895726143296553540
 GameObject:
   m_ObjectHideFlags: 0

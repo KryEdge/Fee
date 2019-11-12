@@ -60,10 +60,13 @@ public class Enemy : MonoBehaviour
     private float npcDistance;
 
     //Private
+    private Collider killer;
+    private Collider enemyCollider;
     private Rigidbody rig;
     private TorqueLookRotation torque;
     private Outline outline;
     private bool hasAlreadyDied;
+    private bool doOnce;
 
     // Start is called before the first frame update
     private void Start()
@@ -73,6 +76,7 @@ public class Enemy : MonoBehaviour
         rig = GetComponent<Rigidbody>();
         torque = GetComponent<TorqueLookRotation>();
         outline = GetComponent<Outline>();
+        enemyCollider = GetComponent<Collider>();
 
         radius.OnRadiusFindAlly += StartPursuit;
 
@@ -111,6 +115,35 @@ public class Enemy : MonoBehaviour
             default:
                 break;
         }
+
+
+        if(killer)
+        {
+            if (killer.bounds.Intersects(enemyCollider.bounds))
+            {
+                if(!doOnce)
+                {
+                    if (!hasAlreadyDied)
+                    {
+                        if (OnDeath != null)
+                        {
+                            OnDeath(gameObject, pointsToGive);
+                        }
+                        attachedModel.material.shader = deathShader;
+                        gameObject.layer = deathLayer;
+                        gameObject.tag = "dead";
+                        currentState = enemyStates.dead;
+
+                        hasAlreadyDied = true;
+                        animator.SetTrigger("Die");
+                    }
+
+                    doOnce = true;
+                }
+                Debug.Log("Bounds intersecting");
+            }
+        }
+        
     }
 
     private void FixedUpdate()
@@ -277,6 +310,8 @@ public class Enemy : MonoBehaviour
                 animator.SetTrigger("Die");
             }
         }
+
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -284,20 +319,7 @@ public class Enemy : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "explosion":
-                if(!hasAlreadyDied)
-                {
-                    if (OnDeath != null)
-                    {
-                        OnDeath(gameObject, pointsToGive);
-                    }
-                    attachedModel.material.shader = deathShader;
-                    gameObject.layer = deathLayer;
-                    gameObject.tag = "dead";
-                    currentState = enemyStates.dead;
-
-                    hasAlreadyDied = true;
-                    animator.SetTrigger("Die");
-                }
+                killer = other.GetComponent<Collider>();
                 break;
             default:
                 break;

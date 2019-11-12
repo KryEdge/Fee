@@ -16,6 +16,7 @@ public class Shoot : MonoBehaviour
 
     [Header("Assign Components")]
     public GameObject bulletTemplate;
+    public GameObject explosionRadiusTemplate;
 
     [Header("UI Settings")]
     public Button meteorButton;
@@ -26,6 +27,7 @@ public class Shoot : MonoBehaviour
     [Header("Checking Variables")]
     public bool isActivated;
 
+    private GameObject explosionRadius;
     private Bullet bulletProperties;
     private bool shootOnce;
     private bool canShoot;
@@ -39,6 +41,7 @@ public class Shoot : MonoBehaviour
         bulletProperties = bulletTemplate.GetComponent<Bullet>();
 
         currentMeteors = maxMeteors;
+        explosionRadius = Instantiate(explosionRadiusTemplate);
 
         UpdateText();
         SwitchActivation();
@@ -81,6 +84,11 @@ public class Shoot : MonoBehaviour
                     }
                 }
             }
+        }
+
+        if(isActivated)
+        {
+            PreviewRadius();
         }
     }
 
@@ -133,10 +141,12 @@ public class Shoot : MonoBehaviour
 
         if (isActivated)
         {
+            explosionRadius.SetActive(true);
             meteorButton.image.color = enableColor;
         }
         else
         {
+            explosionRadius.SetActive(false);
             meteorButton.image.color = disableColor;
         }
     }
@@ -147,10 +157,12 @@ public class Shoot : MonoBehaviour
 
         if (isActivated)
         {
+            explosionRadius.SetActive(true);
             meteorButton.image.color = enableColor;
         }
         else
         {
+            explosionRadius.SetActive(false);
             meteorButton.image.color = disableColor;
         }
     }
@@ -176,5 +188,35 @@ public class Shoot : MonoBehaviour
         currentMeteors++;
         meteorButton.image.fillAmount = 1;
         UpdateText();
+    }
+
+    private void PreviewRadius()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray.origin, ray.direction, out hit, 999, Mask))
+        {
+
+            if (hit.transform.gameObject.tag == "planet")
+            {
+                explosionRadius.transform.position = hit.point + (hit.normal * 1);
+            }
+        }
+        else
+        {
+            explosionRadius.transform.position = ray.origin * -3;
+        }
+
+        /*if (turretProperties.canBePlaced && turretProperties.isInTurretZone)
+        {
+            material.SetColor("_BaseColor", Color.green);
+            turretMaterial.SetPropertyBlock(material);
+        }
+        else
+        {
+            material.SetColor("_BaseColor", Color.red);
+            turretMaterial.SetPropertyBlock(material);
+        }*/
     }
 }
