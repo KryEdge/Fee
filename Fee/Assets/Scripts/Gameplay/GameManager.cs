@@ -66,6 +66,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         Fairy.OnFairyDeath += CheckFairiesCount;
         Enemy.OnDeath += AddPoints;
 
+        upgrades.AssignUpgrades();
+
         maxFairies = (int)upgrades.GetUpgrade(0).GetCurrentAmount();
         shoot.rechargeTime = upgrades.GetUpgrade(1).GetCurrentAmount();
         towerFireRate = upgrades.GetUpgrade(2).GetCurrentAmount();
@@ -78,6 +80,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         {
             confetti[i].Stop();
         }
+
         
     }
 

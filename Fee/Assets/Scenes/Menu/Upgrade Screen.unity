@@ -1657,7 +1657,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 866783126}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.29871914
+  m_Size: 0.2987191
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2053,7 +2053,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7670009873954154fa7355b56517c116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentForUpgrades: {fileID: 1801455150}
   gemsText: {fileID: 1120245477}
+  upgradeSystem: {fileID: 0}
 --- !u!1 &1895838731
 GameObject:
   m_ObjectHideFlags: 0

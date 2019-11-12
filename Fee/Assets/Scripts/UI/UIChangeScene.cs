@@ -20,24 +20,31 @@ public class UIChangeScene : MonoBehaviour
 
         if (sceneName == "Upgrade Screen")
         {
-            //bool goToTutorial = FirstTimePlayingCheck.Get().isFirstTimePlaying;
+            UpgradeSystem upgrades = UpgradeSystem.Get();
+
+            if(upgrades)
+            {
+                upgrades.CleanList();
+            }
+            
             string goToTutorial = PlayerPrefs.GetString("isFirstTimePlaying", "yes");
 
             if (goToTutorial == "yes")
             {
                 PlayerPrefs.SetString("isFirstTimePlaying", "no");
-                //FirstTimePlayingCheck.Get().isFirstTimePlaying = false;
                 SceneManager.LoadScene("Tutorial");
             }
             else if (goToTutorial == "no")
             {
                 SceneManager.LoadScene(sceneName);
             }
+
+            /*UIManagerUpgrades manager = transform.Find("UIManager").GetComponent<UIManagerUpgrades>();
+            manager.ReAssignEverything();*/
         }
         else if(sceneName == "Tutorial")
         {
             PlayerPrefs.SetString("isFirstTimePlaying", "no");
-            //FirstTimePlayingCheck.Get().isFirstTimePlaying = false;
             SceneManager.LoadScene(sceneName);
         }
         else if (sceneName == "Gameplay")

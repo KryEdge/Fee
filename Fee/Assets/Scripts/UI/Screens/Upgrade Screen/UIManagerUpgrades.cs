@@ -5,15 +5,22 @@ using UnityEngine.UI;
 
 public class UIManagerUpgrades : MonoBehaviour
 {
+    public GameObject parentForUpgrades;
     public Text gemsText;
-    private UpgradeSystem upgradeSystem;
+    public UpgradeSystem upgradeSystem;
 
     // Start is called before the first frame update
     void Start()
     {
         upgradeSystem = UpgradeSystem.Get();
         Upgrade.OnUpgradePurcharsed = UpdateText;
+        upgradeSystem.parent = parentForUpgrades;
         upgradeSystem.AssignUpgrades();
+
+        for (int i = 0; i < upgradeSystem.allUpgrades.Count; i++)
+        {
+            UpdateText(upgradeSystem.allUpgrades[i].id);
+        }
     }
 
     private void UpdateText(int id)

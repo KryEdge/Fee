@@ -14,16 +14,27 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
 
     [Header("Upgrades")]
     public List<Upgrade> allUpgrades;
+    public int[] allUpgradesCurrentLevel;
 
     // Start is called before the first frame update
     void Start()
     {
+        allUpgradesCurrentLevel = new int[upgradesTemplates.Length];
+
         if (resetToInitialPoints)
         {
             PlayerPrefs.SetInt("UpgradePoints", initialPoints);
         }
 
         upgradePoints = PlayerPrefs.GetInt("UpgradePoints", 0);
+
+        for (int i = 0; i < upgradesTemplates.Length; i++)
+        {
+            GameObject newUpgrade = Instantiate(template);
+            Upgrade currentUpgrade = newUpgrade.GetComponent<Upgrade>();
+
+            allUpgradesCurrentLevel[currentUpgrade.id] = currentUpgrade.currentLevel;
+        }
     }
 
     public void AssignUpgrades()
@@ -35,8 +46,13 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
 
             currentUpgrade.data = upgradesTemplates[i];
             currentUpgrade.AssignData();
-            newUpgrade.transform.SetParent(parent.transform, false);
-            CheckButtonActivation(currentUpgrade);
+            currentUpgrade.currentLevel = allUpgradesCurrentLevel[currentUpgrade.id];
+
+            if (parent)
+            {
+                newUpgrade.transform.SetParent(parent.transform, false);
+                CheckButtonActivation(currentUpgrade);
+            }
         }
     }
 
@@ -78,6 +94,8 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
             {
                 DiscountPoints(upgrade.data.costPerLevel[upgrade.currentLevel + 1]);
                 upgrade.currentLevel++;
+
+                allUpgradesCurrentLevel[id] = upgrade.currentLevel;
 
                 CheckButtonActivation(upgrade);
 
@@ -136,5 +154,10 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
         {
             upgrade.button.interactable = true;
         }
+    }
+
+    public void CleanList()
+    {
+        allUpgrades.Clear();
     }
 }
