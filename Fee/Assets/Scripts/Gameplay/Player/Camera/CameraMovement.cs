@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     [Header("General Settings")]
+    public KeyCode teleportKey;
     public GameObject initialWaypoint;
 
     [Header("References")]
@@ -68,6 +69,11 @@ public class CameraMovement : MonoBehaviour
             else if (Input.GetKeyUp(KeyCode.LeftShift))
             {
                 finalSpeed = speed;
+            }
+
+            if(Input.GetKeyDown(teleportKey))
+            {
+                GoToFairies();
             }
 
             if (Input.GetMouseButton(1))
