@@ -196,7 +196,6 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             {
                 OnLastFairyAlive();
             }
-            
         }
     }
 

@@ -63,6 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb3373c3eaaead141b190fe85ebb706f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attachedParticles: {fileID: 30591769022363808}
   attachedModel: {fileID: 1963343069990643913}
   proyectileTemplate: {fileID: 0}
   bulletSpeed: 75
@@ -278,6 +279,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1049522203b4baf4d85d76c894d6e487, type: 3}
+--- !u!1 &30591769022363808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7509452462456085294, guid: 1049522203b4baf4d85d76c894d6e487,
+    type: 3}
+  m_PrefabInstance: {fileID: 7519393133214327694}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6173461144303268530 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4464978202789351740, guid: 1049522203b4baf4d85d76c894d6e487,

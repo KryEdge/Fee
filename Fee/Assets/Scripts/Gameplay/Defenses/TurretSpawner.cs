@@ -42,6 +42,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
         turretProperties = newTurretPreview.GetComponent<Turret>();
         turretMaterial = newTurretPreview.transform.GetChild(2).transform.GetChild(0).GetComponent<MeshRenderer>();
         turretProperties.isPreview = true;
+        turretProperties.attachedParticles.SetActive(false);
         newTurretPreview.GetComponent<BoxCollider>().isTrigger = true;
         turretProperties.turretRadius.gameObject.GetComponent<BoxCollider>().enabled = false;
         newTurretPreview.SetActive(false);
@@ -92,11 +93,11 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
 
         if (Physics.Raycast(ray.origin, ray.direction, out hit, 999, Mask))
         {
-            if (hit.transform.gameObject.tag != "turret")
+            if (hit.transform.gameObject.tag != "turret" && hit.transform.gameObject.tag != "radius")
             {
                 if (spawnedTurrets.Count <= GameManager.Get().maxTurrets - 1)
                 {
-                    newTurretPreview.SetActive(false);
+                    //newTurretPreview.SetActive(false);
                     newTurretPreview.GetComponent<Turret>().enteredZones.Clear();
                     newTurretPreview.GetComponent<Turret>().canBePlaced = false;
 
@@ -120,6 +121,8 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                     currentTurretProperties.OnTurretDead = DeleteTurretTimer;
                     currentTurretProperties.fireRate = fireRate;
                     currentTurretProperties.attachedModel.material.shader = spawnShader;
+                    Debug.Log("messi mode");
+                    currentTurretProperties.attachedParticles.SetActive(true);
 
                     for (int i = state.Count - 1; i >= 0; i--)
                     {
@@ -132,7 +135,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                         }
                     }
 
-                    newTurretPreview.SetActive(true);
+                    //newTurretPreview.SetActive(true);
                 }
 
             }
@@ -220,8 +223,8 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
             OnSpawnerDeleteTurret();
         }
 
-        newTurretPreview.SetActive(false);
-        newTurretPreview.SetActive(true);
+        //newTurretPreview.SetActive(false);
+        //newTurretPreview.SetActive(true);
     }
 
     private void PreviewTurret()

@@ -8,6 +8,7 @@ public class Turret : MonoBehaviour
     public OnTurretAction OnTurretDead;
 
     [Header("General Settings")]
+    public GameObject attachedParticles;
     public MeshRenderer attachedModel;
     public GameObject proyectileTemplate;
     public int bulletSpeed;
@@ -40,6 +41,7 @@ public class Turret : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        //sattachedParticles.SetActive(false);
         outline = GetComponent<Outline>();
         proyectile = proyectileTemplate.GetComponent<Proyectile>();
         proyectile.speed = bulletSpeed;

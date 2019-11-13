@@ -20,6 +20,7 @@ TagManager:
   - turret
   - hurt
   - dead
+  - radius
   layers:
   - Default
   - TransparentFX
@@ -46,7 +47,7 @@ TagManager:
   - road
   - deleteTurret
   - dead
-  - 
+  - radius
   - 
   - 
   - 

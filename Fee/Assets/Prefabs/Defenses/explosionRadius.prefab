@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7006309633104016193}
   - component: {fileID: 7006309633104016205}
   - component: {fileID: 7006309633104016206}
-  m_Layer: 13
+  m_Layer: 25
   m_Name: explosionRadius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
