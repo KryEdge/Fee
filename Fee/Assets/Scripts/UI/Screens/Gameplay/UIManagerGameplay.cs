@@ -21,6 +21,7 @@ public class UIManagerGameplay : MonoBehaviour
     private TurretSpawner spawner;
 
     [Header("Milestones Panel")]
+    public KeyCode switchKey;
     public GameObject panel;
     private Animator animator;
     private bool animationSwitch;
@@ -112,6 +113,11 @@ public class UIManagerGameplay : MonoBehaviour
                     newHighscoreText.enabled = true;
                 }
             }
+        }
+
+        if(Input.GetKeyDown(switchKey))
+        {
+            SwitchAnimation();
         }
     }
 

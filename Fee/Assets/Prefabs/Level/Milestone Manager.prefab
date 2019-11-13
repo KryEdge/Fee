@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5262398174911235281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5262398174911235283}
+  - component: {fileID: 5262398174911235280}
+  m_Layer: 0
+  m_Name: Milestone Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5262398174911235283
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5262398174911235281}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1077.64, y: 984.39996, z: -1.8399963}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5262398174911235280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5262398174911235281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75cd163e10b1de9418c4a386ea0ce972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  milestonesSO:
+  - {fileID: 11400000, guid: 6ae3da890f82ce441b7f3e0176d66953, type: 2}
+  - {fileID: 11400000, guid: d3c8453d74b1fdf4b9caf6f9aa4a07e0, type: 2}
+  - {fileID: 11400000, guid: 2313abbb6aaef0d499cc77e8395df679, type: 2}
+  - {fileID: 11400000, guid: 2858e4a6f21460546b42c6eb553349ff, type: 2}
+  - {fileID: 11400000, guid: 3ec6cb3180454164ba56e025fe39c217, type: 2}
+  - {fileID: 11400000, guid: 94f7a4fa6c660c64cb8dd3245f9c9286, type: 2}
+  - {fileID: 11400000, guid: 364cf857dc95c254681955d6d80b829c, type: 2}
+  - {fileID: 11400000, guid: 37926c8feb979814ba4c996f3a94e9f2, type: 2}
+  - {fileID: 11400000, guid: 9313cdd600ed07f459358e434d47de76, type: 2}
+  - {fileID: 11400000, guid: 0849679cf79dc6a47bbb63567bfff4c6, type: 2}
+  maxMilestones: 3
+  maxSwitchMilestoneTime: 2
+  milestonePrefab: {fileID: 3776713936314508085, guid: 16c919ede7034d941b5287626fbcdfe3,
+    type: 3}
+  milestonePanel: {fileID: 0}
+  currentMilestones: 0
+  currentMilestonesTotal: 0
+  allMilestones: []
+  milestonesToMove: []
+  canSwitch: 0

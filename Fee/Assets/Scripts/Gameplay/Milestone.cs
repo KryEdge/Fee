@@ -32,6 +32,7 @@ public class Milestone : MonoBehaviour
                         CheckEnemiesKilledType();
                         break;
                     case MilestoneScriptableObject.MilestoneType.TowersPlaced:
+                        CheckTowersPlacedType();
                         break;
                     default:
                         break;
@@ -76,6 +77,20 @@ public class Milestone : MonoBehaviour
     private void CheckEnemiesKilledType()
     {
         milestone.currentStep = GameManager.Get().enemiesKilled;
+        progressTextUI.text = milestone.currentStep + "/" + milestone.amountOfSteps;
+
+        float progressBarValue = ((milestone.currentStep * 100) / milestone.amountOfSteps) * 0.01f;
+        progressBar.value = progressBarValue;
+
+        if (progressBar.value >= 1)
+        {
+            milestone.isDone = true;
+        }
+    }
+
+    private void CheckTowersPlacedType()
+    {
+        milestone.currentStep = GameManager.Get().towersPlaced;
         progressTextUI.text = milestone.currentStep + "/" + milestone.amountOfSteps;
 
         float progressBarValue = ((milestone.currentStep * 100) / milestone.amountOfSteps) * 0.01f;

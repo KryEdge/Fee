@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     [Header("Check Variables")]
     public int score;
+    public int towersPlaced;
     public int enemiesKilled;
     public int currentFairies;
     public List<GameObject> enemies;

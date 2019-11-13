@@ -96,6 +96,8 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
             {
                 if(spawnedTurrets.Count <= GameManager.Get().maxTurrets - 1)
                 {
+                    GameManager.Get().towersPlaced++;
+
                     GameObject newTurret = Instantiate(turretTemplate, hit.point + (hit.normal * -5), newTurretPreview.transform.rotation);
                     newTurret.SetActive(true);
                     spawnedTurrets.Add(newTurret);
