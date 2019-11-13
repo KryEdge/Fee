@@ -18,6 +18,7 @@ public class Turret : MonoBehaviour
     public float distance = 0;
 
     [Header("Checking Variables")]
+    public TurretZone zone;
     public List<GameObject> enteredZones;
     public List<GameObject> enteredTurrets;
     public TurretRadius turretRadius;
@@ -169,6 +170,7 @@ public class Turret : MonoBehaviour
             if (enteredTurrets.Count > 0)
             {
                 canBePlaced = false;
+                //zone = null;
             }
             
         }
@@ -176,6 +178,7 @@ public class Turret : MonoBehaviour
         if (other.gameObject.tag == "road")
         {
             canBePlaced = false;
+            //zone = null;
         }
 
         if (other.gameObject.tag == "turretZone")
@@ -185,9 +188,10 @@ public class Turret : MonoBehaviour
             {
                 isInTurretZone = true;
 
-                if (enteredTurrets.Count <= 0)
+                if (enteredTurrets.Count <= 0 && !other.GetComponent<TurretZone>().isUsed)
                 {
                     canBePlaced = true;
+                    zone = other.GetComponent<TurretZone>();
                 }
             }
             
@@ -201,13 +205,23 @@ public class Turret : MonoBehaviour
             enteredTurrets.Remove(other.gameObject);
             if (enteredTurrets.Count <= 0)
             {
-                canBePlaced = true;
+               // zone = other.GetComponent<TurretZone>();
+
+                if(zone)
+                {
+                    if (!zone.isUsed)
+                    {
+                        canBePlaced = true;
+                    }
+                }
+                
             }
         }
 
         if (other.gameObject.tag == "road")
         {
             canBePlaced = true;
+            //zone = other.GetComponent<TurretZone>();
         }
 
         if (other.gameObject.tag == "turretZone")
@@ -216,6 +230,7 @@ public class Turret : MonoBehaviour
             if (enteredZones.Count <= 0)
             {
                 isInTurretZone = false;
+                //zone = null;
             }
         }
     }
@@ -235,6 +250,11 @@ public class Turret : MonoBehaviour
 
     private void OnDestroy()
     {
+        if(zone)
+        {
+            zone.isUsed = false;
+        }
+
         if(stateUI)
         {
             stateUI.isBeingUsed = false;

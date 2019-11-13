@@ -106,10 +106,12 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                     {
                         OnSpawnerSpawnTurret();
                     }
-
+                    //
                     Turret currentTurretProperties = newTurret.GetComponent<Turret>();
                     List<UITowersState> state = GameManager.Get().towersUI;
 
+                    currentTurretProperties.zone = newTurretPreview.GetComponent<Turret>().zone;
+                    currentTurretProperties.zone.isUsed = true;
                     currentTurretProperties.OnTurretDead = DeleteTurretTimer;
                     currentTurretProperties.fireRate = fireRate;
                     currentTurretProperties.attachedModel.material.shader = spawnShader;
@@ -155,6 +157,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                 if(turretToDelete)
                 {
                     spawnedTurrets.Remove(turretToDelete);
+                    turretToDelete.GetComponent<Turret>().zone.isUsed = false;
                     Destroy(turretToDelete);
 
                     if (OnSpawnerDeleteTurret != null)
@@ -179,6 +182,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
     private void DeleteTurretTimer(GameObject turret)
     {
         spawnedTurrets.Remove(turret);
+        //turret.GetComponent<Turret>().zone.isUsed = false;
 
         if (OnSpawnerDeleteTurret != null)
         {
