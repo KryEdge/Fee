@@ -55,7 +55,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
     // Update is called once per frame
     private void Update()
     {
-        if(Input.GetKeyDown(activateKey))
+        if (Input.GetKeyDown(activateKey))
         {
             SwitchPreview();
         }
@@ -66,15 +66,15 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
             {
                 DeleteTurret();
             }
-        }        
-        
-        if(preview)
+        }
+
+        if (preview)
         {
             if (Input.GetMouseButtonDown(0))
             {
                 if (turretProperties.canBePlaced && turretProperties.isInTurretZone)
                 {
-                    if(canSpawn)
+                    if (canSpawn)
                     {
                         Spawn();
                     }
@@ -94,15 +94,19 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
         {
             if (hit.transform.gameObject.tag != "turret")
             {
-                if(spawnedTurrets.Count <= GameManager.Get().maxTurrets - 1)
+                if (spawnedTurrets.Count <= GameManager.Get().maxTurrets - 1)
                 {
+                    newTurretPreview.SetActive(false);
+                    newTurretPreview.GetComponent<Turret>().enteredZones.Clear();
+                    newTurretPreview.GetComponent<Turret>().canBePlaced = false;
+
                     GameManager.Get().towersPlaced++;
 
                     GameObject newTurret = Instantiate(turretTemplate, hit.point + (hit.normal * -5), newTurretPreview.transform.rotation);
                     newTurret.SetActive(true);
                     spawnedTurrets.Add(newTurret);
 
-                    if(OnSpawnerSpawnTurret != null)
+                    if (OnSpawnerSpawnTurret != null)
                     {
                         OnSpawnerSpawnTurret();
                     }
@@ -112,11 +116,12 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
 
                     currentTurretProperties.zone = newTurretPreview.GetComponent<Turret>().zone;
                     currentTurretProperties.zone.isUsed = true;
+                    currentTurretProperties.isSpawned = true;
                     currentTurretProperties.OnTurretDead = DeleteTurretTimer;
                     currentTurretProperties.fireRate = fireRate;
                     currentTurretProperties.attachedModel.material.shader = spawnShader;
 
-                    for (int i = state.Count-1; i >= 0; i--)
+                    for (int i = state.Count - 1; i >= 0; i--)
                     {
                         if (!state[i].isBeingUsed)
                         {
@@ -126,8 +131,10 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                             i = -1;
                         }
                     }
+
+                    newTurretPreview.SetActive(true);
                 }
-                
+
             }
         }
     }
@@ -137,10 +144,10 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        
+
         if (Physics.Raycast(ray.origin, ray.direction, out hit, 999, deleteTurretMask))
         {
-            
+
             if (hit.transform.gameObject.tag == "turret")
             {
 
@@ -148,16 +155,28 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
 
                 foreach (GameObject turret in spawnedTurrets)
                 {
-                    if(turret == hit.transform.gameObject)
+                    if (turret == hit.transform.gameObject)
                     {
                         turretToDelete = turret;
                     }
                 }
-                
-                if(turretToDelete)
+
+                if (turretToDelete)
                 {
                     spawnedTurrets.Remove(turretToDelete);
                     turretToDelete.GetComponent<Turret>().zone.isUsed = false;
+                    
+
+                    Turret prewiewTurretProperties = newTurretPreview.GetComponent<Turret>();
+
+                    foreach (GameObject item in prewiewTurretProperties.enteredTurrets)
+                    {
+                        if (item == turretToDelete)
+                        {
+                            prewiewTurretProperties.enteredTurrets.Remove(turretToDelete);
+                        }
+                    }
+
                     Destroy(turretToDelete);
 
                     if (OnSpawnerDeleteTurret != null)
@@ -167,8 +186,10 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
 
                     newTurretPreview.GetComponent<Turret>().enteredTurrets.Remove(turretToDelete);
                     newTurretPreview.GetComponent<Turret>().CheckIfCanBePlaced();
+                    newTurretPreview.SetActive(false);
+                    newTurretPreview.SetActive(true);
                 }
-                
+
             }
 
             Debug.DrawRay(ray.origin, ray.direction * hit.distance, Color.green);
@@ -182,12 +203,25 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
     private void DeleteTurretTimer(GameObject turret)
     {
         spawnedTurrets.Remove(turret);
+
+        Turret prewiewTurretProperties = newTurretPreview.GetComponent<Turret>();
+
+        foreach (GameObject item in prewiewTurretProperties.enteredTurrets)
+        {
+            if(item == turret)
+            {
+                prewiewTurretProperties.enteredTurrets.Remove(turret);
+            }
+        }
         //turret.GetComponent<Turret>().zone.isUsed = false;
 
         if (OnSpawnerDeleteTurret != null)
         {
             OnSpawnerDeleteTurret();
         }
+
+        newTurretPreview.SetActive(false);
+        newTurretPreview.SetActive(true);
     }
 
     private void PreviewTurret()
@@ -208,7 +242,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
             newTurretPreview.transform.position = ray.origin * -3;
         }
 
-        if (turretProperties.canBePlaced && turretProperties.isInTurretZone)
+        if (turretProperties.canBePlaced && turretProperties.isInTurretZone && spawnedTurrets.Count < GameManager.Get().maxTurrets)
         {
             material.SetColor("_BaseColor", Color.green);
             turretMaterial.SetPropertyBlock(material);

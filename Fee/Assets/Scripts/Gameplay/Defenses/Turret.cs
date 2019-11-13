@@ -46,7 +46,12 @@ public class Turret : MonoBehaviour
         turretRadius.onTurretDetectEnemy = SetTarget;
         turretRadius.onTurretLostEnemy = ChangeTarget;
         rig = GetComponent<Rigidbody>();
-        isSpawned = true;
+
+        /*if(!isPreview)
+        {
+            isSpawned = true;
+        }*/
+        
         generateTimer = 1;
     }
 
@@ -164,7 +169,7 @@ public class Turret : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "turret")
+        /*if (other.gameObject.tag == "turret")
         {
             enteredTurrets.Add(other.gameObject);
             if (enteredTurrets.Count > 0)
@@ -173,34 +178,39 @@ public class Turret : MonoBehaviour
                 //zone = null;
             }
             
-        }
+        }*/
 
-        if (other.gameObject.tag == "road")
+        /*if (other.gameObject.tag == "road")
         {
             canBePlaced = false;
             //zone = null;
-        }
+        }*/
 
         if (other.gameObject.tag == "turretZone")
         {
-            enteredZones.Add(other.gameObject);
-            if(enteredZones.Count > 0)
+            if(!other.GetComponent<TurretZone>().isUsed)
             {
-                isInTurretZone = true;
+                enteredZones.Add(other.gameObject);
 
-                if (enteredTurrets.Count <= 0 && !other.GetComponent<TurretZone>().isUsed)
+                if (enteredZones.Count == 1)
                 {
-                    canBePlaced = true;
-                    zone = other.GetComponent<TurretZone>();
+                    //Debug.Log("hi");
+                    isInTurretZone = true;
+
+                    if (!other.GetComponent<TurretZone>().isUsed)
+                    {
+                        Debug.Log(other.gameObject.name + " isUsed: " + other.GetComponent<TurretZone>().isUsed);
+                        canBePlaced = true;
+                        zone = other.GetComponent<TurretZone>();
+                    }
                 }
             }
-            
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "turret")
+        /*if (other.gameObject.tag == "turret")
         {
             enteredTurrets.Remove(other.gameObject);
             if (enteredTurrets.Count <= 0)
@@ -216,13 +226,13 @@ public class Turret : MonoBehaviour
                 }
                 
             }
-        }
+        }*/
 
-        if (other.gameObject.tag == "road")
+        /*if (other.gameObject.tag == "road")
         {
             canBePlaced = true;
             //zone = other.GetComponent<TurretZone>();
-        }
+        }*/
 
         if (other.gameObject.tag == "turretZone")
         {
@@ -230,6 +240,7 @@ public class Turret : MonoBehaviour
             if (enteredZones.Count <= 0)
             {
                 isInTurretZone = false;
+                canBePlaced = false;
                 //zone = null;
             }
         }
