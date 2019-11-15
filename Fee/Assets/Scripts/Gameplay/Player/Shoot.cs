@@ -23,6 +23,7 @@ public class Shoot : MonoBehaviour
     public Text meteorCountText;
     public Color disableColor;
     public Color enableColor;
+    private UIAnimation uiAnimation;
 
     [Header("Checking Variables")]
     public bool isActivated;
@@ -42,6 +43,8 @@ public class Shoot : MonoBehaviour
 
         currentMeteors = maxMeteors;
         explosionRadius = Instantiate(explosionRadiusTemplate);
+
+        uiAnimation = meteorButton.GetComponentInParent<UIAnimation>();
 
         UpdateText();
         SwitchActivation();
@@ -143,11 +146,13 @@ public class Shoot : MonoBehaviour
         {
             explosionRadius.SetActive(true);
             meteorButton.image.color = enableColor;
+            uiAnimation.ChangeGradientElement(0, 0);
         }
         else
         {
             explosionRadius.SetActive(false);
             meteorButton.image.color = disableColor;
+            uiAnimation.ChangeGradientElement(0, 2);
         }
     }
 
@@ -159,11 +164,13 @@ public class Shoot : MonoBehaviour
         {
             explosionRadius.SetActive(true);
             meteorButton.image.color = enableColor;
+            uiAnimation.ChangeGradientElement(0, 0);
         }
         else
         {
             explosionRadius.SetActive(false);
             meteorButton.image.color = disableColor;
+            uiAnimation.ChangeGradientElement(0, 2);
         }
     }
 
@@ -187,6 +194,7 @@ public class Shoot : MonoBehaviour
         rechargeTimer = 0;
         currentMeteors++;
         meteorButton.image.fillAmount = 1;
+        uiAnimation.ExecuteCurves();
         UpdateText();
     }
 
