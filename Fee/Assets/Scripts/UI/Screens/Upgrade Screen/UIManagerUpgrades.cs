@@ -8,6 +8,7 @@ public class UIManagerUpgrades : MonoBehaviour
     public GameObject parentForUpgrades;
     public Text gemsText;
     public UpgradeSystem upgradeSystem;
+    //
 
     // Start is called before the first frame update
     void Start()
@@ -37,12 +38,12 @@ public class UIManagerUpgrades : MonoBehaviour
                 if (upgrade.CheckNextLevel())
                 {
                     upgrade.costText.text = "Cost: " + upgrade.data.costPerLevel[upgrade.currentLevel + 1];
-                    upgrade.differenceText.text = "Next Level: " + upgrade.data.amountPerLevel[upgrade.currentLevel] + " -> " + upgrade.data.amountPerLevel[upgrade.currentLevel + 1];
+                    upgrade.differenceText.text = "Next Level: " + upgrade.data.amountPerLevel[upgrade.currentLevel] + " -> " + upgrade.data.amountPerLevel[upgrade.currentLevel + 1] + " " + upgrade.data.unitType; ;
                 }
                 else
                 {
                     upgrade.costText.text = "REACHED MAX LEVEL !";
-                    upgrade.differenceText.text = "Current: " + upgrade.data.amountPerLevel[upgrade.currentLevel];
+                    upgrade.differenceText.text = "Current: " + upgrade.data.amountPerLevel[upgrade.currentLevel] + " " + upgrade.data.unitType;
                 }
             }
         }

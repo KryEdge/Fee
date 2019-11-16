@@ -12,6 +12,7 @@ public class UpgradeSO : ScriptableObject
     public string upgradeName;
     public float[] amountPerLevel;
     public int[] costPerLevel;
+    public string unitType;
 
     [Header("Button Sprite Setttings")]
     public Sprite buttonIdle;
