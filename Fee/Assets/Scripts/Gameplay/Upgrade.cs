@@ -19,6 +19,7 @@ public class Upgrade : MonoBehaviour
 
     [Header("Button Sprite Setttings")]
     public Button button;
+    private UIAnimation animation;
 
     [Header("Check Current Setttings")]
     public int id;
@@ -54,6 +55,7 @@ public class Upgrade : MonoBehaviour
 
     public void BuyUpgrade()
     {
+        animation.ExecuteCurves();
         UpgradeSystem.Get().BuyUpgrade(id);
         if(OnUpgradePurcharsed != null)
         {
@@ -74,6 +76,7 @@ public class Upgrade : MonoBehaviour
     public void AssignData()
     {
         id = data.id;
+        animation = GetComponent<UIAnimation>();
         button = GetComponentInChildren<Button>();
         nameText = transform.GetChild(1).GetChild(0).GetComponent<Text>();
         levelText = transform.GetChild(1).GetChild(1).GetComponent<Text>();

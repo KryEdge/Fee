@@ -5,25 +5,58 @@ using UnityEngine.UI;
 
 public class TutorialPages : MonoBehaviour
 {
+    public GameObject panel;
     public GameObject[] pages;
     public int currentPage;
+    public bool automaticClose;
+    public bool setPlayerPref;
 
     // Start is called before the first frame update
     void Start()
     {
+        string goToTutorial = PlayerPrefs.GetString("isFirstTimePlaying", "yes");
+
+        if (goToTutorial == "yes")
+        {
+            Debug.Log("opening");
+            OpenTutorial();
+
+            if(setPlayerPref)
+            {
+                PlayerPrefs.SetString("isFirstTimePlaying", "no");
+            }
+        }
+        else if (goToTutorial == "no")
+        {
+            Debug.Log("closing");
+            CloseTutorial();
+        }
+    }
+
+    public void OpenTutorial()
+    {
+        currentPage = 0;
+
         for (int i = 0; i < pages.Length; i++)
         {
             pages[i].SetActive(false);
         }
 
         pages[currentPage].SetActive(true);
+
+        if (panel)
+        {
+            panel.SetActive(true);
+        }   
     }
 
-    /*// Update is called once per frame
-    void Update()
+    public void CloseTutorial()
     {
-        
-    }*/
+        if(panel)
+        {
+            panel.SetActive(false);
+        }
+    }
 
     public void NextPage()
     {
@@ -33,6 +66,11 @@ public class TutorialPages : MonoBehaviour
 
         if(currentPage >= pages.Length)
         {
+            if(automaticClose)
+            {
+                CloseTutorial();
+            }
+
             currentPage = 0;
         }
 
@@ -47,7 +85,7 @@ public class TutorialPages : MonoBehaviour
 
         if (currentPage < 0)
         {
-            currentPage = pages.Length-1;
+            currentPage++;
         }
 
         pages[currentPage].SetActive(true);

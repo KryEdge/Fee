@@ -21,10 +21,12 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
     {
         allUpgradesCurrentLevel = new int[upgradesTemplates.Length];
 
+#if UNITY_EDITOR
         if (resetToInitialPoints)
         {
             PlayerPrefs.SetInt("UpgradePoints", initialPoints);
         }
+#endif
 
         upgradePoints = PlayerPrefs.GetInt("UpgradePoints", 0);
 
