@@ -51,6 +51,8 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
                 CheckButtonActivation(currentUpgrade);
             }
         }
+
+        CheckAllUpgrades();
     }
 
     public void UpdatePoints()
@@ -96,6 +98,8 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
 
                 CheckButtonActivation(upgrade);
 
+                CheckAllUpgrades();
+
                 return true;
             }
             else
@@ -139,6 +143,20 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
         }
 
         return null;
+    }
+
+    public void CheckAllUpgrades()
+    {
+        foreach (Upgrade selectedUpgrade in allUpgrades)
+        {
+            if (selectedUpgrade.data.amountPerLevel.Length > selectedUpgrade.currentLevel + 1)
+            {
+                if (!(upgradePoints >= selectedUpgrade.data.costPerLevel[selectedUpgrade.currentLevel + 1]))
+                {
+                    selectedUpgrade.button.interactable = false;
+                }
+            }
+        }
     }
 
     public void CheckButtonActivation(Upgrade upgrade)

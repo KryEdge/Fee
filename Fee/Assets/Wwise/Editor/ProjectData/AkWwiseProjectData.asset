@@ -68,6 +68,7 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8586278480525581651
     List: []
-  ExpandedItems: []
+  ExpandedItems:
+  - /Fee_WwiseProject
   autoPopulateEnabled: 1
   CurrentPluginConfig: 
