@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     private float confettiTimer;
     private float pointsTimer;
     private int increaseScoreMilestone;
-    private int givePointsMultiplier;
+    private int givePointsMultiplier = 1;
     private int upgradePointsGiveMilestone;
     private UpgradeSystem upgrades;
 
@@ -105,6 +105,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         {
             if (!gameOver && canGivePoints)
             {
+                Debug.Log("Giving Points");
+
                 pointsTimer = 0;
                 AddPoints(null, scoreAmount * givePointsMultiplier);
 
@@ -209,10 +211,18 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     public void StopWave()
     {
-
         waves.StopWave();
         waves.SetNextWave();
-        maxEnemies = waves.maxEnemies[waves.maxEnemies.Count - 1];
+
+        if(waves.currentWave >= waves.maxEnemies.Count)
+        {
+            maxEnemies = waves.maxEnemies[waves.maxEnemies.Count-1];
+        }
+        else
+        {
+            maxEnemies = waves.maxEnemies[waves.currentWave];
+        }
+        
 
         if(OnLevelEndWave != null)
         {

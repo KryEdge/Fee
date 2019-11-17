@@ -35,9 +35,9 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
     private void Start()
     {
         GameManager.Get().waves = this;
-        maxEnemies.Add(enemiesAdd);
-        GameManager.Get().maxEnemies = enemiesAdd;
-        currentWave = maxEnemies.Count;
+        //maxEnemies.Add(enemiesAdd);
+        GameManager.Get().maxEnemies = maxEnemies[currentWave];
+        //currentWave = maxEnemies.Count;
         StopWave();
         timerHasStarted = true;
         originalWaitTime = maxWaitTime;
@@ -92,7 +92,7 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
             OnStartWave();
         }
 
-        if(currentWave == 1)
+        if(currentWave == 0)
         {
 
             if (OnStartWaveFirstTime != null)
@@ -136,7 +136,9 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
 
     public void SetNextWave()
     {
-        maxEnemies.Add(maxEnemies[maxEnemies.Count - 1] + enemiesAdd);
-        currentWave = maxEnemies.Count;
+        //maxEnemies.Add(maxEnemies[maxEnemies.Count - 1] + enemiesAdd);
+        //currentWave = maxEnemies.Count;
+
+        currentWave++;
     }
 }
