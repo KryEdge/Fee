@@ -41,7 +41,6 @@ public class Turret : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        //sattachedParticles.SetActive(false);
         outline = GetComponent<Outline>();
         proyectile = proyectileTemplate.GetComponent<Proyectile>();
         proyectile.speed = bulletSpeed;
@@ -49,11 +48,6 @@ public class Turret : MonoBehaviour
         turretRadius.onTurretLostEnemy = ChangeTarget;
         rig = GetComponent<Rigidbody>();
 
-        /*if(!isPreview)
-        {
-            isSpawned = true;
-        }*/
-        
         generateTimer = 1;
     }
 
@@ -171,23 +165,6 @@ public class Turret : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        /*if (other.gameObject.tag == "turret")
-        {
-            enteredTurrets.Add(other.gameObject);
-            if (enteredTurrets.Count > 0)
-            {
-                canBePlaced = false;
-                //zone = null;
-            }
-            
-        }*/
-
-        /*if (other.gameObject.tag == "road")
-        {
-            canBePlaced = false;
-            //zone = null;
-        }*/
-
         if (other.gameObject.tag == "turretZone")
         {
             if(!other.GetComponent<TurretZone>().isUsed)
@@ -196,7 +173,6 @@ public class Turret : MonoBehaviour
 
                 if (enteredZones.Count == 1)
                 {
-                    //Debug.Log("hi");
                     isInTurretZone = true;
 
                     if (!other.GetComponent<TurretZone>().isUsed)
@@ -212,30 +188,6 @@ public class Turret : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        /*if (other.gameObject.tag == "turret")
-        {
-            enteredTurrets.Remove(other.gameObject);
-            if (enteredTurrets.Count <= 0)
-            {
-               // zone = other.GetComponent<TurretZone>();
-
-                if(zone)
-                {
-                    if (!zone.isUsed)
-                    {
-                        canBePlaced = true;
-                    }
-                }
-                
-            }
-        }*/
-
-        /*if (other.gameObject.tag == "road")
-        {
-            canBePlaced = true;
-            //zone = other.GetComponent<TurretZone>();
-        }*/
-
         if (other.gameObject.tag == "turretZone")
         {
             enteredZones.Remove(other.gameObject);
@@ -243,7 +195,6 @@ public class Turret : MonoBehaviour
             {
                 isInTurretZone = false;
                 canBePlaced = false;
-                //zone = null;
             }
         }
     }

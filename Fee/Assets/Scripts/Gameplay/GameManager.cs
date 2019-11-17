@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         {
             if (!gameOver && canGivePoints)
             {
-                Debug.Log("Giving Points");
+                //Debug.Log("Giving Points");
 
                 pointsTimer = 0;
                 AddPoints(null, scoreAmount * givePointsMultiplier);
