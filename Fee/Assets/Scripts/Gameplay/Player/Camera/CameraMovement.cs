@@ -126,13 +126,13 @@ public class CameraMovement : MonoBehaviour
         chooseDirection();
 
         CheckAcceleration(ref h, ref torqueDecay);
-
-        rig.AddTorque(transform.up * h);
     }
 
     private void FixedUpdate()
     {
         rig.MovePosition(rig.position + transform.TransformDirection(direction) * finalSpeed * Time.deltaTime);
+
+        rig.AddTorque(transform.up * h);
     }
 
     private void chooseDirection()
