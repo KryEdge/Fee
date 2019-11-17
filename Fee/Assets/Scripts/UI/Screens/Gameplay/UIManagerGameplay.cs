@@ -43,6 +43,11 @@ public class UIManagerGameplay : MonoBehaviour
     public Image towerButton;
     public Image timeButton;
 
+    [Header("Game Over")]
+    public GameObject blockPanel;
+    public Image retryImage;
+    public Image homeImage;
+
     [Header("Pause")]
     public UIPauseButton pause;
 
@@ -86,6 +91,7 @@ public class UIManagerGameplay : MonoBehaviour
         waveText.text = initialText;
 
         UpdateText();
+        blockPanel.SetActive(false);
     }
 
     private void Update()
@@ -278,6 +284,16 @@ public class UIManagerGameplay : MonoBehaviour
         pause.pauseMenu.SetActive(false);
         pause.enabled = false;
         vignette.SwitchMask();
+
+        string goToTutorial = PlayerPrefs.GetString("isFirstTimePlaying", "yes");
+
+        if (goToTutorial == "yes")
+        {
+            retryImage.color = Color.gray;
+            homeImage.color = Color.gray;
+            blockPanel.SetActive(true);
+        }
+        
     }
 
     public void ActivateVignette()

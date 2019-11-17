@@ -32,18 +32,21 @@ public class UIManagerUpgrades : MonoBehaviour
         {
             if(upgrade.id == id)
             {
-                upgrade.nameText.text = upgrade.data.upgradeName;
-                upgrade.levelText.text = "Current Level: " + (upgrade.currentLevel + 1) + " / " + upgrade.maxLevel;
+                if(upgrade)
+                {
+                    upgrade.nameText.text = upgrade.data.upgradeName;
+                    upgrade.levelText.text = "Current Level: " + (upgrade.currentLevel + 1) + " / " + upgrade.maxLevel;
 
-                if (upgrade.CheckNextLevel())
-                {
-                    upgrade.costText.text = "Cost: " + upgrade.data.costPerLevel[upgrade.currentLevel + 1];
-                    upgrade.differenceText.text = "Next Level: " + upgrade.data.amountPerLevel[upgrade.currentLevel] + " -> " + upgrade.data.amountPerLevel[upgrade.currentLevel + 1] + " " + upgrade.data.unitType; ;
-                }
-                else
-                {
-                    upgrade.costText.text = "REACHED MAX LEVEL !";
-                    upgrade.differenceText.text = "Current: " + upgrade.data.amountPerLevel[upgrade.currentLevel] + " " + upgrade.data.unitType;
+                    if (upgrade.CheckNextLevel())
+                    {
+                        upgrade.costText.text = "Cost: " + upgrade.data.costPerLevel[upgrade.currentLevel + 1];
+                        upgrade.differenceText.text = "Next Level: " + upgrade.data.amountPerLevel[upgrade.currentLevel] + " -> " + upgrade.data.amountPerLevel[upgrade.currentLevel + 1] + " " + upgrade.data.unitType; ;
+                    }
+                    else
+                    {
+                        upgrade.costText.text = "REACHED MAX LEVEL !";
+                        upgrade.differenceText.text = "Current: " + upgrade.data.amountPerLevel[upgrade.currentLevel] + " " + upgrade.data.unitType;
+                    }
                 }
             }
         }

@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cbc2cc7b64e8da4ea28db6e0b94b9bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Upgrade Screen
+  sceneName: Gameplay
 --- !u!114 &59539461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,7 +216,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 59539460}
-        m_MethodName: ChangeScene
+        m_MethodName: ForcedChangeScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1399,6 +1399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ad3c1226782884a99306c2cb9b9a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panel: {fileID: 0}
   pages:
   - {fileID: 389979145}
   - {fileID: 1422828566}
@@ -1406,6 +1407,8 @@ MonoBehaviour:
   - {fileID: 2092230911}
   - {fileID: 1962258313}
   currentPage: 0
+  automaticClose: 0
+  setPlayerPref: 0
 --- !u!4 &1378480771
 Transform:
   m_ObjectHideFlags: 0
