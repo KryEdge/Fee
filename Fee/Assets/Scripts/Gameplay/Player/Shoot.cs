@@ -209,6 +209,8 @@ public class Shoot : MonoBehaviour
             if (hit.transform.gameObject.tag == "planet")
             {
                 explosionRadius.transform.position = hit.point + (hit.normal * 1);
+                Quaternion newRot = Quaternion.FromToRotation(Vector3.up, hit.normal);
+                explosionRadius.transform.rotation = Quaternion.Slerp(explosionRadius.transform.rotation, newRot,Time.deltaTime * 12);
             }
         }
         else

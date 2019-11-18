@@ -8,6 +8,7 @@ public class Turret : MonoBehaviour
     public OnTurretAction OnTurretDead;
 
     [Header("General Settings")]
+    public GameObject attachedVisionRadius;
     public GameObject attachedParticles;
     public MeshRenderer attachedModel;
     public GameObject proyectileTemplate;
