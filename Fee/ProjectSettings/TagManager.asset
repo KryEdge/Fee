@@ -21,6 +21,7 @@ TagManager:
   - hurt
   - dead
   - radius
+  - gem
   layers:
   - Default
   - TransparentFX

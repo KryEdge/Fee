@@ -6,7 +6,10 @@ using UnityEngine.UI;
 public class UIManagerGameplay : MonoBehaviour
 {
     [Header("Gems")]
+    public UIAnimation gemAnimation;
     public Text gemsText;
+    public Text gemsText2;
+    public Image gemIcon;
 
     [Header("Score")]
     public Text scoreText;
@@ -79,6 +82,8 @@ public class UIManagerGameplay : MonoBehaviour
         WaveSystem.OnStartUI = ChangeWaveText;
         WaveSystem.OnEndUI = TurnOffUI;
         WaveSystem.OnEndWave = ChangeWaveText;
+        Gem.OnGemCollected = UpdateGemsText;
+        Milestone.OnMilestoneDone = UpdateGemsText;
 
         animator = panel.GetComponent<Animator>();
         WaveSystem.OnStartWaveFirstTime += Hide;
@@ -147,6 +152,17 @@ public class UIManagerGameplay : MonoBehaviour
         if (gemsText)
         {
             gemsText.text = "Gems Collected: " + GameManager.Get().upgradePointsCurrentMatch;
+            gemsText2.text = "" + GameManager.Get().upgradePointsCurrentMatch;
+        }
+    }
+
+    public void UpdateGemsText()
+    {
+        if (gemsText)
+        {
+            gemsText.text = "Gems Collected: " + GameManager.Get().upgradePointsCurrentMatch;
+            gemsText2.text = "" + GameManager.Get().upgradePointsCurrentMatch;
+            gemAnimation.ExecuteCurves();
         }
     }
 

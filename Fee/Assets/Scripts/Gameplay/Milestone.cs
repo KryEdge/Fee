@@ -6,6 +6,9 @@ using UnityEngine.UI.Extensions;
 
 public class Milestone : MonoBehaviour
 {
+    public delegate void OnMilestoneAction();
+    public static OnMilestoneAction OnMilestoneDone;
+
     [Header("General Settings")]
     public MilestoneScriptableObject milestone;
 
@@ -49,6 +52,10 @@ public class Milestone : MonoBehaviour
                     {
                         GameManager.Get().upgradePointsCurrentMatch += milestone.rewardPoints;
                         milestone.hasGivenReward = true;
+                        if(OnMilestoneDone != null)
+                        {
+                            OnMilestoneDone();
+                        }
                     }
                     
                     progressTextUI.text = "Done!";

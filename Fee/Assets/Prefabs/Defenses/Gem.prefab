@@ -13,13 +13,13 @@ GameObject:
   - component: {fileID: 8963993187662150078}
   - component: {fileID: 1219291984}
   - component: {fileID: 1219291985}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: Gem
-  m_TagString: Untagged
+  m_TagString: gem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3812888354253874663
 Transform:
   m_ObjectHideFlags: 0
@@ -50,8 +50,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 7038755447045356654}
+  UIGems: {fileID: 0}
+  particles1: {fileID: 6808056340745741669}
+  particles2: {fileID: 7327113869007221834}
+  lifespan: 45
+  gemsAmount: 10
   distance: 0.4
   rotationSpeed: 45
+  scaleSpeed: 4
+  collectSpeed: 10.32
+  id: 1
+  planet: {fileID: 0}
+  body: {fileID: 0}
 --- !u!114 &8963993187662150078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,7 +105,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7038755447045356654
 GameObject:
@@ -108,7 +118,7 @@ GameObject:
   - component: {fileID: 6126976071678742068}
   - component: {fileID: 760970919499186066}
   - component: {fileID: 8823332965901732662}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: pCube1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +196,7 @@ GameObject:
   - component: {fileID: 5052349246713196990}
   - component: {fileID: 1127894569835463352}
   - component: {fileID: 104594857406433638}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: GlowGem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4940,6 +4950,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gem Particle
       objectReference: {fileID: 0}
+    - target: {fileID: 6467218142017771262, guid: 3dd1668454651fa479b2ed84d9b920d0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 9208983043306421351, guid: 3dd1668454651fa479b2ed84d9b920d0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4997,6 +5012,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dd1668454651fa479b2ed84d9b920d0, type: 3}
+--- !u!1 &6808056340745741669 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6467218142017771262, guid: 3dd1668454651fa479b2ed84d9b920d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 557108838685258651}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8680651723562242044 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9208983043306421351, guid: 3dd1668454651fa479b2ed84d9b920d0,
