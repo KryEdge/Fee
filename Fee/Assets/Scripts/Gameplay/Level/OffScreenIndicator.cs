@@ -14,6 +14,8 @@ public class OffScreenIndicator : MonoBehaviour
     private void Start()
     {
         target = FlockManager.fairies[0];
+        Fairy.OnFairyDanger = ChangeIndicatorColor;
+        Fairy.OnFairyEscaped = ChangeIndicatorColor;
     }
 
     // Update is called once per frame
@@ -92,5 +94,10 @@ public class OffScreenIndicator : MonoBehaviour
             _uiArrow.transform.position = screenpos;
             _uiArrow.transform.rotation = Quaternion.Euler(0, 0, angle * Mathf.Rad2Deg );
         }
+    }
+
+    private void ChangeIndicatorColor(Color newColor)
+    {
+        _uiArrow.color = newColor;
     }
 }

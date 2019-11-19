@@ -12,9 +12,12 @@ public class Fairy : MonoBehaviour
     }
 
     public delegate void OnFairyAction();
+    public delegate void OnFairyState(Color uiColor);
     public static OnFairyAction OnFairySpawn;
     public static OnFairyAction OnFairyDeath;
     public OnFairyAction OnFairyEaten;
+    public static OnFairyState OnFairyEscaped;
+    public static OnFairyState OnFairyDanger;
 
     [Header("General Settings")]
     public static bool isInmunityOn;
@@ -190,6 +193,10 @@ public class Fairy : MonoBehaviour
 
             Flock.finalSpeed = Flock.originalFinalSpeed * runSpeedMultiplier;
             currentColor = dangerColor;
+            if (OnFairyDanger != null)
+            {
+                OnFairyDanger(dangerColor);
+            }
         }
     }
 
@@ -203,6 +210,10 @@ public class Fairy : MonoBehaviour
         currentEnemySpotted = null;
         Flock.finalSpeed = Flock.originalFinalSpeed;
         currentColor = normalColor;
+        if (OnFairyEscaped != null)
+        {
+            OnFairyEscaped(Color.white);
+        }
     }
 
     private void CheckEnemySpotted(GameObject enemy, int pointsToGive)
