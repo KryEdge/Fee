@@ -14,6 +14,8 @@ public class MilestoneScriptableObject : ScriptableObject
         Score,
         EnemiesKilled,
         TowersPlaced,
+        TimesEscaped,
+        GemsCollected,
         allTypes
     }
 

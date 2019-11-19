@@ -37,6 +37,12 @@ public class Milestone : MonoBehaviour
                     case MilestoneScriptableObject.MilestoneType.TowersPlaced:
                         CheckTowersPlacedType();
                         break;
+                    case MilestoneScriptableObject.MilestoneType.TimesEscaped:
+                        CheckTimesEscapedType();
+                        break;
+                    case MilestoneScriptableObject.MilestoneType.GemsCollected:
+                        CheckGemsCollectedType();
+                        break;
                     default:
                         break;
                 }
@@ -67,9 +73,9 @@ public class Milestone : MonoBehaviour
         }
     }
 
-    private void CheckScoreType()
+    private void CheckProgress(int type)
     {
-        milestone.currentStep = GameManager.Get().score;
+        milestone.currentStep = type;
         progressTextUI.text = milestone.currentStep + "/" + milestone.amountOfSteps;
 
         float progressBarValue = ((milestone.currentStep * 100) / milestone.amountOfSteps) * 0.01f;
@@ -79,34 +85,31 @@ public class Milestone : MonoBehaviour
         {
             milestone.isDone = true;
         }
+    }
+
+    private void CheckScoreType()
+    {
+        CheckProgress(GameManager.Get().score);
     }
 
     private void CheckEnemiesKilledType()
     {
-        milestone.currentStep = GameManager.Get().enemiesKilled;
-        progressTextUI.text = milestone.currentStep + "/" + milestone.amountOfSteps;
-
-        float progressBarValue = ((milestone.currentStep * 100) / milestone.amountOfSteps) * 0.01f;
-        progressBar.value = progressBarValue;
-
-        if (progressBar.value >= 1)
-        {
-            milestone.isDone = true;
-        }
+        CheckProgress(GameManager.Get().enemiesKilled);
     }
 
     private void CheckTowersPlacedType()
     {
-        milestone.currentStep = GameManager.Get().towersPlaced;
-        progressTextUI.text = milestone.currentStep + "/" + milestone.amountOfSteps;
+        CheckProgress(GameManager.Get().towersPlaced);
+    }
 
-        float progressBarValue = ((milestone.currentStep * 100) / milestone.amountOfSteps) * 0.01f;
-        progressBar.value = progressBarValue;
+    private void CheckTimesEscapedType()
+    {
+        CheckProgress(GameManager.Get().timesEscaped);
+    }
 
-        if (progressBar.value >= 1)
-        {
-            milestone.isDone = true;
-        }
+    private void CheckGemsCollectedType()
+    {
+        CheckProgress(GameManager.Get().gemsCollected);
     }
 
     public void AssignData()
@@ -122,6 +125,13 @@ public class Milestone : MonoBehaviour
                 CheckEnemiesKilledType();
                 break;
             case MilestoneScriptableObject.MilestoneType.TowersPlaced:
+                CheckTowersPlacedType();
+                break;
+            case MilestoneScriptableObject.MilestoneType.TimesEscaped:
+                CheckTimesEscapedType();
+                break;
+            case MilestoneScriptableObject.MilestoneType.GemsCollected:
+                CheckGemsCollectedType();
                 break;
             default:
                 break;

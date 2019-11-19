@@ -165,7 +165,11 @@ public class UIManagerGameplay : MonoBehaviour
         {
             gemsText.text = "Gems Collected: " + GameManager.Get().upgradePointsCurrentMatch;
             gemsText2.text = "" + GameManager.Get().upgradePointsCurrentMatch;
-            gemAnimation.ExecuteCurves();
+            if(gemAnimation)
+            {
+                gemAnimation.ExecuteCurves();
+            }
+            
         }
     }
 
@@ -323,7 +327,10 @@ public class UIManagerGameplay : MonoBehaviour
 
     public void PlayAnimation()
     {
-        fairiesUIAnimation.ExecuteCurves();
+        if(fairiesUIAnimation)
+        {
+            fairiesUIAnimation.ExecuteCurves();
+        }
     }
 
     public void OnDestroy()

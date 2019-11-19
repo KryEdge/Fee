@@ -27,7 +27,7 @@ public class Gem : MonoBehaviour
 
     public GemSpawner spawner;
     public FauxGravityBody body;
-    private BoxCollider collider;
+    private BoxCollider gemCollider;
     private Vector3 newPosition;
     private Vector3 oldPosition;
     private float final;
@@ -44,7 +44,7 @@ public class Gem : MonoBehaviour
         newPosition = model.transform.position + model.transform.up * distance;
         rig = GetComponent<Rigidbody>();
         body = GetComponent<FauxGravityBody>();
-        collider = GetComponent<BoxCollider>();
+        gemCollider = GetComponent<BoxCollider>();
         body.attractor = planet;
     }
 
@@ -83,6 +83,8 @@ public class Gem : MonoBehaviour
                 {
                     Destroy(gameObject);
                 }
+
+                GameManager.Get().gemsCollected += gemsAmount;
             }
         }
         else
@@ -99,7 +101,7 @@ public class Gem : MonoBehaviour
 
                 if(transform.localScale.x <= 0)
                 {
-                    collider.enabled = false;
+                    gemCollider.enabled = false;
                     if (spawner)
                     {
                         spawner.DeleteGem(this);

@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public int score;
     public int towersPlaced;
     public int enemiesKilled;
+    public int timesEscaped;
+    public int gemsCollected;
     public int currentFairies;
     public List<GameObject> enemies;
     public List<UITowersState> towersUI;
@@ -70,6 +72,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         increaseScoreMilestone = initialMilestone;
         WaveSystem.OnStartWaveFirstTime += StartGivingPoints;
         Fairy.OnFairyDeath += CheckFairies;
+        Fairy.OnFairyEscaped += AddTimesEscaped;
         Enemy.OnDeath += AddPoints;
 
         upgrades.AssignUpgrades();
@@ -292,6 +295,11 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
                 upgradePointsGiveMilestone += upgradePointsGiveMilestonesOriginal;
             }
         }
+    }
+
+    private void AddTimesEscaped(Color ignore)
+    {
+        timesEscaped++;
     }
 
     public void KillAllEnemies()

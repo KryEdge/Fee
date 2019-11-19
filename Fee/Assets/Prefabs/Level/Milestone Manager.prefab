@@ -45,15 +45,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   milestonesSO:
   - {fileID: 11400000, guid: 6ae3da890f82ce441b7f3e0176d66953, type: 2}
+  - {fileID: 11400000, guid: 364cf857dc95c254681955d6d80b829c, type: 2}
+  - {fileID: 11400000, guid: 5efa538a68d61164f93533f2afbf7eeb, type: 2}
+  - {fileID: 11400000, guid: 06977127cb1e01c4084fef54f56d0c34, type: 2}
   - {fileID: 11400000, guid: d3c8453d74b1fdf4b9caf6f9aa4a07e0, type: 2}
   - {fileID: 11400000, guid: 2313abbb6aaef0d499cc77e8395df679, type: 2}
-  - {fileID: 11400000, guid: 2858e4a6f21460546b42c6eb553349ff, type: 2}
+  - {fileID: 11400000, guid: 0849679cf79dc6a47bbb63567bfff4c6, type: 2}
+  - {fileID: 11400000, guid: 59f11045aa52f4746892814af6e5f5d1, type: 2}
+  - {fileID: 11400000, guid: c949af7e52bd9734d9d327f76380b536, type: 2}
   - {fileID: 11400000, guid: 3ec6cb3180454164ba56e025fe39c217, type: 2}
-  - {fileID: 11400000, guid: 94f7a4fa6c660c64cb8dd3245f9c9286, type: 2}
-  - {fileID: 11400000, guid: 364cf857dc95c254681955d6d80b829c, type: 2}
   - {fileID: 11400000, guid: 37926c8feb979814ba4c996f3a94e9f2, type: 2}
   - {fileID: 11400000, guid: 9313cdd600ed07f459358e434d47de76, type: 2}
-  - {fileID: 11400000, guid: 0849679cf79dc6a47bbb63567bfff4c6, type: 2}
+  - {fileID: 11400000, guid: 7988457d26791714dbf4f0af3347f30a, type: 2}
+  - {fileID: 11400000, guid: b5e06290214764242853a399b4eedf56, type: 2}
+  - {fileID: 11400000, guid: 2858e4a6f21460546b42c6eb553349ff, type: 2}
+  - {fileID: 11400000, guid: 94f7a4fa6c660c64cb8dd3245f9c9286, type: 2}
   maxMilestones: 3
   maxSwitchMilestoneTime: 2
   milestonePrefab: {fileID: 3776713936314508085, guid: 16c919ede7034d941b5287626fbcdfe3,
