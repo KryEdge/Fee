@@ -31,6 +31,11 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public float confettiTime;
     public bool isConfettiOn;
 
+    [Header("Fairy Damage Settings")]
+    public float invincibilityMaxTime; // to game manager
+    public bool canBeDamaged = true; // to game manager
+    public float invincibilityTimer; // to game manager
+
     [Header("Assign Components/GameObjects")]
     public ParticleSystem[] confetti;
     public GameObject GameOverPanel;
@@ -159,6 +164,17 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
                 {
                     confetti[i].Stop();
                 }
+            }
+        }
+
+        if (!canBeDamaged)
+        {
+            invincibilityTimer += Time.deltaTime;
+
+            if (invincibilityTimer >= invincibilityMaxTime)
+            {
+                canBeDamaged = true;
+                invincibilityTimer = 0;
             }
         }
     }

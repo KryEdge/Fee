@@ -286,7 +286,7 @@ public class Enemy : MonoBehaviour
     {
         if(collision.gameObject.tag == "npc")
         {
-            if(Fairy.canBeDamaged)
+            if(GameManager.Get().canBeDamaged)
             {
                 StartEating();
             }

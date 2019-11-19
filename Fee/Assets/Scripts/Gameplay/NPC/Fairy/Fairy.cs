@@ -24,9 +24,9 @@ public class Fairy : MonoBehaviour
     public GameObject initialWaypoint;
     public allyStates initialState;
 
-    [Header("Damage Settings")]
-    public float invincibilityMaxTime;
-    static public bool canBeDamaged = true;
+    /*[Header("Damage Settings")]
+    public float invincibilityMaxTime; // to game manager
+    static public bool canBeDamaged = true; // to game manager*/
 
     [Header("Speed Settings")]
     public float speed;
@@ -53,7 +53,7 @@ public class Fairy : MonoBehaviour
     static public GameObject selectedWaypoint;
     static public GameObject oldWaypoint;
     static public GameObject currentEnemySpotted;
-    static public float invincibilityTimer;
+    //static public float invincibilityTimer; // to game manager
 
     //Private
     private Rigidbody rig;
@@ -105,7 +105,7 @@ public class Fairy : MonoBehaviour
 
         outline.OutlineColor = currentColor;
 
-        if (!canBeDamaged)
+        /*if (!canBeDamaged)
         {
             invincibilityTimer += Time.deltaTime;
 
@@ -114,7 +114,7 @@ public class Fairy : MonoBehaviour
                 canBeDamaged = true;
                 invincibilityTimer = 0;
             }
-        }
+        }*/
     }
 
     private void Move()
@@ -229,11 +229,11 @@ public class Fairy : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "enemy":
-                if (canBeDamaged)
+                if (GameManager.Get().canBeDamaged)
                 {
                     if (!isInmunityOn)
                     {
-                        canBeDamaged = false;
+                        GameManager.Get().canBeDamaged = false;
                         FlockManager.fairies.Remove(gameObject);
                         Destroy(gameObject);
                     }
