@@ -23,6 +23,9 @@ public class Fairy : MonoBehaviour
     public static bool isInmunityOn;
     public GameObject initialWaypoint;
     public allyStates initialState;
+    public static LayerMask normalMask;
+    public static LayerMask invulnerableMask;
+    //public static LayerMask currentMask;
 
     /*[Header("Damage Settings")]
     public float invincibilityMaxTime; // to game manager
@@ -63,6 +66,9 @@ public class Fairy : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        normalMask = 17;
+        invulnerableMask = 24;
+
         rig = GetComponent<Rigidbody>();
         torque = GetComponent<TorqueLookRotation>();
         outline = GetComponent<Outline>();

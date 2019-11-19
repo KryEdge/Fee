@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         upgrades = UpgradeSystem.Get();
         increaseScoreMilestone = initialMilestone;
         WaveSystem.OnStartWaveFirstTime += StartGivingPoints;
-        Fairy.OnFairyDeath += CheckFairiesCount;
+        Fairy.OnFairyDeath += CheckFairies;
         Enemy.OnDeath += AddPoints;
 
         upgrades.AssignUpgrades();
@@ -175,6 +175,18 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             {
                 canBeDamaged = true;
                 invincibilityTimer = 0;
+
+                if (FlockManager.fairies.Count > 0)
+                {
+                    for (int i = 0; i < FlockManager.fairies.Count; i++)
+                    {
+                        if (FlockManager.fairies[i])
+                        {
+                            FlockManager.fairies[i].layer = Fairy.normalMask;
+                        }
+                    }
+                }
+
             }
         }
     }
@@ -206,7 +218,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         }
     }
 
-    private void CheckFairiesCount()
+    private void CheckFairies()
     {
         if(currentFairies == 1)
         {
@@ -215,11 +227,23 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
                 OnLastFairyAlive();
             }
         }
+
+        if(FlockManager.fairies.Count > 0)
+        {
+            for (int i = 0; i < FlockManager.fairies.Count; i++)
+            {
+                if (FlockManager.fairies[i])
+                {
+                    FlockManager.fairies[i].layer = Fairy.invulnerableMask;
+                }
+            }
+        }
+        
     }
 
     private void OnDestroy()
     {
-        Fairy.OnFairyDeath -= CheckFairiesCount;
+        Fairy.OnFairyDeath -= CheckFairies;
         Enemy.OnDeath -= AddPoints;
         WaveSystem.OnStartWaveFirstTime -= StartGivingPoints;
         upgradePointsCurrentMatch = 0;

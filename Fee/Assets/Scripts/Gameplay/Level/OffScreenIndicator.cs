@@ -98,6 +98,9 @@ public class OffScreenIndicator : MonoBehaviour
 
     private void ChangeIndicatorColor(Color newColor)
     {
-        _uiArrow.color = newColor;
+        if(_uiArrow)
+        {
+            _uiArrow.color = newColor;
+        }
     }
 }
