@@ -176,7 +176,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
                 canBeDamaged = true;
                 invincibilityTimer = 0;
 
-                if (FlockManager.fairies.Count > 0)
+                if (FlockManager.fairies != null)
                 {
                     for (int i = 0; i < FlockManager.fairies.Count; i++)
                     {
@@ -228,7 +228,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             }
         }
 
-        if(FlockManager.fairies.Count > 0)
+        if(FlockManager.fairies != null)
         {
             for (int i = 0; i < FlockManager.fairies.Count; i++)
             {

@@ -16,6 +16,8 @@ public class UIManagerGameplay : MonoBehaviour
 
     [Header("Fairies")]
     public Text fairiesText;
+    public Image fairiesIcon;
+    public UIAnimation fairiesUIAnimation;
 
     [Header("Towers")]
     public Text towersText;
@@ -74,6 +76,7 @@ public class UIManagerGameplay : MonoBehaviour
         gm.OnGameGivePoints += UpdateText;
         Fairy.OnFairyDeath += UpdateText;
         Fairy.OnFairySpawn += UpdateText;
+        Fairy.OnFairyDeath += PlayAnimation;
         turretSpawner.OnSpawnerSpawnTurret = UpdateText;
         turretSpawner.OnSpawnerDeleteTurret = UpdateText;
         GameManager.Get().OnLevelGameOver += UpdateText;
@@ -316,6 +319,11 @@ public class UIManagerGameplay : MonoBehaviour
     {
         vignette.SetLowHealthColor();
         vignette.SwitchMask();
+    }
+
+    public void PlayAnimation()
+    {
+        fairiesUIAnimation.ExecuteCurves();
     }
 
     public void OnDestroy()
