@@ -319,18 +319,4 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     {
         canGivePoints = true;
     }
-
-    void OnApplicationPause(bool _bool)
-    {
-        if (_bool)
-        {
-            Time.timeScale = 0;
-            print("paused");
-        }
-        else
-        {
-            Time.timeScale = 1;
-            print("resumed");
-        }
-    }
 }
