@@ -109,15 +109,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb3373c3eaaead141b190fe85ebb706f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 25
+  attachedVisionRadius: {fileID: 0}
+  attachedParticles: {fileID: 0}
+  attachedModel: {fileID: 0}
   proyectileTemplate: {fileID: 0}
+  bulletSpeed: 25
+  spawnSpeed: 0
   fireRate: 1
   lifespan: 360
   exitDistance: 15
+  distance: 0
+  zone: {fileID: 0}
+  enteredZones: []
+  enteredTurrets: []
+  turretRadius: {fileID: 4721122271982112657}
+  stateUI: {fileID: 0}
+  lifespanTimer: 0
   canShoot: 0
   isPreview: 0
   canBePlaced: 0
-  turretRadius: {fileID: 4721122271982112657}
+  isInTurretZone: 0
+  isSpawned: 0
 --- !u!54 &4721122270732423171
 Rigidbody:
   m_ObjectHideFlags: 0

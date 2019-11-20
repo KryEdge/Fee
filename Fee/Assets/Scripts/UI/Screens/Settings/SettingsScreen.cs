@@ -7,6 +7,8 @@ public class SettingsScreen : MonoBehaviour
 {
     //screen.fullScreen
     public Toggle fullscreenButton;
+    public Sprite pressedButton;
+    public Sprite notPressedButton;
 
     public bool windowed;
     public Resolution[] resolutions;
@@ -41,11 +43,15 @@ public class SettingsScreen : MonoBehaviour
         {
             if (Screen.fullScreen)
             {
-                fullscreenButton.image.color = Color.green;
+                //fullscreenButton.image.color = Color.green;
+                fullscreenButton.image.sprite = pressedButton;
+                fullscreenButton.isOn = true;
             }
             else
             {
-                fullscreenButton.image.color = Color.white;
+                //fullscreenButton.image.color = Color.white;
+                fullscreenButton.image.sprite = notPressedButton;
+                fullscreenButton.isOn = false;
             }
         }
     }
@@ -79,11 +85,15 @@ public class SettingsScreen : MonoBehaviour
 
         if (Screen.fullScreen)
         {
-            fullscreenButton.image.color = Color.green;
+            //fullscreenButton.image.color = Color.green;
+            fullscreenButton.image.sprite = pressedButton;
+            fullscreenButton.isOn = true;
         }
         else
         {
-            fullscreenButton.image.color = Color.white;
+            //fullscreenButton.image.color = Color.white;
+            fullscreenButton.image.sprite = notPressedButton;
+            fullscreenButton.isOn = false;
         }
     }
 }

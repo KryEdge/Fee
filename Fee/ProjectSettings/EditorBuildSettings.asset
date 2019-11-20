@@ -7,19 +7,19 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Menu/Home Screen.unity
-    guid: fe4c5c53d3285ba4b8e854c2eb3e529b
+    guid: 202aeb6ceea311e4f8838034254239e6
   - enabled: 1
     path: Assets/Scenes/Menu/Credits.unity
-    guid: f35f104cf073a654ba6abbc8b3f87bb7
-  - enabled: 1
-    path: Assets/Scenes/Menu/Upgrade Screen.unity
-    guid: b155a7a6fa393d94a95fc4d80fa6e511
+    guid: 9bb46cec6cb27f643a97427045833b5d
   - enabled: 1
     path: Assets/Scenes/Menu/Settings.unity
-    guid: 2e18d327ba2cf524e9a117ce6f069034
+    guid: 4f15d6769d79fb74392e16d2989d348d
   - enabled: 1
     path: Assets/Scenes/Menu/Tutorial.unity
-    guid: 1243522b38a1fbc41851d46e6b3eef1a
+    guid: ee138a71987342f4e85690ba821e59ab
+  - enabled: 1
+    path: Assets/Scenes/Menu/Upgrade Screen.unity
+    guid: f3a6fdfba70a8a94b868a68300513b45
   - enabled: 1
     path: Assets/Scenes/Level/Gameplay.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab

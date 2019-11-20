@@ -124,7 +124,7 @@ Transform:
   m_GameObject: {fileID: 5416375381158042285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -40.337006, y: 16.931, z: 5.2}
-  m_LocalScale: {x: 16.98576, y: 16.98576, z: 16.98576}
+  m_LocalScale: {x: 2.8459487, y: 2.8459487, z: 2.8459487}
   m_Children:
   - {fileID: 5416375380646431156}
   - {fileID: 2220220923400428458}
@@ -407,6 +407,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5416375381158042292}
     m_Modifications:
+    - target: {fileID: 5932335121973343693, guid: 09d2d3b535990a240b9265e334a7a971,
+        type: 3}
+      propertyPath: m_Name
+      value: Meteor Missile
+      objectReference: {fileID: 0}
     - target: {fileID: 5932335121973343682, guid: 09d2d3b535990a240b9265e334a7a971,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -461,11 +466,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5932335121973343693, guid: 09d2d3b535990a240b9265e334a7a971,
-        type: 3}
-      propertyPath: m_Name
-      value: Meteor Missile
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5932335121973343681, guid: 09d2d3b535990a240b9265e334a7a971, type: 3}
