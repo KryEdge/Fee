@@ -10,7 +10,7 @@ public class UIPauseButton : MonoBehaviour
     public GameObject warningMenu2;
     public bool isSecondaryPauseButton;
 
-    private bool isGamePaused;
+    public static bool isGamePaused;
     private GameObject myEventSystem;
     private GameObject primaryPauseButton;
     private ColorBlock originalColors;

@@ -52,46 +52,49 @@ public class Shoot : MonoBehaviour
 
     private void Update()
     {
-        if (currentMeteors < maxMeteors)
+        if(!UIPauseButton.isGamePaused)
         {
-            rechargeTimer += Time.deltaTime;
-
-            float fill = ((rechargeTimer * 100) / rechargeTime) * 0.01f;
-
-            meteorButton.image.fillAmount = fill;
-
-            if (rechargeTimer >= rechargeTime)
+            if (currentMeteors < maxMeteors)
             {
-                Reload();
-            }
-        }
+                rechargeTimer += Time.deltaTime;
 
-        fireRateTimer += Time.deltaTime;
+                float fill = ((rechargeTimer * 100) / rechargeTime) * 0.01f;
 
-        if (fireRateTimer >= fireRate)
-        {
-            canShoot = true;
-            fireRateTimer = 0;
-        }
+                meteorButton.image.fillAmount = fill;
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (canShoot)
-            {
-                if(isActivated && !GameManager.Get().turretSpawner.preview && !isMouseOver)
+                if (rechargeTimer >= rechargeTime)
                 {
-                    if(ShootWeapon())
+                    Reload();
+                }
+            }
+
+            fireRateTimer += Time.deltaTime;
+
+            if (fireRateTimer >= fireRate)
+            {
+                canShoot = true;
+                fireRateTimer = 0;
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (canShoot)
+                {
+                    if (isActivated && !GameManager.Get().turretSpawner.preview && !isMouseOver)
                     {
-                        shootOnce = false;
-                        canShoot = false;
+                        if (ShootWeapon())
+                        {
+                            shootOnce = false;
+                            canShoot = false;
+                        }
                     }
                 }
             }
-        }
 
-        if(isActivated)
-        {
-            PreviewRadius();
+            if (isActivated)
+            {
+                PreviewRadius();
+            }
         }
     }
 

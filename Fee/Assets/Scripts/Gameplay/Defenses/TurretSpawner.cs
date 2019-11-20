@@ -57,33 +57,36 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyDown(activateKey))
+        if (!UIPauseButton.isGamePaused)
         {
-            SwitchPreview();
-        }
-
-        if (Input.GetMouseButtonDown(2))
-        {
-            if (canDelete)
+            if (Input.GetKeyDown(activateKey))
             {
-                DeleteTurret();
+                SwitchPreview();
             }
-        }
 
-        if (preview)
-        {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(2))
             {
-                if (turretProperties.canBePlaced && turretProperties.isInTurretZone)
+                if (canDelete)
                 {
-                    if (canSpawn)
-                    {
-                        Spawn();
-                    }
+                    DeleteTurret();
                 }
             }
 
-            PreviewTurret();
+            if (preview)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    if (turretProperties.canBePlaced && turretProperties.isInTurretZone)
+                    {
+                        if (canSpawn)
+                        {
+                            Spawn();
+                        }
+                    }
+                }
+
+                PreviewTurret();
+            }
         }
     }
 
