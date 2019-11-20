@@ -291,7 +291,7 @@ public class UIManagerGameplay : MonoBehaviour
     {
         cheatsComponent.StopTime();
 
-        if (cheatsComponent.isTimeNormal)
+        if (CheatSystem.isTimeNormal)
         {
             timeButton.color = Color.white;
         }

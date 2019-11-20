@@ -62,19 +62,23 @@ public class UIPauseButton : MonoBehaviour
 
                 if (isGamePaused)
                 {
-                    Time.timeScale = 0;
+                    if(CheatSystem.isTimeNormal)
+                    {
+                        Time.timeScale = 0;
+                    }
+
                     pauseMenu.SetActive(true);
-                    //ColorBlock colors = GetComponent<Button>().colors;
-                    //originalColors = colors;
-                    //colors.normalColor = Color.red;
-                    //GetComponent<Button>().colors = colors;
                     myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+
                 }
                 else
                 {
-                    Time.timeScale = 1;
+                    if (CheatSystem.isTimeNormal)
+                    {
+                        Time.timeScale = 1;
+                    }
+
                     pauseMenu.SetActive(false);
-                    //GetComponent<Button>().colors = originalColors;
                     myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
                 }
             }

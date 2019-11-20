@@ -18,13 +18,13 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 54.17
+    value: 47
   intensityX:
     overrideState: 1
-    value: 0.18
+    value: 0.345
   intensityY:
     overrideState: 1
-    value: 0.13
+    value: 0.297
   centerX:
     overrideState: 1
     value: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
     value: 0
   scale:
     overrideState: 1
-    value: 0.59
+    value: 0.73
 --- !u!114 &-7820685993364005202
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -207,10 +207,10 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 1
-    value: {x: 1, y: 0.47597718, z: 0.38540858, w: -0.16077165}
+    value: {x: 1, y: 0.0006748651, z: 0, w: -0.5884702}
   gamma:
     overrideState: 1
-    value: {x: 1, y: 0.35597062, z: 0.3172868, w: 0}
+    value: {x: 1, y: 0.35597062, z: 0.3172868, w: -0.06109979}
   gain:
     overrideState: 1
     value: {x: 1, y: 1, z: 1, w: 0}
@@ -1434,6 +1434,44 @@ MonoBehaviour:
   - {fileID: 7170024001070956131}
   - {fileID: -7750861618789508397}
   - {fileID: -7820685993364005202}
+  - {fileID: 2589278840095284296}
+--- !u!114 &2589278840095284296
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3f6f3f7c722b4544b97e3c75840aa33, type: 3}
+  m_Name: AutoExposure
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  filtering:
+    overrideState: 1
+    value: {x: 22.921272, y: 97.471535}
+  minLuminance:
+    overrideState: 1
+    value: 0
+  maxLuminance:
+    overrideState: 1
+    value: 9
+  keyValue:
+    overrideState: 1
+    value: 1.22
+  eyeAdaptation:
+    overrideState: 1
+    value: 1
+  speedUp:
+    overrideState: 1
+    value: 99
+  speedDown:
+    overrideState: 1
+    value: 8
 --- !u!114 &4330413741904737613
 MonoBehaviour:
   m_ObjectHideFlags: 3

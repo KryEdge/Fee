@@ -225,6 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a725dea9c07b4e045b024a69d05f4b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teleportKey: 0
   initialWaypoint: {fileID: 0}
   cameraGO: {fileID: 5688603488065929710}
   lowestZoom: {fileID: 5688603488475172581}
