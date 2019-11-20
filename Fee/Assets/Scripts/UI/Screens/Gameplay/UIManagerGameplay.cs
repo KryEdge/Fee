@@ -118,8 +118,7 @@ public class UIManagerGameplay : MonoBehaviour
             {
                 for (int i = 0; i < highscoreTexts.Length; i++)
                 {
-                    highscoreTexts[i].text = "" + highscore.highscore;
-
+                    highscoreTexts[i].text = "Highscore: " + highscore.highscore;
                 }
 
                 if (highscore.hasNewHighscore)
