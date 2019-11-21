@@ -55,12 +55,9 @@ public class Gem : MonoBehaviour
         {
             Vector3 screenPoint = UIGems.transform.position + new Vector3(0, 0, 5);
             Vector3 gemsPosition = Camera.main.ScreenToWorldPoint(screenPoint);
-            transform.position = Vector3.Slerp(transform.position, gemsPosition, Time.deltaTime * collectSpeed);
-            transform.localScale = Vector3.Slerp(transform.localScale, new Vector3(0, 0, 0), Time.deltaTime * scaleSpeed);
-
             float gemsUIDistance = Vector3.Distance(transform.position, gemsPosition);
 
-            if(gemsUIDistance <= 0.4f)
+            if(gemsUIDistance <= 1.0f) // ajustar
             {
                 isFullyCollected = true;
             }
@@ -120,6 +117,19 @@ public class Gem : MonoBehaviour
             model.transform.position = Vector3.Slerp(oldPosition, newPosition, final);
             model.transform.Rotate(new Vector3(0, Time.deltaTime * rotationSpeed, 0));
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if (isCollected)
+        {
+            Vector3 screenPoint = UIGems.transform.position + new Vector3(0, 0, 5);
+            Vector3 gemsPosition = Camera.main.ScreenToWorldPoint(screenPoint);
+            transform.position = Vector3.MoveTowards(transform.position, gemsPosition, Time.deltaTime * collectSpeed);
+
+            transform.localScale = Vector3.MoveTowards(transform.localScale, new Vector3(0, 0, 0), Time.deltaTime * scaleSpeed);
+        }
+
     }
 
     private float Hermite(float t)

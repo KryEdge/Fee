@@ -57,10 +57,11 @@ MonoBehaviour:
   gemsAmount: 10
   distance: 0.4
   rotationSpeed: 45
-  scaleSpeed: 4
-  collectSpeed: 10.32
+  scaleSpeed: 3
+  collectSpeed: 140
   id: 1
   planet: {fileID: 0}
+  spawner: {fileID: 0}
   body: {fileID: 0}
 --- !u!114 &8963993187662150078
 MonoBehaviour:
