@@ -1,6 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{77BFD66E-0BB6-46EA-8D40-45E323F8B368}" SchemaVersion="94">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{77BFD66E-0BB6-46EA-8D40-45E323F8B368}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{77BFD66E-0BB6-46EA-8D40-45E323F8B368}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="inicia_juego" ID="{3D862679-0293-464A-98DB-F7D8E969E2C1}"/>
+				<Event Name="inicia_menu" ID="{128D040D-D3F3-4A67-B143-4D711D9763DC}"/>
+				<Event Name="inicia_gameplay" ID="{407C76C6-7901-44C1-815C-78256587A5C9}"/>
+				<Event Name="perder" ID="{F67C2996-14B3-4899-9EA5-1AD939399CB1}"/>
+				<Event Name="pausa_on" ID="{923C23F4-1447-458F-ABA1-6D15BD9F64C0}"/>
+				<Event Name="pausa_off" ID="{EC4CD0E0-C039-44DE-BFFF-8B2C20FB7722}"/>
+				<Event Name="click_tutorial" ID="{6B1F652C-F9D5-4542-AAF6-419BB22D0A44}"/>
+				<Event Name="click_play" ID="{46E7F393-2FB6-4DDE-A6A9-E16D54828D1B}"/>
+				<Event Name="click_return" ID="{714486E4-01DD-46B7-9A7F-9CF0776B1F12}"/>
+				<Event Name="click_menu_config" ID="{89A058F1-0DB6-49CE-BA52-8589CA69CC56}"/>
+				<Event Name="click_slide_music" ID="{33E77BE1-60BA-43DF-8AAD-33BCE22D6256}"/>
+				<Event Name="click_slide_sfx" ID="{12D47891-9948-4034-A981-8D3E0139C0CD}"/>
+				<Event Name="click_creditos" ID="{21F823EE-E9C7-435A-99C0-42262B8A0379}"/>
+				<Event Name="menu_warning" ID="{657F33E9-256E-4CFC-9284-1F928313432B}"/>
+				<Event Name="inicia_store" ID="{A74ADC19-40A3-4BC6-8283-72E9D5678397}"/>
+				<Event Name="upgrade_max" ID="{56C609FB-B5A7-4345-A9B7-EF7BD7BB6597}"/>
+				<Event Name="upgrade_speed" ID="{F43BD658-6A36-4E2D-A450-2814C1FCF84A}"/>
+				<Event Name="upgrade_cooldown" ID="{D785BBC1-B304-4163-99E3-A2EF51B6E1FD}"/>
+				<Event Name="upgrade_tower" ID="{A9EF66EE-BCE9-41D2-B31A-48988B52305A}"/>
+				<Event Name="upgrade_error" ID="{E8E9602C-6BC5-4E2B-8047-14B22DCED16B}"/>
+				<Event Name="wave_inicia" ID="{8CC99E7A-34EA-40A7-9B63-615301AFFFE8}"/>
+				<Event Name="wave_termina" ID="{F74055A0-4700-44EC-AB39-927EB2A9CE4B}"/>
+				<Event Name="swap_tool" ID="{A5BAEB34-57CA-4753-88A2-858776854437}"/>
+				<Event Name="movimiento_camara" ID="{6F3C9FF0-B402-4C4D-9C53-DB6C5DEDF976}"/>
+				<Event Name="hada_muere_on" ID="{56374716-455E-46C0-A2B0-ADFF30042EA8}"/>
+				<Event Name="hada_muere_off" ID="{D180D4BF-485E-4EDA-B6F9-180B35BF2D3F}"/>
+				<Event Name="hada_ultima" ID="{AF40832F-C9FB-4EA3-A408-DE08B151F647}"/>
+				<Event Name="hada_off" ID="{40A96BE8-D21A-4097-A6C7-CDBFAA74623B}"/>
+				<Event Name="hada_on" ID="{8366AE85-E1D3-4D31-806D-F3451489739C}"/>
+				<Event Name="monstruo_1_anda" ID="{947B3BC0-591F-4D05-8C65-A6F9F7C10389}"/>
+				<Event Name="monstruo_1_muere_torre" ID="{0FBD948F-90B3-4D38-A956-48013886EA2D}"/>
+				<Event Name="monstruo_1_muere_meteoro" ID="{1F699C61-2E45-4AFE-B6F9-745B0F431675}"/>
+				<Event Name="monstruo_1_salta" ID="{FDC08DD4-F1B6-4CCA-AF1C-EF9B6C3CB809}"/>
+				<Event Name="monstruo_1_come" ID="{37724830-6A42-4E1E-A5E0-FE03296DC1E4}"/>
+				<Event Name="monstruo_2_anda" ID="{AA3CDBC0-540E-421F-A664-3685171B7057}"/>
+				<Event Name="monstruo_2_muere_torre" ID="{33FA4D3B-C148-4A5B-BB87-9AFE55B05AB5}"/>
+				<Event Name="monstruo_2_muere_meteoro" ID="{A7E72162-6F69-4531-9BDF-9FA592F86545}"/>
+				<Event Name="monstruo_2_salta" ID="{877CAF08-9790-4DAB-8329-65FEEADC2B0F}"/>
+				<Event Name="monstruo_2_come" ID="{7D4FDB9E-6276-4165-99DD-9B31ACFDBE6E}"/>
+				<Event Name="reto_nuevo" ID="{DAFBE998-94C4-41BE-B0CE-5E2084B71C92}"/>
+				<Event Name="reto_completado" ID="{7BAE5FD5-B1A6-4C2F-9B3F-D594F71A6A17}"/>
+				<Event Name="high_score" ID="{5327C019-35F4-4882-BCC0-70E6CFD6006E}"/>
+				<Event Name="meteoro_lanza" ID="{FB3A923F-3677-493A-B68B-E270BA8CE0F1}"/>
+				<Event Name="meteoro_impacto" ID="{4732D385-881F-446D-919D-CD8AE27151C9}"/>
+				<Event Name="meteoro_cooldown" ID="{F4E646F7-ADC2-4D7F-A4DD-16FB4370C0B9}"/>
+				<Event Name="meteoro_ultimo" ID="{59DA99DB-6D96-4A87-A731-79DBEA2359FF}"/>
+				<Event Name="meteoro_no" ID="{06BEB3B7-9C78-461D-89BD-79F21E2CA10E}"/>
+				<Event Name="torre_instalar" ID="{A21BDFAD-60C9-474E-88F1-528CAFDE0CAB}"/>
+				<Event Name="torre_lanza" ID="{72556639-C41A-4E53-B278-9C0ACBCFA129}"/>
+				<Event Name="torre_impacto" ID="{C8C036AA-4A6A-46D9-9CAE-77A89797EEF0}"/>
+				<Event Name="torre_cooldown" ID="{5394AE60-94FF-4A82-8E76-A6EBA6DB2B6B}"/>
+				<Event Name="torre_no" ID="{F22CCEAC-2094-48F1-8D25-00F590E86B00}"/>
+				<Event Name="torre_idle" ID="{F60DDF45-10FC-40ED-9944-0CBC369E0985}"/>
+				<Event Name="gema_recolectar" ID="{D90DFF2A-0D6C-4857-9CFE-1BBF810B70AD}"/>
+				<Event Name="gema_spawn" ID="{8A895859-DA17-46FF-BFFA-DC1EEFB1F0FB}"/>
+				<Event Name="gema_destroy" ID="{A0B2CCEA-10AD-4D62-8F03-7903254C1364}"/>
+				<Event Name="tutorial_vineta" ID="{FA582B19-D0ED-4E6C-B512-C24951E5F77E}"/>
+				<Event Name="tutorial_hada" ID="{62FBFC81-500F-4D0E-8083-EEA40D3806A1}"/>
+				<Event Name="tutorial_hada_grito" ID="{AE1FE634-945B-42F0-9918-B7950EAE431D}"/>
+				<Event Name="stop_time" ID="{DFE430C6-B715-4AC0-B413-129BBC0A26D3}">
+					<ChildrenList>
+						<Action Name="" ID="{FD0C0F52-E33A-405C-8558-AE9131E9618C}" ShortID="897733700">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="stop_time" ID="{A5718F4D-0D16-4DED-825D-E5F606D27D11}" WorkUnitID="{FEBDEEC6-103D-467E-8A1C-FFB8D6C7A26D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="resume_time" ID="{32E5A67E-DBDE-4294-87D6-96B27EF2B7CB}">
+					<ChildrenList>
+						<Action Name="" ID="{1B82D881-5CCE-4E4F-BA4A-E83671FC64BF}" ShortID="86030330">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="resume_time" ID="{E5EDC65C-7D58-4C9C-A150-BF86CACD9E42}" WorkUnitID="{FEBDEEC6-103D-467E-8A1C-FFB8D6C7A26D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>

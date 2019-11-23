@@ -1,0 +1,8 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2019477819	stop_time			\Default Work Unit\stop_time	
+	3793068968	resume_time			\Default Work Unit\resume_time	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	228244078	resume_time	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\resume_time_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Misc\resume_time		294388
+	592637744	stop_time	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\stop_time_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Misc\stop_time		682196
+

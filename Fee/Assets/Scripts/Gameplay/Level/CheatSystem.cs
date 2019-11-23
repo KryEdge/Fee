@@ -8,6 +8,10 @@ public class CheatSystem : MonoBehaviour
     public delegate void OnCheatAction();
     public OnCheatAction OnCheatGivePoints;
 
+    [Header("Sound Settings")]
+    public GameObject stopTime;
+    public GameObject resumeTime;
+
     [Header("General Settings")]
     public PostProcessVolume post;
     public GameObject cheatsScreen;
@@ -102,10 +106,12 @@ public class CheatSystem : MonoBehaviour
 
         if (isTimeNormal)
         {
+            AkSoundEngine.PostEvent("resume_time", resumeTime);
             SwitchTime();
         }
         else
         {
+            AkSoundEngine.PostEvent("stop_time", stopTime);
             canStopTime = true;
         }
     }

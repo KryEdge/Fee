@@ -11,6 +11,25 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
+		<SoundBank Id="1250913887" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\Fee</ObjectPath>
+			<ShortName>Fee</ShortName>
+			<Path>Fee.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3793068968" Name="resume_time" ObjectPath="\Events\Default Work Unit\resume_time" DurationType="OneShot" DurationMin="1.668503" DurationMax="1.668503"/>
+				<Event Id="2019477819" Name="stop_time" ObjectPath="\Events\Default Work Unit\stop_time" DurationType="OneShot" DurationMin="3.866961" DurationMax="3.866961"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="228244078" Language="SFX">
+					<ShortName>resume_time.wav</ShortName>
+					<Path>SFX\resume_time_10C4C929.wem</Path>
+				</File>
+				<File Id="592637744" Language="SFX">
+					<ShortName>stop_time.wav</ShortName>
+					<Path>SFX\stop_time_10C4C929.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
 		<SoundBank Id="1355168291" Language="SFX">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
