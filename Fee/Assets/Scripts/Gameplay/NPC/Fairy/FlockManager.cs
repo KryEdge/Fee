@@ -17,12 +17,14 @@ public class FlockManager : MonoBehaviour
     [Header("Checking Variables")]
     public static int prefabAmount;
     public static List<GameObject> fairies;
+    public static List<Fairy> fairiesProperties;
     public static Vector3 goalPosition = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
     {
         fairies = new List<GameObject>();
+        fairiesProperties = new List<Fairy>();
         prefabAmount = GameManager.Get().maxFairies;
 
         for (int i = 0; i < prefabAmount; i++)
@@ -33,6 +35,7 @@ public class FlockManager : MonoBehaviour
             fairies[i].transform.position = positions[i].position;
             fairies[i].SetActive(true);
             fairies[i].transform.SetParent(list.transform);
+            fairiesProperties.Add(fairies[i].GetComponent<Fairy>());
         }
     }
 

@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public float invincibilityTimer; // to game manager
 
     [Header("Assign Components/GameObjects")]
+    public GameObject planet;
     public ParticleSystem[] confetti;
     public GameObject GameOverPanel;
     public CameraMovement movement;

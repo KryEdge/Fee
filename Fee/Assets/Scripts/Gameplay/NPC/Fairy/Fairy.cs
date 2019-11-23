@@ -25,11 +25,6 @@ public class Fairy : MonoBehaviour
     public allyStates initialState;
     public static LayerMask normalMask;
     public static LayerMask invulnerableMask;
-    //public static LayerMask currentMask;
-
-    /*[Header("Damage Settings")]
-    public float invincibilityMaxTime; // to game manager
-    static public bool canBeDamaged = true; // to game manager*/
 
     [Header("Speed Settings")]
     public float speed;
@@ -52,16 +47,17 @@ public class Fairy : MonoBehaviour
     public Animator animator;
 
     [Header("Checking Private Variables")]
+    public float distanceFromPlanet;
     public allyStates currentState;
     static public GameObject selectedWaypoint;
     static public GameObject oldWaypoint;
     static public GameObject currentEnemySpotted;
-    //static public float invincibilityTimer; // to game manager
 
     //Private
     private Rigidbody rig;
     private TorqueLookRotation torque;
     private Outline outline;
+    private GameManager gm;
 
     // Start is called before the first frame update
     private void Start()
@@ -69,6 +65,7 @@ public class Fairy : MonoBehaviour
         normalMask = 17;
         invulnerableMask = 24;
 
+        gm = GameManager.Get();
         rig = GetComponent<Rigidbody>();
         torque = GetComponent<TorqueLookRotation>();
         outline = GetComponent<Outline>();
@@ -85,7 +82,7 @@ public class Fairy : MonoBehaviour
         SwitchRotationTarget();
         currentColor = normalColor;
         outline.OutlineColor = currentColor;
-        GameManager.Get().currentFairies++;
+        gm.currentFairies++;
         animator.speed = Random.Range(0.8f, 1.4f);
 
 
@@ -110,17 +107,7 @@ public class Fairy : MonoBehaviour
         }
 
         outline.OutlineColor = currentColor;
-
-        /*if (!canBeDamaged)
-        {
-            invincibilityTimer += Time.deltaTime;
-
-            if (invincibilityTimer >= invincibilityMaxTime)
-            {
-                canBeDamaged = true;
-                invincibilityTimer = 0;
-            }
-        }*/
+        CheckDistanceFromPlanet();
     }
 
     private void Move()
@@ -235,11 +222,11 @@ public class Fairy : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "enemy":
-                if (GameManager.Get().canBeDamaged)
+                if (gm.canBeDamaged)
                 {
                     if (!isInmunityOn)
                     {
-                        GameManager.Get().canBeDamaged = false;
+                        gm.canBeDamaged = false;
                         FlockManager.fairies.Remove(gameObject);
                         Destroy(gameObject);
                     }
@@ -256,7 +243,7 @@ public class Fairy : MonoBehaviour
         Enemy.OnDeath -= CheckEnemySpotted;
         GameManager.OnLevelEndWave -= EndEscape;
 
-        GameManager.Get().currentFairies--;
+        gm.currentFairies--;
 
         if (OnFairyDeath != null)
         {
@@ -280,5 +267,33 @@ public class Fairy : MonoBehaviour
     {
         Flock.finalSpeed = newSpeed;
         Flock.originalFinalSpeed = newSpeed;
+    }
+
+    public void TeleportFairy()
+    {
+        List<Fairy> fairies = FlockManager.fairiesProperties;
+
+        foreach (Fairy item in fairies)
+        {
+            if(item)
+            {
+                if (item.distanceFromPlanet < 100)
+                {
+                    transform.position = item.transform.position;
+                    Debug.Log("TELEPORTED");
+                }
+            }
+        }
+
+    }
+
+    public void CheckDistanceFromPlanet()
+    {
+        distanceFromPlanet = Vector3.Distance(transform.position,gm.planet.transform.position);
+
+        if(distanceFromPlanet >= 100)
+        {
+           TeleportFairy();
+        }
     }
 }
