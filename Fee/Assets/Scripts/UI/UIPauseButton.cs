@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UIPauseButton : MonoBehaviour
 {
+    public TutorialPages tutorial;
     public GameObject pauseMenu;
     public GameObject warningMenu;
     public GameObject warningMenu2;
@@ -14,6 +15,7 @@ public class UIPauseButton : MonoBehaviour
     private GameObject myEventSystem;
     private GameObject primaryPauseButton;
     private ColorBlock originalColors;
+
     private void Start()
     {
         if (isSecondaryPauseButton)
@@ -35,6 +37,22 @@ public class UIPauseButton : MonoBehaviour
         {
             warningMenu2.SetActive(false);
         }
+
+        //TutorialButton();
+
+        if(!isSecondaryPauseButton)
+        {
+            if (tutorial)
+            {
+                tutorial.OnTutorialFinished += ForcedUnpause;
+
+                if (tutorial.CheckFirstTimePlaying())
+                {
+                    Debug.Log("CHECKING IN PAUSE BUTTON");
+                    PauseGame(true);
+                }
+            }
+        }
     }
 
     // Update is called once per frame
@@ -42,14 +60,20 @@ public class UIPauseButton : MonoBehaviour
     {
         if (!warningMenu.activeSelf && !warningMenu2.activeSelf)
         {
-            if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
+            if(tutorial)
             {
-                if (!isSecondaryPauseButton)
+                if(!tutorial.isCurrentlyOpen)
                 {
-                    PauseGame();
+                    if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
+                    {
+                        if (!isSecondaryPauseButton)
+                        {
+                            PauseGame();
+                        }
+                    }
                 }
             }
-        }
+        }       
     }
 
     public void PauseGame()
@@ -64,6 +88,7 @@ public class UIPauseButton : MonoBehaviour
                 {
                     if(CheatSystem.isTimeNormal)
                     {
+                        Debug.Log("SETTING TIME SCALE TO 0 (REAL ONE)");
                         Time.timeScale = 0;
                     }
 
@@ -75,10 +100,49 @@ public class UIPauseButton : MonoBehaviour
                 {
                     if (CheatSystem.isTimeNormal)
                     {
+                        Debug.Log("SETTING TIME SCALE TO 1 (REAL ONE)");
                         Time.timeScale = 1;
                     }
 
                     pauseMenu.SetActive(false);
+                    myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+                }
+            }
+        }
+    }
+
+    public void PauseGame(bool state)
+    {
+        if (!warningMenu.activeSelf && !warningMenu2.activeSelf)
+        {
+            if (!isSecondaryPauseButton)
+            {
+                Debug.Log("PAUSING");
+                isGamePaused = state;
+
+                if (isGamePaused)
+                {
+                    Debug.Log("REALLY PAUSING");
+
+                    if (CheatSystem.isTimeNormal)
+                    {
+                        Debug.Log("SETTING TIME SCALE TO 0");
+                        Time.timeScale = 0;
+                    }
+
+                    //pauseMenu.SetActive(true);
+                    myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+
+                }
+                else
+                {
+                    if (CheatSystem.isTimeNormal)
+                    {
+                        Debug.Log("SETTING TIME SCALE TO 1");
+                        Time.timeScale = 1;
+                    }
+
+                    //pauseMenu.SetActive(false);
                     myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
                 }
             }
@@ -127,5 +191,23 @@ public class UIPauseButton : MonoBehaviour
         {
             warningMenu2.SetActive(false);
         }
+    }
+
+    private void ForcedUnpause()
+    {
+        Debug.Log("FORCE UNPAUSE");
+        PauseGame(false);
+    }
+
+    private void OnDestroy()
+    {
+        tutorial.OnTutorialFinished -= ForcedUnpause;
+    }
+
+    public void ShowTutorialOnPause()
+    {
+        Debug.Log("TUTORIAL BUTTON");
+        tutorial.OpenTutorial();
+        PauseGame(true);
     }
 }

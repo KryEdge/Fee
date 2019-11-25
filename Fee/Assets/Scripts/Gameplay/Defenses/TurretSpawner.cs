@@ -125,6 +125,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                     currentTurretProperties.OnTurretDead = DeleteTurretTimer;
                     currentTurretProperties.fireRate = fireRate;
                     currentTurretProperties.attachedModel.material.shader = spawnShader;
+                    currentTurretProperties.lifespanTimer = 0;
                     Debug.Log("messi mode");
                     currentTurretProperties.attachedParticles.SetActive(true);
 

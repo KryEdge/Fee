@@ -5,32 +5,26 @@ using UnityEngine.UI;
 
 public class TutorialPages : MonoBehaviour
 {
+    public delegate void OnTutorialAction();
+    public OnTutorialAction OnTutorialFinished;
+
     public GameObject panel;
     public GameObject[] pages;
     public int currentPage;
     public bool automaticClose;
     public bool setPlayerPref;
+    public bool isCurrentlyOpen;
+    public bool needsToPauseGame;
 
     // Start is called before the first frame update
     void Start()
     {
-        string goToTutorial = PlayerPrefs.GetString("isFirstTimePlaying", "yes");
-
-        if (goToTutorial == "yes")
+        if(!needsToPauseGame)
         {
-            Debug.Log("opening");
-            OpenTutorial();
-
-            if(setPlayerPref)
-            {
-                PlayerPrefs.SetString("isFirstTimePlaying", "no");
-            }
+            Debug.Log("Pausing from tutorialPages");
+            CheckFirstTimePlaying();
         }
-        else if (goToTutorial == "no")
-        {
-            Debug.Log("closing");
-            CloseTutorial();
-        }
+        
     }
 
     public void OpenTutorial()
@@ -47,7 +41,9 @@ public class TutorialPages : MonoBehaviour
         if (panel)
         {
             panel.SetActive(true);
-        }   
+        }
+
+        isCurrentlyOpen = true;
     }
 
     public void CloseTutorial()
@@ -55,6 +51,17 @@ public class TutorialPages : MonoBehaviour
         if(panel)
         {
             panel.SetActive(false);
+        }
+
+        isCurrentlyOpen = false;
+
+        if(needsToPauseGame)
+        {
+            if(OnTutorialFinished != null)
+            {
+                Debug.Log("Oh damn CLOSING IN");
+                OnTutorialFinished();
+            }
         }
     }
 
@@ -89,5 +96,31 @@ public class TutorialPages : MonoBehaviour
         }
 
         pages[currentPage].SetActive(true);
+    }
+
+    public bool CheckFirstTimePlaying()
+    {
+        Debug.Log("ENTERING CHECKFIRST TIME PLAYING");
+        string goToTutorial = PlayerPrefs.GetString("isFirstTimePlaying", "yes");
+
+        if (goToTutorial == "yes")
+        {
+            Debug.Log("opening");
+            OpenTutorial();
+
+            if (setPlayerPref)
+            {
+                PlayerPrefs.SetString("isFirstTimePlaying", "no");
+            }
+
+            return true;
+        }
+        else if (goToTutorial == "no")
+        {
+            Debug.Log("closing");
+            CloseTutorial();
+        }
+
+        return false;
     }
 }

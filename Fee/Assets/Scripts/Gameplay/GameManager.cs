@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public float invincibilityTimer; // to game manager
 
     [Header("Assign Components/GameObjects")]
+    public TutorialPages tutorial;
     public GameObject planet;
     public ParticleSystem[] confetti;
     public GameObject GameOverPanel;
@@ -68,7 +69,11 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
     private void Start()
     {
-        Time.timeScale = 1;
+        if(!tutorial)
+        {
+            Time.timeScale = 1;
+        }
+        
         upgrades = UpgradeSystem.Get();
         increaseScoreMilestone = initialMilestone;
         WaveSystem.OnStartWaveFirstTime += StartGivingPoints;
