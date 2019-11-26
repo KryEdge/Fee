@@ -533,7 +533,9 @@ MonoBehaviour:
   levelText: {fileID: 0}
   costText: {fileID: 0}
   differenceText: {fileID: 0}
+  unavailableColor: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
   button: {fileID: 0}
+  currentColor: {r: 0, g: 0, b: 0, a: 0}
   id: 0
   currentLevel: 0
   isUnlocked: 0

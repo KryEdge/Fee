@@ -106,11 +106,13 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
             }
             else
             {
+                upgrade.currentColor = upgrade.unavailableColor;
                 upgrade.button.interactable = false;
             }
         }
         else
         {
+            upgrade.currentColor = upgrade.unavailableColor;
             upgrade.button.interactable = false;
         }
 
@@ -155,6 +157,7 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
             {
                 if (!(upgradePoints >= selectedUpgrade.data.costPerLevel[selectedUpgrade.currentLevel + 1]))
                 {
+                    selectedUpgrade.currentColor = selectedUpgrade.unavailableColor;
                     selectedUpgrade.button.interactable = false;
                 }
             }
@@ -165,10 +168,12 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
     {
         if (upgrade.currentLevel + 1 >= upgrade.data.amountPerLevel.Length)
         {
+            upgrade.currentColor = upgrade.unavailableColor;
             upgrade.button.interactable = false;
         }
         else
         {
+            upgrade.currentColor = Color.white;
             upgrade.button.interactable = true;
         }
     }

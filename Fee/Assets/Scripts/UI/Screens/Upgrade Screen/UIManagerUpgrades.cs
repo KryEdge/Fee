@@ -30,7 +30,12 @@ public class UIManagerUpgrades : MonoBehaviour
 
         foreach (Upgrade upgrade in upgradeSystem.allUpgrades)
         {
-            if(upgrade.id == id)
+            upgrade.nameText.color = upgrade.currentColor;
+            upgrade.costText.color = upgrade.currentColor;
+            upgrade.levelText.color = upgrade.currentColor;
+            upgrade.differenceText.color = upgrade.currentColor;
+
+            if (upgrade.id == id)
             {
                 if(upgrade)
                 {
