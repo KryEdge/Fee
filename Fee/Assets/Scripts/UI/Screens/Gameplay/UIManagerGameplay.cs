@@ -303,11 +303,13 @@ public class UIManagerGameplay : MonoBehaviour
 
     public void GameOverConfiguration()
     {
+        
         pause.pauseMenu.SetActive(false);
         pause.enabled = false;
         vignette.SwitchMask();
 
         string goToTutorial = PlayerPrefs.GetString("isFirstTimePlaying", "yes");
+        Debug.Log("lol nerd ===== " + goToTutorial);
 
         if (goToTutorial == "yes")
         {

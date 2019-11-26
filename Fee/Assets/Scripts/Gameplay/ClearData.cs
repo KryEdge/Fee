@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ClearData : MonoBehaviour
 {
@@ -55,5 +56,7 @@ public class ClearData : MonoBehaviour
 
         buttonAppearCounter = 0;
         button.SetActive(false);
+
+        SceneManager.LoadScene("Home Screen");
     }
 }
