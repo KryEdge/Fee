@@ -162,9 +162,12 @@ public class CameraMovement : MonoBehaviour
 
     public void GoToFairies()
     {
-        if (FlockManager.fairies[0])
+        if(CheatSystem.isTimeNormal && !UIPauseButton.isGamePaused)
         {
-            gameObject.transform.position = FlockManager.fairies[0].transform.position + FlockManager.fairies[0].transform.up * 2.0f;
+            if (FlockManager.fairies[0])
+            {
+                gameObject.transform.position = FlockManager.fairies[0].transform.position + FlockManager.fairies[0].transform.up * 2.0f;
+            }
         }
     }
 }
