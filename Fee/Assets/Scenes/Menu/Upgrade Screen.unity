@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -170,9 +170,12 @@ MonoBehaviour:
   - {fileID: 1001054495}
   - {fileID: 959472308}
   - {fileID: 523799242}
+  - {fileID: 1532105851}
   currentPage: 0
   automaticClose: 1
   setPlayerPref: 1
+  isCurrentlyOpen: 0
+  needsToPauseGame: 0
 --- !u!1 &146857374
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,6 +210,7 @@ RectTransform:
   - {fileID: 1001054494}
   - {fileID: 959472307}
   - {fileID: 523799241}
+  - {fileID: 1532105850}
   - {fileID: 1926480763}
   - {fileID: 1786625150}
   - {fileID: 2141220754}
@@ -737,38 +741,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0175085
       objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_Text
-      value: If you quit the current match,you won't receive the gems you collected
-        in that match, keep that in mind.
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 65bf31895764ac44984ad8b666accb1e,
-        type: 3}
     - target: {fileID: 4726397872482593325, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_IsActive
@@ -829,6 +801,38 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 171.3
       objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Text
+      value: If you quit the current match,you won't receive the gems you collected
+        in that match, keep that in mind.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 65bf31895764ac44984ad8b666accb1e,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9c4302c67b6b648845be3489672527, type: 3}
 --- !u!224 &523799241 stripped
@@ -1474,38 +1478,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0175085
       objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_Text
-      value: To enhance said upgrades, you will have to collect Gems throughout the
-        matches.
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 65bf31895764ac44984ad8b666accb1e,
-        type: 3}
     - target: {fileID: 4726397872482593325, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_IsActive
@@ -1566,6 +1538,38 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 171.3
       objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Text
+      value: To enhance said upgrades, you will have to collect Gems throughout the
+        matches.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 65bf31895764ac44984ad8b666accb1e,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9c4302c67b6b648845be3489672527, type: 3}
 --- !u!224 &870316637 stripped
@@ -2036,37 +2040,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0175085
       objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_Text
-      value: If you don't have enough gems, you won't be able to buy the upgrades.
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 65bf31895764ac44984ad8b666accb1e,
-        type: 3}
     - target: {fileID: 4726397872482593325, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_IsActive
@@ -2127,6 +2100,37 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 171.3
       objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Text
+      value: If you don't have enough gems, you won't be able to buy the upgrades.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 65bf31895764ac44984ad8b666accb1e,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9c4302c67b6b648845be3489672527, type: 3}
 --- !u!224 &959472307 stripped
@@ -2293,37 +2297,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0175085
       objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_Text
-      value: To buy an upgrade, you have to click on the desired upgrade button.
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 65bf31895764ac44984ad8b666accb1e,
-        type: 3}
     - target: {fileID: 4726397872482593325, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_IsActive
@@ -2384,6 +2357,37 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 171.3
       objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Text
+      value: To buy an upgrade, you have to click on the desired upgrade button.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 65bf31895764ac44984ad8b666accb1e,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9c4302c67b6b648845be3489672527, type: 3}
 --- !u!224 &1001054494 stripped
@@ -3706,6 +3710,339 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431041490}
   m_CullTransparentMesh: 0
+--- !u!1001 &1532105849
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 146857375}
+    m_Modifications:
+    - target: {fileID: 4726397872711480178, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Name
+      value: Page (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480178, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0175085
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0175085
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0175085
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593325, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480176, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 4726397872711480176, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480176, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.6509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480176, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480176, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480176, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872711480176, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593324, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593324, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 692.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593324, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -103.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593324, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 171.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Text
+      value: If you quit the current match,you won't receive the gems you collected
+        in that match, keep that in mind.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 65bf31895764ac44984ad8b666accb1e,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8c9c4302c67b6b648845be3489672527, type: 3}
+--- !u!224 &1532105850 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
+    type: 3}
+  m_PrefabInstance: {fileID: 1532105849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1532105851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4726397872711480178, guid: 8c9c4302c67b6b648845be3489672527,
+    type: 3}
+  m_PrefabInstance: {fileID: 1532105849}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1532105852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532105851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.7921569}
+  m_EffectDistance: {x: 3, y: -3}
+  m_UseGraphicAlpha: 1
+--- !u!1 &1561384258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1561384259}
+  - component: {fileID: 1561384261}
+  - component: {fileID: 1561384260}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1561384259
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561384258}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1532105850}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 40.97}
+  m_SizeDelta: {x: 726.4, y: 426.2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1561384260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561384258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 12a0701bb0dd52f4195d3cf3e04ff3da, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1561384261
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561384258}
+  m_CullTransparentMesh: 0
 --- !u!1 &1725090654
 GameObject:
   m_ObjectHideFlags: 0
@@ -3906,7 +4243,7 @@ RectTransform:
   m_LocalScale: {x: 0.50260854, y: 0.50260854, z: 0.50260854}
   m_Children: []
   m_Father: {fileID: 146857375}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -4380,38 +4717,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0175085
       objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_Text
-      value: You can buy upgrades to enhance the different elements which will help
-        you survive for longer waves.
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: 65bf31895764ac44984ad8b666accb1e,
-        type: 3}
     - target: {fileID: 4726397872482593325, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_IsActive
@@ -4472,6 +4777,38 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 171.3
       objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_Text
+      value: You can buy upgrades to enhance the different elements which will help
+        you survive for longer waves.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 65bf31895764ac44984ad8b666accb1e,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9c4302c67b6b648845be3489672527, type: 3}
 --- !u!1 &1922414468 stripped
@@ -4626,7 +4963,7 @@ RectTransform:
   m_LocalScale: {x: 0.50260854, y: 0.50260854, z: 0.50260854}
   m_Children: []
   m_Father: {fileID: 146857375}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -5121,7 +5458,7 @@ RectTransform:
   m_LocalScale: {x: 0.50260854, y: 0.50260854, z: 0.50260854}
   m_Children: []
   m_Father: {fileID: 146857375}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}

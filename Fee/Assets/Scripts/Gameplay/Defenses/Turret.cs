@@ -10,7 +10,8 @@ public class Turret : MonoBehaviour
     [Header("General Settings")]
     public GameObject attachedVisionRadius;
     public GameObject attachedParticles;
-    public MeshRenderer attachedModel;
+    public SkinnedMeshRenderer attachedModel;
+    public Animator attachedAnimator;
     public GameObject proyectileTemplate;
     public int bulletSpeed;
     public float spawnSpeed;
@@ -31,6 +32,7 @@ public class Turret : MonoBehaviour
     public bool canBePlaced;
     public bool isInTurretZone;
     public bool isSpawned;
+    public bool isDying;
 
     private Outline outline;
     private GameObject currentTarget;
@@ -78,8 +80,10 @@ public class Turret : MonoBehaviour
                 if(OnTurretDead != null)
                 {
                     OnTurretDead(gameObject);
+                    isDying = true;
+                    attachedAnimator.SetTrigger("die");
+                    attachedParticles.SetActive(false);
                 }
-                Destroy(gameObject);
             }
 
             if (!canShoot)
@@ -107,6 +111,19 @@ public class Turret : MonoBehaviour
                 {
                     generateTimer = -1;
                     isSpawned = false;
+                }
+            }
+
+            if(isDying)
+            {
+                generateTimer += Time.deltaTime * spawnSpeed;
+
+                attachedModel.material.SetFloat("_dissolve", generateTimer);
+
+                if (generateTimer >= 1)
+                {
+                    generateTimer = 1;
+                    Destroy(gameObject);
                 }
             }
         }

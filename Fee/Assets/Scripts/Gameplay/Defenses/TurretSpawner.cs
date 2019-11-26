@@ -27,7 +27,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
 
     private UITowersState towerUIState;
     private Turret turretProperties;
-    private MeshRenderer turretMaterial;
+    private SkinnedMeshRenderer turretMaterial;
     private GameObject myEventSystem;
     private GameObject newTurretPreview;
     private MaterialPropertyBlock material;
