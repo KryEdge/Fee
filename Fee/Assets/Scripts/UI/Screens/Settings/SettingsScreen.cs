@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class SettingsScreen : MonoBehaviour
 {
     //screen.fullScreen
-    public Toggle fullscreenButton;
+    public Button fullscreenButton;
     public Sprite pressedButton;
     public Sprite notPressedButton;
 
-    public bool windowed;
+    //public bool windowed;
     public Resolution[] resolutions;
     public Dropdown dropdown;
 
@@ -31,7 +31,7 @@ public class SettingsScreen : MonoBehaviour
 
         for (int i = 0; i < resolutions.Length; i++)
         {
-            if(resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+            if(resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
             {
                 dropdown.value = i;
             }
@@ -43,15 +43,17 @@ public class SettingsScreen : MonoBehaviour
         {
             if (Screen.fullScreen)
             {
+                //windowed = false;
                 //fullscreenButton.image.color = Color.green;
                 fullscreenButton.image.sprite = pressedButton;
-                fullscreenButton.isOn = true;
+                //fullscreenButton.isOn = true;
             }
             else
             {
+                //windowed = true;
                 //fullscreenButton.image.color = Color.white;
                 fullscreenButton.image.sprite = notPressedButton;
-                fullscreenButton.isOn = false;
+                //fullscreenButton.isOn = false;
             }
         }
     }
@@ -66,34 +68,31 @@ public class SettingsScreen : MonoBehaviour
 
             Debug.Log("NEW RESOLUTION: " + width + "x" + height);
 
-            Screen.SetResolution(width, height, windowed);
+            Screen.SetResolution(width, height, Screen.fullScreen);
         }
     }
 
     private void SwitchFullscreen()
     {
-        windowed = !windowed;
+        //windowed = !windowed;
         int width = resolutions[dropdown.value].width;
         int height = resolutions[dropdown.value].height;
 
-        Screen.SetResolution(width, height, windowed);
+        Screen.SetResolution(width, height, Screen.fullScreen);
     }
 
     public void SettingsSwitchFullscreen()
     {
-        SwitchFullscreen();
-
-        if (Screen.fullScreen)
+        if (!Screen.fullScreen)
         {
-            //fullscreenButton.image.color = Color.green;
             fullscreenButton.image.sprite = pressedButton;
-            fullscreenButton.isOn = true;
         }
         else
         {
-            //fullscreenButton.image.color = Color.white;
+
             fullscreenButton.image.sprite = notPressedButton;
-            fullscreenButton.isOn = false;
         }
+
+        Screen.fullScreen = !Screen.fullScreen;
     }
 }
