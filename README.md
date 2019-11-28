@@ -1,31 +1,44 @@
-### Quick Cheatsheet for devs [WIP]
+<p align="center">
+<img src="logo.png" alt="PONER NOMBRE DEL JUEGO ACA"/>
+</p>
 
-## Controls
+# Nombre del juego
 
-### - Move the camera with W A S D, and rotate the camera using the RMB and moving it left or right, you can also zoom in and out with the mouse scroll wheel . In the editor you can invert the camera rotation in the "playerCamera" GameObject.
+Lorem ipsum dolor sit amet consectetur adipiscing elit, quam nunc per litora montes himenaeos. Porttitor tellus dis cubilia vitae tortor felis litora vestibulum lacinia, cras diam ut dictumst orci consequat gravida rhoncus, hac faucibus volutpat ligula massa sem ornare posuere.
 
-### - Spawn Enemies with the Numpads 0 in a desired waypoint (Configurable through the editor).
+Aliquam massa ut at semper parturient ridiculus netus suspendisse eros, vivamus lobortis libero lacinia tempor fusce dis rutrum natoque non, tincidunt tempus mus eleifend luctus tellus odio platea. 
 
-### - Click anywhere on the planet to throw a meteor at your enemies! (Explosion Blast still damages enemies).
+This is a game (demo/protoype/vertical slice) developed by students from <a href="https://www.imagecampus.edu.ar/">Image Campus</a>
 
-### - Click the Gear Icon on the top left of the screen to start spawning turrets! In the correct zones, you will be able to preview the position of your turret with a green color. To place it, click the Middle Mouse Button. It will detect near enemies and shoot at them! You can also adjust its fire rate in the editor. To cancel the turret preview, click the gear icon again.
+<p align="center">
+  <a href="https://www.imagecampus.edu.ar/">
+    <img src="logo-image-campus.png" alt="Image Campus"/>
+  </a> 
+</p>
 
-### - Your objective: Protect all your faires at all costs! If all of your fairies die, you lose! You can retry the level after the game over screen.
 
-## Things you can change in the editor :
+## Credits
 
-### "GameManager" (GameManager) : Max Enemies, Max Fairies, Max Turrets, Score Settings.
+- **Nombre Apellido** - *Programming* - <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/facebook.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/twitter.svg" /><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/behance.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/artstation.svg" /></a>
+- **Nombre Apellido** - *Art* - <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/facebook.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/twitter.svg" /><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/behance.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/artstation.svg" /></a>
+- **Nombre Apellido** - *Audio* - <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/facebook.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/twitter.svg" /><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/behance.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/artstation.svg" /></a>
+- **Nombre Apellido** - *Testing* - <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/facebook.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/twitter.svg" /><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/behance.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/artstation.svg" /></a>
 
-### "Player" (Player) : Speed , Zoom and Camera Settings.
 
-###  "Hada" (NPC) : Speed, Initial State, Outline Colors, Invincibility Frames, Minimum distance to choose another waypoint.
+This game was also possible thanks to the support of these professors:
 
-### "Enemigo" (Enemy) (NPC) : Speed, Initial State, Minimum distance to choose another waypoint.
+- **Sergio Baretto**
+- **Federico Barra**
+- **Jorge Cuéllar**
+- **Fernando Puig**
+- **Eugenio Taboada**
 
-### "Shoot" (Weapon) (This GameObject is located within "playerCamera") : Fire Rate.
 
-### "EnemySpawner1 (1),(2),etc" (Spawner) : Spawn Key, Minimum Enemy speed, Maximum Enemy Speed (a range between these values will be applied to the enemy's speed) , minimum spawn time, maximum spawn time.
+## Acknowledgements
 
-### "Waypoint" (Waypoints): All Possible Connections.
+Otras personas a las que quieran agradecerles, sino sacar este título
 
-### "TurretSpawner1 (1),(2),etc" (Spawner) : Fire Rate (also in Turret). *Not Configurable Yet*
+
+## Links
+
+Download it from itch.io: https://lqngames.itch.io/under-control
