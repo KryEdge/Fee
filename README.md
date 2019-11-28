@@ -1,14 +1,16 @@
 <p align="center">
-<img src="logo.png" alt="PONER NOMBRE DEL JUEGO ACA"/>
+<img src="logo.png" alt="Fée"/>
 </p>
 
-# Nombre del juego
+# Fée
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit, quam nunc per litora montes himenaeos. Porttitor tellus dis cubilia vitae tortor felis litora vestibulum lacinia, cras diam ut dictumst orci consequat gravida rhoncus, hac faucibus volutpat ligula massa sem ornare posuere.
+Fée is a fast-paced, strategy game, in which you must save the defenseless little creatures of Planet Fée. At your disposal, you have magical meteorites to crush enemies in a small area, and deadly Root Towers that will shoot evil slimy creatures on sight. 
 
-Aliquam massa ut at semper parturient ridiculus netus suspendisse eros, vivamus lobortis libero lacinia tempor fusce dis rutrum natoque non, tincidunt tempus mus eleifend luctus tellus odio platea. 
+This little fairies don't know much about defending themselves, so it's on you to assure that all (or at least one of them) survive until the mysterious slime-like creatures give up their attack... 
 
-This is a game (demo/protoype/vertical slice) developed by students from <a href="https://www.imagecampus.edu.ar/">Image Campus</a>
+Be ready to upgrade your arsenal! These enemies won´t give up their attack easily! Can you protect the inhabitants of this planet until then?
+
+This is a game (Work in Progress) developed by students from <a href="https://www.imagecampus.edu.ar/">Image Campus</a>
 
 <p align="center">
   <a href="https://www.imagecampus.edu.ar/">
@@ -19,11 +21,14 @@ This is a game (demo/protoype/vertical slice) developed by students from <a href
 
 ## Credits
 
-- **Nombre Apellido** - *Programming* - <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/facebook.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/twitter.svg" /><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/behance.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/artstation.svg" /></a>
+- **Franco Vega** - *Programming* - <a href="https://twitter.com/Frankvega1"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/twitter.svg" /><a href="https://github.com/frankvega2010"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a> <a href="https://frankvega.itch.io/"><img height="16" width="16" src="https://unpkg.com/simple-icons@1.20.0/icons/itch-dot-io.svg" /></a>
+- **Felipe Cittadino** - *Art* - <a href="https://www.artstation.com/felipecittadino"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/artstation.svg" /></a>
+- **Nombre Apellido** - *Art* - <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/facebook.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/twitter.svg" /><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/behance.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/artstation.svg" /></a>
 - **Nombre Apellido** - *Art* - <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/facebook.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/twitter.svg" /><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/behance.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/artstation.svg" /></a>
 - **Nombre Apellido** - *Audio* - <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/facebook.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/twitter.svg" /><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/behance.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/artstation.svg" /></a>
-- **Nombre Apellido** - *Testing* - <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/facebook.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/twitter.svg" /><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/behance.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/artstation.svg" /></a>
-
+- **Nombre Apellido** - *Audio* - <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/linkedin.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/facebook.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/twitter.svg" /><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/behance.svg" /></a> <a href="LINK A RED"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/artstation.svg" /></a>
+- **Tomás Carceglia** - *Testing* - <a href="https://twitter.com/KryEdge"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/twitter.svg" /> <a href="https://kryedge.itch.io/"><img height="16" width="16" src="https://unpkg.com/simple-icons@1.20.0/icons/itch-dot-io.svg" /></a>
+- **Leonardo Fernandez** - *Testing* - <a href="https://github.com/Leeoofeer"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a>
 
 This game was also possible thanks to the support of these professors:
 
@@ -36,9 +41,80 @@ This game was also possible thanks to the support of these professors:
 
 ## Acknowledgements
 
-Otras personas a las que quieran agradecerles, sino sacar este título
+We would like to thank our friends and all the people who had given support and feedback during the playtesting of the game, the following are:
+
+Santhcrow
+
+Mariano Mallea
+
+Ollahead
+
+Alejandro Abecasis
+
+Theo Leyenda
+
+Elias Brucart
+
+Gadiel
+
+Lisandro Lorea
+
+Mariano
+
+Fede
+
+Ignacio
+
+El Ruso
+
+Geronimo Perez
+
+ElMich
+
+Matias Fernandez
+
+Adriana Urdaneta
+
+Lucas
+
+Leonardo
+
+Dylan Piserchia
+
+Lautaro Garcia Mollard
+
+Matías
+
+Jimena
+
+Tomas Peralta
+
+Matias Signorelli
+
+Julián Bega
+
+IronKiller
+
+Gianluca Mascaro
+
+Juanse Laguens
+
+Roy
+
+Facundo
+
+Matias
+
+Agustin Garcia
+
+Roy Elyora
+
+Marcelo
+
+Lisandro Coccia
+
 
 
 ## Links
 
-Download it from itch.io: https://lqngames.itch.io/under-control
+Download it from itch.io: https://beldam-games.itch.io/fee
