@@ -1,8 +1,9 @@
 #obj folder
 **/obj
+**/.vs
 
 #Temp folder
-Fée/[Tt]emp/
+Fée/[Tt]emp
 
 #Library folder
 **/Library
