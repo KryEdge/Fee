@@ -26,7 +26,10 @@ public class UIManagerUpgrades : MonoBehaviour
 
     private void UpdateText(int id)
     {
-        gemsText.text = "Gems: " + upgradeSystem.upgradePoints;
+        if(gemsText)
+        {
+            gemsText.text = "Gems: " + upgradeSystem.upgradePoints;
+        }
 
         foreach (Upgrade upgrade in upgradeSystem.allUpgrades)
         {

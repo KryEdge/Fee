@@ -124,6 +124,13 @@ public class UIChangeScene : MonoBehaviour
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1;
+
+        UpgradeSystem upgrades = UpgradeSystem.Get();
+
+        if (upgrades)
+        {
+            upgrades.CleanList();
+        }
     }
 
     public void QuitGame()
