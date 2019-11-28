@@ -178,10 +178,15 @@ MonoBehaviour:
   deathSpeed: 3
   speed: 6
   runSpeedMultiplier: 1.5
+  gooParent: {fileID: 4715722287483509599}
+  splatTime: 1
+  splatTimer: 0
   eatingTime: 3
   eatingTimer: 0
   distanceToStop: 1.54
   npcLostDistance: 20
+  splatTemplate: {fileID: 6476578406101340795, guid: 9fc794b444bd5ff45a71aa4b065b5d31,
+    type: 3}
   animator: {fileID: 1846694058359686198}
   attachedModel: {fileID: 8643425402655182885}
   radius: {fileID: 7242981503821853808}
@@ -340,6 +345,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57910157311e7d943862971018c22dd7, type: 3}
+--- !u!1 &4715722287483509599 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 57910157311e7d943862971018c22dd7,
+    type: 3}
+  m_PrefabInstance: {fileID: 3625522464854344278}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8586893031776332108 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 57910157311e7d943862971018c22dd7,

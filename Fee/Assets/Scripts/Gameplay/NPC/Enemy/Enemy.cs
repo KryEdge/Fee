@@ -32,6 +32,11 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float runSpeedMultiplier;
 
+    [Header("Goo Settings")]
+    public GameObject gooParent;
+    public float splatTime;
+    public float splatTimer;
+
     [Header("Eat Settings")]
     public float eatingTime;
     public float eatingTimer;
@@ -43,6 +48,7 @@ public class Enemy : MonoBehaviour
     public float npcLostDistance;
 
     [Header("Assign Variables/Components")]
+    public GameObject splatTemplate;
     public Animator animator;
     public SkinnedMeshRenderer attachedModel;
     public NPCRadius radius;
@@ -141,6 +147,19 @@ public class Enemy : MonoBehaviour
                     doOnce = true;
                 }
                 Debug.Log("Bounds intersecting");
+            }
+        }
+
+        if(splatTemplate)
+        {
+            splatTimer += Time.deltaTime;
+
+            if(splatTimer >= splatTime)
+            {
+                splatTimer = 0;
+                //Instantiate(splatTemplate);
+                //Instantiate(splatTemplate, gooParent.transform, false);
+                GameObject splat = Instantiate(splatTemplate, gooParent.transform.position, gooParent.transform.rotation);
             }
         }
         
