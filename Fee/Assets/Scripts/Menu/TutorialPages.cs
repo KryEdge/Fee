@@ -101,21 +101,21 @@ public class TutorialPages : MonoBehaviour
     public bool CheckFirstTimePlaying()
     {
         Debug.Log("ENTERING CHECKFIRST TIME PLAYING");
-        string goToTutorial = PlayerPrefs.GetString("isFirstTimePlaying", "yes");
+        int goToTutorial = PlayerPrefs.GetInt("isFirstTimePlaying", 1);
 
-        if (goToTutorial == "yes")
+        if (goToTutorial == 1)
         {
             Debug.Log("opening");
             OpenTutorial();
 
             if (setPlayerPref)
             {
-                PlayerPrefs.SetString("isFirstTimePlaying", "no");
+                PlayerPrefs.SetInt("isFirstTimePlaying", 0);
             }
 
             return true;
         }
-        else if (goToTutorial == "no")
+        else if (goToTutorial == 0)
         {
             Debug.Log("closing");
             CloseTutorial();

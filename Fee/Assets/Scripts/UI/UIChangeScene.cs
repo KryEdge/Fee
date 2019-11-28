@@ -72,13 +72,13 @@ public class UIChangeScene : MonoBehaviour
                 upgrades.CleanList();
             }
 
-            string goToTutorial = PlayerPrefs.GetString("isFirstTimePlaying", "yes");
+            int goToTutorial = PlayerPrefs.GetInt("isFirstTimePlaying", 1);
 
-            if (goToTutorial == "yes")
+            if (goToTutorial == 1)
             {
                 SceneManager.LoadScene("Tutorial");
             }
-            else if (goToTutorial == "no")
+            else if (goToTutorial == 0)
             {
                 SceneManager.LoadScene(sceneName);
             }
@@ -92,13 +92,13 @@ public class UIChangeScene : MonoBehaviour
                 upgrades.CleanList();
             }
 
-            string goToTutorial = PlayerPrefs.GetString("isFirstTimePlaying", "yes");
+            int goToTutorial = PlayerPrefs.GetInt("isFirstTimePlaying", 1);
 
-            if (goToTutorial == "yes")
+            if (goToTutorial == 1)
             {
                 SceneManager.LoadScene("Tutorial");
             }
-            else if (goToTutorial == "no")
+            else if (goToTutorial == 0)
             {
                 LoaderManager.Get().LoadScene(sceneName);
                 UILoadingScreen.Get().SetVisible(true);

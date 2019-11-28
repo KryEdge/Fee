@@ -11,23 +11,17 @@ public class UIManagerMenu : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        string goToTutorial = PlayerPrefs.GetString("isFirstTimePlaying", "yes"); // pasarlo a int
+        int goToTutorial = PlayerPrefs.GetInt("isFirstTimePlaying", 1);
 
-        if (goToTutorial == "yes")
+        if (goToTutorial == 1)
         {
             upgradesButton.interactable = false;
             upgradesButton.image.color = Color.gray;
         }
-        else if (goToTutorial == "no")
+        else if (goToTutorial == 0)
         {
             upgradesButton.interactable = true;
             upgradesButton.image.color = Color.white;
         }
     }
-
-    /*// Update is called once per frame
-    void Update()
-    {
-        
-    }*/
 }

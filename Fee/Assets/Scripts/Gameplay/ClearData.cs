@@ -14,15 +14,15 @@ public class ClearData : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        string goToTutorial = PlayerPrefs.GetString("isFirstTimePlaying", "yes");
+        int goToTutorial = PlayerPrefs.GetInt("isFirstTimePlaying", 1);
 
-        if (goToTutorial == "yes")
+        if (goToTutorial == 1)
         {
-            PlayerPrefs.SetString("isFirstTimePlaying", "yes");
+            PlayerPrefs.SetInt("isFirstTimePlaying", 1);
         }
-        else if (goToTutorial == "no")
+        else if (goToTutorial == 0)
         {
-            PlayerPrefs.SetString("isFirstTimePlaying", "no");
+            PlayerPrefs.SetInt("isFirstTimePlaying", 0);
         }
 
         Debug.Log(goToTutorial);
@@ -52,7 +52,7 @@ public class ClearData : MonoBehaviour
             upgrades.ResetUpgrades();
         }
 
-        PlayerPrefs.SetString("isFirstTimePlaying", "yes");
+        PlayerPrefs.SetInt("isFirstTimePlaying", 1);
 
         buttonAppearCounter = 0;
         button.SetActive(false);

@@ -308,10 +308,10 @@ public class UIManagerGameplay : MonoBehaviour
         pause.enabled = false;
         vignette.SwitchMask();
 
-        string goToTutorial = PlayerPrefs.GetString("isFirstTimePlaying", "yes");
+        int goToTutorial = PlayerPrefs.GetInt("isFirstTimePlaying", 1);
         Debug.Log("lol nerd ===== " + goToTutorial);
 
-        if (goToTutorial == "yes")
+        if (goToTutorial == 1)
         {
             retryImage.color = Color.gray;
             homeImage.color = Color.gray;

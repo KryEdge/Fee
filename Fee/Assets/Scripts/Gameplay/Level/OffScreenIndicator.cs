@@ -14,7 +14,7 @@ public class OffScreenIndicator : MonoBehaviour
     private void Start()
     {
         target = FlockManager.fairies[0];
-        Fairy.OnFairyDanger = ChangeIndicatorColor;
+        Fairy.OnFairyDanger += ChangeIndicatorColor;
         Fairy.OnFairyEscaped += ChangeIndicatorColor;
     }
 
