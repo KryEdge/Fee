@@ -27,6 +27,7 @@ public class UIChangeScene : MonoBehaviour
 
         if (sceneName == "Gameplay")
         {
+            AkSoundEngine.StopAll();
             UpgradeSystem upgrades = UpgradeSystem.Get();
 
             if (upgrades)
@@ -61,6 +62,8 @@ public class UIChangeScene : MonoBehaviour
             {
                 upgrades.CleanList();
             }
+
+            AkSoundEngine.StopAll();
         }
 
         if (sceneName == "Upgrade Screen")
@@ -85,6 +88,7 @@ public class UIChangeScene : MonoBehaviour
         }
         else if (sceneName == "Gameplay")
         {
+            AkSoundEngine.StopAll();
             UpgradeSystem upgrades = UpgradeSystem.Get();
 
             if (upgrades)

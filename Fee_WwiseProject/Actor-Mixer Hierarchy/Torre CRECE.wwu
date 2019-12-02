@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{331ED2EC-ED30-49C9-82E0-A8B06A2EC64B}" SchemaVersion="94">
+	<AudioObjects>
+		<WorkUnit Name="Torre CRECE" ID="{331ED2EC-ED30-49C9-82E0-A8B06A2EC64B}" PersistMode="Standalone">
+			<PropertyList>
+				<Property Name="Inclusion" Type="bool">
+					<ValueList>
+						<Value>False</Value>
+					</ValueList>
+				</Property>
+			</PropertyList>
+			<ChildrenList>
+				<Folder Name="TORRE_CRECE" ID="{5EF03BD0-AC7E-49C1-9F61-114A9E11E9A3}" ShortID="723026518"/>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

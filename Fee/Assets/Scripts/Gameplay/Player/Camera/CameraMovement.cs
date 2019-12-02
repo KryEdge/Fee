@@ -13,6 +13,10 @@ public class CameraMovement : MonoBehaviour
     public Transform lowestZoom;
     public Transform highestZoom;
 
+    [Header("Sound Settings")]
+    public GameObject movingSound;
+    public float soundValue;
+
     [Header("Fairy Teleport")]
     public float teleportSpeed;
     public float distanceToStop;
@@ -114,7 +118,6 @@ public class CameraMovement : MonoBehaviour
                 acceleration += Input.GetAxis("Mouse ScrollWheel") * -1 * zoomSpeed * Time.deltaTime;
             }
 
-            
         }
         else
         {
@@ -145,6 +148,25 @@ public class CameraMovement : MonoBehaviour
         chooseDirection();
 
         CheckAcceleration(ref h, ref torqueDecay);
+
+        /*if (finalSpeed >= 0)
+        {
+            soundValue += 0.001f;
+            Debug.Log("soundValue ==== " + soundValue);
+            
+            
+            
+        }*/
+
+        //AkSoundEngine.SetRTPCValue("env_movimiento", soundValue);
+        //AkSoundEngine.PostEvent("movimiento_camara", movingSound);
+
+        if (FlockManager.fairies[0])
+        {
+            float distance = Vector3.Distance(cameraGO.transform.position, FlockManager.fairies[0].transform.position);
+
+            //Debug.Log("Fairy distance from camera: " + distance);
+        }
     }
 
     private void FixedUpdate()

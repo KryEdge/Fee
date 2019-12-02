@@ -14,6 +14,10 @@ public class Shoot : MonoBehaviour
     public int maxMeteors;
     public LayerMask Mask;
 
+    [Header("Sound Settings")]
+    public GameObject lastMeteorSound;
+    public GameObject shootMeteorSound;
+
     [Header("Assign Components")]
     public GameObject bulletTemplate;
     public GameObject explosionRadiusTemplate;
@@ -122,6 +126,9 @@ public class Shoot : MonoBehaviour
                         newBullet.SetActive(true);
                         couldShoot = true;
                         shootOnce = true;
+
+                        AkSoundEngine.PostEvent("meteoro_lanza", shootMeteorSound);
+                        Debug.Log("METEOR SHOOT");
                     }
                 }
             }
@@ -130,6 +137,12 @@ public class Shoot : MonoBehaviour
             {
                 currentMeteors--;
                 UpdateText();
+            }
+
+            if(currentMeteors == 1)
+            {
+                AkSoundEngine.PostEvent("meteoro_ultimo", lastMeteorSound);
+                Debug.Log("LAST METEOR");
             }
         }
 

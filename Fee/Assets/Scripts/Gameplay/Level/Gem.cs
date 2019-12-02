@@ -13,6 +13,9 @@ public class Gem : MonoBehaviour
     public GameObject particles1;
     public GameObject particles2;
 
+    [Header("Sound Settings")]
+    public GameObject gemCollectSound;
+
     [Header("General Settings")]
     public float lifespan;
     public int gemsAmount;
@@ -82,6 +85,9 @@ public class Gem : MonoBehaviour
                 }
 
                 GameManager.Get().gemsCollected += gemsAmount;
+
+                AkSoundEngine.PostEvent("gema_recolectar", gemCollectSound);
+                //Debug.Log("LAST METEOR");
             }
         }
         else

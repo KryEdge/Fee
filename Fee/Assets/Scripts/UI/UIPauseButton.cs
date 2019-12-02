@@ -5,12 +5,18 @@ using UnityEngine.UI;
 
 public class UIPauseButton : MonoBehaviour
 {
+    [Header("General Settings")]
     public TutorialPages tutorial;
     public GameObject pauseMenu;
     public GameObject warningMenu;
     public GameObject warningMenu2;
     public bool isSecondaryPauseButton;
 
+    [Header("Sound Settings")]
+    public GameObject pauseON;
+    public GameObject pauseOFF;
+
+    [Header("Checking Variables")]
     public static bool isGamePaused;
     private GameObject myEventSystem;
     private GameObject primaryPauseButton;
@@ -53,6 +59,8 @@ public class UIPauseButton : MonoBehaviour
                 }
             }
         }
+
+        //AkSoundEngine.PostEvent("pausa_off", pauseOFF);
     }
 
     // Update is called once per frame
@@ -86,7 +94,9 @@ public class UIPauseButton : MonoBehaviour
 
                 if (isGamePaused)
                 {
-                    if(CheatSystem.isTimeNormal)
+                    AkSoundEngine.PostEvent("pausa_on", pauseON);
+
+                    if (CheatSystem.isTimeNormal)
                     {
                         Debug.Log("SETTING TIME SCALE TO 0 (REAL ONE)");
                         Time.timeScale = 0;
@@ -98,6 +108,7 @@ public class UIPauseButton : MonoBehaviour
                 }
                 else
                 {
+                    AkSoundEngine.PostEvent("pausa_off", pauseOFF);
                     if (CheatSystem.isTimeNormal)
                     {
                         Debug.Log("SETTING TIME SCALE TO 1 (REAL ONE)");
@@ -122,6 +133,7 @@ public class UIPauseButton : MonoBehaviour
 
                 if (isGamePaused)
                 {
+                    AkSoundEngine.PostEvent("pausa_on", pauseON);
                     Debug.Log("REALLY PAUSING");
 
                     if (CheatSystem.isTimeNormal)
@@ -136,6 +148,7 @@ public class UIPauseButton : MonoBehaviour
                 }
                 else
                 {
+                    AkSoundEngine.PostEvent("pausa_off", pauseOFF);
                     if (CheatSystem.isTimeNormal)
                     {
                         Debug.Log("SETTING TIME SCALE TO 1");
@@ -155,6 +168,8 @@ public class UIPauseButton : MonoBehaviour
         {
             if (isSecondaryPauseButton)
             {
+                Debug.Log("COntinuining");
+                AkSoundEngine.PostEvent("pausa_off", pauseOFF);
                 primaryPauseButton.GetComponent<UIPauseButton>().PauseGame();
             }
         }

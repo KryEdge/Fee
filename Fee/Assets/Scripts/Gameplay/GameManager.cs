@@ -36,6 +36,9 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public bool canBeDamaged = true; // to game manager
     public float invincibilityTimer; // to game manager
 
+    [Header("Sound Settings")]
+    public GameObject lastFairySound;
+
     [Header("Assign Components/GameObjects")]
     public TutorialPages tutorial;
     public GameObject planet;
@@ -235,6 +238,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
             {
                 OnLastFairyAlive();
             }
+
+            AkSoundEngine.PostEvent("hada_ultima", lastFairySound);
         }
 
         if(FlockManager.fairies != null)

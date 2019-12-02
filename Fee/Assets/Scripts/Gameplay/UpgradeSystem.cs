@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
 {
@@ -11,6 +12,13 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
     public int upgradePoints;
     public int initialPoints;
     public bool resetToInitialPoints;
+
+    [Header("Sound Settings")]
+    public GameObject fairyMaxSound;
+    public GameObject fairySpeedSound;
+    public GameObject meteorCooldownSound;
+    public GameObject towerSound;
+    public GameObject errorSound;
 
     [Header("Upgrades")]
     public List<Upgrade> allUpgrades;
@@ -54,6 +62,11 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
             }
         }
 
+        /*AkSoundEngine.PostEvent("upgrade_max", fairyMaxSound);
+        AkSoundEngine.PostEvent("upgrade_speed", fairySpeedSound);
+        AkSoundEngine.PostEvent("upgrade_cooldown", meteorCooldownSound);
+        AkSoundEngine.PostEvent("upgrade_tower", towerSound);
+        AkSoundEngine.PostEvent("upgrade_error", errorSound);*/
         CheckAllUpgrades();
     }
 
@@ -107,13 +120,23 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
             else
             {
                 upgrade.currentColor = upgrade.unavailableColor;
-                upgrade.button.interactable = false;
+                upgrade.button.image.sprite = upgrade.data.buttonDisabled;
+
+                SpriteState state;
+                state.pressedSprite = upgrade.data.buttonDisabled;
+                upgrade.button.spriteState = state;
+                Debug.Log("Cant Buy!");
             }
         }
         else
         {
             upgrade.currentColor = upgrade.unavailableColor;
-            upgrade.button.interactable = false;
+            upgrade.button.image.sprite = upgrade.data.buttonDisabled;
+
+            SpriteState state;
+            state.pressedSprite = upgrade.data.buttonDisabled;
+            upgrade.button.spriteState = state;
+            Debug.Log("Cant Buy!");
         }
 
         return false;
@@ -158,7 +181,11 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
                 if (!(upgradePoints >= selectedUpgrade.data.costPerLevel[selectedUpgrade.currentLevel + 1]))
                 {
                     selectedUpgrade.currentColor = selectedUpgrade.unavailableColor;
-                    selectedUpgrade.button.interactable = false;
+                    selectedUpgrade.button.image.sprite = selectedUpgrade.data.buttonDisabled;
+
+                    SpriteState state;
+                    state.pressedSprite = selectedUpgrade.data.buttonDisabled;
+                    selectedUpgrade.button.spriteState = state;
                 }
             }
         }
@@ -169,12 +196,19 @@ public class UpgradeSystem : MonoBehaviourSingleton<UpgradeSystem>
         if (upgrade.currentLevel + 1 >= upgrade.data.amountPerLevel.Length)
         {
             upgrade.currentColor = upgrade.unavailableColor;
-            upgrade.button.interactable = false;
+            upgrade.button.image.sprite = upgrade.data.buttonDisabled;
+
+            SpriteState state;
+            state.pressedSprite = upgrade.data.buttonDisabled;
+            upgrade.button.spriteState = state;
         }
         else
         {
             upgrade.currentColor = Color.white;
-            upgrade.button.interactable = true;
+            upgrade.button.image.sprite = upgrade.data.buttonIdle;
+            SpriteState state;
+            state.pressedSprite = upgrade.data.buttonPressed;
+            upgrade.button.spriteState = state;
         }
     }
 

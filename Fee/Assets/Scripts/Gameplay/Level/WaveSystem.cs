@@ -22,6 +22,10 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
     public float textScreenTime;
     public int enemiesAdd;
 
+    [Header("Sound Settings")]
+    public GameObject waveStartSound;
+    public GameObject waveStopSound;
+
     [Header("Checking Variables")]
     public List<EnemySpawner> spawners;
     public List<int> maxEnemies;
@@ -115,6 +119,8 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
 
         screenTimerStarted = true;
         textTimer = 0;
+
+        AkSoundEngine.PostEvent("wave_inicia", waveStartSound);
     }
 
     public void StopWave()
@@ -132,6 +138,8 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
         {
             OnEndWave(1);
         }
+
+        AkSoundEngine.PostEvent("wave_termina", waveStopSound);
     }
 
     public void SetNextWave()

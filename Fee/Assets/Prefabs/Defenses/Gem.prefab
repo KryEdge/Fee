@@ -53,13 +53,15 @@ MonoBehaviour:
   UIGems: {fileID: 0}
   particles1: {fileID: 6808056340745741669}
   particles2: {fileID: 7327113869007221834}
+  gemCollectSound: {fileID: 4043190066085815905, guid: 1930488afa5e5fb4f8e3ff8e745d63a1,
+    type: 3}
   lifespan: 45
   gemsAmount: 10
   distance: 0.4
   rotationSpeed: 45
   scaleSpeed: 3
   collectSpeed: 140
-  id: 1
+  id: 0
   planet: {fileID: 0}
   spawner: {fileID: 0}
   body: {fileID: 0}

@@ -1,8 +1,166 @@
 Event	ID	Name			Wwise Object Path	Notes
+	50850321	click_slide_music			\Default Work Unit\click_slide_music	
+	95853146	meteoro_no			\Default Work Unit\meteoro_no	
+	140795258	high_score			\Default Work Unit\high_score	
+	144956508	torre_lanza			\Default Work Unit\torre_lanza	
+	153011945	monstruo_2_salta			\Default Work Unit\monstruo_2_salta	
+	399902878	monstruo_1_muere_torre			\Default Work Unit\monstruo_1_muere_torre	
+	549173535	pausa_on			\Default Work Unit\pausa_on	
+	562689720	inicia_store			\Default Work Unit\inicia_store	
+	584506678	gema_recolectar			\Default Work Unit\gema_recolectar	
+	610083251	upgrade_speed			\Default Work Unit\upgrade_speed	
+	619167998	monstruo_1_salta			\Default Work Unit\monstruo_1_salta	
+	651177697	meteoro_ultimo			\Default Work Unit\meteoro_ultimo	
+	920624808	tutorial_hada_grito			\Default Work Unit\tutorial_hada_grito	
+	928907744	inicia_menu			\Default Work Unit\inicia_menu	
+	1190877053	inicia_juego			\Default Work Unit\inicia_juego	
+	1255896401	monstruo_1_muere_meteoro			\Default Work Unit\monstruo_1_muere_meteoro	
+	1296145459	torre_no			\Default Work Unit\torre_no	
+	1356379025	monstruo_1_anda			\Default Work Unit\monstruo_1_anda	
+	1375254148	torre_idle			\Default Work Unit\torre_idle	
+	1387795237	upgrade_cooldown			\Default Work Unit\upgrade_cooldown	
+	1423689617	upgrade_tower			\Default Work Unit\upgrade_tower	
+	1435730245	click_slide_sfx			\Default Work Unit\click_slide_sfx	
+	1567197803	wave_termina			\Default Work Unit\wave_termina	
+	1618992664	torre_instalar			\Default Work Unit\torre_instalar	
+	1649166080	click_menu_config			\Default Work Unit\click_menu_config	
+	1681819999	torre_impacto			\Default Work Unit\torre_impacto	
+	1780689575	hada_on			\Default Work Unit\hada_on	
+	1908695012	click_tutorial			\Default Work Unit\click_tutorial	
+	1920671406	tutorial_vinieta			\Default Work Unit\tutorial_vinieta	
 	2019477819	stop_time			\Default Work Unit\stop_time	
+	2040598684	click_return			\Default Work Unit\click_return	
+	2113955673	monstruo_1_come			\Default Work Unit\monstruo_1_come	
+	2248768189	swap_tool			\Default Work Unit\swap_tool	
+	2310493528	upgrade_max			\Default Work Unit\upgrade_max	
+	2345999712	upgrade_error			\Default Work Unit\upgrade_error	
+	2401027546	tutorial_hada			\Default Work Unit\tutorial_hada	
+	2421658314	wave_inicia			\Default Work Unit\wave_inicia	
+	2433235219	perder			\Default Work Unit\perder	
+	2659475283	pausa_off			\Default Work Unit\pausa_off	
+	2671449479	gema_spawn			\Default Work Unit\gema_spawn	
+	2717038862	reto_completado			\Default Work Unit\reto_completado	
+	2901777212	movimiento_camara			\Default Work Unit\movimiento_camara	
+	3111476387	meteoro_lanza			\Default Work Unit\meteoro_lanza	
+	3133431337	reto_nuevo			\Default Work Unit\reto_nuevo	
+	3215021356	click_play			\Default Work Unit\click_play	
+	3294376219	hada_off			\Default Work Unit\hada_off	
+	3325083352	hada_muere_on			\Default Work Unit\hada_muere_on	
+	3358194472	gema_destroy			\Default Work Unit\gema_destroy	
+	3371197844	meteoro_impacto			\Default Work Unit\meteoro_impacto	
+	3387050088	monstruo_2_come			\Default Work Unit\monstruo_2_come	
+	3431978465	monstruo_2_muere_torre			\Default Work Unit\monstruo_2_muere_torre	
+	3468452118	hada_muere_off			\Default Work Unit\hada_muere_off	
+	3523484315	click_creditos			\Default Work Unit\click_creditos	
+	3681351720	hada_ultima			\Default Work Unit\hada_ultima	
 	3793068968	resume_time			\Default Work Unit\resume_time	
+	3922984296	monstruo_2_anda			\Default Work Unit\monstruo_2_anda	
+	3936476221	menu_warning			\Default Work Unit\menu_warning	
+	4051704169	torre_cooldown			\Default Work Unit\torre_cooldown	
+	4203668362	monstruo_2_muere_meteoro			\Default Work Unit\monstruo_2_muere_meteoro	
+	4233466012	meteoro_cooldown			\Default Work Unit\meteoro_cooldown	
+	4285533329	inicia_gameplay			\Default Work Unit\inicia_gameplay	
+
+Modulator Envelope	ID	Name			Wwise Object Path	Notes
+	652393429	env_movimiento			\Default Work Unit\env_movimiento	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	4028161	DESINTEGRA_8	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\DESINTEGRA_8_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo grande muere\monstruo grande muere 2\DESINTEGRA_8		179508
+	6482051	torre_crece_final_rev-CTMT_03	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_final_rev-CTMT_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre_no\torre_crece_final_rev-CTMT_03		129840
+	28911416	torre_stomp_a_03	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\TORRE_CRECE\torre_stomp_a_BFAABA1B.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece_stomp\stomp_1\torre_stomp_a_03		174956
+	29010989	METEORITO_IMPACTO_05	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\METEORITO_IMPACTO_05_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Meteoro\IMPACTOS METEORITOS\METEORITO_IMPACTO_05		384064
+	29677330	DESINTEGRA_5	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\DESINTEGRA_5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo grande muere\monstruo grande muere 2\DESINTEGRA_5		145062
+	31657544	DESINTEGRA_6	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\DESINTEGRA_6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo grande muere\monstruo grande muere 2\DESINTEGRA_6		179276
+	45228587	CAMPANMITAS_DISPARO_TORRE_03	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\CAMPANMITAS_DISPARO_TORRE_1B117908.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre_dispara\campanta_lanzamiento_random\CAMPANMITAS_DISPARO_TORRE_03		223400
+	66512300	torre_stomp_b_01	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\TORRE_CRECE\torre_stomp_b_6EDB7E47.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece_stomp\stomp_2\torre_stomp_b_01		187016
+	69473758	CLICK_BASICO	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\CLICK_BASICO_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu\CLICK_BASICO		70844
+	89251820	BICHO_MUERE_7	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\BICHO_MUERE_7_4A0A8D80.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo chico muere\BICHO_MUERE_7		96064
+	102507044	DESINTEGRA_1	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\DESINTEGRA_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo grande muere\monstruo grande muere 2\DESINTEGRA_1		163916
+	148567226	MUERE_ACUOSO_7	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\MUERE_ACUOSO_7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo grande muere\monstruo grande muere 1\MUERE_ACUOSO_7		311582
+	148684578	BICHO_MUERE_6	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\BICHO_MUERE_6_8EAEF18E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo chico muere\BICHO_MUERE_6		96064
+	151976918	BICHO_MUERE_3	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\BICHO_MUERE_3_D2511532.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo chico muere\BICHO_MUERE_3		96064
+	161704591	METEORITO_IMPACTO_04	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\METEORITO_IMPACTO_04_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Meteoro\IMPACTOS METEORITOS\METEORITO_IMPACTO_04		384064
+	165313873	torre_crece_agudo_006	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_agudo_006_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece\torre_crece_agudo\torre_crece_agudo_006		234304
+	166001328	torre_stomp_a_02	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\TORRE_CRECE\torre_stomp_a_A7152958.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece_stomp\stomp_1\torre_stomp_a_02		139080
+	166003384	torre_crece_2ok	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_2ok_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece\torre_crece_normal\torre_crece_2ok		234304
+	170784361	torre_stomp_a_01	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\TORRE_CRECE\torre_stomp_a_D5D5EA32.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece_stomp\stomp_1\torre_stomp_a_01		182240
+	175142854	BICHO_MUERE_2	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\BICHO_MUERE_2_623E5EF5.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo chico muere\BICHO_MUERE_2		96064
+	196241980	torre_crece_estira_006	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_estira_006_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece\torre_crece_estira\torre_crece_estira_006		117184
+	196485857	torre_crece_estira_003	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_estira_003_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece\torre_crece_estira\torre_crece_estira_003		117184
+	212490444	METEORITO_IMPACTO_07	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\METEORITO_IMPACTO_07_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Meteoro\IMPACTOS METEORITOS\METEORITO_IMPACTO_07		384064
+	218409925	DESINTEGRA_12	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\DESINTEGRA_12_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo grande muere\monstruo grande muere 2\DESINTEGRA_12		200242
 	228244078	resume_time	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\resume_time_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Misc\resume_time		294388
+	244010620	DESINTEGRA_3	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\DESINTEGRA_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo grande muere\monstruo grande muere 2\DESINTEGRA_3		158272
+	248352448	BICHO_MUERE_4	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\BICHO_MUERE_4_8A21C443.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo chico muere\BICHO_MUERE_4		96064
+	257076975	torre_crece_final_rev-CTMT_01	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_final_rev-CTMT_01_E4C0EE9E.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece_final\torre_crece_final_rev-CTMT_01		132244
+	292163707	torre_crece_agudo_003	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_agudo_003_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece\torre_crece_agudo\torre_crece_agudo_003		234304
+	320424405	torre_crece_agudo_001	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_agudo_001_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece\torre_crece_agudo\torre_crece_agudo_001		234304
+	323083699	hadas gritan2	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\hadas gritan2_CB0E63B9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tutorial\hadas gritan\hadas gritan2		239356
+	330960533	MUERE_ACUOSO_4	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\MUERE_ACUOSO_4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo grande muere\monstruo grande muere 1\MUERE_ACUOSO_4		222804
+	369635089	BUBBLE_IN_PAUSA	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\BUBBLE_IN_PAUSA_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\CORE\Pausa\BUBBLE_IN_PAUSA		329024
+	385793963	DESINTEGRA_9	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\DESINTEGRA_9_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo grande muere\monstruo grande muere 2\DESINTEGRA_9		218982
+	395849696	BICHO_MUERE_5	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\BICHO_MUERE_5_13CF7166.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo chico muere\BICHO_MUERE_5		96064
+	405597339	torre_crece_final_rev-CTMT_01	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_final_rev-CTMT_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre_no\torre_crece_final_rev-CTMT_01		132244
+	429538695	marimba2	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\marimba2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Gemas\marimba2		298484
+	465431586	METEORITO_IMPACTO_11	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\METEORITO_IMPACTO_11_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Meteoro\ULTIMOS METEORITOS\METEORITO_IMPACTO_11		384064
+	470831835	torre_crece_grave_lava	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\TORRE_CRECE\torre_crece_grave_lava_852A2E52.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece\torre_crece_grave_lava		250188
+	497742070	marimba1	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\marimba1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Gemas\marimba1		341940
+	500170632	pad menu	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\pad menu_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu\pad menu		8872416
+	503050707	Efecto de gong largo 4	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\Efecto de gong largo 4_33C49309.wem		\Actor-Mixer Hierarchy\Default Work Unit\Gameplay\Efecto de gong largo 4		1730284
+	515956724	torre_stomp_b	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\TORRE_CRECE\torre_stomp_b_CDB461C9.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece_stomp\stomp_2\torre_stomp_b		112676
+	516990872	CAMPANMITAS_DISPARO_TORRE_01	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\CAMPANMITAS_DISPARO_TORRE_1F1760E8.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre_dispara\campanta_lanzamiento_random\CAMPANMITAS_DISPARO_TORRE_01		237432
+	524775607	torre_crece_agudo_002	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_agudo_002_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece\torre_crece_agudo\torre_crece_agudo_002		234304
+	527212415	Efecto de gong largo 1	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\Efecto de gong largo 1_51D8EDF2.wem		\Actor-Mixer Hierarchy\Default Work Unit\Gameplay\Efecto de gong largo 1		1714644
+	528814490	METEORITO_IMPACTO_10	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\METEORITO_IMPACTO_10_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Meteoro\ULTIMOS METEORITOS\METEORITO_IMPACTO_10		384064
+	538875190	METEORITO_IMPACTO_02	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\METEORITO_IMPACTO_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Meteoro\IMPACTOS METEORITOS\METEORITO_IMPACTO_02		384064
+	574056836	DESINTEGRA_11	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\DESINTEGRA_11_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo grande muere\monstruo grande muere 2\DESINTEGRA_11		257076
 	592637744	stop_time	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\stop_time_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Misc\stop_time		682196
+	612737135	torre_crece_4ok	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_4ok_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece\torre_crece_normal\torre_crece_4ok		234304
+	620030947	BICHO_MUERE_8	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\BICHO_MUERE_8_DC062C20.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo chico muere\BICHO_MUERE_8		96064
+	620696008	METEORITO_NO	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\METEORITO_NO_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Meteoro\METEORITO_NO		29824
+	622280787	METEORITO_IMPACTO_06	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\METEORITO_IMPACTO_06_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Meteoro\IMPACTOS METEORITOS\METEORITO_IMPACTO_06		384064
+	633198458	drone hadas	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\drone hadas_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hada\hadas_off\drone hadas		5393876
+	637523977	METEORITO_IMPACTO_03	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\METEORITO_IMPACTO_03_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Meteoro\IMPACTOS METEORITOS\METEORITO_IMPACTO_03		384064
+	649308064	MUERE_ACUOSO_5	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\MUERE_ACUOSO_5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo grande muere\monstruo grande muere 1\MUERE_ACUOSO_5		218566
+	656381316	DESINTEGRA_10	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\DESINTEGRA_10_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo grande muere\monstruo grande muere 2\DESINTEGRA_10		259148
+	669044523	torre_stomp_a	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\TORRE_CRECE\torre_stomp_a_C477CC9C.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece_stomp\stomp_1\torre_stomp_a		176076
+	676958774	DESINTEGRA_7	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\DESINTEGRA_7_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo grande muere\monstruo grande muere 2\DESINTEGRA_7		160846
+	684904917	CLICK_UI	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\CLICK_UI_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu\CLICK_UI		311360
+	694143832	CAMPANMITAS_DISPARO_TORRE	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\CAMPANMITAS_DISPARO_TORRE_9B24DC43.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre_dispara\campanta_lanzamiento_random\CAMPANMITAS_DISPARO_TORRE		157088
+	702351323	BUBBLE_OUT_PAUSA	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\BUBBLE_OUT_PAUSA_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\CORE\Pausa\BUBBLE_OUT_PAUSA		269376
+	705092290	METEORITO_IMPACTO_08	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\METEORITO_IMPACTO_08_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Meteoro\ULTIMOS METEORITOS\METEORITO_IMPACTO_08		384064
+	705547818	MUERE_ACUOSO_6	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\MUERE_ACUOSO_6_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo grande muere\monstruo grande muere 1\MUERE_ACUOSO_6		208304
+	744572997	torre_crece_agudo_005	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_agudo_005_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece\torre_crece_agudo\torre_crece_agudo_005		234304
+	751234450	MUERE_ACUOSO_3	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\MUERE_ACUOSO_3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo grande muere\monstruo grande muere 1\MUERE_ACUOSO_3		185964
+	751785874	torre_crece_final_rev-CTMT_03	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_final_rev-CTMT_03_BB7B0753.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece_final\torre_crece_final_rev-CTMT_03		129840
+	769723243	torre_crece_3ok	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_3ok_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece\torre_crece_normal\torre_crece_3ok		234304
+	775295884	torre_crece_agudo_004	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_agudo_004_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece\torre_crece_agudo\torre_crece_agudo_004		234304
+	783064102	METEORITO_IMPACTO_09	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\METEORITO_IMPACTO_09_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Meteoro\ULTIMOS METEORITOS\METEORITO_IMPACTO_09		384064
+	820423683	torre_stomp_b_02	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\TORRE_CRECE\torre_stomp_b_33D262FF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece_stomp\stomp_2\torre_stomp_b_02		169524
+	820514251	CLICK_OTRO	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\CLICK_OTRO_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Store\CLICK_OTRO		311360
+	832953756	pad gp	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\pad gp_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Gameplay\pad gp		7405896
+	833027481	MUERE_ACUOSO_2	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\MUERE_ACUOSO_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo grande muere\monstruo grande muere 1\MUERE_ACUOSO_2		259110
+	837138656	MUERE_ACUOSO_1	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\MUERE_ACUOSO_1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo grande muere\monstruo grande muere 1\MUERE_ACUOSO_1		304710
+	845732620	aleteo	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\aleteo_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hada\hadas_off\aleteo		3288788
+	850963501	hadas gritan1	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\hadas gritan1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Tutorial\hadas gritan\hadas gritan1		166528
+	853920192	ULTIMA HADA	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\ULTIMA HADA_EE5EE1AC.wem		\Actor-Mixer Hierarchy\Default Work Unit\Hada\ULTIMA HADA		682218
+	859411732	torre_crece_final_rev-CTMT_02	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_final_rev-CTMT_02_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre_no\torre_crece_final_rev-CTMT_02		140076
+	867613155	torre_crece_estira_004	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_estira_004_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece\torre_crece_estira\torre_crece_estira_004		117184
+	875952677	CLICK_UPGREAD_SI	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\CLICK_UPGREAD_SI_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Menu\CLICK_UPGREAD_SI		311360
+	889013392	torre_crece_estira_002	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_estira_002_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece\torre_crece_estira\torre_crece_estira_002		117184
+	902039345	torre_crece_1ok	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_1ok_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece\torre_crece_normal\torre_crece_1ok		234304
+	918580993	torre dispara	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre dispara_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre_dispara\torre dispara		187324
+	923214302	torre_crece_final_rev-CTMT_02	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_final_rev-CTMT_02_8B5E36EF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece_final\torre_crece_final_rev-CTMT_02		140076
+	924080857	moviemiento	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\moviemiento_D79FB2B7.wem		\Actor-Mixer Hierarchy\Default Work Unit\Gameplay\moviemiento		3283724
+	929666294	CAMPANMITAS_DISPARO_TORRE_02	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\CAMPANMITAS_DISPARO_TORRE_B928357A.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre_dispara\campanta_lanzamiento_random\CAMPANMITAS_DISPARO_TORRE_02		237228
+	951446561	mejora error	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\CARTOON-BONG-ELECTRONIC1_462260BA.wem		\Actor-Mixer Hierarchy\Default Work Unit\Store\mejora error		228572
+	961675042	METEORITO_IMPACTO_01	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\METEORITO_IMPACTO_01_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Meteoro\IMPACTOS METEORITOS\METEORITO_IMPACTO_01		384064
+	971491044	DESINTEGRA_4	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\DESINTEGRA_4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo grande muere\monstruo grande muere 2\DESINTEGRA_4		147750
+	975627648	BICHO_MUERE_1	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\BICHO_MUERE_1_879F04AE.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo chico muere\BICHO_MUERE_1		96064
+	987875714	torre_crece_estira_005	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_estira_005_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece\torre_crece_estira\torre_crece_estira_005		117184
+	1024394609	torre_crece_5ok	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_5ok_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece\torre_crece_normal\torre_crece_5ok		234304
+	1028468002	LANZA_METEORO	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\LANZA_METEORO_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Meteoro\LANZA_METEORO		656608
+	1029237557	torre_crece_estira_001	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\torre_crece_estira_001_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece\torre_crece_estira\torre_crece_estira_001		117184
+	1033326801	DESINTEGRA_2	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\DESINTEGRA_2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Monstruos\monstruo grande muere\monstruo grande muere 2\DESINTEGRA_2		138804
+	1052125154	torre_stomp_b_03	F:\Frank\Proyectos Unity\Fee\Fee_WwiseProject\.cache\Windows\SFX\TORRE_CRECE\torre_stomp_b_A0802A38.wem		\Actor-Mixer Hierarchy\Default Work Unit\Poderes\Torre\torre crece\torre_crece\torre_crece_stomp\stomp_2\torre_stomp_b_03		167884
 

@@ -54,4 +54,10 @@ MonoBehaviour:
   upgradePoints: 500
   initialPoints: 500
   resetToInitialPoints: 1
+  fairyMaxSound: {fileID: 0}
+  fairySpeedSound: {fileID: 0}
+  meteorCooldownSound: {fileID: 0}
+  towerSound: {fileID: 0}
+  errorSound: {fileID: 0}
   allUpgrades: []
+  allUpgradesCurrentLevel: 

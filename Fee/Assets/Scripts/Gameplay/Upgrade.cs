@@ -58,7 +58,31 @@ public class Upgrade : MonoBehaviour
     public void BuyUpgrade()
     {
         animation.ExecuteCurves();
-        UpgradeSystem.Get().BuyUpgrade(id);
+        if(UpgradeSystem.Get().BuyUpgrade(id))
+        {
+            switch (id)
+            {
+                case 0:
+                    AkSoundEngine.PostEvent("upgrade_max", UpgradeSystem.Get().fairyMaxSound);
+                    break;
+                case 1:
+                    AkSoundEngine.PostEvent("upgrade_cooldown", UpgradeSystem.Get().meteorCooldownSound);
+                    break;
+                case 2:
+                    AkSoundEngine.PostEvent("upgrade_tower", UpgradeSystem.Get().towerSound);
+                    break;
+                case 3:
+                    AkSoundEngine.PostEvent("upgrade_speed", UpgradeSystem.Get().fairySpeedSound);
+                    break;
+                default:
+                    break;
+            }
+            
+        }
+        else
+        {
+            AkSoundEngine.PostEvent("upgrade_error", UpgradeSystem.Get().errorSound);
+        }
         if(OnUpgradePurcharsed != null)
         {
             OnUpgradePurcharsed(id);

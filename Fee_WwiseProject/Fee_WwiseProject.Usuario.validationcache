@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ValidationCache Version="1" SchemaVersion="94">
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Actor-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1574681898" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Actor-Mixer Hierarchy\Torre CRECE.wwu" DateLow="1574712405" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Attenuations\Default Work Unit.wwu" DateLow="1574517092" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Audio Devices\Default Work Unit.wwu" DateLow="1574517096" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Control Surface Sessions\Default Work Unit.wwu" DateLow="1574517096" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Conversion Settings\Default Work Unit.wwu" DateLow="1574517096" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Conversion Settings\Factory Conversion Settings.wwu" DateLow="1574517096" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Dynamic Dialogue\Default Work Unit.wwu" DateLow="1574517096" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Effects\Default Work Unit.wwu" DateLow="1574517096" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Effects\Factory Effects.wwu" DateLow="1574517096" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Events\Default Work Unit.wwu" DateLow="1574681898" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Fee_WwiseProject.Usuario.wsettings" DateLow="1574712414" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Fee_WwiseProject.wproj" DateLow="1574544942" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Game Parameters\Default Work Unit.wwu" DateLow="1574517096" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Interactive Music Hierarchy\Default Work Unit.wwu" DateLow="1574517096" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Master-Mixer Hierarchy\Default Work Unit.wwu" DateLow="1574517098" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Mixing Sessions\Default Work Unit.wwu" DateLow="1574517098" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Modulators\Default Work Unit.wwu" DateLow="1574517098" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Presets\Default Work Unit.wwu" DateLow="1574517098" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Queries\Default Work Unit.wwu" DateLow="1574517098" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Queries\Factory Queries.wwu" DateLow="1574517100" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\SoundBanks\Default Work Unit.wwu" DateLow="1574547588" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Soundcaster Sessions\Default Work Unit.wwu" DateLow="1574517100" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\States\Default Work Unit.wwu" DateLow="1574517100" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Switches\Default Work Unit.wwu" DateLow="1574517100" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Triggers\Default Work Unit.wwu" DateLow="1574517100" DateHigh="0"/>
+	<ValidationCacheItem File="F:\FEE\Fee_WwiseProject\Virtual Acoustics\Default Work Unit.wwu" DateLow="1574517100" DateHigh="0"/>
+</ValidationCache>

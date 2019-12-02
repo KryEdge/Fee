@@ -15,6 +15,9 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
     public LayerMask deleteTurretMask;
     public float fireRate;
 
+    [Header("Sound Settings")]
+    public GameObject turretUnavailableSound;
+
     [Header("Assign Components/GameObjects")]
     public Button turretButton;
     public GameObject turretTemplate;
@@ -82,6 +85,16 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                         {
                             Spawn();
                         }
+                        else
+                        {
+                            //turretUnavailableSound
+                            AkSoundEngine.PostEvent("torre_no", turretUnavailableSound);
+                        }
+                    }
+                    else if (!turretProperties.canBePlaced || !turretProperties.isInTurretZone)
+                    {
+                        AkSoundEngine.PostEvent("torre_no", turretUnavailableSound);
+                        Debug.Log("CANT SPAWN");
                     }
                 }
 
@@ -141,6 +154,11 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                     }
 
                     //newTurretPreview.SetActive(true);
+                }
+                else
+                {
+                    AkSoundEngine.PostEvent("torre_no", turretUnavailableSound);
+                    Debug.Log("CANT SPAWN, MAX TOWERS");
                 }
 
             }

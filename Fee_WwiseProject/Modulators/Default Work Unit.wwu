@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{33044CA5-ED01-4F63-8637-B98402C0725D}" SchemaVersion="94">
 	<Modulators>
-		<WorkUnit Name="Default Work Unit" ID="{33044CA5-ED01-4F63-8637-B98402C0725D}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{33044CA5-ED01-4F63-8637-B98402C0725D}" PersistMode="Standalone">
+			<ChildrenList>
+				<ModulatorEnvelope Name="env_movimiento" ID="{40592E11-BA7A-4299-9BCD-1D147B19CB2E}" ShortID="652393429">
+					<PropertyList>
+						<Property Name="EnvelopeAutoRelease" Type="bool" Value="True"/>
+						<Property Name="EnvelopeSustainTime" Type="Real64" Value="0.5"/>
+					</PropertyList>
+				</ModulatorEnvelope>
+			</ChildrenList>
+		</WorkUnit>
 	</Modulators>
 </WwiseDocument>

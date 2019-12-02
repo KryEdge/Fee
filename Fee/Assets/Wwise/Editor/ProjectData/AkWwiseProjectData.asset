@@ -24,14 +24,14 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: cf2ff80c4790e94ca4855fed06cf6fbb
     GuidInternal: 
-    m_lastTime: -8586270897874775808
+    m_lastTime: -8586263716883241388
     List: []
   BankWwu:
   - PhysicalPath: SoundBanks\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: 456adf9fb1fe3d42836ff91fbb2e0970
     GuidInternal: 
-    m_lastTime: -8586270592959591391
+    m_lastTime: -8586263782014381368
     List:
     - name: Fee
       guid: 68fbaf86f3633d4db9807c46dc074386
@@ -47,7 +47,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 6ed6bf77b60bea468d4045e323f8b368
     GuidInternal: 
-    m_lastTime: -8586270897894775808
+    m_lastTime: -8586265481475884088
     List:
     - name: click_creditos
       guid: ee23f821c7e95a4399c042262b8a0379
@@ -59,8 +59,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\click_creditos
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1621333
+      minDuration: 1621333
     - name: click_menu_config
       guid: f158a089b60dce49ba528589ca69cc56
       id: 1649166080
@@ -71,8 +71,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\click_menu_config
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1621333
+      minDuration: 1621333
     - name: click_play
       guid: 93f3e746b62fde4da6a9e16d54828d1b
       id: 3215021356
@@ -83,8 +83,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\click_play
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1621333
+      minDuration: 1621333
     - name: click_return
       guid: e4864471dd01b7469a7f9cf0776b1f12
       id: 2040598684
@@ -95,8 +95,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\click_return
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1621333
+      minDuration: 1621333
     - name: click_slide_music
       guid: e17be733ba60df438aad33bce22d6256
       id: 50850321
@@ -107,8 +107,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\click_slide_music
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: click_slide_sfx
       guid: 9178d41248993440a9818d3e0139c0cd
       id: 1435730245
@@ -119,8 +119,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\click_slide_sfx
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: click_tutorial
       guid: 2c651f6bd5f94245aaf6419bb22d0a44
       id: 1908695012
@@ -131,8 +131,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\click_tutorial
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1621333
+      minDuration: 1621333
     - name: gema_destroy
       guid: eaccb2a0ad10624d8f037903254c1364
       id: 3358194472
@@ -143,8 +143,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\gema_destroy
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: gema_recolectar
       guid: 2aff0dd96c0d57489cfe1bbf810b70ad
       id: 584506678
@@ -155,8 +155,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\gema_recolectar
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1938073
+      minDuration: 1938073
     - name: gema_spawn
       guid: 5958898a17daff46bffadc1eefb1f0fb
       id: 2671449479
@@ -167,8 +167,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\gema_spawn
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1691723
+      minDuration: 1691723
     - name: hada_muere_off
       guid: bfd480d15e48da4eb6f9180b35bf2d3f
       id: 3468452118
@@ -179,8 +179,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\hada_muere_off
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: hada_muere_on
       guid: 164737565e45c046a2b0adff30042ea8
       id: 3325083352
@@ -191,8 +191,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\hada_muere_on
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: hada_off
       guid: e86ba9401ad29740a6c7cdbfaa74623b
       id: 3294376219
@@ -227,8 +227,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\hada_ultima
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 7105772
+      minDuration: 7105772
     - name: high_score
       guid: 19c02753f4358248bcc070e6cfd6006e
       id: 140795258
@@ -239,8 +239,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\high_score
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: inicia_gameplay
       guid: c6767c400179c144815c78256587a5c9
       id: 4285533329
@@ -263,8 +263,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\inicia_juego
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: inicia_menu
       guid: 0d048d12f3d3674ab1434d711d9763dc
       id: 928907744
@@ -275,8 +275,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\inicia_menu
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 50296780
+      minDuration: 50296780
     - name: inicia_store
       guid: 19dc4aa7a340c64b828372e9d5678397
       id: 562689720
@@ -287,8 +287,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\inicia_store
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: menu_warning
       guid: e9337f656e25fc4c92841f928313432b
       id: 3936476221
@@ -299,8 +299,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\menu_warning
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: meteoro_cooldown
       guid: f746e6f4c2ad7f4da4dd16fb4370c0b9
       id: 4233466012
@@ -311,8 +311,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\meteoro_cooldown
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: meteoro_impacto
       guid: 85d332471f886d44919dcd8ae27151c9
       id: 3371197844
@@ -323,8 +323,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\meteoro_impacto
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 2000000
+      minDuration: 2000000
     - name: meteoro_lanza
       guid: 3f923afb77363a49b68be270ba8ce0f1
       id: 3111476387
@@ -335,8 +335,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\meteoro_lanza
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 3664929
+      minDuration: 3190507
     - name: meteoro_no
       guid: b7b3be06789c1d4689bd79f21e2ca10e
       id: 95853146
@@ -347,8 +347,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\meteoro_no
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 332250
+      minDuration: 289240
     - name: meteoro_ultimo
       guid: db99da59966d874aa73179dbea2359ff
       id: 651177697
@@ -359,8 +359,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\meteoro_ultimo
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 2000000
+      minDuration: 2000000
     - name: monstruo_1_anda
       guid: c03b7b941f59054d8c65a6f9f7c10389
       id: 1356379025
@@ -371,8 +371,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\monstruo_1_anda
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: monstruo_1_come
       guid: 30487237426a1e4ea5e0fe03296dc1e4
       id: 2113955673
@@ -383,8 +383,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\monstruo_1_come
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: monstruo_1_muere_meteoro
       guid: 619c691f452efe4ab6f9745b0f431675
       id: 1255896401
@@ -395,8 +395,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\monstruo_1_muere_meteoro
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 3244979
+      minDuration: 1936458
     - name: monstruo_1_muere_torre
       guid: 8f94bd0fb390384da95648013886ea2d
       id: 399902878
@@ -407,8 +407,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\monstruo_1_muere_torre
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 3244979
+      minDuration: 1936458
     - name: monstruo_1_salta
       guid: d48dc0fdb6f1ca4caf1cef9b6c3cb809
       id: 619167998
@@ -419,8 +419,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\monstruo_1_salta
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: monstruo_2_anda
       guid: c0db3caa0e541f42a6643685171b7057
       id: 3922984296
@@ -431,8 +431,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\monstruo_2_anda
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: monstruo_2_come
       guid: 9edb4f7d7662654199dd9b31acfdbe6e
       id: 3387050088
@@ -443,8 +443,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\monstruo_2_come
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: monstruo_2_muere_meteoro
       guid: 6221e7a7696f31459bdf9fa592f86545
       id: 4203668362
@@ -455,8 +455,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\monstruo_2_muere_meteoro
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1000000
+      minDuration: 1000000
     - name: monstruo_2_muere_torre
       guid: 3b4dfa3348c15b4abb879afe55b05ab5
       id: 3431978465
@@ -467,8 +467,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\monstruo_2_muere_torre
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1000000
+      minDuration: 1000000
     - name: monstruo_2_salta
       guid: 08af7c879097ab4d832965feeadc2b0f
       id: 153011945
@@ -479,8 +479,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\monstruo_2_salta
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: movimiento_camara
       guid: f09f3c6f02b44d4c9c53db6c5dedf976
       id: 2901777212
@@ -502,9 +502,9 @@ MonoBehaviour:
       - ElementName: pausa_off
         ObjectType: 3
       Path: Default Work Unit\pausa_off
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxAttenuation: 100000000
+      maxDuration: 1402667
+      minDuration: 1402667
     - name: pausa_on
       guid: f4233c9247148f45aba16d15bd9f64c0
       id: 549173535
@@ -515,8 +515,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\pausa_on
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1713333
+      minDuration: 1713333
     - name: perder
       guid: 96297cf6b31499489ea51ad939399cb1
       id: 2433235219
@@ -527,8 +527,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\perder
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: resume_time
       guid: 7ea6e532dedb944287d696b27ef2b7cb
       id: 3793068968
@@ -551,8 +551,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\reto_completado
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: reto_nuevo
       guid: 98e9fbdac494be41b0ce5e2084b71c92
       id: 3133431337
@@ -563,8 +563,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\reto_nuevo
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: stop_time
       guid: c630e4df15b7c04ab413129bbc0a26d3
       id: 2019477819
@@ -587,8 +587,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\swap_tool
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: torre_cooldown
       guid: 60ae9453ff94824a8e76a6eba6db2b6b
       id: 4051704169
@@ -599,8 +599,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\torre_cooldown
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: torre_idle
       guid: 45df0df6fc10ed4099440cbc369e0985
       id: 1375254148
@@ -611,8 +611,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\torre_idle
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: torre_impacto
       guid: aa36c0c86a4ad9469cae77a89797eef0
       id: 1681819999
@@ -623,8 +623,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\torre_impacto
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1236282
+      minDuration: 1005793
     - name: torre_instalar
       guid: addf1ba2c9604e4788f1528cafde0cab
       id: 1618992664
@@ -635,8 +635,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\torre_instalar
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 2049229
+      minDuration: 1988437
     - name: torre_lanza
       guid: 396655721ac4534eb2789c0acbcfa129
       id: 144956508
@@ -647,8 +647,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\torre_lanza
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: torre_no
       guid: acce2cf29420f1488d2500f590e86b00
       id: 1296145459
@@ -659,8 +659,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\torre_no
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 729229
+      minDuration: 675917
     - name: tutorial_hada
       guid: 81fcfb620f500e4d8083eea40d3806a1
       id: 2401027546
@@ -671,8 +671,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\tutorial_hada
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: tutorial_hada_grito
       guid: 34e61fae5b94f0429918b7950eae431d
       id: 920624808
@@ -683,20 +683,20 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\tutorial_hada_grito
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: tutorial_vineta
+      maxDuration: 1356523
+      minDuration: 1356523
+    - name: tutorial_vinieta
       guid: 192b58faedd06c4eb512c24951e5f77e
-      id: 2228478387
+      id: 1920671406
       PathAndIcons:
       - ElementName: Default Work Unit
         ObjectType: 12
-      - ElementName: tutorial_vineta
+      - ElementName: tutorial_vinieta
         ObjectType: 3
-      Path: Default Work Unit\tutorial_vineta
+      Path: Default Work Unit\tutorial_vinieta
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: upgrade_cooldown
       guid: c1bb85d704b3634199e3a2ef51b6e1fd
       id: 1387795237
@@ -707,8 +707,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\upgrade_cooldown
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0
+      minDuration: 0
     - name: upgrade_error
       guid: 2c60e9e8c56b2b4e804714b22dced16b
       id: 2345999712
@@ -719,8 +719,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\upgrade_error
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1621333
+      minDuration: 1621333
     - name: upgrade_max
       guid: fb09c656a7b54543a9b7ef7bd7bb6597
       id: 2310493528
@@ -731,8 +731,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\upgrade_max
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 368646
+      minDuration: 368646
     - name: upgrade_speed
       guid: 58d63bf4366a2d4ea4502814c1fcf84a
       id: 610083251
@@ -743,8 +743,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\upgrade_speed
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1621333
+      minDuration: 1621333
     - name: upgrade_tower
       guid: ee66efa9e9bcd241b31a48988b52305a
       id: 1423689617
@@ -755,8 +755,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\upgrade_tower
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 1621333
+      minDuration: 1621333
     - name: wave_inicia
       guid: 7a9ec98cea34a7409b63615301afffe8
       id: 2421658314
@@ -767,8 +767,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\wave_inicia
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 9011556
+      minDuration: 9011556
     - name: wave_termina
       guid: a05540f70047ec44ab39927eb2a9ce4b
       id: 1567197803
@@ -779,15 +779,33 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\wave_termina
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 8930115
+      minDuration: 8930115
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     ParentPhysicalPath: 
     guid: a8f8a9f72bdcd44299c70d54301168f3
     GuidInternal: 
-    m_lastTime: -8586270897894775808
-    List: []
+    m_lastTime: -8586263726594437348
+    List:
+    - name: music_volume
+      guid: 3039c495ba9e3b42889918d0e2f7c431
+      id: 1006694123
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: music_volume
+        ObjectType: 13
+      Path: Default Work Unit\music_volume
+    - name: sfx_volume
+      guid: 7de4039b1551ff40b83bec5cddca7bd9
+      id: 1564184899
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: sfx_volume
+        ObjectType: 13
+      Path: Default Work Unit\sfx_volume
   StateWwu:
   - PhysicalPath: States\Default Work Unit.wwu
     ParentPhysicalPath: 
@@ -811,5 +829,7 @@ MonoBehaviour:
     List: []
   ExpandedItems:
   - /Fee_WwiseProject
+  - /Fee_WwiseProject/Events
+  - /Fee_WwiseProject/Events/Default Work Unit
   autoPopulateEnabled: 1
   CurrentPluginConfig: 

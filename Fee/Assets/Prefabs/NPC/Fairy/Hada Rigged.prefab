@@ -2579,7 +2579,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialWaypoint: {fileID: 0}
   initialState: 1
-  invincibilityMaxTime: 16
   speed: 8
   runSpeedMultiplier: 1.8
   normalColor: {r: 0.054545403, g: 1, b: 0, a: 1}
@@ -2589,6 +2588,7 @@ MonoBehaviour:
   radius: {fileID: 1720810396}
   offset: {fileID: 1888941821}
   animator: {fileID: 0}
+  distanceFromPlanet: 0
   currentState: 0
 --- !u!114 &2140015893
 MonoBehaviour:
@@ -2648,7 +2648,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 93d71cc7ee940dd4bbcbca5bad19d193,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 93d71cc7ee940dd4bbcbca5bad19d193,
         type: 3}

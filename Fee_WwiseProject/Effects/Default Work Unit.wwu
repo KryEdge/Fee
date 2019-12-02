@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{76AB4637-F11E-413F-9B9A-F8B507926DA3}" SchemaVersion="94">
 	<Effects>
-		<WorkUnit Name="Default Work Unit" ID="{76AB4637-F11E-413F-9B9A-F8B507926DA3}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{76AB4637-F11E-413F-9B9A-F8B507926DA3}" PersistMode="Standalone">
+			<ChildrenList>
+				<Effect Name="rapido" ID="{25CA0FC6-6C93-4482-8155-A1E8B5D24D13}" PluginName="Wwise Time Stretch" CompanyID="0" PluginID="130" PluginType="3">
+					<PropertyList>
+						<Property Name="TimeStretch" Type="Real32" Value="165"/>
+						<Property Name="TimeStretchRandom" Type="Real32" Value="200"/>
+						<Property Name="WindowSize" Type="int32" Value="3840"/>
+					</PropertyList>
+				</Effect>
+			</ChildrenList>
+		</WorkUnit>
 	</Effects>
 </WwiseDocument>
