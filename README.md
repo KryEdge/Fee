@@ -24,9 +24,9 @@ This is a game (Work in Progress) developed by students from <a href="https://ww
 - **Franco Vega** - *Programming* - <a href="https://twitter.com/Frankvega1"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/twitter.svg" /><a href="https://github.com/frankvega2010"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a> <a href="https://frankvega.itch.io/"><img height="16" width="16" src="https://unpkg.com/simple-icons@1.20.0/icons/itch-dot-io.svg" /></a>
 - **Felipe Cittadino** - *Art* - <a href="https://www.artstation.com/felipecittadino"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/artstation.svg" /></a>
 - **Jessica Jiménez Molina** - *Art*
-- **Martín Zguros** - *Art*
-- **Adam Sosinski** - *Audio*
-- **Luis Molina** - *Audio*
+- **Martín Zguros** - *Art* - <a href="https://alexz99.itch.io/"><img height="16" width="16" src="https://unpkg.com/simple-icons@1.20.0/icons/itch-dot-io.svg" /></a> <a href="https://www.artstation.com/alexz_99"><img height="16" width="16" src="https://unpkg.com/simple-icons@1.20.0/icons/artstation.svg" /></a> <a href="https://www.behance.net/alexZ_99/"><img height="16" width="16" src="https://unpkg.com/simple-icons@1.20.0/icons/behance.svg" /></a>
+- **Adam Sosinski** - *Audio* - <a href="https://www.linkedin.com/in/adam-sosinski-451229156/"><img height="16" width="16" src="https://unpkg.com/simple-icons@1.20.0/icons/linkedin.svg" /></a>
+- **Luis Molina** - *Audio* - <a href="https://www.instagram.com/zombielusounds/"><img height="16" width="16" src="https://unpkg.com/simple-icons@1.20.0/icons/instagram.svg" /></a> <a href="https://www.youtube.com/channel/UCGrC0hsAPXotbWJD531wwNQ"><img height="16" width="16" src="https://unpkg.com/simple-icons@1.20.0/icons/youtube.svg" /></a>
 - **Tomás Carceglia** - *Testing* - <a href="https://twitter.com/KryEdge"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/twitter.svg" /> <a href="https://kryedge.itch.io/"><img height="16" width="16" src="https://unpkg.com/simple-icons@1.20.0/icons/itch-dot-io.svg" /></a>
 - **Leonardo Fernandez** - *Testing* - <a href="https://github.com/Leeoofeer"><img height="16" width="16" src="https://unpkg.com/simple-icons@latest/icons/github.svg" /></a>
 
