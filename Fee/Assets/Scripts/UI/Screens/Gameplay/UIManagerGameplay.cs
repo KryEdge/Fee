@@ -143,7 +143,8 @@ public class UIManagerGameplay : MonoBehaviour
         
         if(towersText)
         {
-            towersText.text = TurretSpawner.Get().spawnedTurrets.Count + "/" + GameManager.Get().maxTurrets;
+            //towersText.text = TurretSpawner.Get().spawnedTurrets.Count + "/" + GameManager.Get().maxTurrets;
+            towersText.text = (GameManager.Get().maxTurrets - TurretSpawner.Get().spawnedTurrets.Count) + "/" + GameManager.Get().maxTurrets;
         }
         
         if(scoreText)
