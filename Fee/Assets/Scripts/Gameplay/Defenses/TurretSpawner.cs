@@ -8,6 +8,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
     public delegate void OnSpawnerAction();
     public OnSpawnerAction OnSpawnerSpawnTurret;
     public OnSpawnerAction OnSpawnerDeleteTurret;
+    public static OnSpawnerAction OnSpawnerSwitchTool;
 
     [Header("General Settings")]
     public KeyCode activateKey;
@@ -65,6 +66,11 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
             if (Input.GetKeyDown(activateKey))
             {
                 SwitchPreview();
+
+                if(OnSpawnerSwitchTool != null)
+                {
+                    OnSpawnerSwitchTool();
+                }
             }
 
             if (Input.GetMouseButtonDown(2))

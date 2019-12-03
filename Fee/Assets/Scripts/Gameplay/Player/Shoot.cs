@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class Shoot : MonoBehaviour
 {
+    public delegate void OnShootAction();
+    public static OnShootAction OnShootMeteor;
+
     [Header("General Settings")]
     public KeyCode activateKey;
     public float fireRate;
@@ -126,6 +129,11 @@ public class Shoot : MonoBehaviour
                         newBullet.SetActive(true);
                         couldShoot = true;
                         shootOnce = true;
+
+                        if(OnShootMeteor != null)
+                        {
+                            OnShootMeteor();
+                        }
 
                         AkSoundEngine.PostEvent("meteoro_lanza", shootMeteorSound);
                         Debug.Log("METEOR SHOOT");

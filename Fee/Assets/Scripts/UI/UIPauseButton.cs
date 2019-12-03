@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UIPauseButton : MonoBehaviour
 {
     [Header("General Settings")]
-    public TutorialPages tutorial;
+    //public TutorialPages tutorial;
     public GameObject pauseMenu;
     public GameObject warningMenu;
     public GameObject warningMenu2;
@@ -46,7 +46,7 @@ public class UIPauseButton : MonoBehaviour
 
         //TutorialButton();
 
-        if(!isSecondaryPauseButton)
+        /*if(!isSecondaryPauseButton)
         {
             if (tutorial)
             {
@@ -58,7 +58,7 @@ public class UIPauseButton : MonoBehaviour
                     PauseGame(true);
                 }
             }
-        }
+        }*/
 
         //AkSoundEngine.PostEvent("pausa_off", pauseOFF);
     }
@@ -68,17 +68,11 @@ public class UIPauseButton : MonoBehaviour
     {
         if (!warningMenu.activeSelf && !warningMenu2.activeSelf)
         {
-            if(tutorial)
+            if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
             {
-                if(!tutorial.isCurrentlyOpen)
+                if (!isSecondaryPauseButton)
                 {
-                    if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
-                    {
-                        if (!isSecondaryPauseButton)
-                        {
-                            PauseGame();
-                        }
-                    }
+                    PauseGame();
                 }
             }
         }       
@@ -216,13 +210,13 @@ public class UIPauseButton : MonoBehaviour
 
     private void OnDestroy()
     {
-        tutorial.OnTutorialFinished -= ForcedUnpause;
+        //tutorial.OnTutorialFinished -= ForcedUnpause;
     }
 
-    public void ShowTutorialOnPause()
+    /*public void ShowTutorialOnPause()
     {
         Debug.Log("TUTORIAL BUTTON");
-        tutorial.OpenTutorial();
+        //tutorial.OpenTutorial();
         PauseGame(true);
-    }
+    }*/
 }
