@@ -22,11 +22,7 @@ public class CameraMovement : MonoBehaviour
     public float distanceToStop;
     public float distance;
     public bool canTeleport;
-    public AnimationCurve curve;
-    public float curveSpeed;
-    public float curveTime;
     private Vector3 teleportPosition;
-    private bool doOnce;
 
     [Header("Fairy Follow")]
     public float followTime;
@@ -174,20 +170,13 @@ public class CameraMovement : MonoBehaviour
         if(canTeleport)
         {
             Vector3 direction = (teleportPosition - transform.position).normalized;
-            rig.MovePosition(rig.position + direction * teleportSpeed * curveSpeed * Time.deltaTime);
+            rig.MovePosition(rig.position + direction * teleportSpeed * Time.deltaTime);
 
             distance = Vector3.Distance(transform.position, teleportPosition);
-
-            /*if(!doOnce)
-            {
-                curveTime = distance * 0.05f;
-                doOnce = true;
-            }*/
 
             if (distance <= distanceToStop)
             {
                 canTeleport = false;
-                //doOnce = false;
             }
         }
         else
@@ -230,33 +219,8 @@ public class CameraMovement : MonoBehaviour
         {
             if (FlockManager.fairies[0])
             {
-                //gameObject.transform.position = FlockManager.fairies[0].transform.position + FlockManager.fairies[0].transform.up * 2.0f;
                 teleportPosition = FlockManager.fairies[0].transform.position + FlockManager.fairies[0].transform.up * 2.0f;
-                StartCoroutine(TeleportCurve());
             }
-        }
-    }
-
-    IEnumerator TeleportCurve()
-    {
-        Debug.Log("reset");
-        float t = 0;
-        curveSpeed = 0;
-
-        while (t <= curveTime)
-        {
-            t += Time.deltaTime;
-
-            float eval = curve.Evaluate(t / curveTime);
-
-            //rectTransforms[i].localScale = Vector3.one * eval;
-            curveSpeed = eval;
-            if(curveSpeed <= 0)
-            {
-                canTeleport = false;
-            }
-
-            yield return null;
         }
     }
 }
