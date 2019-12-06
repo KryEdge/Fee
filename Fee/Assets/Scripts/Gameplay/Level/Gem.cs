@@ -15,6 +15,8 @@ public class Gem : MonoBehaviour
 
     [Header("Sound Settings")]
     public GameObject gemCollectSound;
+    public GameObject spawnSound;
+    public GameObject destroySound;
 
     [Header("General Settings")]
     public float lifespan;
@@ -39,6 +41,7 @@ public class Gem : MonoBehaviour
     private Rigidbody rig;
     private bool isCollected;
     private bool isFullyCollected;
+    private bool doOnce;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +52,7 @@ public class Gem : MonoBehaviour
         body = GetComponent<FauxGravityBody>();
         gemCollider = GetComponent<BoxCollider>();
         body.attractor = planet;
+        AkSoundEngine.PostEvent("gema_spawn", spawnSound);
     }
 
     // Update is called once per frame
@@ -92,7 +96,11 @@ public class Gem : MonoBehaviour
         }
         else
         {
-            lifespanTimer += Time.deltaTime;
+            if (!doOnce)
+            {
+                lifespanTimer += Time.deltaTime;
+            }
+                
 
             if(lifespanTimer >= lifespan)
             {
@@ -113,6 +121,12 @@ public class Gem : MonoBehaviour
                     {
                         Destroy(gameObject);
                     }
+                }
+
+                if (!doOnce)
+                {
+                    AkSoundEngine.PostEvent("gema_destroy", destroySound);
+                    doOnce = true;
                 }
             }
 

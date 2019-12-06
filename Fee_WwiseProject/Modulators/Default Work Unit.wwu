@@ -6,9 +6,11 @@
 				<ModulatorEnvelope Name="env_movimiento" ID="{40592E11-BA7A-4299-9BCD-1D147B19CB2E}" ShortID="652393429">
 					<PropertyList>
 						<Property Name="EnvelopeAutoRelease" Type="bool" Value="True"/>
-						<Property Name="EnvelopeSustainTime" Type="Real64" Value="0.5"/>
+						<Property Name="EnvelopeReleaseTime" Type="Real64" Value="1"/>
+						<Property Name="EnvelopeSustainTime" Type="Real64" Value="1"/>
 					</PropertyList>
 				</ModulatorEnvelope>
+				<ModulatorTime Name="mundo movimientop" ID="{B02906B1-549D-4945-B27B-C4A0DFF4BAF9}" ShortID="332173432"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Modulators>

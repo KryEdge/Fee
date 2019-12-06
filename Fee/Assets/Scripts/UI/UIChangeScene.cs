@@ -24,6 +24,12 @@ public class UIChangeScene : MonoBehaviour
                 upgrades.CleanList();
             }
         }
+        else if (SceneManager.GetActiveScene().name == "Upgrade Screen")
+        {
+            AkSoundEngine.StopAll();
+        }
+
+
 
         if (sceneName == "Gameplay")
         {
@@ -37,6 +43,28 @@ public class UIChangeScene : MonoBehaviour
 
             LoaderManager.Get().LoadScene(sceneName);
                 UILoadingScreen.Get().SetVisible(true);
+        }
+        else if (sceneName == "Upgrade Screen")
+        {
+            AkSoundEngine.StopAll();
+
+            UpgradeSystem upgrades = UpgradeSystem.Get();
+
+            if (upgrades)
+            {
+                upgrades.CleanList();
+            }
+
+            int goToTutorial = PlayerPrefs.GetInt("isFirstTimePlaying", 1);
+
+            if (goToTutorial == 1)
+            {
+                SceneManager.LoadScene("Tutorial");
+            }
+            else if (goToTutorial == 0)
+            {
+                SceneManager.LoadScene(sceneName);
+            }
         }
         else
         {
@@ -65,9 +93,15 @@ public class UIChangeScene : MonoBehaviour
 
             AkSoundEngine.StopAll();
         }
+        else if (SceneManager.GetActiveScene().name == "Upgrade Screen")
+        {
+            AkSoundEngine.StopAll();
+        }
 
         if (sceneName == "Upgrade Screen")
         {
+            AkSoundEngine.StopAll();
+
             UpgradeSystem upgrades = UpgradeSystem.Get();
 
             if(upgrades)

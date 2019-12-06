@@ -37,7 +37,9 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public float invincibilityTimer; // to game manager
 
     [Header("Sound Settings")]
+    public GameObject fairyLostSound;
     public GameObject lastFairySound;
+    public GameObject gameOverSound;
 
     [Header("Assign Components/GameObjects")]
     public TutorialPages tutorial;
@@ -228,11 +230,15 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
         {
             OnLevelGameOver();
         }
+
+        AkSoundEngine.PostEvent("perder", gameOverSound);
     }
 
     private void CheckFairies()
     {
-        if(currentFairies == 1)
+        AkSoundEngine.PostEvent("hada_muere_on", fairyLostSound);
+
+        if (currentFairies == 1)
         {
             if(OnLastFairyAlive != null)
             {

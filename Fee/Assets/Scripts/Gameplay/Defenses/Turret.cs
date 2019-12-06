@@ -20,6 +20,9 @@ public class Turret : MonoBehaviour
     public float exitDistance;
     public float distance = 0;
 
+    [Header("Sound Settings")]
+    public GameObject shootSound;
+
     [Header("Checking Variables")]
     public TurretZone zone;
     public List<GameObject> enteredZones;
@@ -152,6 +155,7 @@ public class Turret : MonoBehaviour
                     proy.target = currentTarget;
                     newProyectile.SetActive(true);
                     canShoot = false;
+                    AkSoundEngine.PostEvent("torre_lanza", shootSound);
                 }
             }
         }

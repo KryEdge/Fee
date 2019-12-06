@@ -12,6 +12,9 @@ public class Milestone : MonoBehaviour
     [Header("General Settings")]
     public MilestoneScriptableObject milestone;
 
+    [Header("Sound Settings")]
+    public GameObject completedSound;
+
     [Header("Assign Components")]
     public Text titleUI;
     public Text progressTextUI;
@@ -84,6 +87,7 @@ public class Milestone : MonoBehaviour
         if (progressBar.value >= 1)
         {
             milestone.isDone = true;
+            AkSoundEngine.PostEvent("reto_completado", completedSound);
         }
     }
 

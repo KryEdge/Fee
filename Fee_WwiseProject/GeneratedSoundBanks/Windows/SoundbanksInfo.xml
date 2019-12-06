@@ -22,61 +22,61 @@
 				<Event Id="2040598684" Name="click_return" ObjectPath="\Events\Default Work Unit\click_return" DurationType="OneShot" DurationMin="1.621333" DurationMax="1.621333"/>
 				<Event Id="50850321" Name="click_slide_music" ObjectPath="\Events\Default Work Unit\click_slide_music" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1435730245" Name="click_slide_sfx" ObjectPath="\Events\Default Work Unit\click_slide_sfx" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1908695012" Name="click_tutorial" ObjectPath="\Events\Default Work Unit\click_tutorial" DurationType="OneShot" DurationMin="1.621333" DurationMax="1.621333"/>
-				<Event Id="3358194472" Name="gema_destroy" ObjectPath="\Events\Default Work Unit\gema_destroy" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="584506678" Name="gema_recolectar" ObjectPath="\Events\Default Work Unit\gema_recolectar" DurationType="OneShot" DurationMin="1.938073" DurationMax="1.938073"/>
+				<Event Id="1908695012" Name="click_tutorial" ObjectPath="\Events\Default Work Unit\click_tutorial" DurationType="OneShot" DurationMin="2.000000" DurationMax="2.000000"/>
+				<Event Id="3358194472" Name="gema_destroy" ObjectPath="\Events\Default Work Unit\gema_destroy" DurationType="OneShot" DurationMin="1.345046" DurationMax="1.345046"/>
+				<Event Id="584506678" Name="gema_recolectar" ObjectPath="\Events\Default Work Unit\gema_recolectar" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.938073" DurationMax="1.938073"/>
 				<Event Id="2671449479" Name="gema_spawn" ObjectPath="\Events\Default Work Unit\gema_spawn" DurationType="OneShot" DurationMin="1.691723" DurationMax="1.691723"/>
 				<Event Id="3468452118" Name="hada_muere_off" ObjectPath="\Events\Default Work Unit\hada_muere_off" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="3325083352" Name="hada_muere_on" ObjectPath="\Events\Default Work Unit\hada_muere_on" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="3294376219" Name="hada_off" ObjectPath="\Events\Default Work Unit\hada_off" DurationType="Infinite"/>
-				<Event Id="1780689575" Name="hada_on" ObjectPath="\Events\Default Work Unit\hada_on" DurationType="Infinite"/>
-				<Event Id="3681351720" Name="hada_ultima" ObjectPath="\Events\Default Work Unit\hada_ultima" DurationType="OneShot" DurationMin="7.105772" DurationMax="7.105772"/>
-				<Event Id="140795258" Name="high_score" ObjectPath="\Events\Default Work Unit\high_score" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3325083352" Name="hada_muere_on" ObjectPath="\Events\Default Work Unit\hada_muere_on" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.982064" DurationMax="1.982064"/>
+				<Event Id="3294376219" Name="hada_off" ObjectPath="\Events\Default Work Unit\hada_off" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1780689575" Name="hada_on" ObjectPath="\Events\Default Work Unit\hada_on" MaxAttenuation="100.000000" DurationType="Infinite"/>
+				<Event Id="3681351720" Name="hada_ultima" ObjectPath="\Events\Default Work Unit\hada_ultima" DurationType="OneShot" DurationMin="7.016779" DurationMax="7.016779"/>
+				<Event Id="140795258" Name="high_score" ObjectPath="\Events\Default Work Unit\high_score" DurationType="OneShot" DurationMin="1.980000" DurationMax="1.980000"/>
 				<Event Id="4285533329" Name="inicia_gameplay" ObjectPath="\Events\Default Work Unit\inicia_gameplay" DurationType="Infinite"/>
 				<Event Id="1190877053" Name="inicia_juego" ObjectPath="\Events\Default Work Unit\inicia_juego" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="928907744" Name="inicia_menu" ObjectPath="\Events\Default Work Unit\inicia_menu" DurationType="OneShot" DurationMin="50.296780" DurationMax="50.296780"/>
-				<Event Id="562689720" Name="inicia_store" ObjectPath="\Events\Default Work Unit\inicia_store" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="3936476221" Name="menu_warning" ObjectPath="\Events\Default Work Unit\menu_warning" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="4233466012" Name="meteoro_cooldown" ObjectPath="\Events\Default Work Unit\meteoro_cooldown" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="3371197844" Name="meteoro_impacto" ObjectPath="\Events\Default Work Unit\meteoro_impacto" DurationType="OneShot" DurationMin="2.000000" DurationMax="2.000000"/>
-				<Event Id="3111476387" Name="meteoro_lanza" ObjectPath="\Events\Default Work Unit\meteoro_lanza" DurationType="OneShot" DurationMin="3.190507" DurationMax="3.664929"/>
-				<Event Id="95853146" Name="meteoro_no" ObjectPath="\Events\Default Work Unit\meteoro_no" DurationType="OneShot" DurationMin="0.289240" DurationMax="0.332250"/>
-				<Event Id="651177697" Name="meteoro_ultimo" ObjectPath="\Events\Default Work Unit\meteoro_ultimo" DurationType="OneShot" DurationMin="2.000000" DurationMax="2.000000"/>
+				<Event Id="928907744" Name="inicia_menu" ObjectPath="\Events\Default Work Unit\inicia_menu" DurationType="Infinite"/>
+				<Event Id="562689720" Name="inicia_store" ObjectPath="\Events\Default Work Unit\inicia_store" DurationType="Infinite"/>
+				<Event Id="3936476221" Name="menu_warning" ObjectPath="\Events\Default Work Unit\menu_warning" DurationType="OneShot" DurationMin="2.037333" DurationMax="2.037333"/>
+				<Event Id="4233466012" Name="meteoro_cooldown" ObjectPath="\Events\Default Work Unit\meteoro_cooldown" DurationType="OneShot" DurationMin="1.500000" DurationMax="1.500000"/>
+				<Event Id="3371197844" Name="meteoro_impacto" ObjectPath="\Events\Default Work Unit\meteoro_impacto" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="3111476387" Name="meteoro_lanza" ObjectPath="\Events\Default Work Unit\meteoro_lanza" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.399539" DurationMax="1.403494"/>
+				<Event Id="95853146" Name="meteoro_no" ObjectPath="\Events\Default Work Unit\meteoro_no" DurationType="OneShot" DurationMin="0.692766" DurationMax="0.692766"/>
+				<Event Id="651177697" Name="meteoro_ultimo" ObjectPath="\Events\Default Work Unit\meteoro_ultimo" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.000659" DurationMax="1.001978"/>
 				<Event Id="1356379025" Name="monstruo_1_anda" ObjectPath="\Events\Default Work Unit\monstruo_1_anda" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2113955673" Name="monstruo_1_come" ObjectPath="\Events\Default Work Unit\monstruo_1_come" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1255896401" Name="monstruo_1_muere_meteoro" ObjectPath="\Events\Default Work Unit\monstruo_1_muere_meteoro" DurationType="OneShot" DurationMin="1.936458" DurationMax="3.244979"/>
-				<Event Id="399902878" Name="monstruo_1_muere_torre" ObjectPath="\Events\Default Work Unit\monstruo_1_muere_torre" DurationType="OneShot" DurationMin="1.936458" DurationMax="3.244979"/>
+				<Event Id="1255896401" Name="monstruo_1_muere_meteoro" ObjectPath="\Events\Default Work Unit\monstruo_1_muere_meteoro" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.936458" DurationMax="2.085187"/>
+				<Event Id="399902878" Name="monstruo_1_muere_torre" ObjectPath="\Events\Default Work Unit\monstruo_1_muere_torre" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.936458" DurationMax="2.085187"/>
 				<Event Id="619167998" Name="monstruo_1_salta" ObjectPath="\Events\Default Work Unit\monstruo_1_salta" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3922984296" Name="monstruo_2_anda" ObjectPath="\Events\Default Work Unit\monstruo_2_anda" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3387050088" Name="monstruo_2_come" ObjectPath="\Events\Default Work Unit\monstruo_2_come" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="4203668362" Name="monstruo_2_muere_meteoro" ObjectPath="\Events\Default Work Unit\monstruo_2_muere_meteoro" DurationType="OneShot" DurationMin="1.000000" DurationMax="1.000000"/>
-				<Event Id="3431978465" Name="monstruo_2_muere_torre" ObjectPath="\Events\Default Work Unit\monstruo_2_muere_torre" DurationType="OneShot" DurationMin="1.000000" DurationMax="1.000000"/>
+				<Event Id="4203668362" Name="monstruo_2_muere_meteoro" ObjectPath="\Events\Default Work Unit\monstruo_2_muere_meteoro" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="0.943309" DurationMax="1.000000"/>
+				<Event Id="3431978465" Name="monstruo_2_muere_torre" ObjectPath="\Events\Default Work Unit\monstruo_2_muere_torre" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="0.943309" DurationMax="1.000000"/>
 				<Event Id="153011945" Name="monstruo_2_salta" ObjectPath="\Events\Default Work Unit\monstruo_2_salta" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2901777212" Name="movimiento_camara" ObjectPath="\Events\Default Work Unit\movimiento_camara" DurationType="Infinite"/>
 				<Event Id="2659475283" Name="pausa_off" ObjectPath="\Events\Default Work Unit\pausa_off" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.402667" DurationMax="1.402667"/>
-				<Event Id="549173535" Name="pausa_on" ObjectPath="\Events\Default Work Unit\pausa_on" DurationType="OneShot" DurationMin="1.713333" DurationMax="1.713333"/>
-				<Event Id="2433235219" Name="perder" ObjectPath="\Events\Default Work Unit\perder" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="549173535" Name="pausa_on" ObjectPath="\Events\Default Work Unit\pausa_on" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.713333" DurationMax="1.713333"/>
+				<Event Id="2433235219" Name="perder" ObjectPath="\Events\Default Work Unit\perder" DurationType="OneShot" DurationMin="46.551174" DurationMax="46.551174"/>
 				<Event Id="3793068968" Name="resume_time" ObjectPath="\Events\Default Work Unit\resume_time" DurationType="OneShot" DurationMin="1.668503" DurationMax="1.668503"/>
-				<Event Id="2717038862" Name="reto_completado" ObjectPath="\Events\Default Work Unit\reto_completado" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="3133431337" Name="reto_nuevo" ObjectPath="\Events\Default Work Unit\reto_nuevo" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2717038862" Name="reto_completado" ObjectPath="\Events\Default Work Unit\reto_completado" DurationType="OneShot" DurationMin="2.773421" DurationMax="2.773421"/>
+				<Event Id="3133431337" Name="reto_nuevo" ObjectPath="\Events\Default Work Unit\reto_nuevo" DurationType="OneShot" DurationMin="3.277458" DurationMax="3.277458"/>
 				<Event Id="2019477819" Name="stop_time" ObjectPath="\Events\Default Work Unit\stop_time" DurationType="OneShot" DurationMin="3.866961" DurationMax="3.866961"/>
-				<Event Id="2248768189" Name="swap_tool" ObjectPath="\Events\Default Work Unit\swap_tool" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="4051704169" Name="torre_cooldown" ObjectPath="\Events\Default Work Unit\torre_cooldown" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="2248768189" Name="swap_tool" ObjectPath="\Events\Default Work Unit\swap_tool" DurationType="OneShot" DurationMin="0.420583" DurationMax="0.450770"/>
+				<Event Id="4051704169" Name="torre_cooldown" ObjectPath="\Events\Default Work Unit\torre_cooldown" DurationType="OneShot" DurationMin="0.888000" DurationMax="0.888000"/>
 				<Event Id="1375254148" Name="torre_idle" ObjectPath="\Events\Default Work Unit\torre_idle" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1681819999" Name="torre_impacto" ObjectPath="\Events\Default Work Unit\torre_impacto" DurationType="OneShot" DurationMin="1.005793" DurationMax="1.236282"/>
-				<Event Id="1618992664" Name="torre_instalar" ObjectPath="\Events\Default Work Unit\torre_instalar" DurationType="OneShot" DurationMin="1.988437" DurationMax="2.049229"/>
-				<Event Id="144956508" Name="torre_lanza" ObjectPath="\Events\Default Work Unit\torre_lanza" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1296145459" Name="torre_no" ObjectPath="\Events\Default Work Unit\torre_no" DurationType="OneShot" DurationMin="0.675917" DurationMax="0.729229"/>
-				<Event Id="2401027546" Name="tutorial_hada" ObjectPath="\Events\Default Work Unit\tutorial_hada" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1681819999" Name="torre_impacto" ObjectPath="\Events\Default Work Unit\torre_impacto" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1618992664" Name="torre_instalar" ObjectPath="\Events\Default Work Unit\torre_instalar" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.988437" DurationMax="2.049229"/>
+				<Event Id="144956508" Name="torre_lanza" ObjectPath="\Events\Default Work Unit\torre_lanza" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.730646" DurationMax="1.730646"/>
+				<Event Id="1296145459" Name="torre_no" ObjectPath="\Events\Default Work Unit\torre_no" DurationType="OneShot" DurationMin="0.724429" DurationMax="0.781568"/>
+				<Event Id="2401027546" Name="tutorial_hada" ObjectPath="\Events\Default Work Unit\tutorial_hada" DurationType="OneShot" DurationMin="0.368646" DurationMax="0.368646"/>
 				<Event Id="920624808" Name="tutorial_hada_grito" ObjectPath="\Events\Default Work Unit\tutorial_hada_grito" DurationType="OneShot" DurationMin="1.356523" DurationMax="1.356523"/>
-				<Event Id="1920671406" Name="tutorial_vinieta" ObjectPath="\Events\Default Work Unit\tutorial_vinieta" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
+				<Event Id="1920671406" Name="tutorial_vinieta" ObjectPath="\Events\Default Work Unit\tutorial_vinieta" DurationType="OneShot" DurationMin="0.368646" DurationMax="0.368646"/>
 				<Event Id="1387795237" Name="upgrade_cooldown" ObjectPath="\Events\Default Work Unit\upgrade_cooldown" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2345999712" Name="upgrade_error" ObjectPath="\Events\Default Work Unit\upgrade_error" DurationType="OneShot" DurationMin="1.621333" DurationMax="1.621333"/>
 				<Event Id="2310493528" Name="upgrade_max" ObjectPath="\Events\Default Work Unit\upgrade_max" DurationType="OneShot" DurationMin="0.368646" DurationMax="0.368646"/>
 				<Event Id="610083251" Name="upgrade_speed" ObjectPath="\Events\Default Work Unit\upgrade_speed" DurationType="OneShot" DurationMin="1.621333" DurationMax="1.621333"/>
 				<Event Id="1423689617" Name="upgrade_tower" ObjectPath="\Events\Default Work Unit\upgrade_tower" DurationType="OneShot" DurationMin="1.621333" DurationMax="1.621333"/>
-				<Event Id="2421658314" Name="wave_inicia" ObjectPath="\Events\Default Work Unit\wave_inicia" DurationType="OneShot" DurationMin="9.011556" DurationMax="9.011556"/>
-				<Event Id="1567197803" Name="wave_termina" ObjectPath="\Events\Default Work Unit\wave_termina" DurationType="OneShot" DurationMin="8.930115" DurationMax="8.930115"/>
+				<Event Id="2421658314" Name="wave_inicia" ObjectPath="\Events\Default Work Unit\wave_inicia" DurationType="OneShot" DurationMin="4.959226" DurationMax="4.959226"/>
+				<Event Id="1567197803" Name="wave_termina" ObjectPath="\Events\Default Work Unit\wave_termina" DurationType="OneShot" DurationMin="4.981038" DurationMax="4.981038"/>
 			</IncludedEvents>
 			<IncludedMemoryFiles>
 				<File Id="4028161" Language="SFX">
@@ -99,13 +99,29 @@
 					<ShortName>DESINTEGRA_5.wav</ShortName>
 					<Path>SFX\DESINTEGRA_5_10C4C929.wem</Path>
 				</File>
+				<File Id="29947606" Language="SFX">
+					<ShortName>CLICK_OTRO.wav</ShortName>
+					<Path>SFX\CLICK_OTRO_55AC16E0.wem</Path>
+				</File>
 				<File Id="31657544" Language="SFX">
 					<ShortName>DESINTEGRA_6.wav</ShortName>
 					<Path>SFX\DESINTEGRA_6_10C4C929.wem</Path>
 				</File>
+				<File Id="38143420" Language="SFX">
+					<ShortName>TORRE_COOLDOWN.wav</ShortName>
+					<Path>SFX\TORRE_COOLDOWN_10C4C929.wem</Path>
+				</File>
 				<File Id="45228587" Language="SFX">
 					<ShortName>CAMPANMITAS_DISPARO_TORRE.wav</ShortName>
 					<Path>SFX\CAMPANMITAS_DISPARO_TORRE_1B117908.wem</Path>
+				</File>
+				<File Id="53084440" Language="SFX">
+					<ShortName>CUENCO TIBETANO\CUENCO TIBETA_07.wav</ShortName>
+					<Path>SFX\CUENCO TIBETANO\CUENCO TIBETA_07_E663A6CC.wem</Path>
+				</File>
+				<File Id="65957858" Language="SFX">
+					<ShortName>marimba5.wav</ShortName>
+					<Path>SFX\marimba5_462B0591.wem</Path>
 				</File>
 				<File Id="66512300" Language="SFX">
 					<ShortName>TORRE_CRECE\torre_stomp_b.wav</ShortName>
@@ -115,6 +131,10 @@
 					<ShortName>CLICK_BASICO.wav</ShortName>
 					<Path>SFX\CLICK_BASICO_10C4C929.wem</Path>
 				</File>
+				<File Id="77788081" Language="SFX">
+					<ShortName>METEORITO_IMPACTO_03.wav</ShortName>
+					<Path>SFX\METEORITO_IMPACTO_03_6785485B.wem</Path>
+				</File>
 				<File Id="89251820" Language="SFX">
 					<ShortName>BICHO_MUERE_7.wav</ShortName>
 					<Path>SFX\BICHO_MUERE_7_4A0A8D80.wem</Path>
@@ -123,9 +143,21 @@
 					<ShortName>DESINTEGRA_1.wav</ShortName>
 					<Path>SFX\DESINTEGRA_1_10C4C929.wem</Path>
 				</File>
+				<File Id="109025142" Language="SFX">
+					<ShortName>CUENCO TIBETANO\CUENCO TIBETA_07.wav</ShortName>
+					<Path>SFX\CUENCO TIBETANO\CUENCO TIBETA_07_F1A3A581.wem</Path>
+				</File>
+				<File Id="127878069" Language="SFX">
+					<ShortName>METEORITO_IMPACTO_02.wav</ShortName>
+					<Path>SFX\METEORITO_IMPACTO_02_DD2FF8C7.wem</Path>
+				</File>
+				<File Id="142928307" Language="SFX">
+					<ShortName>CUENCO TIBETANO\CUENCO TIBETA_08.wav</ShortName>
+					<Path>SFX\CUENCO TIBETANO\CUENCO TIBETA_08_775F522B.wem</Path>
+				</File>
 				<File Id="148567226" Language="SFX">
 					<ShortName>MUERE_ACUOSO_7.wav</ShortName>
-					<Path>SFX\MUERE_ACUOSO_7_10C4C929.wem</Path>
+					<Path>SFX\MUERE_ACUOSO_7_71B4DD85.wem</Path>
 				</File>
 				<File Id="148684578" Language="SFX">
 					<ShortName>BICHO_MUERE_6.wav</ShortName>
@@ -155,9 +187,17 @@
 					<ShortName>TORRE_CRECE\torre_stomp_a.wav</ShortName>
 					<Path>SFX\TORRE_CRECE\torre_stomp_a_D5D5EA32.wem</Path>
 				</File>
+				<File Id="172823946" Language="SFX">
+					<ShortName>CUENCO TIBETANO\CUENCO TIBETA_07.wav</ShortName>
+					<Path>SFX\CUENCO TIBETANO\CUENCO TIBETA_07_14BA91C5.wem</Path>
+				</File>
 				<File Id="175142854" Language="SFX">
 					<ShortName>BICHO_MUERE_2.wav</ShortName>
 					<Path>SFX\BICHO_MUERE_2_623E5EF5.wem</Path>
+				</File>
+				<File Id="187211199" Language="SFX">
+					<ShortName>m after impact.wav</ShortName>
+					<Path>SFX\m after impact_FE5903B8.wem</Path>
 				</File>
 				<File Id="196241980" Language="SFX">
 					<ShortName>torre_crece_estira_006.wav</ShortName>
@@ -167,6 +207,14 @@
 					<ShortName>torre_crece_estira_003.wav</ShortName>
 					<Path>SFX\torre_crece_estira_003_10C4C929.wem</Path>
 				</File>
+				<File Id="199652186" Language="SFX">
+					<ShortName>SWAP_E_GP_1.wav</ShortName>
+					<Path>SFX\SWAP_E_GP_1_10C4C929.wem</Path>
+				</File>
+				<File Id="202296648" Language="SFX">
+					<ShortName>METEORITO_IMPACTO_05.wav</ShortName>
+					<Path>SFX\METEORITO_IMPACTO_05_AEF090F8.wem</Path>
+				</File>
 				<File Id="212490444" Language="SFX">
 					<ShortName>METEORITO_IMPACTO_07.wav</ShortName>
 					<Path>SFX\METEORITO_IMPACTO_07_10C4C929.wem</Path>
@@ -174,6 +222,18 @@
 				<File Id="218409925" Language="SFX">
 					<ShortName>DESINTEGRA_12.wav</ShortName>
 					<Path>SFX\DESINTEGRA_12_10C4C929.wem</Path>
+				</File>
+				<File Id="222130350" Language="SFX">
+					<ShortName>CLICK_UPGR_PITCH_0.wav</ShortName>
+					<Path>SFX\CLICK_UPGR_PITCH_0_6B459C81.wem</Path>
+				</File>
+				<File Id="225124723" Language="SFX">
+					<ShortName>CUENCO TIBETANO\CUENCO TIBETA_07.wav</ShortName>
+					<Path>SFX\CUENCO TIBETANO\CUENCO TIBETA_07_4E4A3329.wem</Path>
+				</File>
+				<File Id="226944669" Language="SFX">
+					<ShortName>SWAP_E_GP_2.wav</ShortName>
+					<Path>SFX\SWAP_E_GP_2_10C4C929.wem</Path>
 				</File>
 				<File Id="228244078" Language="SFX">
 					<ShortName>resume_time.wav</ShortName>
@@ -187,13 +247,29 @@
 					<ShortName>BICHO_MUERE_4.wav</ShortName>
 					<Path>SFX\BICHO_MUERE_4_8A21C443.wem</Path>
 				</File>
+				<File Id="248737918" Language="SFX">
+					<ShortName>meteor cooldown down.wav</ShortName>
+					<Path>SFX\meteor cooldown down_10C4C929.wem</Path>
+				</File>
 				<File Id="257076975" Language="SFX">
 					<ShortName>torre_crece_final_rev-CTMT_01.wav</ShortName>
 					<Path>SFX\torre_crece_final_rev-CTMT_01_E4C0EE9E.wem</Path>
 				</File>
+				<File Id="275541308" Language="SFX">
+					<ShortName>CUENCO TIBETANO\CUENCO TIBETA_07.wav</ShortName>
+					<Path>SFX\CUENCO TIBETANO\CUENCO TIBETA_07_BCF0A535.wem</Path>
+				</File>
+				<File Id="289678335" Language="SFX">
+					<ShortName>m after impact.wav</ShortName>
+					<Path>SFX\m after impact_BBDF3C3B.wem</Path>
+				</File>
 				<File Id="292163707" Language="SFX">
 					<ShortName>torre_crece_agudo_003.wav</ShortName>
 					<Path>SFX\torre_crece_agudo_003_10C4C929.wem</Path>
+				</File>
+				<File Id="320236106" Language="SFX">
+					<ShortName>METEORITO_IMPACTO_04.wav</ShortName>
+					<Path>SFX\METEORITO_IMPACTO_04_855CA28C.wem</Path>
 				</File>
 				<File Id="320424405" Language="SFX">
 					<ShortName>torre_crece_agudo_001.wav</ShortName>
@@ -205,7 +281,7 @@
 				</File>
 				<File Id="330960533" Language="SFX">
 					<ShortName>MUERE_ACUOSO_4.wav</ShortName>
-					<Path>SFX\MUERE_ACUOSO_4_10C4C929.wem</Path>
+					<Path>SFX\MUERE_ACUOSO_4_C384E277.wem</Path>
 				</File>
 				<File Id="369635089" Language="SFX">
 					<ShortName>BUBBLE_IN_PAUSA.wav</ShortName>
@@ -213,7 +289,7 @@
 				</File>
 				<File Id="385793963" Language="SFX">
 					<ShortName>DESINTEGRA_9.wav</ShortName>
-					<Path>SFX\DESINTEGRA_9_10C4C929.wem</Path>
+					<Path>SFX\DESINTEGRA_9_7A42FAF1.wem</Path>
 				</File>
 				<File Id="395849696" Language="SFX">
 					<ShortName>BICHO_MUERE_5.wav</ShortName>
@@ -229,11 +305,15 @@
 				</File>
 				<File Id="465431586" Language="SFX">
 					<ShortName>METEORITO_IMPACTO_11.wav</ShortName>
-					<Path>SFX\METEORITO_IMPACTO_11_10C4C929.wem</Path>
+					<Path>SFX\METEORITO_IMPACTO_11_CBA4BC3A.wem</Path>
 				</File>
 				<File Id="470831835" Language="SFX">
 					<ShortName>TORRE_CRECE\torre_crece_grave_lava.wav</ShortName>
 					<Path>SFX\TORRE_CRECE\torre_crece_grave_lava_852A2E52.wem</Path>
+				</File>
+				<File Id="484583168" Language="SFX">
+					<ShortName>MENU_WARNING.wav</ShortName>
+					<Path>SFX\MENU_WARNING_10C4C929.wem</Path>
 				</File>
 				<File Id="497742070" Language="SFX">
 					<ShortName>marimba1.wav</ShortName>
@@ -241,11 +321,11 @@
 				</File>
 				<File Id="500170632" Language="SFX">
 					<ShortName>pad menu.wav</ShortName>
-					<Path>SFX\pad menu_10C4C929.wem</Path>
+					<Path>SFX\pad menu_D79FB2B7.wem</Path>
 				</File>
 				<File Id="503050707" Language="SFX">
 					<ShortName>Efecto de gong largo 4.wav</ShortName>
-					<Path>SFX\Efecto de gong largo 4_33C49309.wem</Path>
+					<Path>SFX\Efecto de gong largo 4_2D3DF504.wem</Path>
 				</File>
 				<File Id="515956724" Language="SFX">
 					<ShortName>TORRE_CRECE\torre_stomp_b.wav</ShortName>
@@ -255,17 +335,25 @@
 					<ShortName>CAMPANMITAS_DISPARO_TORRE.wav</ShortName>
 					<Path>SFX\CAMPANMITAS_DISPARO_TORRE_1F1760E8.wem</Path>
 				</File>
+				<File Id="521369093" Language="SFX">
+					<ShortName>CUENCO TIBETANO\CUENCO TIBETA_05.wav</ShortName>
+					<Path>SFX\CUENCO TIBETANO\CUENCO TIBETA_05_4D47057E.wem</Path>
+				</File>
+				<File Id="523261096" Language="SFX">
+					<ShortName>METEORITO_IMPACTO_07.wav</ShortName>
+					<Path>SFX\METEORITO_IMPACTO_07_449CE4EB.wem</Path>
+				</File>
 				<File Id="524775607" Language="SFX">
 					<ShortName>torre_crece_agudo_002.wav</ShortName>
 					<Path>SFX\torre_crece_agudo_002_10C4C929.wem</Path>
 				</File>
 				<File Id="527212415" Language="SFX">
 					<ShortName>Efecto de gong largo 1.wav</ShortName>
-					<Path>SFX\Efecto de gong largo 1_51D8EDF2.wem</Path>
+					<Path>SFX\Efecto de gong largo 1_AAD37D17.wem</Path>
 				</File>
 				<File Id="528814490" Language="SFX">
 					<ShortName>METEORITO_IMPACTO_10.wav</ShortName>
-					<Path>SFX\METEORITO_IMPACTO_10_10C4C929.wem</Path>
+					<Path>SFX\METEORITO_IMPACTO_10_75B2A7C3.wem</Path>
 				</File>
 				<File Id="538875190" Language="SFX">
 					<ShortName>METEORITO_IMPACTO_02.wav</ShortName>
@@ -273,7 +361,7 @@
 				</File>
 				<File Id="574056836" Language="SFX">
 					<ShortName>DESINTEGRA_11.wav</ShortName>
-					<Path>SFX\DESINTEGRA_11_10C4C929.wem</Path>
+					<Path>SFX\DESINTEGRA_11_2583485B.wem</Path>
 				</File>
 				<File Id="592637744" Language="SFX">
 					<ShortName>stop_time.wav</ShortName>
@@ -285,11 +373,11 @@
 				</File>
 				<File Id="620030947" Language="SFX">
 					<ShortName>BICHO_MUERE_8.wav</ShortName>
-					<Path>SFX\BICHO_MUERE_8_DC062C20.wem</Path>
+					<Path>SFX\BICHO_MUERE_8_EDBA673C.wem</Path>
 				</File>
 				<File Id="620696008" Language="SFX">
 					<ShortName>METEORITO_NO.wav</ShortName>
-					<Path>SFX\METEORITO_NO_10C4C929.wem</Path>
+					<Path>SFX\METEORITO_NO_7A01D1E3.wem</Path>
 				</File>
 				<File Id="622280787" Language="SFX">
 					<ShortName>METEORITO_IMPACTO_06.wav</ShortName>
@@ -305,11 +393,11 @@
 				</File>
 				<File Id="649308064" Language="SFX">
 					<ShortName>MUERE_ACUOSO_5.wav</ShortName>
-					<Path>SFX\MUERE_ACUOSO_5_10C4C929.wem</Path>
+					<Path>SFX\MUERE_ACUOSO_5_8A7BE336.wem</Path>
 				</File>
 				<File Id="656381316" Language="SFX">
 					<ShortName>DESINTEGRA_10.wav</ShortName>
-					<Path>SFX\DESINTEGRA_10_10C4C929.wem</Path>
+					<Path>SFX\DESINTEGRA_10_7D1B61C6.wem</Path>
 				</File>
 				<File Id="669044523" Language="SFX">
 					<ShortName>TORRE_CRECE\torre_stomp_a.wav</ShortName>
@@ -333,11 +421,15 @@
 				</File>
 				<File Id="705092290" Language="SFX">
 					<ShortName>METEORITO_IMPACTO_08.wav</ShortName>
-					<Path>SFX\METEORITO_IMPACTO_08_10C4C929.wem</Path>
+					<Path>SFX\METEORITO_IMPACTO_08_E9D660AB.wem</Path>
 				</File>
 				<File Id="705547818" Language="SFX">
 					<ShortName>MUERE_ACUOSO_6.wav</ShortName>
-					<Path>SFX\MUERE_ACUOSO_6_10C4C929.wem</Path>
+					<Path>SFX\MUERE_ACUOSO_6_CE1D4A96.wem</Path>
+				</File>
+				<File Id="743166046" Language="SFX">
+					<ShortName>marimba4.wav</ShortName>
+					<Path>SFX\marimba4_10C4C929.wem</Path>
 				</File>
 				<File Id="744572997" Language="SFX">
 					<ShortName>torre_crece_agudo_005.wav</ShortName>
@@ -345,7 +437,7 @@
 				</File>
 				<File Id="751234450" Language="SFX">
 					<ShortName>MUERE_ACUOSO_3.wav</ShortName>
-					<Path>SFX\MUERE_ACUOSO_3_10C4C929.wem</Path>
+					<Path>SFX\MUERE_ACUOSO_3_80B618FA.wem</Path>
 				</File>
 				<File Id="751785874" Language="SFX">
 					<ShortName>torre_crece_final_rev-CTMT_03.wav</ShortName>
@@ -361,7 +453,11 @@
 				</File>
 				<File Id="783064102" Language="SFX">
 					<ShortName>METEORITO_IMPACTO_09.wav</ShortName>
-					<Path>SFX\METEORITO_IMPACTO_09_10C4C929.wem</Path>
+					<Path>SFX\METEORITO_IMPACTO_09_56AF139F.wem</Path>
+				</File>
+				<File Id="801240475" Language="SFX">
+					<ShortName>meteor cooldown up.wav</ShortName>
+					<Path>SFX\meteor cooldown up_31757199.wem</Path>
 				</File>
 				<File Id="820423683" Language="SFX">
 					<ShortName>TORRE_CRECE\torre_stomp_b.wav</ShortName>
@@ -369,7 +465,15 @@
 				</File>
 				<File Id="820514251" Language="SFX">
 					<ShortName>CLICK_OTRO.wav</ShortName>
-					<Path>SFX\CLICK_OTRO_10C4C929.wem</Path>
+					<Path>SFX\CLICK_OTRO_A07AB025.wem</Path>
+				</File>
+				<File Id="821622776" Language="SFX">
+					<ShortName>CUENCO TIBETANO\CUENCO TIBETA_01.wav</ShortName>
+					<Path>SFX\CUENCO TIBETANO\CUENCO TIBETA_01_2FFDB758.wem</Path>
+				</File>
+				<File Id="823764672" Language="SFX">
+					<ShortName>hada muere.wav</ShortName>
+					<Path>SFX\hada muere_10C4C929.wem</Path>
 				</File>
 				<File Id="832953756" Language="SFX">
 					<ShortName>pad gp.wav</ShortName>
@@ -377,11 +481,11 @@
 				</File>
 				<File Id="833027481" Language="SFX">
 					<ShortName>MUERE_ACUOSO_2.wav</ShortName>
-					<Path>SFX\MUERE_ACUOSO_2_10C4C929.wem</Path>
+					<Path>SFX\MUERE_ACUOSO_2_FB87DE5B.wem</Path>
 				</File>
 				<File Id="837138656" Language="SFX">
 					<ShortName>MUERE_ACUOSO_1.wav</ShortName>
-					<Path>SFX\MUERE_ACUOSO_1_10C4C929.wem</Path>
+					<Path>SFX\MUERE_ACUOSO_1_AC14F89E.wem</Path>
 				</File>
 				<File Id="845732620" Language="SFX">
 					<ShortName>aleteo.wav</ShortName>
@@ -389,15 +493,19 @@
 				</File>
 				<File Id="850963501" Language="SFX">
 					<ShortName>hadas gritan1.wav</ShortName>
-					<Path>SFX\hadas gritan1_10C4C929.wem</Path>
+					<Path>SFX\hadas gritan1_84C54E23.wem</Path>
 				</File>
 				<File Id="853920192" Language="SFX">
 					<ShortName>ULTIMA HADA.wav</ShortName>
-					<Path>SFX\ULTIMA HADA_EE5EE1AC.wem</Path>
+					<Path>SFX\ULTIMA HADA_F0CE8D17.wem</Path>
 				</File>
 				<File Id="859411732" Language="SFX">
 					<ShortName>torre_crece_final_rev-CTMT_02.wav</ShortName>
 					<Path>SFX\torre_crece_final_rev-CTMT_02_10C4C929.wem</Path>
+				</File>
+				<File Id="866594545" Language="SFX">
+					<ShortName>CUENCO TIBETANO\CUENCO TIBETA_06.wav</ShortName>
+					<Path>SFX\CUENCO TIBETANO\CUENCO TIBETA_06_99ABCB77.wem</Path>
 				</File>
 				<File Id="867613155" Language="SFX">
 					<ShortName>torre_crece_estira_004.wav</ShortName>
@@ -407,9 +515,17 @@
 					<ShortName>CLICK_UPGREAD_SI.wav</ShortName>
 					<Path>SFX\CLICK_UPGREAD_SI_10C4C929.wem</Path>
 				</File>
+				<File Id="883400505" Language="SFX">
+					<ShortName>METEORITO_IMPACTO_06.wav</ShortName>
+					<Path>SFX\METEORITO_IMPACTO_06_2A6D3512.wem</Path>
+				</File>
 				<File Id="889013392" Language="SFX">
 					<ShortName>torre_crece_estira_002.wav</ShortName>
 					<Path>SFX\torre_crece_estira_002_10C4C929.wem</Path>
+				</File>
+				<File Id="895142679" Language="SFX">
+					<ShortName>CUENCO TIBETANO\CUENCO TIBETA_03.wav</ShortName>
+					<Path>SFX\CUENCO TIBETANO\CUENCO TIBETA_03_31E13C72.wem</Path>
 				</File>
 				<File Id="902039345" Language="SFX">
 					<ShortName>torre_crece_1ok.wav</ShortName>
@@ -425,27 +541,39 @@
 				</File>
 				<File Id="924080857" Language="SFX">
 					<ShortName>moviemiento.wav</ShortName>
-					<Path>SFX\moviemiento_D79FB2B7.wem</Path>
+					<Path>SFX\moviemiento_2AED7765.wem</Path>
 				</File>
 				<File Id="929666294" Language="SFX">
 					<ShortName>CAMPANMITAS_DISPARO_TORRE.wav</ShortName>
 					<Path>SFX\CAMPANMITAS_DISPARO_TORRE_B928357A.wem</Path>
 				</File>
-				<File Id="951446561" Language="SFX">
-					<ShortName>CARTOON-BONG-ELECTRONIC1.wav</ShortName>
-					<Path>SFX\CARTOON-BONG-ELECTRONIC1_462260BA.wem</Path>
+				<File Id="941136871" Language="SFX">
+					<ShortName>METEORITO_IMPACTO_01.wav</ShortName>
+					<Path>SFX\METEORITO_IMPACTO_01_F489A757.wem</Path>
 				</File>
 				<File Id="961675042" Language="SFX">
 					<ShortName>METEORITO_IMPACTO_01.wav</ShortName>
 					<Path>SFX\METEORITO_IMPACTO_01_10C4C929.wem</Path>
 				</File>
+				<File Id="964486454" Language="SFX">
+					<ShortName>meteoro1.wav</ShortName>
+					<Path>SFX\meteoro1_26701308.wem</Path>
+				</File>
 				<File Id="971491044" Language="SFX">
 					<ShortName>DESINTEGRA_4.wav</ShortName>
 					<Path>SFX\DESINTEGRA_4_10C4C929.wem</Path>
 				</File>
+				<File Id="974446642" Language="SFX">
+					<ShortName>CLICK_UPGR_PITCH_0.wav</ShortName>
+					<Path>SFX\CLICK_UPGR_PITCH_0_B2B5F855.wem</Path>
+				</File>
 				<File Id="975627648" Language="SFX">
 					<ShortName>BICHO_MUERE_1.wav</ShortName>
 					<Path>SFX\BICHO_MUERE_1_879F04AE.wem</Path>
+				</File>
+				<File Id="977994412" Language="SFX">
+					<ShortName>CUENCO TIBETANO\CUENCO TIBETA_07.wav</ShortName>
+					<Path>SFX\CUENCO TIBETANO\CUENCO TIBETA_07_6AD94183.wem</Path>
 				</File>
 				<File Id="987875714" Language="SFX">
 					<ShortName>torre_crece_estira_005.wav</ShortName>
@@ -457,7 +585,7 @@
 				</File>
 				<File Id="1028468002" Language="SFX">
 					<ShortName>LANZA_METEORO.wav</ShortName>
-					<Path>SFX\LANZA_METEORO_10C4C929.wem</Path>
+					<Path>SFX\LANZA_METEORO_6DFA2492.wem</Path>
 				</File>
 				<File Id="1029237557" Language="SFX">
 					<ShortName>torre_crece_estira_001.wav</ShortName>

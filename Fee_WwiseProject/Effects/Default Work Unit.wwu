@@ -10,6 +10,61 @@
 						<Property Name="WindowSize" Type="int32" Value="3840"/>
 					</PropertyList>
 				</Effect>
+				<Effect Name="resonancia" ID="{07311DEB-EAD7-4057-A4C2-410AEF039BAB}" PluginName="Wwise Guitar Distortion" CompanyID="0" PluginID="126" PluginType="3">
+					<PropertyList>
+						<Property Name="OutputLevel" Type="Real32" Value="1.5"/>
+						<Property Name="PreEQBand2Enable" Type="bool" Value="True"/>
+						<Property Name="PreEQBand2FilterType" Type="int32" Value="6"/>
+						<Property Name="PreEQBand2Frequency" Type="Real32" Value="8249"/>
+						<Property Name="PreEQBand2Gain" Type="Real32" Value="7"/>
+						<Property Name="PreEQBand2QFactor" Type="Real32" Value="18.6"/>
+						<Property Name="Rectification" Type="Real32" Value="49"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="VFGVFGFD" ID="{5A9A965A-6E78-41CC-9B9D-2DC38C25B564}" PluginName="Wwise Harmonizer" CompanyID="0" PluginID="138" PluginType="3">
+					<PropertyList>
+						<Property Name="Input" Type="int32" Value="2"/>
+						<Property Name="SyncDry" Type="bool" Value="False"/>
+						<Property Name="Voice1FilterFrequency" Type="Real32" Value="4947"/>
+						<Property Name="Voice1FilterGain" Type="Real32" Value="6"/>
+						<Property Name="Voice1FilterQFactor" Type="Real32" Value="10.7"/>
+						<Property Name="Voice1FilterType" Type="int32" Value="2"/>
+						<Property Name="Voice2Enable" Type="bool" Value="True"/>
+						<Property Name="Voice2FilterFrequency" Type="Real32" Value="8105"/>
+						<Property Name="Voice2FilterGain" Type="Real32" Value="6.5"/>
+						<Property Name="Voice2FilterQFactor" Type="Real32" Value="13.3"/>
+						<Property Name="Voice2FilterType" Type="int32" Value="2"/>
+						<Property Name="Voice2Gain" Type="Real32" Value="4"/>
+						<Property Name="WindowSize" Type="int32" Value="3840"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="rapido2" ID="{C14A2AC0-3871-47C0-B559-264FAB5E0A5B}" PluginName="Wwise Gain" CompanyID="0" PluginID="139" PluginType="3"/>
+				<Effect Name="rapido3" ID="{5056CFF7-DDC0-4552-A77C-921DA1402BA2}" PluginName="Wwise Time Stretch" CompanyID="0" PluginID="130" PluginType="3">
+					<PropertyList>
+						<Property Name="TimeStretch" Type="Real32" Value="54"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="eq" ID="{4CF5495E-F40A-4AE5-AA28-A3C55F74AFB6}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+					<PropertyList>
+						<Property Name="FrequencyBand1" Type="Real32" Value="792"/>
+						<Property Name="FrequencyBand2" Type="Real32" Value="6670"/>
+						<Property Name="GainBand1" Type="Real32" Value="-4"/>
+						<Property Name="GainBand2" Type="Real32" Value="9.5"/>
+						<Property Name="GainBand3" Type="Real32" Value="2"/>
+						<Property Name="QFactorBand2" Type="Real32" Value="29.8"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="rapido_mosntruo" ID="{F84BCF7B-BA2F-42C7-9C70-C3BE752CF547}" PluginName="Wwise Time Stretch" CompanyID="0" PluginID="130" PluginType="3">
+					<PropertyList>
+						<Property Name="TimeStretch" Type="Real32" Value="78"/>
+						<Property Name="WindowSize" Type="int32" Value="3328"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="reversa" ID="{4E0D01A4-8123-400E-AD58-A61A2230FA2E}" PluginName="Wwise Time Stretch" CompanyID="0" PluginID="130" PluginType="3">
+					<PropertyList>
+						<Property Name="TimeStretch" Type="Real32" Value="120"/>
+					</PropertyList>
+				</Effect>
 			</ChildrenList>
 		</WorkUnit>
 	</Effects>

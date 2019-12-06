@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ada1082874ab9d4fa33554f2d5685ba, type: 3}
+  m_Name: 657F33E9-256E-4CFC-9284-1F928313432B
+  m_EditorClassIdentifier: 
+  objectName: menu_warning
+  id: 3936476221
+  guid: 657F33E9-256E-4CFC-9284-1F928313432B

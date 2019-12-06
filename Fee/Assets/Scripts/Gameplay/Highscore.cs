@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Highscore : MonoBehaviourSingleton<Highscore>
 {
+    public GameObject highscoreSound;
     public int highscore;
     public bool hasNewHighscore;
 
@@ -32,6 +33,7 @@ public class Highscore : MonoBehaviourSingleton<Highscore>
                     }
 
                     doOnce = true;
+                    AkSoundEngine.PostEvent("high_score", highscoreSound);
                 }
 
                 highscore = GameManager.Get().score;

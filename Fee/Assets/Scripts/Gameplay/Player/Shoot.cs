@@ -20,6 +20,8 @@ public class Shoot : MonoBehaviour
     [Header("Sound Settings")]
     public GameObject lastMeteorSound;
     public GameObject shootMeteorSound;
+    public GameObject unavailableSound;
+    public GameObject cooldownSound;
 
     [Header("Assign Components")]
     public GameObject bulletTemplate;
@@ -153,6 +155,10 @@ public class Shoot : MonoBehaviour
                 Debug.Log("LAST METEOR");
             }
         }
+        else
+        {
+            AkSoundEngine.PostEvent("meteoro_no", unavailableSound);
+        }
 
         return couldShoot;
     }
@@ -220,6 +226,7 @@ public class Shoot : MonoBehaviour
         meteorButton.image.fillAmount = 1;
         uiAnimation.ExecuteCurves();
         UpdateText();
+        AkSoundEngine.PostEvent("meteoro_cooldown", cooldownSound);
     }
 
     private void PreviewRadius()

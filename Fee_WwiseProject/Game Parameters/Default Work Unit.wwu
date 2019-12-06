@@ -5,6 +5,16 @@
 			<ChildrenList>
 				<GameParameter Name="music_volume" ID="{95C43930-9EBA-423B-8899-18D0E2F7C431}"/>
 				<GameParameter Name="sfx_volume" ID="{9B03E47D-5115-40FF-B83B-EC5CDDCA7BD9}"/>
+				<GameParameter Name="movimiento_camara" ID="{9D1B61BB-04FB-48AD-88DE-D85518D5FAD8}"/>
+				<GameParameter Name="hadas_camara" ID="{24323667-349E-46E6-B0DB-B2B6D236861E}">
+					<PropertyList>
+						<Property Name="BindToBuiltInParam" Type="int16" Value="1"/>
+						<Property Name="FilterTimeDown" Type="Real64" Value="7"/>
+						<Property Name="FilterTimeUp" Type="Real64" Value="2"/>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+						<Property Name="RTPCRamping" Type="int16" Value="2"/>
+					</PropertyList>
+				</GameParameter>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

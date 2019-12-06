@@ -13,6 +13,7 @@ public class UIPauseButton : MonoBehaviour
     public bool isSecondaryPauseButton;
 
     [Header("Sound Settings")]
+    public GameObject warningSound;
     public GameObject pauseON;
     public GameObject pauseOFF;
 
@@ -175,6 +176,7 @@ public class UIPauseButton : MonoBehaviour
         if (warningMenu)
         {
             warningMenu.SetActive(true);
+            AkSoundEngine.PostEvent("menu_warning", warningSound);
         }
     }
 
@@ -191,6 +193,7 @@ public class UIPauseButton : MonoBehaviour
         if (warningMenu2)
         {
             warningMenu2.SetActive(true);
+            AkSoundEngine.PostEvent("menu_warning", warningSound);
         }
     }
 

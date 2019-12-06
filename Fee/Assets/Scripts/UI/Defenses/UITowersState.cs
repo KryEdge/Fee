@@ -5,10 +5,18 @@ using UnityEngine.UI;
 
 public class UITowersState : MonoBehaviour
 {
+    [Header("General Settings")]
     public bool isBeingUsed;
+    public bool doOnce;
 
+    [Header("Sound Settings")]
+    public GameObject cooldownSound;
+
+    [Header("Checking Variables")]
     public Turret assignedTurret;
     private Image icon;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +36,11 @@ public class UITowersState : MonoBehaviour
             if (assignedTurret.lifespanTimer >= assignedTurret.lifespan)
             {
                 icon.fillAmount = 1;
+                if(!doOnce)
+                {
+                    AkSoundEngine.PostEvent("torre_cooldown", cooldownSound);
+                    doOnce = true;
+                }
             }
         }
     }

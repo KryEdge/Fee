@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{DDAEB9BA-05FD-455F-95D9-7D00DDF58093}" SchemaVersion="94">
 	<SoundcasterSessions>
-		<WorkUnit Name="Default Work Unit" ID="{DDAEB9BA-05FD-455F-95D9-7D00DDF58093}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{DDAEB9BA-05FD-455F-95D9-7D00DDF58093}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="rdfghdfgf" ID="{E83328ED-F474-4A3D-B04D-74FDD5DB7779}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CF82FCF-9047-4CE9-A485-5FED06CF6FBB}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="SFX_bus" ID="{E9B7F55B-E8D7-4661-92F1-9F205C5CEDC7}" WorkUnitID="{0CF82FCF-9047-4CE9-A485-5FED06CF6FBB}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="hadas 3D" ID="{DCA61206-10A6-4FA8-8F6E-ECA8712F1A1D}" WorkUnitID="{0CF82FCF-9047-4CE9-A485-5FED06CF6FBB}"/>
+							<Position X="0" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="hadas_on" ID="{878D7898-3458-443A-8622-E142512A44CF}" WorkUnitID="{FEBDEEC6-103D-467E-8A1C-FFB8D6C7A26D}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="sfx_volume" ID="{9B03E47D-5115-40FF-B83B-EC5CDDCA7BD9}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="music_volume" ID="{95C43930-9EBA-423B-8899-18D0E2F7C431}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="hadas_camara" ID="{24323667-349E-46E6-B0DB-B2B6D236861E}"/>
+							<Value>50.0562429696288</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="movimiento_camara" ID="{9D1B61BB-04FB-48AD-88DE-D85518D5FAD8}"/>
+							<Value>50</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundcasterSessions>
 </WwiseDocument>

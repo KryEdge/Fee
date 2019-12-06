@@ -17,6 +17,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
     public float fireRate;
 
     [Header("Sound Settings")]
+    public GameObject swapSound;
     public GameObject turretUnavailableSound;
 
     [Header("Assign Components/GameObjects")]
@@ -71,6 +72,8 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                 {
                     OnSpawnerSwitchTool();
                 }
+
+                AkSoundEngine.PostEvent("swap_tool", swapSound);
             }
 
             if (Input.GetMouseButtonDown(2))
@@ -155,6 +158,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                             currentTurretProperties.stateUI = state[i];
                             state[i].assignedTurret = currentTurretProperties;
                             state[i].isBeingUsed = true;
+                            state[i].doOnce = false;
                             i = -1;
                         }
                     }

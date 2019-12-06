@@ -9,6 +9,9 @@ public class MilestoneManager : MonoBehaviourSingleton<MilestoneManager>
     public int maxMilestones; 
     public float maxSwitchMilestoneTime;
 
+    [Header("Sound Settings")]
+    public GameObject newChallengeSound;
+
     [Header("Assign Components")]
     public GameObject milestonePrefab;
     public GameObject milestonePanel;
@@ -21,6 +24,7 @@ public class MilestoneManager : MonoBehaviourSingleton<MilestoneManager>
     public bool canSwitch;
 
     private float switchMilestoneTimer;
+    private bool isSoundActive;
 
     private void Start()
     {
@@ -67,6 +71,10 @@ public class MilestoneManager : MonoBehaviourSingleton<MilestoneManager>
                     allMilestones[i].milestone.isActive = true;
                     allMilestones[i].transform.SetParent(milestonePanel.transform, false);
                     currentMilestones++;
+                    if(isSoundActive)
+                    {
+                        AkSoundEngine.PostEvent("reto_nuevo", newChallengeSound);
+                    }
                 }
             }
             else
@@ -74,6 +82,8 @@ public class MilestoneManager : MonoBehaviourSingleton<MilestoneManager>
                 i = allMilestones.Count;
             }
         }
+
+        isSoundActive = true;
     }
 
     public void RemoveOldMilestone()

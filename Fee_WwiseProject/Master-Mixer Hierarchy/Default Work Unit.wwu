@@ -73,6 +73,9 @@
 									</RTPCList>
 								</Property>
 							</PropertyList>
+							<ChildrenList>
+								<Bus Name="hadas 3D" ID="{DCA61206-10A6-4FA8-8F6E-ECA8712F1A1D}"/>
+							</ChildrenList>
 						</Bus>
 					</ChildrenList>
 				</Bus>

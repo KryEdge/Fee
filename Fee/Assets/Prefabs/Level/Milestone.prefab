@@ -167,6 +167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   milestone: {fileID: 11400000, guid: 6ae3da890f82ce441b7f3e0176d66953, type: 2}
+  completedSound: {fileID: 3430026038315834379, guid: 903f446d530861044ab0b6bd1773baaa,
+    type: 3}
   titleUI: {fileID: 3776713936318952806}
   progressTextUI: {fileID: 3776713936034860365}
   progressBar: {fileID: 3776713936411577689}

@@ -47,6 +47,13 @@ public class Enemy : MonoBehaviour
     [Range(1, 30)]
     public float npcLostDistance;
 
+    [Header("Sound Settings")]
+    public bool isSmallEnemy;
+    public GameObject deathTowerSound;
+    public GameObject deathMeteorSound;
+    public GameObject smallDeathTowerSound;
+    public GameObject smallDeathMeteorSound;
+
     [Header("Assign Variables/Components")]
     public GameObject splatTemplate;
     public Animator animator;
@@ -142,6 +149,16 @@ public class Enemy : MonoBehaviour
 
                         hasAlreadyDied = true;
                         animator.SetTrigger("Die");
+
+                        if(isSmallEnemy)
+                        {
+                            AkSoundEngine.PostEvent("monstruo_2_muere_meteoro", smallDeathMeteorSound);
+                        }
+                        else
+                        {
+                            AkSoundEngine.PostEvent("monstruo_1_muere_meteoro", deathMeteorSound);
+                        }
+                        
                     }
 
                     doOnce = true;
@@ -327,6 +344,15 @@ public class Enemy : MonoBehaviour
                 hasAlreadyDied = true;
 
                 animator.SetTrigger("Die");
+                if(isSmallEnemy)
+                {
+                    AkSoundEngine.PostEvent("monstruo_2_muere_torre", smallDeathTowerSound);
+                }
+                else
+                {
+                    AkSoundEngine.PostEvent("monstruo_1_muere_torre", deathTowerSound);
+                }
+                
             }
         }
 

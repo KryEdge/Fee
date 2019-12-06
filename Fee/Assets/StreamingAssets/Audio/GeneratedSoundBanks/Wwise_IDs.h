@@ -78,6 +78,8 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID HADAS_CAMARA = 1854632814U;
+        static const AkUniqueID MOVIMIENTO_CAMARA = 2901777212U;
         static const AkUniqueID MUSIC_VOLUME = 1006694123U;
         static const AkUniqueID SFX_VOLUME = 1564184899U;
     } // namespace GAME_PARAMETERS
@@ -90,6 +92,7 @@ namespace AK
 
     namespace BUSSES
     {
+        static const AkUniqueID HADAS_3D = 2799001397U;
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
         static const AkUniqueID MUS_BUS = 940753649U;
         static const AkUniqueID SFX_BUS = 213475909U;
