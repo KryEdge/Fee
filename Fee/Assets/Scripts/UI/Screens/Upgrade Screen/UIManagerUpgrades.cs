@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class UIManagerUpgrades : MonoBehaviour
 {
+    [Header("General Settings")]
+    public GameObject mainCanvas;
+    public GameObject backgroundCanvas;
     public GameObject parentForUpgrades;
     public Text gemsText;
     public UpgradeSystem upgradeSystem;
@@ -22,6 +25,9 @@ public class UIManagerUpgrades : MonoBehaviour
         {
             UpdateText(upgradeSystem.allUpgrades[i].id);
         }
+
+        mainCanvas.SetActive(true);
+        backgroundCanvas.SetActive(false);
     }
 
     private void UpdateText(int id)
@@ -58,5 +64,11 @@ public class UIManagerUpgrades : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void SwitchCanvas()
+    {
+        mainCanvas.SetActive(false);
+        backgroundCanvas.SetActive(true);
     }
 }
