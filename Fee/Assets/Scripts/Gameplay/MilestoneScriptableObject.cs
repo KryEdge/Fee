@@ -16,6 +16,8 @@ public class MilestoneScriptableObject : ScriptableObject
         TowersPlaced,
         TimesEscaped,
         GemsCollected,
+        WavesSurvived,
+        DistanceTravelled,
         allTypes
     }
 

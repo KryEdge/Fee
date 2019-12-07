@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     public WaveSystem waves;
 
     [Header("Check Variables")]
+    public int distanceTravelled;
+    public int wavesSurvived;
     public int score;
     public int towersPlaced;
     public int enemiesKilled;
@@ -203,6 +205,8 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 
             }
         }
+
+        distanceTravelled = (int)movement.distanceTravelled;
     }
 
     public void SwitchMeteorActivation()

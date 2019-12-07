@@ -146,7 +146,8 @@ public class WaveSystem : MonoBehaviourSingleton<WaveSystem>
     {
         //maxEnemies.Add(maxEnemies[maxEnemies.Count - 1] + enemiesAdd);
         //currentWave = maxEnemies.Count;
-
+        Debug.Log("SETTING NEW WAVE");
         currentWave++;
+        GameManager.Get().wavesSurvived = currentWave;
     }
 }

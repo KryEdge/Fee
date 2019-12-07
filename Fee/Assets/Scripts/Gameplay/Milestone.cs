@@ -46,6 +46,12 @@ public class Milestone : MonoBehaviour
                     case MilestoneScriptableObject.MilestoneType.GemsCollected:
                         CheckGemsCollectedType();
                         break;
+                    case MilestoneScriptableObject.MilestoneType.WavesSurvived:
+                        CheckWavesSurvivedType();
+                        break;
+                    case MilestoneScriptableObject.MilestoneType.DistanceTravelled:
+                        CheckDistanceTravelledType();
+                        break;
                     default:
                         break;
                 }
@@ -114,6 +120,16 @@ public class Milestone : MonoBehaviour
     private void CheckGemsCollectedType()
     {
         CheckProgress(GameManager.Get().gemsCollected);
+    }
+
+    private void CheckWavesSurvivedType()
+    {
+        CheckProgress(GameManager.Get().wavesSurvived);
+    }
+
+    private void CheckDistanceTravelledType()
+    {
+        CheckProgress(GameManager.Get().distanceTravelled);
     }
 
     public void AssignData()

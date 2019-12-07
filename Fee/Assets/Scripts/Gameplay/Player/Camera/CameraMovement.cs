@@ -13,6 +13,10 @@ public class CameraMovement : MonoBehaviour
     public Transform lowestZoom;
     public Transform highestZoom;
 
+    [Header("Distance Settings")]
+    public Vector3 lastPosition;
+    public float distanceTravelled;
+
     [Header("Sound Settings")]
     public GameObject movingSound;
     public float soundValue;
@@ -163,6 +167,8 @@ public class CameraMovement : MonoBehaviour
 
             //Debug.Log("Fairy distance from camera: " + distance);
         }
+
+        
     }
 
     private void FixedUpdate()
@@ -186,6 +192,9 @@ public class CameraMovement : MonoBehaviour
         
 
         rig.AddTorque(transform.up * h);
+
+        distanceTravelled += Vector3.Distance(transform.position, lastPosition);
+        lastPosition = transform.position;
     }
 
     private void chooseDirection()
