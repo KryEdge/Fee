@@ -55,16 +55,7 @@ public class UIChangeScene : MonoBehaviour
                 upgrades.CleanList();
             }
 
-            int goToTutorial = PlayerPrefs.GetInt("isFirstTimePlaying", 1);
-
-            if (goToTutorial == 1)
-            {
-                SceneManager.LoadScene("Tutorial");
-            }
-            else if (goToTutorial == 0)
-            {
-                SceneManager.LoadScene(sceneName);
-            }
+            SceneManager.LoadScene(sceneName);
         }
         else
         {

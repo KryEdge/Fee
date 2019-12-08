@@ -55,6 +55,7 @@ public class Enemy : MonoBehaviour
     public GameObject smallDeathMeteorSound;
 
     [Header("Assign Variables/Components")]
+    public GameObject deathParticle;
     public GameObject splatTemplate;
     public Animator animator;
     public SkinnedMeshRenderer attachedModel;
@@ -107,6 +108,7 @@ public class Enemy : MonoBehaviour
 
         animator.SetBool("IsWalking", true);
         animator.SetBool("IsEating", false);
+        deathParticle.SetActive(false);
     }
 
     // Update is called once per frame
@@ -158,7 +160,8 @@ public class Enemy : MonoBehaviour
                         {
                             AkSoundEngine.PostEvent("monstruo_1_muere_meteoro", deathMeteorSound);
                         }
-                        
+
+                        deathParticle.SetActive(true);
                     }
 
                     doOnce = true;
@@ -352,7 +355,8 @@ public class Enemy : MonoBehaviour
                 {
                     AkSoundEngine.PostEvent("monstruo_1_muere_torre", deathTowerSound);
                 }
-                
+
+                deathParticle.SetActive(true);
             }
         }
 

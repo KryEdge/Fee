@@ -54,10 +54,15 @@ MonoBehaviour:
   upgradePoints: 500
   initialPoints: 500
   resetToInitialPoints: 1
-  fairyMaxSound: {fileID: 0}
-  fairySpeedSound: {fileID: 0}
-  meteorCooldownSound: {fileID: 0}
-  towerSound: {fileID: 0}
-  errorSound: {fileID: 0}
+  fairyMaxSound: {fileID: 1017925292981878589, guid: 82d12a0e87f302e46a5f1ef0f55dbfa7,
+    type: 3}
+  fairySpeedSound: {fileID: 821211568589797418, guid: ced2e13a9cf930e4aba1d538873a1361,
+    type: 3}
+  meteorCooldownSound: {fileID: 9198984586997359503, guid: f69cc8758d04b854498062f1012ff614,
+    type: 3}
+  towerSound: {fileID: 4583937267465546065, guid: 2f89bce43f7ce9a41ad8d9fa316f92a7,
+    type: 3}
+  errorSound: {fileID: 7197837293892134961, guid: 81cc18af5ca0902479160c5f8d5cd2cf,
+    type: 3}
   allUpgrades: []
   allUpgradesCurrentLevel: 

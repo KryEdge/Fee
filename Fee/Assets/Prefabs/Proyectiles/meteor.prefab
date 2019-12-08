@@ -407,11 +407,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5416375381158042292}
     m_Modifications:
-    - target: {fileID: 5932335121973343693, guid: 09d2d3b535990a240b9265e334a7a971,
-        type: 3}
-      propertyPath: m_Name
-      value: Meteor Missile
-      objectReference: {fileID: 0}
     - target: {fileID: 5932335121973343682, guid: 09d2d3b535990a240b9265e334a7a971,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -466,6 +461,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932335121973343693, guid: 09d2d3b535990a240b9265e334a7a971,
+        type: 3}
+      propertyPath: m_Name
+      value: Meteor Missile
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5932335121973343681, guid: 09d2d3b535990a240b9265e334a7a971, type: 3}
