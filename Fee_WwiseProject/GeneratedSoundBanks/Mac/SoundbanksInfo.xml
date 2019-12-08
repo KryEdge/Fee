@@ -22,7 +22,7 @@
 				<Event Id="2040598684" Name="click_return" ObjectPath="\Events\Default Work Unit\click_return" DurationType="OneShot" DurationMin="1.621333" DurationMax="1.621333"/>
 				<Event Id="50850321" Name="click_slide_music" ObjectPath="\Events\Default Work Unit\click_slide_music" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1435730245" Name="click_slide_sfx" ObjectPath="\Events\Default Work Unit\click_slide_sfx" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1908695012" Name="click_tutorial" ObjectPath="\Events\Default Work Unit\click_tutorial" DurationType="Infinite"/>
+				<Event Id="1908695012" Name="click_tutorial" ObjectPath="\Events\Default Work Unit\click_tutorial" DurationType="OneShot" DurationMin="2.000000" DurationMax="2.000000"/>
 				<Event Id="3358194472" Name="gema_destroy" ObjectPath="\Events\Default Work Unit\gema_destroy" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.345046" DurationMax="1.345046"/>
 				<Event Id="584506678" Name="gema_recolectar" ObjectPath="\Events\Default Work Unit\gema_recolectar" DurationType="OneShot" DurationMin="1.938073" DurationMax="1.938073"/>
 				<Event Id="1896123633" Name="gema_recolectar_v2" ObjectPath="\Events\Default Work Unit\gema_recolectar_v2" DurationType="OneShot" DurationMin="1.938073" DurationMax="1.938073"/>

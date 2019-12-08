@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -841,11 +841,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0175085
       objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593325, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4726397872711480176, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_Sprite
@@ -900,6 +895,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 171.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593325, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
@@ -1578,11 +1578,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0175085
       objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593325, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4726397872711480176, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_Sprite
@@ -1637,6 +1632,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 171.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593325, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
@@ -2140,11 +2140,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0175085
       objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593325, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4726397872711480176, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_Sprite
@@ -2199,6 +2194,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 171.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593325, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
@@ -2397,11 +2397,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0175085
       objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593325, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4726397872711480176, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_Sprite
@@ -2456,6 +2451,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 171.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593325, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
@@ -3740,7 +3740,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 866783126}
   m_Direction: 2
   m_Value: 0.99999994
-  m_Size: 0.29871908
+  m_Size: 0.2987191
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4313,11 +4313,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0175085
       objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593325, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4726397872711480176, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_Sprite
@@ -4372,6 +4367,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 171.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593325, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
@@ -4632,7 +4632,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: faeee0458e9d32f4fae1d29c67556281, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: c135a612f21ae76418016f24abf3bb59, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -4679,7 +4679,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 32bd3a726c3d31d4bbfe673b56b0ecd7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3d15a50cbac8e5048b040085a15ef66d, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -5218,11 +5218,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0175085
       objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593325, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4726397872711480176, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_Sprite
@@ -5277,6 +5272,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 171.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593325, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4726397872482593315, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
@@ -5387,7 +5387,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: 0cb626e8cde965a419d97ffbdbc3bdf9, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 929178fef1b1d2140906f7e0d96da248, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -5434,7 +5434,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b661557753d2caf4995f0ffb644cad9e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a301443305eb134d91b6bc63a6a7d2c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

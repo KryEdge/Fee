@@ -140,13 +140,6 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
-						<Action Name="" ID="{6553D96A-1ADA-46EE-89E0-C79AA6ECB8A6}" ShortID="158894324">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="pad menu" ID="{E78E186A-A8AB-438F-93E7-17CD167EB180}" WorkUnitID="{FEBDEEC6-103D-467E-8A1C-FFB8D6C7A26D}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="click_play" ID="{46E7F393-2FB6-4DDE-A6A9-E16D54828D1B}">

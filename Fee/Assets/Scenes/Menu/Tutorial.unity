@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &56772232
 RectTransform:
   m_ObjectHideFlags: 0
@@ -151,7 +151,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1909519524}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8527845, y: 0.4193905}
   m_AnchorMax: {x: 0.9687416, y: 0.6186484}
@@ -187,7 +187,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: 0cb626e8cde965a419d97ffbdbc3bdf9, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 929178fef1b1d2140906f7e0d96da248, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -234,7 +234,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b661557753d2caf4995f0ffb644cad9e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a301443305eb134d91b6bc63a6a7d2c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -885,6 +885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
+  automaticClose: 0
   comicImages:
   - parent: {fileID: 389979145}
     images:
@@ -902,10 +903,16 @@ MonoBehaviour:
     - {fileID: 462384291}
     - {fileID: 222747823}
     - {fileID: 151162956}
+  pages: []
+  passKey: 32
+  alphaSpeed: 0.5
+  alphaTime: 1
+  nextPageString: Press 'SPACEBAR' to go to the next page.
+  completePageString: Press 'SPACEBAR' to auto-complete the text.
+  indicationText: {fileID: 1936732423}
   currentPage: 0
   currentImage: 0
-  automaticClose: 0
-  pages: []
+  alpha: 0
 --- !u!1 &359415233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1868,7 +1875,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1024856855
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1881,7 +1888,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1909519524}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.037500348, y: 0.4193905}
   m_AnchorMax: {x: 0.14307006, y: 0.6186484}
@@ -1917,7 +1924,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: faeee0458e9d32f4fae1d29c67556281, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: c135a612f21ae76418016f24abf3bb59, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1964,7 +1971,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 32bd3a726c3d31d4bbfe673b56b0ecd7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3d15a50cbac8e5048b040085a15ef66d, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2589,11 +2596,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.74732596
       objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593325, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4726397872711480176, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_Sprite
@@ -2633,6 +2635,11 @@ PrefabInstance:
     - target: {fileID: 4726397872711480176, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593325, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2760,6 +2767,7 @@ RectTransform:
   - {fileID: 673153795}
   - {fileID: 438156301}
   - {fileID: 59539459}
+  - {fileID: 1936732422}
   - {fileID: 1911403962}
   - {fileID: 56772232}
   - {fileID: 1024856855}
@@ -2833,8 +2841,87 @@ Transform:
   - {fileID: 389979146}
   - {fileID: 1903401723}
   m_Father: {fileID: 1909519524}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1936732421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1936732422}
+  - component: {fileID: 1936732424}
+  - component: {fileID: 1936732423}
+  m_Layer: 5
+  m_Name: Indication Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1936732422
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936732421}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1909519524}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 21, y: -242.62}
+  m_SizeDelta: {x: 392.2, y: 109.8}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1936732423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936732421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 65bf31895764ac44984ad8b666accb1e, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 99
+    m_Alignment: 4
+    m_AlignByGeometry: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: press "spacebar" to auto-complete the page.
+--- !u!222 &1936732424
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936732421}
+  m_CullTransparentMesh: 0
 --- !u!1 &2026262742
 GameObject:
   m_ObjectHideFlags: 0
@@ -3071,7 +3158,7 @@ PrefabInstance:
     - target: {fileID: 4726397872711480178, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4726397872711480177, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
@@ -3193,11 +3280,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.74732596
       objectReference: {fileID: 0}
-    - target: {fileID: 4726397872482593325, guid: 8c9c4302c67b6b648845be3489672527,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4726397872711480176, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_Sprite
@@ -3237,6 +3319,11 @@ PrefabInstance:
     - target: {fileID: 4726397872711480176, guid: 8c9c4302c67b6b648845be3489672527,
         type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726397872482593325, guid: 8c9c4302c67b6b648845be3489672527,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

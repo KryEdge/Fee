@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ComicPages : MonoBehaviour
 {
@@ -11,13 +12,29 @@ public class ComicPages : MonoBehaviour
         public GameObject[] images;
     }
 
+    [Header("General Settings")]
     public GameObject panel;
+    public bool automaticClose;
     public ComicPage[] comicImages;
+    public GameObject[] pages;
+
+    [Header("Automatic Pass")]
+    public KeyCode passKey;
+    public float alphaSpeed;
+    public float alphaTime;
+
+    [Header("Text Settings")]
+    public string nextPageString;
+    public string completePageString;
+    public Text indicationText;
+
+    [Header("Checking Variables")]
     public int currentPage;
     public int currentImage;
-    public bool automaticClose;
+    public float alpha;
     private bool[] firstTimeReading;
-    public GameObject[] pages;
+    private bool hasReachedAlpha;
+    private Image currentPageImage;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +50,35 @@ public class ComicPages : MonoBehaviour
         }
         
         OpenTutorial();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(passKey))
+        {
+            CheckNextPage();
+        }
+
+        if(!hasReachedAlpha)
+        {
+            alpha += Time.deltaTime * alphaSpeed;
+
+            Color fade = currentPageImage.color;
+            fade.a = alpha;
+
+            currentPageImage.color = fade;
+
+            if (alpha >= 1)
+            {
+                hasReachedAlpha = true;
+                alpha = 1;
+                Color finalFade = currentPageImage.color;
+                finalFade.a = alpha;
+
+                currentPageImage.color = finalFade;
+                NextPageAutomatic();
+            }
+        }
     }
 
     public void OpenTutorial()
@@ -55,6 +101,10 @@ public class ComicPages : MonoBehaviour
         {
             panel.SetActive(true);
         }
+
+        hasReachedAlpha = false;
+        currentPageImage = comicImages[currentPage].images[currentImage].GetComponent<Image>();
+        alpha = 0;
     }
 
     public void CloseTutorial()
@@ -68,6 +118,11 @@ public class ComicPages : MonoBehaviour
 
     public void NextPage()
     {
+        CheckNextPage();
+    }
+
+    public void NextPageAutomatic()
+    {
         if (!firstTimeReading[currentPage])
         {
             currentImage++;
@@ -77,18 +132,33 @@ public class ComicPages : MonoBehaviour
             CheckNextPage();
         }
 
-        if(currentImage >= comicImages[currentPage].images.Length)
+        if (currentImage >= comicImages[currentPage].images.Length)
         {
-            firstTimeReading[currentPage] = true;
-            CheckNextPage();
+            hasReachedAlpha = true;
+            alpha = 1;
+            if (currentPage < pages.Length-1)
+            {
+                indicationText.text = nextPageString;
+            }
+            else
+            {
+                indicationText.text = "";
+            }
         }
         else
         {
-            if(!firstTimeReading[currentPage])
+            if (!firstTimeReading[currentPage])
             {
                 comicImages[currentPage].images[currentImage].SetActive(true);
+                currentPageImage = comicImages[currentPage].images[currentImage].GetComponent<Image>();
+                Color finalFade = currentPageImage.color;
+                finalFade.a = 0;
+                currentPageImage.color = finalFade;
             }
-        }
+
+            hasReachedAlpha = false;
+            alpha = 0;
+        }      
     }
 
     public void PreviousPage()
@@ -106,6 +176,10 @@ public class ComicPages : MonoBehaviour
         ChangeAllImagesState(currentPage, true);
 
         pages[currentPage].SetActive(true);
+
+        hasReachedAlpha = true;
+        alpha = 1;
+        indicationText.text = nextPageString;
     }
 
     private void ChangeAllImagesState(int page, bool state)
@@ -119,34 +193,74 @@ public class ComicPages : MonoBehaviour
 
     private void CheckNextPage()
     {
-        ChangeAllImagesState(currentPage, false);
-        currentImage = 0;
-        pages[currentPage].SetActive(false);
-        currentPage++;
 
-        if (currentPage >= pages.Length)
+        if(currentImage < comicImages[currentPage].images.Length-1)
         {
-            if (automaticClose)
+            CompletePage();
+            if (currentPage >= pages.Length-1)
             {
-                CloseTutorial();
-            }
-
-            currentPage = pages.Length-1;
-            pages[currentPage].SetActive(true);
-        }
-
-        if (pages[currentPage])
-        {
-            pages[currentPage].SetActive(true);
-
-            if (!firstTimeReading[currentPage])
-            {
-                comicImages[currentPage].images[currentImage].SetActive(true);
+                indicationText.text = "";
             }
             else
             {
-                ChangeAllImagesState(currentPage, true);
+                indicationText.text = nextPageString;
             }
         }
+        else if (currentImage >= comicImages[currentPage].images.Length-1)
+        {
+            
+            ChangeAllImagesState(currentPage, false);
+            currentImage = 0;
+            pages[currentPage].SetActive(false);
+            firstTimeReading[currentPage] = true;
+            currentPage++;
+
+            if (currentPage >= pages.Length)
+            {
+                indicationText.text = "";
+                if (automaticClose)
+                {
+                    CloseTutorial();
+                }
+
+                currentPage = pages.Length - 1;
+                pages[currentPage].SetActive(true);
+                ChangeAllImagesState(currentPage, true);
+                hasReachedAlpha = true;
+                alpha = 1;
+            }
+            else if (pages[currentPage])
+            {
+                indicationText.text = completePageString;
+                pages[currentPage].SetActive(true);
+
+                if (!firstTimeReading[currentPage])
+                {
+                    comicImages[currentPage].images[currentImage].SetActive(true);
+                    currentPageImage = comicImages[currentPage].images[currentImage].GetComponent<Image>();
+                    Color finalFade = currentPageImage.color;
+                    finalFade.a = 0;
+                    currentPageImage.color = finalFade;
+                    hasReachedAlpha = false;
+                    alpha = 0;
+                }
+                else
+                {
+                    ChangeAllImagesState(currentPage, true);
+                }
+            }
+        }
+    }
+
+    private void CompletePage()
+    {
+        ChangeAllImagesState(currentPage, true);
+        hasReachedAlpha = true;
+        alpha = 1;
+        Color finalFade = currentPageImage.color;
+        finalFade.a = alpha;
+
+        currentPageImage.color = finalFade;
+        firstTimeReading[currentPage] = true;
     }
 }
