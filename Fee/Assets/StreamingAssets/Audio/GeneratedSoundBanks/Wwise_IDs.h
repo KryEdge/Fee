@@ -22,6 +22,7 @@ namespace AK
         static const AkUniqueID CLICK_TUTORIAL = 1908695012U;
         static const AkUniqueID GEMA_DESTROY = 3358194472U;
         static const AkUniqueID GEMA_RECOLECTAR = 584506678U;
+        static const AkUniqueID GEMA_RECOLECTAR_V2 = 1896123633U;
         static const AkUniqueID GEMA_SPAWN = 2671449479U;
         static const AkUniqueID HADA_MUERE_OFF = 3468452118U;
         static const AkUniqueID HADA_MUERE_ON = 3325083352U;
@@ -36,7 +37,9 @@ namespace AK
         static const AkUniqueID MENU_WARNING = 3936476221U;
         static const AkUniqueID METEORO_COOLDOWN = 4233466012U;
         static const AkUniqueID METEORO_IMPACTO = 3371197844U;
+        static const AkUniqueID METEORO_IMPACTO_V2 = 797980431U;
         static const AkUniqueID METEORO_LANZA = 3111476387U;
+        static const AkUniqueID METEORO_LANZA_V2 = 3658071486U;
         static const AkUniqueID METEORO_NO = 95853146U;
         static const AkUniqueID METEORO_ULTIMO = 651177697U;
         static const AkUniqueID MONSTRUO_1_ANDA = 1356379025U;
@@ -51,7 +54,9 @@ namespace AK
         static const AkUniqueID MONSTRUO_2_SALTA = 153011945U;
         static const AkUniqueID MOVIMIENTO_CAMARA = 2901777212U;
         static const AkUniqueID PAUSA_OFF = 2659475283U;
+        static const AkUniqueID PAUSA_OFF_V2 = 515879406U;
         static const AkUniqueID PAUSA_ON = 549173535U;
+        static const AkUniqueID PAUSA_ON_V2 = 3031915986U;
         static const AkUniqueID PERDER = 2433235219U;
         static const AkUniqueID RESUME_TIME = 3793068968U;
         static const AkUniqueID RETO_COMPLETADO = 2717038862U;
@@ -59,6 +64,7 @@ namespace AK
         static const AkUniqueID STOP_TIME = 2019477819U;
         static const AkUniqueID SWAP_TOOL = 2248768189U;
         static const AkUniqueID TORRE_COOLDOWN = 4051704169U;
+        static const AkUniqueID TORRE_COOLDOWN_V2 = 4162378892U;
         static const AkUniqueID TORRE_IDLE = 1375254148U;
         static const AkUniqueID TORRE_IMPACTO = 1681819999U;
         static const AkUniqueID TORRE_INSTALAR = 1618992664U;

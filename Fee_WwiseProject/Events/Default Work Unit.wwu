@@ -6,10 +6,7 @@
 				<Event Name="inicia_juego" ID="{3D862679-0293-464A-98DB-F7D8E969E2C1}"/>
 				<Event Name="inicia_menu" ID="{128D040D-D3F3-4A67-B143-4D711D9763DC}">
 					<ChildrenList>
-						<Action Name="" ID="{BE567B5B-A2D3-4B61-B397-F7BD88CB9A58}" ShortID="89125827">
-							<PropertyList>
-								<Property Name="FadeTime" Type="Real64" Value="1"/>
-							</PropertyList>
+						<Action Name="" ID="{5072A85E-5083-449B-88C7-9B026084709C}" ShortID="143550148">
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="pad menu" ID="{E78E186A-A8AB-438F-93E7-17CD167EB180}" WorkUnitID="{FEBDEEC6-103D-467E-8A1C-FFB8D6C7A26D}"/>
@@ -140,6 +137,13 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="CLICK TUTORIAL" ID="{84059D38-8F43-44A7-81C8-98B223CE13C1}" WorkUnitID="{FEBDEEC6-103D-467E-8A1C-FFB8D6C7A26D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{6553D96A-1ADA-46EE-89E0-C79AA6ECB8A6}" ShortID="158894324">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="pad menu" ID="{E78E186A-A8AB-438F-93E7-17CD167EB180}" WorkUnitID="{FEBDEEC6-103D-467E-8A1C-FFB8D6C7A26D}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -520,13 +524,6 @@
 							</ReferenceList>
 						</Action>
 						<Action Name="" ID="{BE508595-56A5-483C-93E2-424FF209124F}" ShortID="304515392">
-							<PropertyList>
-								<Property Name="Inclusion" Type="bool">
-									<ValueList>
-										<Value>False</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="METEORO LANZAMIENTO" ID="{817A1701-E22B-4A9F-811C-A9D521CFCB42}" WorkUnitID="{FEBDEEC6-103D-467E-8A1C-FFB8D6C7A26D}"/>
@@ -613,7 +610,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="torre_idle" ID="{F60DDF45-10FC-40ED-9944-0CBC369E0985}"/>
+				<Event Name="torre_idle" ID="{F60DDF45-10FC-40ED-9944-0CBC369E0985}">
+					<ChildrenList>
+						<Action Name="" ID="{C6E03C0F-C2E2-4EFB-873C-110131B1BEEC}" ShortID="41430591">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="torre idle" ID="{7925843A-8444-4912-B9E4-AEF843DEC500}" WorkUnitID="{FEBDEEC6-103D-467E-8A1C-FFB8D6C7A26D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 				<Event Name="gema_recolectar" ID="{D90DFF2A-0D6C-4857-9CFE-1BBF810B70AD}">
 					<ChildrenList>
 						<Action Name="" ID="{F62078FE-D3E9-48B4-BDEF-E18E48DB4F0A}" ShortID="983627314">
@@ -650,9 +657,23 @@
 				<Event Name="tutorial_vinieta" ID="{FA582B19-D0ED-4E6C-B512-C24951E5F77E}">
 					<ChildrenList>
 						<Action Name="" ID="{73EC80B4-5AB1-4044-9ACA-211FF3D4D8FF}" ShortID="256292007">
+							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="CLICK_BASICO" ID="{1F91FEBA-7B14-47F8-8955-43565B6C42F5}" WorkUnitID="{FEBDEEC6-103D-467E-8A1C-FFB8D6C7A26D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{13FBE701-6718-4D8B-8680-6A02DC5EDF35}" ShortID="599501264">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="CLICK_UI" ID="{F41125F0-2BC5-4C5B-87DE-DD80F43E7EFB}" WorkUnitID="{FEBDEEC6-103D-467E-8A1C-FFB8D6C7A26D}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -697,6 +718,52 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="resume_time" ID="{E5EDC65C-7D58-4C9C-A150-BF86CACD9E42}" WorkUnitID="{FEBDEEC6-103D-467E-8A1C-FFB8D6C7A26D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="meteoro_impacto_v2" ID="{D1C78A94-6194-4CEE-B708-9C1A75B97108}">
+					<ChildrenList>
+						<Action Name="" ID="{0226E3F2-0B25-4DB3-8529-54023F42F0CA}" ShortID="468446849">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="METEORO LANZAMIENTO" ID="{817A1701-E22B-4A9F-811C-A9D521CFCB42}" WorkUnitID="{FEBDEEC6-103D-467E-8A1C-FFB8D6C7A26D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="meteoro_lanza_v2" ID="{221B4A9D-99A1-4381-81BA-9EC5EF100D0A}">
+					<ChildrenList>
+						<Action Name="" ID="{A86AA366-5BF6-4C11-9A9E-5A53C3A0269B}" ShortID="596843733">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="METEORO LANZAMIENTO" ID="{817A1701-E22B-4A9F-811C-A9D521CFCB42}" WorkUnitID="{FEBDEEC6-103D-467E-8A1C-FFB8D6C7A26D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="pausa_on_v2" ID="{F5AB72F8-C3AB-4651-AA75-37D58780E9D3}"/>
+				<Event Name="pausa_off_v2" ID="{92D5A334-A22F-44DB-9ED2-D1B5DC094524}"/>
+				<Event Name="torre_cooldown_v2" ID="{9ADDA120-E304-4A6B-8EE3-FFFD09B2806A}">
+					<ChildrenList>
+						<Action Name="" ID="{D8A2D482-D7B7-4006-B6C5-6BCCD62FE741}" ShortID="876227246">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="TORRE_COOLDOWN" ID="{9E9B431A-E440-4400-A2BA-9BB8304EE8A8}" WorkUnitID="{FEBDEEC6-103D-467E-8A1C-FFB8D6C7A26D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="gema_recolectar_v2" ID="{C9205DDB-DC89-470E-9D1D-6506C4C72332}">
+					<ChildrenList>
+						<Action Name="" ID="{AFD3FA84-534B-4309-ABA7-AD7C1CF5737C}" ShortID="580708516">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="marimba recolectar" ID="{9241D3CE-FB43-4181-B02C-15A39B007D87}" WorkUnitID="{FEBDEEC6-103D-467E-8A1C-FFB8D6C7A26D}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>

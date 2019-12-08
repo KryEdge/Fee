@@ -31,7 +31,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 456adf9fb1fe3d42836ff91fbb2e0970
     GuidInternal: 
-    m_lastTime: -8586263782014381368
+    m_lastTime: -8586257954712741224
     List:
     - name: Fee
       guid: 68fbaf86f3633d4db9807c46dc074386
@@ -47,7 +47,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 6ed6bf77b60bea468d4045e323f8b368
     GuidInternal: 
-    m_lastTime: -8586259559601885372
+    m_lastTime: -8586258624974775808
     List:
     - name: click_creditos
       guid: ee23f821c7e95a4399c042262b8a0379
@@ -142,7 +142,7 @@ MonoBehaviour:
       - ElementName: gema_destroy
         ObjectType: 3
       Path: Default Work Unit\gema_destroy
-      maxAttenuation: 0
+      maxAttenuation: 100000000
       maxDuration: 1345046
       minDuration: 1345046
     - name: gema_recolectar
@@ -157,6 +157,18 @@ MonoBehaviour:
       maxAttenuation: 100000000
       maxDuration: 1938073
       minDuration: 1938073
+    - name: gema_recolectar_v2
+      guid: db5d20c989dc0e479d1d6506c4c72332
+      id: 1896123633
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: gema_recolectar_v2
+        ObjectType: 3
+      Path: Default Work Unit\gema_recolectar_v2
+      maxAttenuation: 100000000
+      maxDuration: 1938073
+      minDuration: 1938073
     - name: gema_spawn
       guid: 5958898a17daff46bffadc1eefb1f0fb
       id: 2671449479
@@ -166,7 +178,7 @@ MonoBehaviour:
       - ElementName: gema_spawn
         ObjectType: 3
       Path: Default Work Unit\gema_spawn
-      maxAttenuation: 0
+      maxAttenuation: 100000000
       maxDuration: 1691723
       minDuration: 1691723
     - name: hada_muere_off
@@ -310,7 +322,7 @@ MonoBehaviour:
       - ElementName: meteoro_cooldown
         ObjectType: 3
       Path: Default Work Unit\meteoro_cooldown
-      maxAttenuation: 0
+      maxAttenuation: 100000000
       maxDuration: 1500000
       minDuration: 1500000
     - name: meteoro_impacto
@@ -322,9 +334,21 @@ MonoBehaviour:
       - ElementName: meteoro_impacto
         ObjectType: 3
       Path: Default Work Unit\meteoro_impacto
-      maxAttenuation: 0
-      maxDuration: 0
-      minDuration: 0
+      maxAttenuation: 100000000
+      maxDuration: 1403494
+      minDuration: 1399539
+    - name: meteoro_impacto_v2
+      guid: 948ac7d19461ee4cb7089c1a75b97108
+      id: 797980431
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: meteoro_impacto_v2
+        ObjectType: 3
+      Path: Default Work Unit\meteoro_impacto_v2
+      maxAttenuation: 100000000
+      maxDuration: 1403494
+      minDuration: 1399539
     - name: meteoro_lanza
       guid: 3f923afb77363a49b68be270ba8ce0f1
       id: 3111476387
@@ -334,6 +358,18 @@ MonoBehaviour:
       - ElementName: meteoro_lanza
         ObjectType: 3
       Path: Default Work Unit\meteoro_lanza
+      maxAttenuation: 100000000
+      maxDuration: 1403494
+      minDuration: 1399539
+    - name: meteoro_lanza_v2
+      guid: 9d4a1b22a199814381ba9ec5ef100d0a
+      id: 3658071486
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: meteoro_lanza_v2
+        ObjectType: 3
+      Path: Default Work Unit\meteoro_lanza_v2
       maxAttenuation: 100000000
       maxDuration: 1403494
       minDuration: 1399539
@@ -505,6 +541,18 @@ MonoBehaviour:
       maxAttenuation: 100000000
       maxDuration: 1402667
       minDuration: 1402667
+    - name: pausa_off_v2
+      guid: 34a3d5922fa2db449ed2d1b5dc094524
+      id: 515879406
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: pausa_off_v2
+        ObjectType: 3
+      Path: Default Work Unit\pausa_off_v2
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: pausa_on
       guid: f4233c9247148f45aba16d15bd9f64c0
       id: 549173535
@@ -517,6 +565,18 @@ MonoBehaviour:
       maxAttenuation: 100000000
       maxDuration: 1713333
       minDuration: 1713333
+    - name: pausa_on_v2
+      guid: f872abf5abc35146aa7537d58780e9d3
+      id: 3031915986
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: pausa_on_v2
+        ObjectType: 3
+      Path: Default Work Unit\pausa_on_v2
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
     - name: perder
       guid: 96297cf6b31499489ea51ad939399cb1
       id: 2433235219
@@ -601,6 +661,18 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 888000
       minDuration: 888000
+    - name: torre_cooldown_v2
+      guid: 20a1dd9a04e36b4a8ee3fffd09b2806a
+      id: 4162378892
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: torre_cooldown_v2
+        ObjectType: 3
+      Path: Default Work Unit\torre_cooldown_v2
+      maxAttenuation: 0
+      maxDuration: 888000
+      minDuration: 888000
     - name: torre_idle
       guid: 45df0df6fc10ed4099440cbc369e0985
       id: 1375254148
@@ -610,7 +682,7 @@ MonoBehaviour:
       - ElementName: torre_idle
         ObjectType: 3
       Path: Default Work Unit\torre_idle
-      maxAttenuation: 0
+      maxAttenuation: 100000000
       maxDuration: 0
       minDuration: 0
     - name: torre_impacto
@@ -695,8 +767,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\tutorial_vinieta
       maxAttenuation: 0
-      maxDuration: 368646
-      minDuration: 368646
+      maxDuration: 1770120
+      minDuration: 1341500
     - name: upgrade_cooldown
       guid: c1bb85d704b3634199e3a2ef51b6e1fd
       id: 1387795237
