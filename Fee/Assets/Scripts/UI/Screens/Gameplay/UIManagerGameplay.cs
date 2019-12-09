@@ -41,6 +41,7 @@ public class UIManagerGameplay : MonoBehaviour
     public string startText;
     public string endText;
     public Text waveText;
+    public Text currentWaveText;
 
     [Header("Cheat System")]
     public CheatSystem cheatsComponent;
@@ -156,6 +157,11 @@ public class UIManagerGameplay : MonoBehaviour
         {
             gemsText.text = "Gems Collected: " + GameManager.Get().upgradePointsCurrentMatch;
             gemsText2.text = "" + GameManager.Get().upgradePointsCurrentMatch;
+        }
+
+        if (currentWaveText)
+        {
+            currentWaveText.text = "Wave: " + (GameManager.Get().wavesSurvived + 1);
         }
     }
 
