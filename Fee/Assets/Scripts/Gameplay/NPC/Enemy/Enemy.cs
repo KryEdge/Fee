@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour
     public GameObject gooParent;
     public float splatTime;
     public float splatTimer;
+    private bool canSpillGoo = true;
 
     [Header("Eat Settings")]
     public float eatingTime;
@@ -162,6 +163,7 @@ public class Enemy : MonoBehaviour
                         }
 
                         deathParticle.SetActive(true);
+                        canSpillGoo = false;
                     }
 
                     doOnce = true;
@@ -172,14 +174,15 @@ public class Enemy : MonoBehaviour
 
         if(splatTemplate)
         {
-            splatTimer += Time.deltaTime;
-
-            if(splatTimer >= splatTime)
+            if(canSpillGoo)
             {
-                splatTimer = 0;
-                //Instantiate(splatTemplate);
-                //Instantiate(splatTemplate, gooParent.transform, false);
-                GameObject splat = Instantiate(splatTemplate, gooParent.transform.position, gooParent.transform.rotation);
+                splatTimer += Time.deltaTime;
+
+                if (splatTimer >= splatTime)
+                {
+                    splatTimer = 0;
+                    GameObject splat = Instantiate(splatTemplate, gooParent.transform.position, gooParent.transform.rotation);
+                }
             }
         }
         
@@ -212,6 +215,7 @@ public class Enemy : MonoBehaviour
 
         animator.SetBool("IsWalking", false);
         animator.SetBool("IsEating", true);
+        canSpillGoo = false;
     }
 
     private void Eat()
@@ -228,6 +232,7 @@ public class Enemy : MonoBehaviour
             animator.SetBool("IsEating", false);
 
             SwitchRotationTarget();
+            canSpillGoo = true;
         }
     }
 
@@ -357,6 +362,7 @@ public class Enemy : MonoBehaviour
                 }
 
                 deathParticle.SetActive(true);
+                canSpillGoo = false;
             }
         }
 
