@@ -149,7 +149,7 @@ public class UIManagerGameplay : MonoBehaviour
         
         if(scoreText)
         {
-            scoreText.text = "" + GameManager.Get().score;
+            scoreText.text = "" + GameManager.Get().score.ToString("000000");
         }
 
         if (gemsText)
