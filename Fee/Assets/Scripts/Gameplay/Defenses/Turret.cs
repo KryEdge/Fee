@@ -10,6 +10,7 @@ public class Turret : MonoBehaviour
     [Header("General Settings")]
     public GameObject attachedVisionRadius;
     public GameObject attachedParticles;
+    public GameObject attachedParticles2;
     public SkinnedMeshRenderer attachedModel;
     public Animator attachedAnimator;
     public GameObject proyectileTemplate;
@@ -86,6 +87,7 @@ public class Turret : MonoBehaviour
                     isDying = true;
                     attachedAnimator.SetTrigger("die");
                     attachedParticles.SetActive(false);
+                    attachedParticles2.SetActive(false);
                 }
             }
 

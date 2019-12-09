@@ -48,6 +48,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
         turretMaterial = newTurretPreview.GetComponent<Turret>().attachedModel;
         turretProperties.isPreview = true;
         turretProperties.attachedParticles.SetActive(false);
+        turretProperties.attachedParticles2.SetActive(false);
         newTurretPreview.GetComponent<BoxCollider>().isTrigger = true;
         turretProperties.turretRadius.gameObject.GetComponent<BoxCollider>().enabled = false;
         turretProperties.attachedVisionRadius.SetActive(true);
@@ -150,6 +151,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                     currentTurretProperties.lifespanTimer = 0;
                     Debug.Log("messi mode");
                     currentTurretProperties.attachedParticles.SetActive(true);
+                    currentTurretProperties.attachedParticles2.SetActive(true);
 
                     for (int i = state.Count - 1; i >= 0; i--)
                     {

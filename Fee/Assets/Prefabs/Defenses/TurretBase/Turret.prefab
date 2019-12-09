@@ -39,6 +39,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6733700726124754129}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 12f3292e382bbee4284e15e67737b384,
+        type: 3}
+      propertyPath: m_Name
+      value: Torreta
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 12f3292e382bbee4284e15e67737b384,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -93,11 +98,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 12f3292e382bbee4284e15e67737b384,
-        type: 3}
-      propertyPath: m_Name
-      value: Torreta
       objectReference: {fileID: 0}
     - target: {fileID: -8221963241362319999, guid: 12f3292e382bbee4284e15e67737b384,
         type: 3}
