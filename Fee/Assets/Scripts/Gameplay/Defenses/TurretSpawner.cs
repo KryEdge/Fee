@@ -49,6 +49,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
         turretProperties.isPreview = true;
         turretProperties.attachedParticles.SetActive(false);
         turretProperties.attachedParticles2.SetActive(false);
+        turretProperties.attachedParticles3.SetActive(false);
         newTurretPreview.GetComponent<BoxCollider>().isTrigger = true;
         turretProperties.turretRadius.gameObject.GetComponent<BoxCollider>().enabled = false;
         turretProperties.attachedVisionRadius.SetActive(true);

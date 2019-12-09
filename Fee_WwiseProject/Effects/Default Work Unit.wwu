@@ -65,6 +65,12 @@
 						<Property Name="TimeStretch" Type="Real32" Value="120"/>
 					</PropertyList>
 				</Effect>
+				<Effect Name="cool_time" ID="{1A977C40-C83B-474D-9C22-BCCF5F65AEF5}" PluginName="Wwise Time Stretch" CompanyID="0" PluginID="130" PluginType="3">
+					<PropertyList>
+						<Property Name="TimeStretch" Type="Real32" Value="85"/>
+					</PropertyList>
+				</Effect>
+				<Effect Name="ghfngfbnfg" ID="{E44B7D86-0F00-4675-986C-06B620D77FF9}" PluginName="Wwise Gain" CompanyID="0" PluginID="139" PluginType="3"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Effects>

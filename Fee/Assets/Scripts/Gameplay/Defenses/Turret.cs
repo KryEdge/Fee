@@ -11,6 +11,7 @@ public class Turret : MonoBehaviour
     public GameObject attachedVisionRadius;
     public GameObject attachedParticles;
     public GameObject attachedParticles2;
+    public GameObject attachedParticles3;
     public SkinnedMeshRenderer attachedModel;
     public Animator attachedAnimator;
     public GameObject proyectileTemplate;

@@ -43,6 +43,46 @@
 					<CurrentStateList ShowAll="true"/>
 					<CurrentSwitchList ShowAll="true"/>
 				</SoundcasterSession>
+				<SoundcasterSession Name="dgfsdfgsdf" ID="{6CECA408-1EAA-489C-9C41-3C9A8BE358D2}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="inicia_gameplay" ID="{407C76C6-7901-44C1-815C-78256587A5C9}" WorkUnitID="{77BFD66E-0BB6-46EA-8D40-45E323F8B368}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="pausa_on" ID="{923C23F4-1447-458F-ABA1-6D15BD9F64C0}" WorkUnitID="{77BFD66E-0BB6-46EA-8D40-45E323F8B368}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="pausa_off" ID="{EC4CD0E0-C039-44DE-BFFF-8B2C20FB7722}" WorkUnitID="{77BFD66E-0BB6-46EA-8D40-45E323F8B368}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="perder" ID="{F67C2996-14B3-4899-9EA5-1AD939399CB1}" WorkUnitID="{77BFD66E-0BB6-46EA-8D40-45E323F8B368}"/>
+							<Position X="3" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="sfx_volume" ID="{9B03E47D-5115-40FF-B83B-EC5CDDCA7BD9}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="music_volume" ID="{95C43930-9EBA-423B-8899-18D0E2F7C431}"/>
+							<Value>50</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="hadas_camara" ID="{24323667-349E-46E6-B0DB-B2B6D236861E}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="movimiento_camara" ID="{9D1B61BB-04FB-48AD-88DE-D85518D5FAD8}"/>
+							<Value>100</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
 			</ChildrenList>
 		</WorkUnit>
 	</SoundcasterSessions>
