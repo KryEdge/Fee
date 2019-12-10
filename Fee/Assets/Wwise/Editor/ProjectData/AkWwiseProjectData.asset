@@ -335,8 +335,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\meteoro_impacto
       maxAttenuation: 0
-      maxDuration: 3480224
-      minDuration: 3159855
+      maxDuration: 2380224
+      minDuration: 2059855
     - name: meteoro_impacto_v2
       guid: 948ac7d19461ee4cb7089c1a75b97108
       id: 797980431
@@ -347,8 +347,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\meteoro_impacto_v2
       maxAttenuation: 0
-      maxDuration: 3480224
-      minDuration: 3159855
+      maxDuration: 2380224
+      minDuration: 2059855
     - name: meteoro_lanza
       guid: 3f923afb77363a49b68be270ba8ce0f1
       id: 3111476387
@@ -359,8 +359,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\meteoro_lanza
       maxAttenuation: 0
-      maxDuration: 3480224
-      minDuration: 3159855
+      maxDuration: 2380224
+      minDuration: 2059855
     - name: meteoro_lanza_v2
       guid: 9d4a1b22a199814381ba9ec5ef100d0a
       id: 3658071486
@@ -371,8 +371,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\meteoro_lanza_v2
       maxAttenuation: 0
-      maxDuration: 3480224
-      minDuration: 3159855
+      maxDuration: 2380224
+      minDuration: 2059855
     - name: meteoro_no
       guid: b7b3be06789c1d4689bd79f21e2ca10e
       id: 95853146
@@ -431,8 +431,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\monstruo_1_muere_meteoro
       maxAttenuation: 100000000
-      maxDuration: 2385187
-      minDuration: 2236458
+      maxDuration: 2085187
+      minDuration: 1936458
     - name: monstruo_1_muere_torre
       guid: 8f94bd0fb390384da95648013886ea2d
       id: 399902878
@@ -443,8 +443,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\monstruo_1_muere_torre
       maxAttenuation: 100000000
-      maxDuration: 2385187
-      minDuration: 2236458
+      maxDuration: 2085187
+      minDuration: 1936458
     - name: monstruo_1_salta
       guid: d48dc0fdb6f1ca4caf1cef9b6c3cb809
       id: 619167998
@@ -491,8 +491,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\monstruo_2_muere_meteoro
       maxAttenuation: 100000000
-      maxDuration: 1300000
-      minDuration: 1243309
+      maxDuration: 1000000
+      minDuration: 943309
     - name: monstruo_2_muere_torre
       guid: 3b4dfa3348c15b4abb879afe55b05ab5
       id: 3431978465
@@ -503,8 +503,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\monstruo_2_muere_torre
       maxAttenuation: 100000000
-      maxDuration: 1300000
-      minDuration: 1243309
+      maxDuration: 1000000
+      minDuration: 943309
     - name: monstruo_2_salta
       guid: 08af7c879097ab4d832965feeadc2b0f
       id: 153011945
@@ -719,8 +719,8 @@ MonoBehaviour:
         ObjectType: 3
       Path: Default Work Unit\torre_lanza
       maxAttenuation: 100000000
-      maxDuration: 1800743
-      minDuration: 1758497
+      maxDuration: 1484227
+      minDuration: 1458497
     - name: torre_no
       guid: acce2cf29420f1488d2500f590e86b00
       id: 1296145459

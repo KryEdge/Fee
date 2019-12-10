@@ -109,7 +109,10 @@ public class UIManagerGameplay : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F12))
             {
-                cheatsComponent.SwitchScreen();
+                if(GameManager.Get().areCheatsOn)
+                {
+                    cheatsComponent.SwitchScreen();
+                }
             }
         }
 

@@ -39,27 +39,27 @@
 				<Event Id="562689720" Name="inicia_store" ObjectPath="\Events\Default Work Unit\inicia_store" DurationType="Infinite"/>
 				<Event Id="3936476221" Name="menu_warning" ObjectPath="\Events\Default Work Unit\menu_warning" DurationType="OneShot" DurationMin="2.037333" DurationMax="2.037333"/>
 				<Event Id="4233466012" Name="meteoro_cooldown" ObjectPath="\Events\Default Work Unit\meteoro_cooldown" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="0.706004" DurationMax="0.706004"/>
-				<Event Id="3371197844" Name="meteoro_impacto" ObjectPath="\Events\Default Work Unit\meteoro_impacto" DurationType="OneShot" DurationMin="3.159855" DurationMax="3.480224"/>
-				<Event Id="797980431" Name="meteoro_impacto_v2" ObjectPath="\Events\Default Work Unit\meteoro_impacto_v2" DurationType="OneShot" DurationMin="3.159855" DurationMax="3.480224"/>
-				<Event Id="3111476387" Name="meteoro_lanza" ObjectPath="\Events\Default Work Unit\meteoro_lanza" DurationType="OneShot" DurationMin="3.159855" DurationMax="3.480224"/>
-				<Event Id="3658071486" Name="meteoro_lanza_v2" ObjectPath="\Events\Default Work Unit\meteoro_lanza_v2" DurationType="OneShot" DurationMin="3.159855" DurationMax="3.480224"/>
+				<Event Id="3371197844" Name="meteoro_impacto" ObjectPath="\Events\Default Work Unit\meteoro_impacto" DurationType="OneShot" DurationMin="2.059855" DurationMax="2.380224"/>
+				<Event Id="797980431" Name="meteoro_impacto_v2" ObjectPath="\Events\Default Work Unit\meteoro_impacto_v2" DurationType="OneShot" DurationMin="2.059855" DurationMax="2.380224"/>
+				<Event Id="3111476387" Name="meteoro_lanza" ObjectPath="\Events\Default Work Unit\meteoro_lanza" DurationType="OneShot" DurationMin="2.059855" DurationMax="2.380224"/>
+				<Event Id="3658071486" Name="meteoro_lanza_v2" ObjectPath="\Events\Default Work Unit\meteoro_lanza_v2" DurationType="OneShot" DurationMin="2.059855" DurationMax="2.380224"/>
 				<Event Id="95853146" Name="meteoro_no" ObjectPath="\Events\Default Work Unit\meteoro_no" DurationType="OneShot" DurationMin="0.692766" DurationMax="0.692766"/>
 				<Event Id="651177697" Name="meteoro_ultimo" ObjectPath="\Events\Default Work Unit\meteoro_ultimo" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.000659" DurationMax="1.001978"/>
 				<Event Id="1356379025" Name="monstruo_1_anda" ObjectPath="\Events\Default Work Unit\monstruo_1_anda" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2113955673" Name="monstruo_1_come" ObjectPath="\Events\Default Work Unit\monstruo_1_come" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="1255896401" Name="monstruo_1_muere_meteoro" ObjectPath="\Events\Default Work Unit\monstruo_1_muere_meteoro" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="2.236458" DurationMax="2.385187"/>
-				<Event Id="399902878" Name="monstruo_1_muere_torre" ObjectPath="\Events\Default Work Unit\monstruo_1_muere_torre" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="2.236458" DurationMax="2.385187"/>
+				<Event Id="1255896401" Name="monstruo_1_muere_meteoro" ObjectPath="\Events\Default Work Unit\monstruo_1_muere_meteoro" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.936458" DurationMax="2.085187"/>
+				<Event Id="399902878" Name="monstruo_1_muere_torre" ObjectPath="\Events\Default Work Unit\monstruo_1_muere_torre" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.936458" DurationMax="2.085187"/>
 				<Event Id="619167998" Name="monstruo_1_salta" ObjectPath="\Events\Default Work Unit\monstruo_1_salta" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3922984296" Name="monstruo_2_anda" ObjectPath="\Events\Default Work Unit\monstruo_2_anda" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="3387050088" Name="monstruo_2_come" ObjectPath="\Events\Default Work Unit\monstruo_2_come" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="4203668362" Name="monstruo_2_muere_meteoro" ObjectPath="\Events\Default Work Unit\monstruo_2_muere_meteoro" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.243309" DurationMax="1.300000"/>
-				<Event Id="3431978465" Name="monstruo_2_muere_torre" ObjectPath="\Events\Default Work Unit\monstruo_2_muere_torre" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.243309" DurationMax="1.300000"/>
+				<Event Id="4203668362" Name="monstruo_2_muere_meteoro" ObjectPath="\Events\Default Work Unit\monstruo_2_muere_meteoro" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="0.943309" DurationMax="1.000000"/>
+				<Event Id="3431978465" Name="monstruo_2_muere_torre" ObjectPath="\Events\Default Work Unit\monstruo_2_muere_torre" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="0.943309" DurationMax="1.000000"/>
 				<Event Id="153011945" Name="monstruo_2_salta" ObjectPath="\Events\Default Work Unit\monstruo_2_salta" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="2901777212" Name="movimiento_camara" ObjectPath="\Events\Default Work Unit\movimiento_camara" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
-				<Event Id="2659475283" Name="pausa_off" ObjectPath="\Events\Default Work Unit\pausa_off" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.402667" DurationMax="1.402667"/>
-				<Event Id="515879406" Name="pausa_off_v2" ObjectPath="\Events\Default Work Unit\pausa_off_v2" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.402667" DurationMax="1.402667"/>
-				<Event Id="549173535" Name="pausa_on" ObjectPath="\Events\Default Work Unit\pausa_on" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.713333" DurationMax="1.713333"/>
-				<Event Id="3031915986" Name="pausa_on_v2" ObjectPath="\Events\Default Work Unit\pausa_on_v2" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.713333" DurationMax="1.713333"/>
+				<Event Id="2659475283" Name="pausa_off" ObjectPath="\Events\Default Work Unit\pausa_off" DurationType="OneShot" DurationMin="1.402667" DurationMax="1.402667"/>
+				<Event Id="515879406" Name="pausa_off_v2" ObjectPath="\Events\Default Work Unit\pausa_off_v2" DurationType="OneShot" DurationMin="1.402667" DurationMax="1.402667"/>
+				<Event Id="549173535" Name="pausa_on" ObjectPath="\Events\Default Work Unit\pausa_on" DurationType="OneShot" DurationMin="1.713333" DurationMax="1.713333"/>
+				<Event Id="3031915986" Name="pausa_on_v2" ObjectPath="\Events\Default Work Unit\pausa_on_v2" DurationType="OneShot" DurationMin="1.713333" DurationMax="1.713333"/>
 				<Event Id="2433235219" Name="perder" ObjectPath="\Events\Default Work Unit\perder" DurationType="Infinite"/>
 				<Event Id="3793068968" Name="resume_time" ObjectPath="\Events\Default Work Unit\resume_time" DurationType="OneShot" DurationMin="1.668503" DurationMax="1.668503"/>
 				<Event Id="2717038862" Name="reto_completado" ObjectPath="\Events\Default Work Unit\reto_completado" DurationType="OneShot" DurationMin="2.773421" DurationMax="2.773421"/>
@@ -71,7 +71,7 @@
 				<Event Id="1375254148" Name="torre_idle" ObjectPath="\Events\Default Work Unit\torre_idle" MaxAttenuation="100.000000" DurationType="Infinite"/>
 				<Event Id="1681819999" Name="torre_impacto" ObjectPath="\Events\Default Work Unit\torre_impacto" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
 				<Event Id="1618992664" Name="torre_instalar" ObjectPath="\Events\Default Work Unit\torre_instalar" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.988437" DurationMax="2.049229"/>
-				<Event Id="144956508" Name="torre_lanza" ObjectPath="\Events\Default Work Unit\torre_lanza" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.758497" DurationMax="1.800743"/>
+				<Event Id="144956508" Name="torre_lanza" ObjectPath="\Events\Default Work Unit\torre_lanza" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.458497" DurationMax="1.484227"/>
 				<Event Id="1296145459" Name="torre_no" ObjectPath="\Events\Default Work Unit\torre_no" DurationType="OneShot" DurationMin="0.724429" DurationMax="0.781568"/>
 				<Event Id="2401027546" Name="tutorial_hada" ObjectPath="\Events\Default Work Unit\tutorial_hada" DurationType="OneShot" DurationMin="0.368646" DurationMax="0.368646"/>
 				<Event Id="920624808" Name="tutorial_hada_grito" ObjectPath="\Events\Default Work Unit\tutorial_hada_grito" DurationType="OneShot" DurationMin="1.356523" DurationMax="1.356523"/>
@@ -239,7 +239,7 @@
 				</File>
 				<File Id="224711081" Language="SFX">
 					<ShortName>torre idle.wav</ShortName>
-					<Path>SFX\torre idle_731D5C82.wem</Path>
+					<Path>SFX\torre idle_7D1CC28D.wem</Path>
 				</File>
 				<File Id="225124723" Language="SFX">
 					<ShortName>CUENCO TIBETANO\CUENCO TIBETA_07.wav</ShortName>
@@ -543,7 +543,7 @@
 				</File>
 				<File Id="918580993" Language="SFX">
 					<ShortName>torre dispara.wav</ShortName>
-					<Path>SFX\torre dispara_10C4C929.wem</Path>
+					<Path>SFX\torre dispara_AFAC03FA.wem</Path>
 				</File>
 				<File Id="923214302" Language="SFX">
 					<ShortName>torre_crece_final_rev-CTMT_02.wav</ShortName>
@@ -563,7 +563,7 @@
 				</File>
 				<File Id="964486454" Language="SFX">
 					<ShortName>meteoro1.wav</ShortName>
-					<Path>SFX\meteoro1_3924636B.wem</Path>
+					<Path>SFX\meteoro1_47EEF1B5.wem</Path>
 				</File>
 				<File Id="971491044" Language="SFX">
 					<ShortName>DESINTEGRA_4.wav</ShortName>
@@ -591,7 +591,7 @@
 				</File>
 				<File Id="1028468002" Language="SFX">
 					<ShortName>LANZA_METEORO.wav</ShortName>
-					<Path>SFX\LANZA_METEORO_F32D36EE.wem</Path>
+					<Path>SFX\LANZA_METEORO_E71F0D59.wem</Path>
 				</File>
 				<File Id="1029237557" Language="SFX">
 					<ShortName>torre_crece_estira_001.wav</ShortName>
