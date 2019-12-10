@@ -13,6 +13,7 @@ public class UIManagerGameplay : MonoBehaviour
 
     [Header("Score")]
     public Text scoreText;
+    public Text scoreTextGameOver;
 
     [Header("Fairies")]
     public Text fairiesText;
@@ -42,6 +43,7 @@ public class UIManagerGameplay : MonoBehaviour
     public string endText;
     public Text waveText;
     public Text currentWaveText;
+    public Text currentWaveTextGameOver;
 
     [Header("Cheat System")]
     public CheatSystem cheatsComponent;
@@ -156,6 +158,11 @@ public class UIManagerGameplay : MonoBehaviour
             scoreText.text = "" + GameManager.Get().score.ToString("000000");
         }
 
+        if (scoreTextGameOver)
+        {
+            scoreTextGameOver.text = "Score: " + GameManager.Get().score.ToString("000000");
+        }
+
         if (gemsText)
         {
             gemsText.text = "Gems Collected: " + GameManager.Get().upgradePointsCurrentMatch;
@@ -165,6 +172,11 @@ public class UIManagerGameplay : MonoBehaviour
         if (currentWaveText)
         {
             currentWaveText.text = "Wave: " + (GameManager.Get().wavesSurvived + 1);
+        }
+
+        if (currentWaveTextGameOver)
+        {
+            currentWaveTextGameOver.text = "Wave: " + (GameManager.Get().wavesSurvived + 1);
         }
     }
 
