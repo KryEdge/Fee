@@ -86,6 +86,14 @@ public class AudioManager : MonoBehaviour
         AkSoundEngine.SetRTPCValue("sfx_volume", sfxSlider.value);
     }
 
+    public void ApplyChanges()
+    {
+        data.sfxVol = sfxSlider.value;
+        data.musicVol = musicSlider.value;
+
+        dm.saveData("soundData.txt", data.Serialize());
+    }
+
     private void OnDestroy()
     {
         data.sfxVol = sfxSlider.value;
