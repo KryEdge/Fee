@@ -217,21 +217,6 @@ public class TutorialEvents : MonoBehaviour
         {
             isAlreadyOpened[i] = state;
         }
-
-        /*if(OnEventMeteorClose != null)
-        {
-            OnEventMeteorClose();
-        }
-
-        if(OnEventSwitchToolClose != null)
-        {
-            OnEventSwitchToolClose();
-        }
-
-        if(OnEventTowerClose != null)
-        {
-            OnEventTowerClose();
-        }*/
     }
 
     private void OnDestroy()
