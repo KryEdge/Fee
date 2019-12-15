@@ -8,6 +8,7 @@ public class TutorialPages : MonoBehaviour
     public delegate void OnTutorialAction();
     public OnTutorialAction OnTutorialFinished;
 
+    public GameObject backButton;
     public GameObject panel;
     public GameObject[] pages;
     public int currentPage;
@@ -44,6 +45,7 @@ public class TutorialPages : MonoBehaviour
         }
 
         isCurrentlyOpen = true;
+        backButton.SetActive(false);
     }
 
     public void CloseTutorial()
@@ -71,6 +73,15 @@ public class TutorialPages : MonoBehaviour
 
         currentPage++;
 
+        if(currentPage > 0)
+        {
+            backButton.SetActive(true);
+        }
+        else if (currentPage <= 0)
+        {
+            backButton.SetActive(false);
+        }
+
         if(currentPage >= pages.Length)
         {
             if(automaticClose)
@@ -89,6 +100,15 @@ public class TutorialPages : MonoBehaviour
         pages[currentPage].SetActive(false);
 
         currentPage--;
+
+        if (currentPage > 0)
+        {
+            backButton.SetActive(true);
+        }
+        else if (currentPage <= 0)
+        {
+            backButton.SetActive(false);
+        }
 
         if (currentPage < 0)
         {
