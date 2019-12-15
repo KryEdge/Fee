@@ -88,10 +88,13 @@ public class CameraMovement : MonoBehaviour
                     finalSpeed = speed;
                 }
 
-                if (Input.GetKeyDown(teleportKey))
+                if(!UIPauseButton.isGamePaused)
                 {
-                    GoToFairies();
-                    canTeleport = true;
+                    if (Input.GetKeyDown(teleportKey))
+                    {
+                        GoToFairies();
+                        canTeleport = true;
+                    }
                 }
             }
             else
