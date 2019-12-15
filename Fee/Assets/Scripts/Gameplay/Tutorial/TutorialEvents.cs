@@ -26,6 +26,7 @@ public class TutorialEvents : MonoBehaviour
         Shoot.OnShootMeteor += GoToMeteor;
         GameManager.Get().turretSpawner.OnSpawnerSpawnTurret += GoToTowers;
         TurretSpawner.OnSpawnerSwitchTool += GoToSwitchTool;
+        UIManagerGameplay.OnUICloseChallenges += CloseChallengeTutorial;
 
         CloseAllPages();
         CheckFirstTimePlaying();
@@ -155,10 +156,16 @@ public class TutorialEvents : MonoBehaviour
         return false;
     }
 
+    public void CloseChallengeTutorial()
+    {
+        tutorialText[(int)pages.challenges].SetActive(false);
+    }
+
     private void OnDestroy()
     {
         Shoot.OnShootMeteor -= GoToMeteor;
         GameManager.Get().turretSpawner.OnSpawnerSpawnTurret -= GoToTowers;
         TurretSpawner.OnSpawnerSwitchTool -= GoToSwitchTool;
+        UIManagerGameplay.OnUICloseChallenges -= CloseChallengeTutorial;
     }
 }

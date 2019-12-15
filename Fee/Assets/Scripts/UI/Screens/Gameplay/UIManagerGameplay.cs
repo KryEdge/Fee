@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class UIManagerGameplay : MonoBehaviour
 {
+    public delegate void OnUIAction();
+    public static OnUIAction OnUICloseChallenges;
+
     [Header("Gems")]
     public UIAnimation gemAnimation;
     public Text gemsText;
@@ -230,6 +233,11 @@ public class UIManagerGameplay : MonoBehaviour
 
         if (animationSwitch)
         {
+            if(OnUICloseChallenges != null)
+            {
+                OnUICloseChallenges();
+            }
+
             animator.SetBool("isHiding", true);
             animator.SetBool("isShowing", false);
         }
