@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ad3c1226782884a99306c2cb9b9a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backButton: {fileID: 1786625146}
   panel: {fileID: 146857374}
   pages:
   - {fileID: 1922414468}
@@ -3815,7 +3816,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 866783126}
   m_Direction: 2
   m_Value: 0.99999994
-  m_Size: 0.29871908
+  m_Size: 0.2987191
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
