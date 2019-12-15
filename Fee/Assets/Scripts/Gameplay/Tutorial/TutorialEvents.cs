@@ -54,7 +54,9 @@ public class TutorialEvents : MonoBehaviour
 
     public void NextPage()
     {
-        if(isClosed)
+        CloseAllPages();
+
+        if (isClosed)
         {
             tutorialText[currentPage].SetActive(true);
             isClosed = false;
