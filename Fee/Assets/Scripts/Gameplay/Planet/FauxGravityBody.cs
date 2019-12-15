@@ -23,14 +23,16 @@ public class FauxGravityBody : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(useAlternativeGravity)
+        if(Time.timeScale > 0)
         {
-            attractor.Attract(transform, rig, newGravity);
+            if (useAlternativeGravity)
+            {
+                attractor.Attract(transform, rig, newGravity);
+            }
+            else
+            {
+                attractor.Attract(transform, rig);
+            }
         }
-        else
-        {
-            attractor.Attract(transform, rig);
-        }
-        
     }
 }
