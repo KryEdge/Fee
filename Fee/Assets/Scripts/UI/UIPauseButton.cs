@@ -7,6 +7,7 @@ public class UIPauseButton : MonoBehaviour
 {
     [Header("General Settings")]
     //public TutorialPages tutorial;
+    public GameObject settingsPanel;
     public GameObject pauseMenu;
     public GameObject warningMenu;
     public GameObject warningMenu2;
@@ -112,6 +113,7 @@ public class UIPauseButton : MonoBehaviour
 
                     pauseMenu.SetActive(false);
                     myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+                    settingsPanel.SetActive(false);
                 }
             }
         }
@@ -152,6 +154,7 @@ public class UIPauseButton : MonoBehaviour
 
                     //pauseMenu.SetActive(false);
                     myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+                    settingsPanel.SetActive(false);
                 }
             }
         }
@@ -164,7 +167,7 @@ public class UIPauseButton : MonoBehaviour
             if (isSecondaryPauseButton)
             {
                 Debug.Log("COntinuining");
-                AkSoundEngine.PostEvent("pausa_off", pauseOFF);
+                //AkSoundEngine.PostEvent("pausa_off", pauseOFF);
                 primaryPauseButton.GetComponent<UIPauseButton>().PauseGame();
             }
         }
