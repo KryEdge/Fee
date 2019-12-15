@@ -8,6 +8,7 @@ public class Shoot : MonoBehaviour
 {
     public delegate void OnShootAction();
     public static OnShootAction OnShootMeteor;
+    public static OnShootAction OnShootMeteorSecond;
 
     [Header("General Settings")]
     public KeyCode activateKey;
@@ -45,9 +46,12 @@ public class Shoot : MonoBehaviour
     private int currentMeteors;
     private float fireRateTimer;
     private float rechargeTimer;
+    private bool secondTime = false;
     // Start is called before the first frame update
     void Start()
     {
+        TutorialEvents.OnEventMeteorClose += TurnSecondTimeON;
+
         bulletProperties = bulletTemplate.GetComponent<Bullet>();
 
         currentMeteors = maxMeteors;
@@ -135,10 +139,18 @@ public class Shoot : MonoBehaviour
                         if(OnShootMeteor != null)
                         {
                             OnShootMeteor();
+                            if(secondTime)
+                            {
+                                if (OnShootMeteorSecond != null)
+                                {
+                                    OnShootMeteorSecond();
+                                }
+                            }
                         }
 
                         AkSoundEngine.PostEvent("meteoro_lanza", shootMeteorSound);
                         Debug.Log("METEOR SHOOT");
+                        secondTime = true;
                     }
                 }
             }
@@ -259,5 +271,15 @@ public class Shoot : MonoBehaviour
             material.SetColor("_BaseColor", Color.red);
             turretMaterial.SetPropertyBlock(material);
         }*/
+    }
+
+    public void TurnSecondTimeON()
+    {
+        secondTime = true;
+    }
+
+    private void OnDestroy()
+    {
+        TutorialEvents.OnEventMeteorClose -= TurnSecondTimeON;
     }
 }

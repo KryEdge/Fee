@@ -229,15 +229,15 @@ public class UIManagerGameplay : MonoBehaviour
 
     public void SwitchAnimation()
     {
+        if (OnUICloseChallenges != null)
+        {
+            OnUICloseChallenges();
+        }
+
         animationSwitch = !animationSwitch;
 
         if (animationSwitch)
         {
-            if(OnUICloseChallenges != null)
-            {
-                OnUICloseChallenges();
-            }
-
             animator.SetBool("isHiding", true);
             animator.SetBool("isShowing", false);
         }

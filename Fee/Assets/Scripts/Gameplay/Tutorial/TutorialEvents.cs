@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class TutorialEvents : MonoBehaviour
 {
+    public delegate void OnEventAction();
+    public static OnEventAction OnEventMeteorClose;
+    public static OnEventAction OnEventTowerClose;
+    public static OnEventAction OnEventSwitchToolClose;
+
     public enum pages
     {
         challenges,
@@ -27,6 +32,9 @@ public class TutorialEvents : MonoBehaviour
         GameManager.Get().turretSpawner.OnSpawnerSpawnTurret += GoToTowers;
         TurretSpawner.OnSpawnerSwitchTool += GoToSwitchTool;
         UIManagerGameplay.OnUICloseChallenges += CloseChallengeTutorial;
+        Shoot.OnShootMeteorSecond += CloseMeteorTutorial;
+        TurretSpawner.OnSpawnerSwitchToolSecond += CloseSwitchToolTutorial;
+        GameManager.Get().turretSpawner.OnSpawnerSpawnTurretSecond += CloseTowersTutorial;
 
         CloseAllPages();
         CheckFirstTimePlaying();
@@ -56,6 +64,33 @@ public class TutorialEvents : MonoBehaviour
     public void NextPage()
     {
         CloseAllPages();
+        ChangeAllFirstTimeTutorialsState(true);
+
+        switch (currentPage)
+        {
+            case (int)pages.challenges:
+                break;
+            case (int)pages.meteor:
+                if (OnEventMeteorClose != null)
+                {
+                    OnEventMeteorClose();
+                }
+                break;
+            case (int)pages.towers:
+                if (OnEventTowerClose != null)
+                {
+                    OnEventTowerClose();
+                }
+                break;
+            case (int)pages.switchTool:
+                if (OnEventSwitchToolClose != null)
+                {
+                    OnEventSwitchToolClose();
+                }
+                break;
+            default:
+                break;
+        }
 
         if (isClosed)
         {
@@ -161,11 +196,52 @@ public class TutorialEvents : MonoBehaviour
         tutorialText[(int)pages.challenges].SetActive(false);
     }
 
+    public void CloseSwitchToolTutorial()
+    {
+        tutorialText[(int)pages.switchTool].SetActive(false);
+    }
+
+    public void CloseMeteorTutorial()
+    {
+        tutorialText[(int)pages.meteor].SetActive(false);
+    }
+
+    public void CloseTowersTutorial()
+    {
+        tutorialText[(int)pages.towers].SetActive(false);
+    }
+
+    public void ChangeAllFirstTimeTutorialsState(bool state)
+    {
+        for (int i = 0; i < isAlreadyOpened.Length; i++)
+        {
+            isAlreadyOpened[i] = state;
+        }
+
+        /*if(OnEventMeteorClose != null)
+        {
+            OnEventMeteorClose();
+        }
+
+        if(OnEventSwitchToolClose != null)
+        {
+            OnEventSwitchToolClose();
+        }
+
+        if(OnEventTowerClose != null)
+        {
+            OnEventTowerClose();
+        }*/
+    }
+
     private void OnDestroy()
     {
         Shoot.OnShootMeteor -= GoToMeteor;
         GameManager.Get().turretSpawner.OnSpawnerSpawnTurret -= GoToTowers;
         TurretSpawner.OnSpawnerSwitchTool -= GoToSwitchTool;
         UIManagerGameplay.OnUICloseChallenges -= CloseChallengeTutorial;
+        Shoot.OnShootMeteorSecond -= CloseMeteorTutorial;
+        TurretSpawner.OnSpawnerSwitchToolSecond -= CloseSwitchToolTutorial;
+        GameManager.Get().turretSpawner.OnSpawnerSpawnTurretSecond -= CloseTowersTutorial;
     }
 }

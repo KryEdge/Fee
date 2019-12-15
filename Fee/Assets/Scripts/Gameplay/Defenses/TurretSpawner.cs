@@ -7,8 +7,10 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
 {
     public delegate void OnSpawnerAction();
     public OnSpawnerAction OnSpawnerSpawnTurret;
+    public OnSpawnerAction OnSpawnerSpawnTurretSecond;
     public OnSpawnerAction OnSpawnerDeleteTurret;
     public static OnSpawnerAction OnSpawnerSwitchTool;
+    public static OnSpawnerAction OnSpawnerSwitchToolSecond;
 
     [Header("General Settings")]
     public KeyCode activateKey;
@@ -37,10 +39,15 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
     private GameObject newTurretPreview;
     private MaterialPropertyBlock material;
     private bool canSpawn;
+    private bool secondTime = false;
+    private bool secondTimeSwitch = false;
 
     // Start is called before the first frame update
     private void Start()
     {
+        TutorialEvents.OnEventTowerClose += TurnSecondTimeTowerON;
+        TutorialEvents.OnEventSwitchToolClose += TurnSecondTimeSwitchON;
+
         myEventSystem = GameObject.Find("EventSystem");
 
         newTurretPreview = Instantiate(turretTemplate, turretTemplate.transform.position, turretTemplate.transform.rotation);
@@ -73,9 +80,17 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                 if(OnSpawnerSwitchTool != null)
                 {
                     OnSpawnerSwitchTool();
+                    if(secondTimeSwitch)
+                    {
+                        if (OnSpawnerSwitchToolSecond != null)
+                        {
+                            OnSpawnerSwitchToolSecond();
+                        }
+                    }
                 }
 
                 AkSoundEngine.PostEvent("swap_tool", swapSound);
+                secondTimeSwitch = true;
             }
 
             if (Input.GetMouseButtonDown(2))
@@ -138,6 +153,13 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                     if (OnSpawnerSpawnTurret != null)
                     {
                         OnSpawnerSpawnTurret();
+                        if(secondTime)
+                        {
+                            if (OnSpawnerSpawnTurretSecond != null)
+                            {
+                                OnSpawnerSpawnTurretSecond();
+                            }
+                        }
                     }
                     //
                     Turret currentTurretProperties = newTurret.GetComponent<Turret>();
@@ -167,6 +189,7 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
                     }
 
                     //newTurretPreview.SetActive(true);
+                    secondTime = true;
                 }
                 else
                 {
@@ -355,5 +378,21 @@ public class TurretSpawner : MonoBehaviourSingleton<TurretSpawner>
         {
             turret.GetComponent<Turret>().TurnOffOutline();
         }
+    }
+
+    public void TurnSecondTimeTowerON()
+    {
+        secondTime = true;
+    }
+
+    public void TurnSecondTimeSwitchON()
+    {
+        secondTimeSwitch = true;
+    }
+
+    private void OnDestroy()
+    {
+        TutorialEvents.OnEventTowerClose -= TurnSecondTimeTowerON;
+        TutorialEvents.OnEventSwitchToolClose -= TurnSecondTimeSwitchON;
     }
 }
