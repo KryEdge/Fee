@@ -96,9 +96,19 @@ public class AudioManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        data.sfxVol = sfxSlider.value;
-        data.musicVol = musicSlider.value;
+        if(data != null)
+        {
+            if(sfxSlider)
+            {
+                data.sfxVol = sfxSlider.value;
+            }
 
-        dm.saveData("soundData.txt", data.Serialize());
+            if(musicSlider)
+            {
+                data.musicVol = musicSlider.value;
+            }
+
+            dm.saveData("soundData.txt", data.Serialize());
+        }
     }
 }
