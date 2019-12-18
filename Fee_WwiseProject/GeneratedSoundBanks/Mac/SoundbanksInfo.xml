@@ -39,10 +39,10 @@
 				<Event Id="562689720" Name="inicia_store" ObjectPath="\Events\Default Work Unit\inicia_store" DurationType="Infinite"/>
 				<Event Id="3936476221" Name="menu_warning" ObjectPath="\Events\Default Work Unit\menu_warning" DurationType="OneShot" DurationMin="2.037333" DurationMax="2.037333"/>
 				<Event Id="4233466012" Name="meteoro_cooldown" ObjectPath="\Events\Default Work Unit\meteoro_cooldown" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="0.706004" DurationMax="0.706004"/>
-				<Event Id="3371197844" Name="meteoro_impacto" ObjectPath="\Events\Default Work Unit\meteoro_impacto" DurationType="OneShot" DurationMin="2.059855" DurationMax="2.380224"/>
-				<Event Id="797980431" Name="meteoro_impacto_v2" ObjectPath="\Events\Default Work Unit\meteoro_impacto_v2" DurationType="OneShot" DurationMin="2.059855" DurationMax="2.380224"/>
-				<Event Id="3111476387" Name="meteoro_lanza" ObjectPath="\Events\Default Work Unit\meteoro_lanza" DurationType="OneShot" DurationMin="2.059855" DurationMax="2.380224"/>
-				<Event Id="3658071486" Name="meteoro_lanza_v2" ObjectPath="\Events\Default Work Unit\meteoro_lanza_v2" DurationType="OneShot" DurationMin="2.059855" DurationMax="2.380224"/>
+				<Event Id="3371197844" Name="meteoro_impacto" ObjectPath="\Events\Default Work Unit\meteoro_impacto" DurationType="OneShot" DurationMin="1.909855" DurationMax="2.230224"/>
+				<Event Id="797980431" Name="meteoro_impacto_v2" ObjectPath="\Events\Default Work Unit\meteoro_impacto_v2" DurationType="OneShot" DurationMin="1.909855" DurationMax="2.230224"/>
+				<Event Id="3111476387" Name="meteoro_lanza" ObjectPath="\Events\Default Work Unit\meteoro_lanza" DurationType="OneShot" DurationMin="1.909855" DurationMax="2.230224"/>
+				<Event Id="3658071486" Name="meteoro_lanza_v2" ObjectPath="\Events\Default Work Unit\meteoro_lanza_v2" DurationType="OneShot" DurationMin="1.909855" DurationMax="2.230224"/>
 				<Event Id="95853146" Name="meteoro_no" ObjectPath="\Events\Default Work Unit\meteoro_no" DurationType="OneShot" DurationMin="0.692766" DurationMax="0.692766"/>
 				<Event Id="651177697" Name="meteoro_ultimo" ObjectPath="\Events\Default Work Unit\meteoro_ultimo" MaxAttenuation="100.000000" DurationType="OneShot" DurationMin="1.000659" DurationMax="1.001978"/>
 				<Event Id="1356379025" Name="monstruo_1_anda" ObjectPath="\Events\Default Work Unit\monstruo_1_anda" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -66,7 +66,7 @@
 				<Event Id="3133431337" Name="reto_nuevo" ObjectPath="\Events\Default Work Unit\reto_nuevo" DurationType="OneShot" DurationMin="2.794146" DurationMax="2.794146"/>
 				<Event Id="2019477819" Name="stop_time" ObjectPath="\Events\Default Work Unit\stop_time" DurationType="OneShot" DurationMin="3.866961" DurationMax="3.866961"/>
 				<Event Id="2248768189" Name="swap_tool" ObjectPath="\Events\Default Work Unit\swap_tool" DurationType="OneShot" DurationMin="0.420583" DurationMax="0.450770"/>
-				<Event Id="4051704169" Name="torre_cooldown" ObjectPath="\Events\Default Work Unit\torre_cooldown" DurationType="OneShot" DurationMin="0.888000" DurationMax="0.888000"/>
+				<Event Id="4051704169" Name="torre_cooldown" ObjectPath="\Events\Default Work Unit\torre_cooldown" DurationType="OneShot" DurationMin="2.018231" DurationMax="2.018231"/>
 				<Event Id="4162378892" Name="torre_cooldown_v2" ObjectPath="\Events\Default Work Unit\torre_cooldown_v2" DurationType="OneShot" DurationMin="0.888000" DurationMax="0.888000"/>
 				<Event Id="1375254148" Name="torre_idle" ObjectPath="\Events\Default Work Unit\torre_idle" MaxAttenuation="100.000000" DurationType="Infinite"/>
 				<Event Id="1681819999" Name="torre_impacto" ObjectPath="\Events\Default Work Unit\torre_impacto" MaxAttenuation="0.000000" DurationType="OneShot" DurationMin="0.000000" DurationMax="0.000000"/>
@@ -136,6 +136,10 @@
 				<File Id="69473758" Language="SFX">
 					<ShortName>CLICK_BASICO.wav</ShortName>
 					<Path>SFX\CLICK_BASICO_10C4C929.wem</Path>
+				</File>
+				<File Id="76550265" Language="SFX">
+					<ShortName>Fee Main Theme.wav</ShortName>
+					<Path>SFX\Fee Main Theme_D79FB2B7.wem</Path>
 				</File>
 				<File Id="77788081" Language="SFX">
 					<ShortName>METEORITO_IMPACTO_03.wav</ShortName>
@@ -421,6 +425,10 @@
 					<ShortName>CLICK_UI.wav</ShortName>
 					<Path>SFX\CLICK_UI_10C4C929.wem</Path>
 				</File>
+				<File Id="692060193" Language="SFX">
+					<ShortName>torre cooldown.wav</ShortName>
+					<Path>SFX\torre cooldown_10C4C929.wem</Path>
+				</File>
 				<File Id="694143832" Language="SFX">
 					<ShortName>CAMPANMITAS_DISPARO_TORRE.wav</ShortName>
 					<Path>SFX\CAMPANMITAS_DISPARO_TORRE_9B24DC43.wem</Path>
@@ -591,7 +599,7 @@
 				</File>
 				<File Id="1028468002" Language="SFX">
 					<ShortName>LANZA_METEORO.wav</ShortName>
-					<Path>SFX\LANZA_METEORO_E71F0D59.wem</Path>
+					<Path>SFX\LANZA_METEORO_C1909D9B.wem</Path>
 				</File>
 				<File Id="1029237557" Language="SFX">
 					<ShortName>torre_crece_estira_001.wav</ShortName>

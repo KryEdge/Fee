@@ -28,6 +28,13 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{47CE4CD0-5A94-4AB6-80F5-E61B9C0119AF}" ShortID="1048218901">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Fee Main Theme" ID="{3ADC8815-BC72-4D48-A9FA-DCA5380C4DD3}" WorkUnitID="{73827A3A-DE21-427B-A722-14CC35E8864D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="inicia_gameplay" ID="{407C76C6-7901-44C1-815C-78256587A5C9}">
@@ -46,7 +53,9 @@
 						<Action Name="" ID="{565B3EA4-FE1C-4AD5-82B3-84CC837BF470}" ShortID="235816605">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="2"/>
+								<Property Name="FadeOutCurve" Type="int16" Value="2"/>
 								<Property Name="FadeTime" Type="Real64" Value="3"/>
+								<Property Name="Scope" Type="int16" Value="1"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
@@ -80,6 +89,16 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="CUENCO BASE RANDOM" ID="{07FD1FC6-12A8-4558-9DAB-0BEF4669359F}" WorkUnitID="{FEBDEEC6-103D-467E-8A1C-FFB8D6C7A26D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{843C20DC-01F5-4D3D-AC3F-ABCA72F26DA7}" ShortID="952696027">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Fee Main Theme" ID="{3ADC8815-BC72-4D48-A9FA-DCA5380C4DD3}" WorkUnitID="{73827A3A-DE21-427B-A722-14CC35E8864D}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -994,9 +1013,23 @@
 				<Event Name="torre_cooldown" ID="{5394AE60-94FF-4A82-8E76-A6EBA6DB2B6B}">
 					<ChildrenList>
 						<Action Name="" ID="{8875EF3E-8E18-4E68-8E1F-9BC4059FC24C}" ShortID="272125719">
+							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="TORRE_COOLDOWN" ID="{9E9B431A-E440-4400-A2BA-9BB8304EE8A8}" WorkUnitID="{FEBDEEC6-103D-467E-8A1C-FFB8D6C7A26D}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{DF3C49D9-A6EF-47B1-B82E-6154BBC04688}" ShortID="26060371">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="torre cooldown" ID="{12EC8F41-1CB3-4ECF-ABB4-204BFE348EB0}" WorkUnitID="{FEBDEEC6-103D-467E-8A1C-FFB8D6C7A26D}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
@@ -1204,6 +1237,8 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="tutorial_siguiente" ID="{FCE7BDA5-069C-49CC-90A9-4E050B9863A6}"/>
+				<Event Name="tutorial_anterior" ID="{3EC42E1F-60BB-46F7-92BD-1A85B6EAB61A}"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

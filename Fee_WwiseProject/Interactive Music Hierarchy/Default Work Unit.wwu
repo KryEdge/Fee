@@ -1,6 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{73827A3A-DE21-427B-A722-14CC35E8864D}" SchemaVersion="94">
 	<InteractiveMusic>
-		<WorkUnit Name="Default Work Unit" ID="{73827A3A-DE21-427B-A722-14CC35E8864D}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{73827A3A-DE21-427B-A722-14CC35E8864D}" PersistMode="Standalone">
+			<ChildrenList>
+				<MusicPlaylistContainer Name="Fee Main Theme" ID="{3ADC8815-BC72-4D48-A9FA-DCA5380C4DD3}" ShortID="614144254">
+					<PropertyList>
+						<Property Name="Tempo" Type="Real64" Value="110"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DD706D4-A78F-4BC9-8D47-4CF55C9CB0A5}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Mus_bus" ID="{FCD7FDDE-B9CA-4614-8E38-9E5111B2B9B6}" WorkUnitID="{0CF82FCF-9047-4CE9-A485-5FED06CF6FBB}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicSegment Name="Fee Main Theme" ID="{95F3D145-1C2A-4B67-8C26-258E01828F66}" ShortID="991615776">
+							<PropertyList>
+								<Property Name="EndPosition" Type="Real64" Value="42598.3447399162"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DD706D4-A78F-4BC9-8D47-4CF55C9CB0A5}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CF82FCF-9047-4CE9-A485-5FED06CF6FBB}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicTrack Name="Fee Main Theme" ID="{FB1D513D-E7C6-4DE6-9ED5-D3045BFB1CF6}" ShortID="900203163">
+									<ReferenceList>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CF82FCF-9047-4CE9-A485-5FED06CF6FBB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Fee Main Theme" ID="{E5CE8B40-A0DE-4DEE-A2F4-756FA9689827}" ShortID="76550265">
+											<Language>SFX</Language>
+											<AudioFile>Fee Main Theme.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<TransitionList>
+										<MusicTransition Name="Root" ID="{0ABC0744-2AB0-412F-97F0-33B6FEF4D2D7}">
+											<PropertyList>
+												<Property Name="IsFolder" Type="bool" Value="True"/>
+											</PropertyList>
+											<TransitionInfo/>
+										</MusicTransition>
+									</TransitionList>
+									<SequenceList>
+										<MusicTrackSequence Name="" ID="{BD0D0806-C7E3-4054-8522-2907D2E3EFA0}">
+											<ClipList>
+												<MusicClip Name="Fee Main Theme" ID="{FDD5FC5B-4074-4F86-B10A-320B50B32601}">
+													<PropertyList>
+														<Property Name="EndTrimOffset" Type="Real64" Value="37090.9070294785"/>
+														<Property Name="FadeOutMode" Type="int16" Value="0"/>
+													</PropertyList>
+													<AudioSourceRef Name="Fee Main Theme" ID="{E5CE8B40-A0DE-4DEE-A2F4-756FA9689827}"/>
+												</MusicClip>
+											</ClipList>
+										</MusicTrackSequence>
+									</SequenceList>
+								</MusicTrack>
+							</ChildrenList>
+							<CueList>
+								<MusicCue Name="Entry Cue" ID="{741609F8-AF89-42D6-A2B0-5A412FF1E45D}">
+									<PropertyList>
+										<Property Name="TimeMs" Type="Real64" Value="2181.81818181818"/>
+									</PropertyList>
+								</MusicCue>
+								<MusicCue Name="Exit Cue" ID="{B36951D6-3165-4718-A909-231E44092F25}">
+									<PropertyList>
+										<Property Name="CueType" Type="int16" Value="1"/>
+										<Property Name="TimeMs" Type="Real64" Value="37090.9070294784"/>
+									</PropertyList>
+								</MusicCue>
+							</CueList>
+						</MusicSegment>
+					</ChildrenList>
+					<TransitionList>
+						<MusicTransition Name="Root" ID="{5B86996F-A5E9-4D89-B820-0A9CC1B2A9C2}">
+							<PropertyList>
+								<Property Name="IsFolder" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicTransition Name="Transition" ID="{4A06CE38-C322-4DDF-BBAF-FE9C33186BB5}">
+									<TransitionInfo/>
+								</MusicTransition>
+							</ChildrenList>
+							<TransitionInfo/>
+						</MusicTransition>
+					</TransitionList>
+					<Playlist>
+						<MusicPlaylistItem Name="" ID="{BA85AB39-1A4D-454E-8A29-736CEAB61D8E}" ShortID="804691966">
+							<PropertyList>
+								<Property Name="LoopCount" Type="int16" Value="0"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicPlaylistItem Name="" ID="{C2326EC1-1E62-4ABA-80B2-D7531335BE47}" ShortID="694259453">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
+										<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+									</PropertyList>
+									<SegmentRef Name="Fee Main Theme" ID="{95F3D145-1C2A-4B67-8C26-258E01828F66}"/>
+								</MusicPlaylistItem>
+							</ChildrenList>
+						</MusicPlaylistItem>
+					</Playlist>
+				</MusicPlaylistContainer>
+			</ChildrenList>
+		</WorkUnit>
 	</InteractiveMusic>
 </WwiseDocument>

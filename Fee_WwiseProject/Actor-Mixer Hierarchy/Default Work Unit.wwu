@@ -189,6 +189,11 @@
 									</ValueList>
 								</Property>
 								<Property Name="OverrideOutput" Type="bool" Value="True"/>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-500</Value>
+									</ValueList>
+								</Property>
 								<Property Name="UseMaxSoundPerInstance" Type="bool">
 									<ValueList>
 										<Value>True</Value>
@@ -1216,7 +1221,7 @@
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>5</Value>
+										<Value>12</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1232,182 +1237,6 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="aleteo" ID="{BDE7EDBE-46FE-4F7C-A6BD-F3FB62081DF4}" ShortID="970776794">
-									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="2"/>
-										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-										<Property Name="SpeakerPanning" Type="int16" Value="1"/>
-										<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="96"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-5.7</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Attenuation">
-											<Custom CreatedFrom="{63440D58-7A88-452A-A030-B2E767080CD5}">
-												<Attenuation Name="aten_hadas (Custom)" ID="{A9EFD347-A63E-40D1-B006-265A320618CD}" ShortID="470276328">
-													<PropertyList>
-														<Property Name="ConeAttenuation" Type="Real64">
-															<ValueList>
-																<Value>-11</Value>
-															</ValueList>
-														</Property>
-														<Property Name="ConeOuterAngle" Type="int32" Value="260"/>
-														<Property Name="ConeUse" Type="bool">
-															<ValueList>
-																<Value>True</Value>
-															</ValueList>
-														</Property>
-													</PropertyList>
-													<CurveUsageInfoList>
-														<VolumeDryUsage>
-															<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
-																<Curve Name="VolumeDry" ID="{DC2E621C-0DB1-4395-8EA8-67910547AFD3}">
-																	<PropertyList>
-																		<Property Name="Flags" Type="int32" Value="3"/>
-																	</PropertyList>
-																	<PointList>
-																		<Point>
-																			<XPos>0</XPos>
-																			<YPos>0</YPos>
-																			<Flags>5</Flags>
-																		</Point>
-																		<Point>
-																			<XPos>35</XPos>
-																			<YPos>0</YPos>
-																			<Flags>0</Flags>
-																			<SegmentShape>Exp1</SegmentShape>
-																		</Point>
-																		<Point>
-																			<XPos>100</XPos>
-																			<YPos>-7.8067</YPos>
-																			<Flags>37</Flags>
-																		</Point>
-																	</PointList>
-																</Curve>
-															</CurveUsageInfo>
-														</VolumeDryUsage>
-														<VolumeWetGameUsage>
-															<CurveUsageInfo Platform="Linked" CurveToUse="None">
-																<Curve Name="VolumeWetGame" ID="{B7898F68-697A-4EF3-83CF-C905EA1FEA59}">
-																	<PropertyList>
-																		<Property Name="Flags" Type="int32" Value="3"/>
-																	</PropertyList>
-																	<PointList>
-																		<Point>
-																			<XPos>0</XPos>
-																			<YPos>0</YPos>
-																			<Flags>5</Flags>
-																		</Point>
-																		<Point>
-																			<XPos>34.93841</XPos>
-																			<YPos>0</YPos>
-																			<Flags>0</Flags>
-																			<SegmentShape>Exp1</SegmentShape>
-																		</Point>
-																		<Point>
-																			<XPos>100</XPos>
-																			<YPos>-4.63035</YPos>
-																			<Flags>37</Flags>
-																		</Point>
-																	</PointList>
-																</Curve>
-															</CurveUsageInfo>
-														</VolumeWetGameUsage>
-														<VolumeWetUserUsage>
-															<CurveUsageInfo Platform="Linked" CurveToUse="None">
-																<Curve Name="VolumeWetUser" ID="{AAD3BD7B-02C3-48DE-8E04-E93C1764B461}">
-																	<PropertyList>
-																		<Property Name="Flags" Type="int32" Value="3"/>
-																	</PropertyList>
-																	<PointList>
-																		<Point>
-																			<XPos>0</XPos>
-																			<YPos>0</YPos>
-																			<Flags>5</Flags>
-																		</Point>
-																		<Point>
-																			<XPos>34.93841</XPos>
-																			<YPos>0</YPos>
-																			<Flags>0</Flags>
-																			<SegmentShape>Exp1</SegmentShape>
-																		</Point>
-																		<Point>
-																			<XPos>100</XPos>
-																			<YPos>-8.4883</YPos>
-																			<Flags>37</Flags>
-																		</Point>
-																	</PointList>
-																</Curve>
-															</CurveUsageInfo>
-														</VolumeWetUserUsage>
-														<LowPassFilterUsage>
-															<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
-																<Curve Name="LowPassFilter" ID="{91F84950-30FB-473C-938E-9EB9C3F27F27}">
-																	<PropertyList>
-																		<Property Name="Flags" Type="int32" Value="65537"/>
-																	</PropertyList>
-																	<PointList>
-																		<Point>
-																			<XPos>0</XPos>
-																			<YPos>0</YPos>
-																			<Flags>5</Flags>
-																		</Point>
-																		<Point>
-																			<XPos>35</XPos>
-																			<YPos>0</YPos>
-																			<Flags>0</Flags>
-																			<SegmentShape>Log3</SegmentShape>
-																		</Point>
-																		<Point>
-																			<XPos>100</XPos>
-																			<YPos>100</YPos>
-																			<Flags>37</Flags>
-																		</Point>
-																	</PointList>
-																</Curve>
-															</CurveUsageInfo>
-														</LowPassFilterUsage>
-														<HighPassFilterUsage>
-															<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-														</HighPassFilterUsage>
-														<SpreadUsage>
-															<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-														</SpreadUsage>
-														<FocusUsage>
-															<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
-														</FocusUsage>
-													</CurveUsageInfoList>
-												</Attenuation>
-											</Custom>
-										</Reference>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DD706D4-A78F-4BC9-8D47-4CF55C9CB0A5}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CF82FCF-9047-4CE9-A485-5FED06CF6FBB}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="aleteo" ID="{EFE41D4C-A393-414E-A05B-37D6A139C422}" ShortID="845732620">
-											<Comment>REAPROJ:"D:\REAPER FILES\Fee Music\Fee Music.RPP"</Comment>
-											<Language>SFX</Language>
-											<AudioFile>aleteo.wav</AudioFile>
-										</AudioFileSource>
-									</ChildrenList>
-									<PositioningInfo>
-										<Panner Name="" ID="{7E40A076-E6AE-4007-BE7C-A7EFC2946C34}">
-											<PropertyList>
-												<Property Name="PanY" Type="Real64" Value="-0.852878464818769"/>
-											</PropertyList>
-										</Panner>
-									</PositioningInfo>
-									<ActiveSourceList>
-										<ActiveSource Name="aleteo" ID="{EFE41D4C-A393-414E-A05B-37D6A139C422}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
 								<Sound Name="drone hadas" ID="{71B9EA42-1E4A-4F2A-9DF5-5C09B1FA185A}" ShortID="832205934">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
@@ -1440,6 +1269,37 @@
 									</PositioningInfo>
 									<ActiveSourceList>
 										<ActiveSource Name="drone hadas" ID="{C4B3CDD4-1FAA-42CA-AC6F-40F888D7D9DE}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="aleteo" ID="{9E9AD219-250F-43C5-B10F-ED557893B490}" ShortID="650070629">
+									<PropertyList>
+										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-11</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DD706D4-A78F-4BC9-8D47-4CF55C9CB0A5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CF82FCF-9047-4CE9-A485-5FED06CF6FBB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="aleteo" ID="{2EB3023E-D73C-4AB1-BC73-A217A18B9B7B}" ShortID="382667690">
+											<Comment>REAPROJ:"D:\REAPER FILES\Fee Music\Fee Music.RPP"</Comment>
+											<Language>SFX</Language>
+											<AudioFile>aleteo.wav</AudioFile>
+											<ConvertedFileIDList>
+												<File ID="845732620"/>
+											</ConvertedFileIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="aleteo" ID="{2EB3023E-D73C-4AB1-BC73-A217A18B9B7B}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -2745,7 +2605,7 @@
 										<Property Name="GlobalOrPerObject" Type="int16" Value="0"/>
 										<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 										<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="3"/>
-										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.4"/>
+										<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.25"/>
 										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 									</PropertyList>
@@ -3043,10 +2903,10 @@
 														<AudioFileSource Name="LANZA_METEORO" ID="{AF433991-505B-4E00-A949-CAB028CE79A8}" ShortID="1028468002">
 															<PropertyList>
 																<Property Name="FadeInDuration" Type="Real64" Value="0.179750900423223"/>
-																<Property Name="FadeOutDuration" Type="Real64" Value="0.816647001701129"/>
+																<Property Name="FadeOutDuration" Type="Real64" Value="0.454456970548481"/>
 																<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 																<Property Name="TrimBegin" Type="Real64" Value="1.44044644432343"/>
-																<Property Name="TrimEnd" Type="Real64" Value="3.00872760800843"/>
+																<Property Name="TrimEnd" Type="Real64" Value="2.30920372431165"/>
 															</PropertyList>
 															<Language>SFX</Language>
 															<AudioFile>LANZA_METEORO.wav</AudioFile>
@@ -5601,6 +5461,39 @@
 										<ActiveSource Name="TORRE_COOLDOWN" ID="{38A91A8F-BF96-45BA-83E4-CD4B01439903}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="torre cooldown" ID="{12EC8F41-1CB3-4ECF-ABB4-204BFE348EB0}" ShortID="650010524">
+									<PropertyList>
+										<Property Name="ListenerRelativeRouting" Type="bool" Value="False"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{8DD706D4-A78F-4BC9-8D47-4CF55C9CB0A5}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{0CF82FCF-9047-4CE9-A485-5FED06CF6FBB}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="torre cooldown" ID="{BE267884-7C0C-477D-8C94-BA439BEB041A}" ShortID="692060193">
+											<Comment>REAPROJ:"D:\REAPER FILES\Fee Music\Fee Music.RPP"</Comment>
+											<Language>SFX</Language>
+											<AudioFile>torre cooldown.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{DC71CD28-25CC-45D7-9BF9-F53E91D4E545}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="-43.3734939759036"/>
+												<Property Name="PanY" Type="Real64" Value="9.36170212765959"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
+									<ActiveSourceList>
+										<ActiveSource Name="torre cooldown" ID="{BE267884-7C0C-477D-8C94-BA439BEB041A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</ActorMixer>
 						<ActorMixer Name="swap tool" ID="{5B4ED8E9-F0CD-4384-80B7-31C86E88B71F}" ShortID="79210624">
@@ -5755,7 +5648,7 @@
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-2</Value>
+										<Value>1</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -6396,7 +6289,6 @@
 								</Sound>
 								<Sound Name="BUBBLE_IN_PAUSA" ID="{CCC6A919-0EF8-484A-8CE6-710D616475B9}" ShortID="977314250">
 									<PropertyList>
-										<Property Name="ListenerRelativeRouting" Type="bool" Value="False"/>
 										<Property Name="OutputBusVolume" Type="Real64">
 											<ValueList>
 												<Value>12</Value>
@@ -6404,6 +6296,11 @@
 										</Property>
 										<Property Name="OverrideOutput" Type="bool" Value="True"/>
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>3</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -6425,7 +6322,6 @@
 								</Sound>
 								<Sound Name="BUBBLE_OUT_PAUSA" ID="{305E86F8-6827-4FCD-A621-C35BED5C1B7C}" ShortID="98869752">
 									<PropertyList>
-										<Property Name="ListenerRelativeRouting" Type="bool" Value="False"/>
 										<Property Name="OutputBusVolume" Type="Real64">
 											<ValueList>
 												<Value>12</Value>
@@ -6436,6 +6332,11 @@
 										<Property Name="UserAuxSendVolume0" Type="Real64">
 											<ValueList>
 												<Value>12</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>7</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
